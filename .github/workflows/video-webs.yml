@@ -1,0 +1,138 @@
+# Vídeos de prueba de las tres webs: Zona Leonida, Al Final de Mes y Dinero en Claro.
+# Lee los datos de las dos webs (solo lectura), monta los vídeos con tu voz
+# y te los manda por Telegram para revisarlos. NO publica nada ni toca las webs.
+# Se lanza a mano: pestaña "Actions" -> "Vídeos webs (prueba)" -> "Run workflow".
+
+name: Vídeos de las tres webs (prueba)
+
+on:
+  workflow_dispatch:
+    inputs:
+      voz:
+        description: "Estilo de voz: natural (pausas en las comas), expresivo (más entonación) o antes (como la primera prueba)"
+        type: choice
+        options: ["natural", "expresivo", "antes"]
+        default: "natural"
+      montaje:
+        description: "Montaje: escenas (cortes rápidos y clips de Pexels) o clasico (una sola pantalla)"
+        type: choice
+        options: ["escenas", "clasico"]
+        default: "escenas"
+      webs:
+        description: "Qué webs (gta = Zona Leonida, afdm = Al Final de Mes, dec = Dinero en Claro)"
+        type: choice
+        options: ["las tres", "gta", "afdm", "dec", "afdm,dec"]
+        default: "las tres"
+      tema_afdm:
+        description: "Al Final de Mes: tema (vacío = el que toca hoy)"
+        type: choice
+        options: ["", "luz", "carburantes", "ipc", "euribor"]
+        default: ""
+      tema_dec:
+        description: "Dinero en Claro: tema (vacío = el que toca hoy)"
+        type: choice
+        options: ["", "mercados", "aportaciones", "ahorro", "cripto"]
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar la clave de lectura de datos
+        id: datos
+        env:
+          DATOS_TOKEN: ${{ secrets.DATOS_TOKEN }}
+          WEBS: ${{ github.event.inputs.webs }}
+        run: |
+          if [ "$WEBS" = "gta" ]; then
+            echo "leer=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "leer=si" >> "$GITHUB_OUTPUT"
+          fi
+          if [ -z "$DATOS_TOKEN" ]; then
+            echo "::error::Falta la clave DATOS_TOKEN (lectura de los datos de las webs). Mira el README."
+            exit 1
+          fi
+      - name: Traer la voz y las imágenes (repositorio privado)
+        uses: actions/checkout@v4
+        with:
+          repository: marcosflls-ctrl/videos-cortos
+          token: ${{ secrets.DATOS_TOKEN }}
+          path: privado
+          sparse-checkout: |
+            voz_referencia.wav
+            imagenes_gta
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Leer datos de Al Final de Mes
+        if: steps.datos.outputs.leer == 'si'
+        uses: actions/checkout@v4
+        with:
+          repository: marcosflls-ctrl/al-final-de-mes
+          token: ${{ secrets.DATOS_TOKEN }}
+          path: datos/afdm
+          sparse-checkout: src/data
+          persist-credentials: false
+      - name: Leer datos de Dinero en Claro
+        if: steps.datos.outputs.leer == 'si'
+        uses: actions/checkout@v4
+        with:
+          repository: marcosflls-ctrl/dinero-en-claro
+          token: ${{ secrets.DATOS_TOKEN }}
+          path: datos/dec
+          sparse-checkout: src/data
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Instalar Chatterbox (versión sin tarjeta gráfica)
+        env:
+          PIP_EXTRA_INDEX_URL: https://download.pytorch.org/whl/cpu
+        run: pip install --quiet "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@5de7a54aa4e5e2baadb0182dde554908b48b85c2" soundfile num2words pillow
+      - name: Montar los vídeos
+        env:
+          WEBS: ${{ github.event.inputs.webs == 'las tres' && 'gta,afdm,dec' || github.event.inputs.webs }}
+          VOZ: ${{ github.event.inputs.voz }}
+          MONTAJE: ${{ github.event.inputs.montaje }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          TEMA_AFDM: ${{ github.event.inputs.tema_afdm }}
+          TEMA_DEC: ${{ github.event.inputs.tema_dec }}
+          DATOS_AFDM: ${{ github.workspace }}/datos/afdm/src/data
+          DATOS_DEC: ${{ github.workspace }}/datos/dec/src/data
+        working-directory: scripts
+        run: python video_webs.py
+      - uses: actions/upload-artifact@v4
+        with:
+          retention-days: 3
+          name: videos-webs
+          path: |
+            scripts/salida/*.mp4
+            scripts/salida/*.txt
+      - name: Mandar los vídeos por Telegram (si está configurado)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga los vídeos en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          shopt -s nullglob
+          for v in scripts/salida/*.mp4; do
+            respuesta=$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$v" \
+              -F supports_streaming=true -F caption="$(head -c 1000 "${v%.mp4}.txt")" \
+              "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendVideo")
+            if echo "$respuesta" | grep -q '"ok":true'; then
+              echo "Enviado: $v"
+            else
+              echo "::error::Telegram no aceptó $v: $(echo "$respuesta" | cut -c1-200)"
+            fi
+          done
