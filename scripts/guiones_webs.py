@@ -45,6 +45,55 @@ def G(grafico, titulo=""):
 N = {"tipo": "nada"}
 
 
+# ---------- horas como se dicen («las 2 de la tarde» en vez de «las 14») ----------
+
+def _franja(h):
+    h %= 24
+    if h == 0:
+        return "de la noche"
+    if h < 6:
+        return "de la madrugada"
+    if h < 12:
+        return "de la mañana"
+    if h == 12:
+        return "del mediodía"
+    if h < 21:
+        return "de la tarde"
+    return "de la noche"
+
+
+def _h12(h):
+    h %= 24
+    return 12 if h % 12 == 0 else h % 12
+
+
+def _art(h):
+    """Artículo: «la 1», «las 2»..."""
+    return "la" if _h12(h) == 1 else "las"
+
+
+def hora(h):
+    """14 -> 'las 2 de la tarde'; 1 -> 'la 1 de la madrugada'"""
+    return f"{_art(h)} {_h12(h)} {_franja(h)}"
+
+
+def tramo(h):
+    """Franja de una hora: 14 -> 'de las 2 a las 3 de la tarde'; 11 -> 'de las 11 de la mañana a las 12 del mediodía'"""
+    fin = (h + 1) % 24
+    de = "de la" if _h12(h) == 1 else "de las"
+    if _franja(h) == _franja(fin):
+        return f"{de} {_h12(h)} a {_art(fin)} {_h12(fin)} {_franja(h)}"
+    return f"{de} {_h12(h)} {_franja(h)} a {_art(fin)} {_h12(fin)} {_franja(fin)}"
+
+
+def tramo_corto(h):
+    """Para rótulos: 14 -> 'de 2 a 3 de la tarde'; 11 -> 'de 11 de la mañana a 12 del mediodía'"""
+    fin = (h + 1) % 24
+    if _franja(h) == _franja(fin):
+        return f"de {_h12(h)} a {_h12(fin)} {_franja(h)}"
+    return f"de {_h12(h)} {_franja(h)} a {_h12(fin)} {_franja(fin)}"
+
+
 # ---------- formato español ----------
 
 def num(x, dec=1):
@@ -108,8 +157,8 @@ def afdm_luz(datos):
 
     frases = [
         f"Precio de la luz hoy, {fecha_larga(dia)}.",
-        f"La hora más barata es de las {h_min} a las {h_min + 1}, a {num(precios[i_min])} céntimos el kWh.",
-        f"La más cara, de las {h_max} a las {h_max + 1}: {num(precios[i_max])} céntimos.",
+        f"La hora más barata es {tramo(h_min)}, a {num(precios[i_min])} céntimos el kWh.",
+        f"La más cara, {tramo(h_max)}: {num(precios[i_max])} céntimos.",
     ]
     anteriores = sorted(x for x in d["dias"] if x < dia)
     if anteriores:
@@ -125,7 +174,7 @@ def afdm_luz(datos):
     if 9 <= h_min <= 17:
         frases.append("Si puedes, deja la lavadora y el lavavajillas para las horas centrales del día.")
     else:
-        frases.append(f"Si puedes, pon la lavadora y el lavavajillas cerca de las {h_min}.")
+        frases.append(f"Si puedes, pon la lavadora y el lavavajillas cerca de {hora(h_min)}.")
     frases.append("Todas las horas, en alfinaldemes.com.")
 
     escenas = []
@@ -133,10 +182,10 @@ def afdm_luz(datos):
         if f.startswith("Precio de la luz"):
             escenas.append({"visual": T("Precio de la luz hoy", "luz"), "buscar": ["power lines sunset", "electricity tower"]})
         elif f.startswith("La hora más barata"):
-            escenas.append({"visual": C(precios[i_min], lambda v: f"{num(v)} cént.", f"la hora más barata, de {h_min} a {h_min + 1} h"),
+            escenas.append({"visual": C(precios[i_min], lambda v: f"{num(v)} cént.", f"la más barata, {tramo_corto(h_min)}"),
                             "buscar": ["light bulb", "light switch"]})
         elif f.startswith("La más cara"):
-            escenas.append({"visual": C(precios[i_max], lambda v: f"{num(v)} cént.", f"la más cara, de {h_max} a {h_max + 1} h"),
+            escenas.append({"visual": C(precios[i_max], lambda v: f"{num(v)} cént.", f"la más cara, {tramo_corto(h_max)}"),
                             "buscar": "electricity meter"})
         elif f.startswith("La media"):
             escenas.append({"visual": G({"tipo": "barras", "valores": precios, "colores": {i_min: VERDE, i_max: ROJO},
@@ -152,13 +201,13 @@ def afdm_luz(datos):
         etiqueta=f"Luz · {fecha_corta(dia)}",
         titular="La hora más barata de hoy",
         cifra=precios[i_min], formato=lambda v: f"{num(v)} cént.",
-        unidad=f"por kWh, de {h_min} a {h_min + 1} h",
+        unidad=f"por kWh, {tramo_corto(h_min)}",
         grafico={"tipo": "barras", "valores": precios, "colores": colores, "titulo": "Céntimos por kWh, hora a hora",
                  "etiquetas": {0: "0 h", 6: "6 h", 12: "12 h", 18: "18 h", 23: "23 h"}},
         nota="Fuente: Red Eléctrica. Tarifa regulada PVPC 2.0TD, sin impuestos.",
     )
-    texto = (f"💡 Precio de la luz hoy, {fecha_larga(dia)}: la hora más barata es de {h_min} a {h_min + 1} h "
-             f"({num(precios[i_min])} cént./kWh) y la más cara de {h_max} a {h_max + 1} h.\n\n"
+    texto = (f"💡 Precio de la luz hoy, {fecha_larga(dia)}: la hora más barata es {tramo(h_min)} "
+             f"({num(precios[i_min])} cént./kWh) y la más cara, {tramo(h_max)}.\n\n"
              "Todas las horas en alfinaldemes.com\n\n#PrecioLuz #Luz #PVPC #Ahorro #EconomíaDoméstica")
     return {"frases": frases, "tema": tema, "texto": texto, "escenas": escenas}
 
