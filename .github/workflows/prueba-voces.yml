@@ -1,0 +1,104 @@
+# Robot de prueba: lee el mismo texto con Kokoro y con Chatterbox
+# y te manda los audios para comparar. No toca ninguna web.
+# Se lanza a mano: pestaña "Actions" -> "Prueba de voces" -> "Run workflow".
+
+name: Prueba de voces
+
+on:
+  workflow_dispatch:
+    inputs:
+      texto:
+        description: "Texto a leer (déjalo vacío para usar texto_prueba.txt)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  kokoro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng ffmpeg
+      - name: Instalar Kokoro (versión sin tarjeta gráfica)
+        run: |
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet "kokoro>=0.9.4" soundfile num2words
+      - name: Generar audios con Kokoro (Dora y Alex)
+        env:
+          TEXTO: ${{ github.event.inputs.texto }}
+        run: python scripts/voz_kokoro.py
+      - name: Pasar a MP3
+        run: for f in salida/*.wav; do ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audios-kokoro
+          path: salida/
+
+  chatterbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        modelo: [es-es, v3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Instalar Chatterbox (versión sin tarjeta gráfica)
+        env:
+          PIP_EXTRA_INDEX_URL: https://download.pytorch.org/whl/cpu
+        run: pip install --quiet "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@5de7a54aa4e5e2baadb0182dde554908b48b85c2" soundfile num2words
+      - name: Generar audios con Chatterbox (${{ matrix.modelo }})
+        env:
+          TEXTO: ${{ github.event.inputs.texto }}
+          MODELO: ${{ matrix.modelo }}
+        run: python scripts/voz_chatterbox.py
+      - name: Pasar a MP3
+        run: for f in salida/*.wav; do ffmpeg -loglevel error -y -i "$f" -b:a 128k "${f%.wav}.mp3"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audios-chatterbox-${{ matrix.modelo }}
+          path: salida/
+
+  enviar:
+    needs: [kokoro, chatterbox]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: audios
+          merge-multiple: true
+      - name: Mandar los audios por Telegram (si está configurado)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga los audios en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          shopt -s nullglob
+          for f in audios/*.mp3; do
+            nombre=$(basename "$f" .mp3)
+            tiempo=$(cat "audios/${nombre}.tiempo.txt" 2>/dev/null || echo "?")
+            curl -s -o /dev/null -F chat_id="$TELEGRAM_CHAT_ID" -F audio=@"$f" \
+              -F title="$nombre" -F caption="${nombre} — tardó ${tiempo}" \
+              "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendAudio"
+            echo "Enviado: $nombre"
+          done
+          if [ -f audios/texto_leido.txt ]; then
+            curl -s -o /dev/null -F chat_id="$TELEGRAM_CHAT_ID" -F document=@audios/texto_leido.txt \
+              "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument"
+          fi
