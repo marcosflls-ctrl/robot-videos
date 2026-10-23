@@ -36,10 +36,10 @@ else:
 tema = dict(TEMA_GTA, cifra=cifra, bajo_cifra=bajo,
             dato=f"{ESTRENO.day} · {MESES[ESTRENO.month - 1]} · {ESTRENO.year}")
 
-from motor_voz import MotorVoz  # se importa aquí porque tarda en cargar
+from motor_voz import crear_motor  # se importa aquí porque tarda en cargar
 
 inicio = time.time()
-voz = MotorVoz()
+voz = crear_motor()
 print(f"Voz cargada en {round(time.time() - inicio)} s")
 audios, trozos = [], []
 for f in frases:

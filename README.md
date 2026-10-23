@@ -76,3 +76,12 @@ Al lanzar un robot puedes elegir **Montaje → clasico** para volver a la versi�
 Si existe la carpeta `imagenes_gta/`, cada escena del vídeo de GTA muestra una de esas imágenes enmarcada en la parte de arriba. Es una tarjeta, no un fondo a pantalla completa, con zoom lento por dentro y el crédito «Imagen: Rockstar Games». Cada día cambian el orden y la imagen de cada escena.
 
 Las imágenes son de Rockstar Games. Su uso en vídeos monetizados no está cubierto por la política de Rockstar (solo permite usos no comerciales), así que puede haber reclamaciones. Es una decisión asumida por Marcos. Por eso esta carpeta solo debe estar en el repositorio **privado**.
+
+## Voz con Gemini
+
+Por defecto, la voz la hace **Gemini TTS** (API de Google): suena más natural y tarda segundos.
+
+- `GEMINI_API_KEY`: clave de https://aistudio.google.com/apikey
+- `GEMINI_VOICE_ID` (opcional): la voz clonada de Marcos, creada en https://aistudio.google.com/generate-speech (Voice Replication). Empieza por `voice_`.
+- Al lanzar un robot: **Motor de voz** (`gemini` o `chatterbox`) y **Voz de Gemini** (`clonada` o una voz de Gemini, como Orus o Charon).
+- Pronunciación para Gemini: `glosario_gemini.txt` (corto; Gemini ya sabe decir nombres en inglés). El de Chatterbox sigue en `glosario.txt`.

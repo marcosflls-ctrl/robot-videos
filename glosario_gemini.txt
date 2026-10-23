@@ -1,0 +1,7 @@
+# Pronunciación para la voz de Gemini (escrito = dicho). Gemini ya sabe decir nombres
+# en inglés (Vice City, Wall Street, PlayStation...), así que aquí solo va lo imprescindible.
+zonaleonida.com = zona leónida punto com
+alfinaldemes.com = al final de mes punto com
+dineroenclaro.com = dinero en claro punto com
+S&P 500 = S&P quinientos
+kWh = kilovatio hora
