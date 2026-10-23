@@ -27,7 +27,7 @@ NOMBRES = {"gta": "zonaleonida", "afdm": "alfinaldemes", "dec": "dineroenclaro"}
 CARPETAS = {"afdm": os.environ.get("DATOS_AFDM", "../datos/afdm/src/data"),
             "dec": os.environ.get("DATOS_DEC", "../datos/dec/src/data")}
 
-webs = [w.strip() for w in os.environ.get("WEBS", "gta,afdm,dec").split(",") if w.strip()]
+webs = [w.strip() for w in (os.environ.get("WEBS") or "gta,afdm,dec").split(",") if w.strip()]
 trabajos = []
 for web in webs:
     if web == "gta":

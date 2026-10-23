@@ -1,11 +1,15 @@
 # Vídeos de prueba de las tres webs: Zona Leonida, Al Final de Mes y Dinero en Claro.
 # Lee los datos de las dos webs (solo lectura), monta los vídeos con tu voz
 # y te los manda por Telegram para revisarlos. NO publica nada ni toca las webs.
-# Se lanza a mano: pestaña "Actions" -> "Vídeos webs (prueba)" -> "Run workflow".
+# Se lanza solo cada mañana; también a mano: pestaña "Actions" -> "Vídeos de las tres webs" -> "Run workflow".
 
-name: Vídeos de las tres webs (prueba)
+name: Vídeos de las tres webs
 
 on:
+  # Cada día a las 5:47 UTC (6:47 en Madrid en horario de invierno, 7:47 en verano).
+  # Las ejecuciones programadas usan las opciones por defecto: las tres webs, Gemini, tu voz clonada.
+  schedule:
+    - cron: "47 5 * * *"
   workflow_dispatch:
     inputs:
       motor_voz:
@@ -111,7 +115,7 @@ jobs:
         run: pip install --quiet "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@5de7a54aa4e5e2baadb0182dde554908b48b85c2" soundfile num2words pillow
       - name: Montar los vídeos
         env:
-          WEBS: ${{ github.event.inputs.webs == 'las tres' && 'gta,afdm,dec' || github.event.inputs.webs }}
+          WEBS: ${{ (github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs }}
           VOZ: ${{ github.event.inputs.voz }}
           VOZ_MOTOR: ${{ github.event.inputs.motor_voz }}
           GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
