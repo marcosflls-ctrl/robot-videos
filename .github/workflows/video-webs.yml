@@ -8,6 +8,16 @@ name: Vídeos de las tres webs (prueba)
 on:
   workflow_dispatch:
     inputs:
+      motor_voz:
+        description: "Motor de voz: gemini (Google, más natural y rápido) o chatterbox (en GitHub)"
+        type: choice
+        options: ["gemini", "chatterbox"]
+        default: "gemini"
+      voz_gemini:
+        description: "Voz de Gemini: clonada (la tuya, si existe GEMINI_VOICE_ID) o una de Gemini"
+        type: choice
+        options: ["clonada", "Orus", "Charon", "Puck", "Fenrir", "Sadaltager", "Iapetus", "Kore", "Aoede"]
+        default: "clonada"
       voz:
         description: "Estilo de voz: natural (pausas en las comas), expresivo (más entonación) o antes (como la primera prueba)"
         type: choice
@@ -92,7 +102,10 @@ jobs:
           python-version: "3.11"
       - name: Instalar programas del sistema
         run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Instalar librerías básicas
+        run: pip install --quiet numpy soundfile num2words pillow
       - name: Instalar Chatterbox (versión sin tarjeta gráfica)
+        if: github.event.inputs.motor_voz == 'chatterbox'
         env:
           PIP_EXTRA_INDEX_URL: https://download.pytorch.org/whl/cpu
         run: pip install --quiet "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@5de7a54aa4e5e2baadb0182dde554908b48b85c2" soundfile num2words pillow
@@ -100,6 +113,10 @@ jobs:
         env:
           WEBS: ${{ github.event.inputs.webs == 'las tres' && 'gta,afdm,dec' || github.event.inputs.webs }}
           VOZ: ${{ github.event.inputs.voz }}
+          VOZ_MOTOR: ${{ github.event.inputs.motor_voz }}
+          GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_VOICE_ID: ${{ secrets.GEMINI_VOICE_ID }}
           MONTAJE: ${{ github.event.inputs.montaje }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}

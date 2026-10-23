@@ -53,10 +53,10 @@ for web in webs:
         print("  -", f)
     trabajos.append((web, tema, guion))
 
-from motor_voz import MotorVoz  # tarda en cargar: solo después de comprobar los datos
+from motor_voz import crear_motor  # tarda en cargar: solo después de comprobar los datos
 
 inicio = time.time()
-voz = MotorVoz()
+voz = crear_motor()
 print(f"Voz cargada en {round(time.time() - inicio)} s")
 os.makedirs(SALIDA, exist_ok=True)
 for web, tema, guion in trabajos:

@@ -1,4 +1,11 @@
-"""Voz elegida para los vídeos: Chatterbox español de España con la voz de Marcos.
+"""Voces para los vídeos.
+
+- crear_motor(): elige el motor con la variable VOZ_MOTOR:
+    gemini     -> Gemini TTS (voz clonada de Marcos si hay GEMINI_VOICE_ID; si no, una voz de Gemini)
+    chatterbox -> Chatterbox español de España con la voz de Marcos (en el ordenador de GitHub)
+  Si se pide Gemini pero no hay GEMINI_API_KEY, se usa Chatterbox.
+
+Motor Chatterbox:
 
 Uso:
     voz = MotorVoz()
@@ -13,10 +20,7 @@ import shutil
 from pathlib import Path
 
 import numpy as np
-import torch
-from huggingface_hub import hf_hub_download
 
-from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 from numeros import a_voz
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -25,7 +29,13 @@ REFERENCIA = next((p for p in [RAIZ / "privado" / "voz_referencia.wav", RAIZ / "
                   RAIZ / "privado" / "voz_referencia.wav")
 
 
-def _cargar_es_es() -> ChatterboxMultilingualTTS:
+def _cargar_es_es():
+    # Se importan aquí para no necesitarlos cuando la voz la hace Gemini
+    import torch
+    from huggingface_hub import hf_hub_download
+
+    from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
     carpeta = Path("modelo_es_es")
     carpeta.mkdir(exist_ok=True)
     for repo, archivo in [
@@ -129,6 +139,7 @@ class MotorVoz:
         self.estilo_nombre = (estilo or os.environ.get("VOZ") or "natural").strip() or "natural"
         self.estilo = ESTILOS.get(self.estilo_nombre, ESTILOS["natural"])
         print(f"Estilo de voz: {self.estilo_nombre} {self.estilo}")
+        import torch
         torch.manual_seed(1234)  # misma entonación para el mismo texto
         self.modelo = _cargar_es_es()
         self.modelo.prepare_conditionals(str(REFERENCIA), exaggeration=self.estilo["exaggeration"])
@@ -183,3 +194,13 @@ class MotorVoz:
                 t += PAUSA_COMA
         self.ultimas_piezas = piezas
         return np.concatenate(audio)
+
+
+def crear_motor():
+    motor = (os.environ.get("VOZ_MOTOR") or "gemini").strip().lower()
+    if motor == "gemini" and (os.environ.get("GEMINI_API_KEY") or "").strip():
+        from motor_gemini import MotorVozGemini
+        return MotorVozGemini()
+    if motor == "gemini":
+        print("::warning::No hay GEMINI_API_KEY: uso Chatterbox")
+    return MotorVoz()

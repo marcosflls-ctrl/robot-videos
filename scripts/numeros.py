@@ -19,10 +19,11 @@ GLOSARIO = Path(__file__).resolve().parent.parent / "glosario.txt"
 NUM = r"[-−+]?\d{1,3}(?:\.\d{3})+(?:,\d+)?|[-−+]?\d+(?:,\d+)?"
 
 
-def _cargar_glosario() -> list[tuple[str, str]]:
+def _cargar_glosario(ruta=None) -> list[tuple[str, str]]:
     pares = []
-    if GLOSARIO.exists():
-        for linea in GLOSARIO.read_text(encoding="utf-8").splitlines():
+    ruta = ruta or GLOSARIO
+    if ruta.exists():
+        for linea in ruta.read_text(encoding="utf-8").splitlines():
             linea = linea.strip()
             if not linea or linea.startswith("#") or "=" not in linea:
                 continue
@@ -81,8 +82,8 @@ def _apocope(texto: str) -> str:
     return texto
 
 
-def a_voz(texto: str) -> str:
-    for escrito, dicho in _cargar_glosario():
+def a_voz(texto: str, glosario=None) -> str:
+    for escrito, dicho in _cargar_glosario(glosario):
         texto = re.sub(r"(?<!\w)" + re.escape(escrito) + r"(?!\w)", dicho, texto)
 
     texto = re.sub(rf"(?P<n>{NUM})\s?(?:€|euros?\b|EUR\b)", _euros, texto)
