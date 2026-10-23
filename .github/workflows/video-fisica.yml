@@ -1,0 +1,83 @@
+# Vídeo de física: explica un fenómeno con un esquema 3D que se mueve, zooms y voz de Gemini.
+# Lo monta y te lo manda por Telegram para revisarlo. NO publica nada.
+# Se lanza a mano: pestaña "Actions" -> "Vídeo de física (prueba)" -> "Run workflow".
+
+name: Vídeo de física (prueba)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tema:
+        description: "Tema del vídeo"
+        type: choice
+        options: ["motor"]
+        default: "motor"
+      voz_gemini:
+        description: "Voz de Gemini: clonada (la tuya, si existe GEMINI_VOICE_ID) o una de Gemini"
+        type: choice
+        options: ["clonada", "Orus", "Charon", "Puck", "Fenrir", "Sadaltager", "Iapetus", "Kore", "Aoede"]
+        default: "clonada"
+      sin_voz:
+        description: "Prueba rápida sin voz (solo para ver la animación)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Instalar librerías
+        run: pip install --quiet numpy soundfile num2words pillow
+      - name: Montar el vídeo
+        env:
+          TEMA_FISICA: ${{ github.event.inputs.tema }}
+          SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
+          VOZ_MOTOR: gemini
+          GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_VOICE_ID: ${{ secrets.GEMINI_VOICE_ID }}
+        working-directory: scripts
+        run: |
+          if [ -z "$SIN_VOZ" ] && [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Falta la clave GEMINI_API_KEY para la voz. Mira el README."
+            exit 1
+          fi
+          python video_fisica.py
+      - uses: actions/upload-artifact@v4
+        with:
+          retention-days: 3
+          name: video-fisica
+          path: |
+            scripts/salida/*.mp4
+            scripts/salida/*.txt
+      - name: Mandar el vídeo por Telegram (si está configurado)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga el vídeo en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          shopt -s nullglob
+          for v in scripts/salida/*.mp4; do
+            respuesta=$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$v" \
+              -F supports_streaming=true -F caption="$(head -c 1000 "${v%.mp4}.txt")" \
+              "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendVideo")
+            if echo "$respuesta" | grep -q '"ok":true'; then
+              echo "Enviado: $v"
+            else
+              echo "::error::Telegram no aceptó $v: $(echo "$respuesta" | cut -c1-200)"
+              exit 1
+            fi
+          done

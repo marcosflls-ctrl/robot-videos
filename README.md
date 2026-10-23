@@ -85,3 +85,14 @@ Por defecto, la voz la hace **Gemini TTS** (API de Google): suena más natural y
 - `GEMINI_VOICE_ID` (opcional): la voz clonada de Marcos, creada en https://aistudio.google.com/generate-speech (Voice Replication). Empieza por `voice_`.
 - Al lanzar un robot: **Motor de voz** (`gemini` o `chatterbox`) y **Voz de Gemini** (`clonada` o una voz de Gemini, como Orus o Charon).
 - Pronunciación para Gemini: `glosario_gemini.txt` (corto; Gemini ya sabe decir nombres en inglés). El de Chatterbox sigue en `glosario.txt`.
+
+## Vídeos de física (esquema 3D animado)
+
+El robot **Vídeo de física (prueba)** explica un fenómeno con un esquema 3D hecho con código: piezas que se mueven,
+puntos que muestran la corriente y el campo, flechas de fuerza, etiquetas y una cámara que hace zoom a cada parte.
+La voz es la de Gemini. Lo manda por Telegram; **no publica nada**.
+
+- Primer tema: **cómo funciona un motor eléctrico** (`scripts/fisica_motor.py`): imanes, espira, fuerzas, par y conmutador.
+- El motor 3D está en `scripts/escena3d.py` y el montaje en `scripts/video_fisica.py`.
+- Para un tema nuevo: copiar `fisica_motor.py`, cambiar el guion (`FRASES`), las cámaras (`ESCENAS`) y el dibujo, y añadirlo a `TEMAS` en `video_fisica.py` y a las opciones del robot.
+- Opción **Prueba rápida sin voz**: monta solo la animación, para ver cómo queda sin gastar la API.
