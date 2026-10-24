@@ -137,12 +137,9 @@ capitulos:
         fuente: 6
       - voz: "Luego vinieron portales en Brasil, México, Argentina, Chile y Perú. El plan era ambicioso: ser la puerta de entrada a internet de todo el mundo hispano."
         tipo: mapa
-        caja: [-118, 12, -56, 45]
+        region: latinoamerica
         titulo: "Un portal para todo el mundo hispano"
         grupos:
-          - paises: [España]
-            color: acento2
-            leyenda: "Sede: España"
           - paises: [Brasil, México, Argentina, Chile, Perú, Colombia]
             leyenda: "Portales de Terra"
         fuente: 6
@@ -329,7 +326,7 @@ capitulos:
         texto: "Comprar con acciones"
       - voz: "El objetivo era Lycos, uno de los portales más visitados de Estados Unidos."
         tipo: mapa
-        region: mundo
+        caja: [-125, 20, 18, 62]
         titulo: "De Madrid a Boston"
         grupos:
           - paises: [España]
@@ -339,6 +336,7 @@ capitulos:
             leyenda: "Lycos"
         etiquetas:
           - {pais: Estados Unidos, texto: "Lycos"}
+          - {pais: España, texto: "Terra"}
         fuente: 3
       - voz: "El 16 de mayo del año 2000 se anunció la compra: 12.500 millones de dólares, pagados con acciones de Terra."
         tipo: fecha
@@ -492,7 +490,7 @@ capitulos:
     escenas:
       - voz: "En 2004 llegó la humillación final de la gran apuesta: Lycos se vendió a la empresa surcoreana Daum."
         tipo: mapa
-        region: mundo
+        caja: [-125, 145, 15, 62]
         titulo: "Lycos cambia de manos"
         grupos:
           - paises: [Estados Unidos]
