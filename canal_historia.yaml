@@ -34,6 +34,20 @@ fuentes:
   txt_b: "SpaceGrotesk-Bold.ttf"    # etiquetas
   num: "Fraunces-Black.ttf"         # cifras
 
+# Ilustraciones generadas con IA (escenas «ilustracion»). El estilo se añade a todas para que
+# parezcan de la misma mano. Cada imagen cuesta unos céntimos y se guarda para no repetirla.
+ilustraciones:
+  modelo: "gemini-nano-banana-2.1"
+  tamano: "2K"
+  credito: "Ilustración"
+  estilo: >-
+    Ilustración editorial plana y elegante, estilo vectorial con sombras suaves y textura de grano fino,
+    como un cartel de museo moderno. Paleta limitada y cálida: negro tostado, crema, arena, terracota
+    y algún toque dorado apagado. Figuras humanas estilizadas, sin rasgos faciales detallados,
+    vistas a media distancia. Arquitectura y objetos fieles a la época indicada. Composición amplia y
+    cinematográfica, con profundidad y luz suave. Sin texto, sin letras, sin números, sin logotipos,
+    sin marcas de agua.
+
 # Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
 # porque de todas formas se genera el archivo .srt para subirlo a YouTube)
 subtitulos_largo: false

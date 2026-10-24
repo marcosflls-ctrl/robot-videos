@@ -34,6 +34,7 @@ import soundfile as sf
 import yaml
 from PIL import Image, ImageDraw, ImageFilter
 
+import ilustraciones
 import imagenes
 import sonido
 from historia_visuales import FPS, Contexto, _grano, alfa_capa, crear_pieza, duotono, envolver, pegar, recortar_a, rebote, suave
@@ -92,6 +93,8 @@ def cargar_guion(nombre):
                     errores.append(f"{donde}, escena {i}: la fuente {f} no está en «fuentes»")
             if e.get("tipo") in ("foto", "boceto") and not (e.get("imagen") or e.get("buscar_imagen")):
                 errores.append(f"{donde}, escena {i}: una escena «{e.get('tipo')}» necesita «imagen» o «buscar_imagen»")
+            if e.get("tipo") == "ilustracion" and not e.get("escena"):
+                errores.append(f"{donde}, escena {i}: una «ilustracion» necesita «escena» (qué se ve)")
 
     revisar(g.get("gancho"), "gancho")
     for c, cap in enumerate(g.get("capitulos") or [], 1):
@@ -123,10 +126,13 @@ def todas_las_escenas(g):
 #  Imágenes (Wikimedia Commons o carpeta propia)
 # =====================================================================
 
-def preparar_imagenes(g):
+def preparar_imagenes(g, canal):
     hay = 0
     for e, _ in todas_las_escenas(g):
-        if e.get("imagen") or e.get("buscar_imagen"):
+        if e.get("tipo") == "ilustracion":
+            e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
+            hay += e["_img"] is not None
+        elif e.get("imagen") or e.get("buscar_imagen"):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
             hay += e["_img"] is not None
     m = g.get("miniatura") or {}
@@ -685,6 +691,8 @@ def descripcion(g, bloques, clips):
         lineas.append("Imágenes:")
         lineas += creditos
         lineas.append("")
+    if any(e.get("tipo") == "ilustracion" and e.get("_img") is not None for e, _ in todas_las_escenas(g)):
+        lineas.append("Las ilustraciones son recreaciones generadas con inteligencia artificial, no imágenes de la época.")
     if clips:
         lineas.append("Clips de archivo de Pixabay / Pexels (licencia libre).")
     lineas.append("Gráficos, mapas (datos de Natural Earth) y música: originales del canal.")
@@ -769,7 +777,7 @@ def main():
     g = cargar_guion(nombre)
     SALIDA.mkdir(exist_ok=True)
     inicio = time.time()
-    preparar_imagenes(g)
+    preparar_imagenes(g, canal)
     sr = generar_voces(g, canal)
 
     if que in ("todo", "largo"):
