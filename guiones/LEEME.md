@@ -4,7 +4,8 @@ Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia
 
 - un vídeo largo horizontal (1920x1080) con cabecera del canal, capítulos y pantalla final;
 - un Short vertical por cada capítulo marcado con `short: true`;
-- la descripción para YouTube con los capítulos (minutos) y las fuentes, los subtítulos (`.srt`) y la miniatura.
+- la descripción para YouTube con los capítulos (minutos), las fuentes y los créditos de las imágenes;
+- los subtítulos (`.srt`) y la miniatura.
 
 `ejemplo.yaml` enseña todos los tipos de escena. Es solo una prueba: no es para publicar.
 
@@ -14,7 +15,7 @@ Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia
 titulo: "Título del vídeo"
 descripcion: "Texto para la descripción de YouTube"
 hashtags: "#historia #economía"
-miniatura: {texto: "Adiós a la peseta", resaltar: "peseta", cifra: "166,386"}
+miniatura: {texto: "Adiós a la peseta", resaltar: "peseta", cifra: "166,386", buscar_imagen: "peseta 1869"}
 
 fuentes:                      # cada dato del guion apunta a una de estas
   - id: 1
@@ -35,22 +36,40 @@ cierre: [escenas]             # opcional: despedida
 
 Todas llevan `voz` (lo que dice el narrador) y pueden llevar `fuente: 1` (o `[1, 2]`).
 Si una palabra se pronuncia mal, se añade `pronunciar: "texto tal y como debe sonar"`.
+Con `pausa: 2` la imagen se queda 2 segundos más en pantalla.
 
 | tipo | qué se ve | datos |
 |---|---|---|
-| `titulo` | titular grande | `texto`, `resaltar`, `kicker` (etiqueta pequeña) |
-| `cifra` | número que cuenta | `valor`, `decimales`, `prefijo`, `sufijo`, `etiqueta`, `color` (`acento`, `acento2`, `sube`, `baja`) |
+| `titulo` | titular grande | `texto`, `resaltar` (palabras en color y subrayadas), `kicker` |
+| `cifra` | número que cuenta | `valor`, `decimales`, `prefijo`, `sufijo`, `etiqueta`, `color` |
 | `comparar` | dos barras | `titulo`, `izquierda: {etiqueta, valor, texto}`, `derecha: {...}` |
-| `linea` | gráfico de línea | `titulo`, `valores`, `etiquetas`, `decimales`, `sufijo`, `marcas: [{indice, texto}]` |
+| `linea` | gráfico de línea | `titulo`, `subtitulo`, `valores`, `etiquetas`, `decimales`, `sufijo`, `marcas: [{indice, texto}]` |
 | `barras` | gráfico de barras | `titulo`, `valores`, `etiquetas`, `destacar: [índices]` |
 | `fecha` | fecha sobre línea de tiempo | `fecha`, `lugar` |
 | `cita` | cita textual | `texto`, `autor`, `fecha` |
 | `lista` | puntos uno a uno | `titulo`, `puntos` |
+| `foto` | foto de época en sepia con zoom lento | imagen (ver abajo), `diseno` (`sangre`, `completa`, `marco`), `kicker`, `texto`, `sub`, `foco: [x, y]` |
+| `boceto` | la figura se dibuja a trazos | imagen (ver abajo), `nombre`, `kicker`, `sub`, `detalle` (`bajo`, `medio`, `alto`), `revelar: true` (al final aparece la foto) |
+| `mapa` | mapa con zoom y países que se colorean | `region` (`europa`, `espana`, `latinoamerica`, `america_sur`, `centroamerica`, `mundo`…) o `caja: [lon_min, lon_max, lat_min, lat_max]`, `titulo`, `grupos: [{paises, color, leyenda}]`, `etiquetas: [{pais, texto}]` |
+| `esquema` | cajas y flechas | `modo` (`cadena` o `causas`), `titulo`, `nodos: [{etiqueta, texto, destacar}]`, `flechas` (textos), `resultado` (en `causas`), `nota` |
 | `archivo` | clip de vídeo de archivo | `buscar` (en inglés funciona mejor), `texto`, `sub` |
+
+### Imágenes (para `foto`, `boceto` y la miniatura)
+
+- `imagen: "File:Nombre exacto.jpg"` → archivo concreto de Wikimedia Commons (lo más seguro).
+- `buscar_imagen: "Laureano Figuerola"` → busca en Commons y coge la primera con licencia libre.
+- `imagen: "imagenes/mi_foto.jpg"` → archivo propio dentro de `guiones/` (añade `credito: "..."`).
+
+Solo se usan imágenes de dominio público, CC0, CC BY o CC BY-SA. El autor y la licencia
+salen en pequeño en pantalla y en la descripción del vídeo.
+
+Para los bocetos funcionan mejor los retratos y edificios con buen contraste y fondo sencillo.
+
+Colores que se pueden usar: `acento` (rojo anaranjado), `acento2` (dorado), `texto`, `suave`, `sube`, `baja`.
 
 ## Reglas del canal
 
 - Cada dato con su fuente; si un dato no tiene fuente, no entra.
 - Las citas, cortas y siempre con autor y fecha.
-- Variar los tipos de escena: nada de cinco titulares seguidos.
+- Variar los tipos de escena: nada de cinco titulares seguidos; meter fotos, mapas y esquemas.
 - Para que un Short cobre en TikTok tiene que pasar de 1 minuto; el robot lo avisa en el texto de cada Short.
