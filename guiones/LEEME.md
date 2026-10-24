@@ -52,6 +52,7 @@ Con `pausa: 2` la imagen se queda 2 segundos más en pantalla.
 | `boceto` | la figura se dibuja a trazos | imagen (ver abajo), `nombre`, `kicker`, `sub`, `detalle` (`bajo`, `medio`, `alto`), `revelar: true` (al final aparece la foto) |
 | `mapa` | mapa con zoom y países que se colorean | `region` (`europa`, `espana`, `latinoamerica`, `america_sur`, `centroamerica`, `mundo`…) o `caja: [lon_min, lon_max, lat_min, lat_max]`, `titulo`, `grupos: [{paises, color, leyenda}]`, `etiquetas: [{pais, texto}]` |
 | `esquema` | cajas y flechas | `modo` (`cadena` o `causas`), `titulo`, `nodos: [{etiqueta, texto, destacar}]`, `flechas` (textos), `resultado` (en `causas`), `nota` |
+| `ilustracion` | ilustración generada con IA, con el estilo del canal y zoom lento | `escena` (qué se ve: lugar, época, gente, luz), `diseno` (`completa`, `sangre`, `marco`), `kicker`, `texto`, `sub` |
 | `archivo` | clip de vídeo de archivo | `buscar` (en inglés funciona mejor), `texto`, `sub` |
 
 ### Imágenes (para `foto`, `boceto` y la miniatura)
@@ -64,6 +65,14 @@ Solo se usan imágenes de dominio público, CC0, CC BY o CC BY-SA. El autor y la
 salen en pequeño en pantalla y en la descripción del vídeo.
 
 Para los bocetos funcionan mejor los retratos y edificios con buen contraste y fondo sencillo.
+
+### Ilustraciones con IA
+
+Sirven para **ambientar** (una calle de 1868, una cola ante un banco en 1929) cuando no hay fotos.
+No se usan para retratar a personas reales ni para «demostrar» un hecho: para eso, fotos de archivo o bocetos.
+En pantalla llevan la marca «Ilustración» y la descripción del vídeo avisa de que están hechas con IA.
+Cuanto más concreta sea la `escena` (época, ropa, edificios, luz), mejor sale. Cuestan unos céntimos cada una
+y se guardan: si no cambias la descripción, no se vuelven a pagar. El estilo común está en `canal_historia.yaml`.
 
 Colores que se pueden usar: `acento` (rojo anaranjado), `acento2` (dorado), `texto`, `suave`, `sube`, `baja`.
 

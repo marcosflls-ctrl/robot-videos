@@ -37,6 +37,9 @@ def _pedir(clave, cuerpo):
                 return json.loads(r.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             detalle = e.read().decode("utf-8", "replace")[:400]
+            if "limit: 0" in detalle:  # la clave no tiene acceso a imágenes: no tiene sentido reintentar
+                raise RuntimeError("tu clave de Gemini está en el plan gratuito, que no incluye imágenes: "
+                                   "hay que activar la facturación en Google AI Studio (ver README)")
             if e.code in (429, 500, 503) and intento < 4:
                 time.sleep(15 * (intento + 1))
                 continue
@@ -63,6 +66,9 @@ def _imagen(respuesta):
     return Image.open(io.BytesIO(base64.b64decode(trozos[-1]))).convert("RGB")
 
 
+_sin_acceso = False
+
+
 def generar(escena, canal):
     """Devuelve (Image, crédito) o (None, "") si no se puede (sin clave, error...)."""
     cfg = canal.get("ilustraciones") or {}
@@ -79,7 +85,10 @@ def generar(escena, canal):
     credito = str(cfg.get("credito") or "Ilustración")
     if ruta.exists():
         return Image.open(ruta).convert("RGB"), credito
+    global _sin_acceso
     clave = (os.environ.get("GEMINI_API_KEY") or "").strip()
+    if _sin_acceso:
+        return None, ""
     if not clave:
         print(f"::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «{descripcion[:60]}»")
         return None, ""
@@ -92,5 +101,7 @@ def generar(escena, canal):
         print(f"  Ilustración ({modelo}, {time.time() - inicio:.0f} s): «{descripcion[:70]}»")
         return img, credito
     except Exception as e:  # nunca rompemos el vídeo por una ilustración
+        if "plan gratuito" in str(e):
+            _sin_acceso = True
         print(f"::warning::No se pudo generar la ilustración «{descripcion[:60]}»: {str(e)[:300]}")
         return None, ""
