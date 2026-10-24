@@ -4,7 +4,7 @@ on:
   push:
     branches: ["prueba-historia-editorial"]
 permissions:
-  contents: read
+  contents: write
 jobs:
   prueba:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         working-directory: scripts
-        run: python historia.py
+        run: mkdir -p salida; python historia.py 2>&1 | tee salida/registro.txt; exit ${PIPESTATUS[0]}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -35,3 +35,10 @@ jobs:
             scripts/salida/*_short_*.mp4
             scripts/salida/*.txt
             scripts/salida/*.png
+      - name: Guardar el resultado en la rama de prueba
+        if: always()
+        run: |
+          mkdir -p resultado
+          cp scripts/salida/registro.txt scripts/salida/*.txt scripts/salida/*.png scripts/salida/*_largo_movil.mp4 scripts/salida/*_short_*.mp4 resultado/ 2>/dev/null || true
+          git config user.name "robot" && git config user.email "robot@users.noreply.github.com"
+          git add -f resultado && git commit -qm "Resultado de la prueba" && git push -q origin HEAD:prueba-historia-editorial
