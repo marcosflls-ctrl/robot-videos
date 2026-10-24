@@ -41,12 +41,14 @@ jobs:
       - name: Instalar programas del sistema
         run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
       - name: Instalar librerías
-        run: pip install --quiet numpy soundfile num2words pillow pyyaml
+        run: pip install --quiet numpy soundfile num2words pillow pyyaml scikit-image
       # Las frases ya leídas se guardan: si cambias una escena, solo se vuelve a pedir esa voz
-      - name: Recuperar las voces ya hechas
+      - name: Recuperar las voces e imágenes ya hechas
         uses: actions/cache/restore@v4
         with:
-          path: cache_voz
+          path: |
+            cache_voz
+            cache_imagenes
           key: voz-historia-${{ github.run_id }}
           restore-keys: voz-historia-
       - name: Montar los vídeos
@@ -66,11 +68,13 @@ jobs:
             exit 1
           fi
           python historia.py
-      - name: Guardar las voces para la próxima vez
+      - name: Guardar las voces e imágenes para la próxima vez
         if: always()
         uses: actions/cache/save@v4
         with:
-          path: cache_voz
+          path: |
+            cache_voz
+            cache_imagenes
           key: voz-historia-${{ github.run_id }}
       - uses: actions/upload-artifact@v4
         if: always()

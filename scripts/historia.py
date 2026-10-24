@@ -8,7 +8,7 @@ Genera en salida/:
     <guion>_largo.mp4          vídeo largo 1920x1080 para YouTube (calidad completa)
     <guion>_largo_movil.mp4    copia ligera para revisarlo en el móvil (Telegram)
     <guion>_largo.srt          subtítulos para subir a YouTube
-    <guion>_descripcion.txt    título, descripción con capítulos (minutos) y fuentes
+    <guion>_descripcion.txt    título, descripción con capítulos (minutos), fuentes y créditos
     <guion>_miniatura.png      miniatura 1280x720
     <guion>_short_NN.mp4/.txt  un Short vertical por cada capítulo marcado con «short: true»
 
@@ -32,26 +32,26 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 import yaml
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
+import imagenes
 import sonido
-from historia_visuales import (F_NUM, F_TIT, F_TXT, F_TXT_B, F_TXT_M, FPS, ajustar, caja, color, crear_pieza,
-                               envolver, fuente, pegar, rebote, suave)
+from historia_visuales import FPS, Contexto, _grano, alfa_capa, crear_pieza, duotono, envolver, pegar, recortar_a, rebote, suave
 
 RAIZ = Path(__file__).resolve().parent.parent
 GUIONES = RAIZ / "guiones"
 SALIDA = Path("salida")
 CACHE_VOZ = RAIZ / "cache_voz"
 
-ANTES_VOZ = 0.30      # segundos de imagen antes de que hable la voz en cada escena
-DESPUES_VOZ = 0.45    # y después
-STING = 3.0           # cabecera del canal
-TARJETA_CAP = 2.6     # tarjeta de cada capítulo
+ANTES_VOZ = 0.35      # segundos de imagen antes de que hable la voz en cada escena
+DESPUES_VOZ = 0.5     # y después
+STING = 3.2           # cabecera del canal
+TARJETA_CAP = 2.8     # tarjeta de cada capítulo
 FINAL_SHORT = 2.8     # pantalla final de cada Short
-FUNDIDO = 0.3         # fundido entre escenas
+FUNDIDO = 0.35        # fundido entre escenas
 
-HORIZONTAL = {"W": 1920, "H": 1080, "zona": (110, 130, 1700, 760), "y_sub": 972, "ancho_sub": 1500}
-VERTICAL = {"W": 1080, "H": 1920, "zona": (50, 320, 980, 1030), "y_sub": 1490, "ancho_sub": 940}
+HORIZONTAL = {"W": 1920, "H": 1080, "y_sub": 985, "ancho_sub": 1500}
+VERTICAL = {"W": 1080, "H": 1920, "y_sub": 1500, "ancho_sub": 940}
 
 
 # =====================================================================
@@ -62,6 +62,12 @@ def cargar_canal():
     canal = yaml.safe_load((RAIZ / "canal_historia.yaml").read_text(encoding="utf-8"))
     canal["tema"] = {k: tuple(v) for k, v in canal["colores"].items()}
     return canal
+
+
+def _lista(x):
+    if x is None:
+        return []
+    return x if isinstance(x, list) else [x]
 
 
 def cargar_guion(nombre):
@@ -84,6 +90,8 @@ def cargar_guion(nombre):
             for f in _lista(e.get("fuente")):
                 if str(f) not in fuentes:
                     errores.append(f"{donde}, escena {i}: la fuente {f} no está en «fuentes»")
+            if e.get("tipo") in ("foto", "boceto") and not (e.get("imagen") or e.get("buscar_imagen")):
+                errores.append(f"{donde}, escena {i}: una escena «{e.get('tipo')}» necesita «imagen» o «buscar_imagen»")
 
     revisar(g.get("gancho"), "gancho")
     for c, cap in enumerate(g.get("capitulos") or [], 1):
@@ -101,12 +109,6 @@ def cargar_guion(nombre):
     return g
 
 
-def _lista(x):
-    if x is None:
-        return []
-    return x if isinstance(x, list) else [x]
-
-
 def todas_las_escenas(g):
     """[(escena, capítulo o None)] en orden de lectura."""
     salida = [(e, None) for e in g.get("gancho") or []]
@@ -114,6 +116,35 @@ def todas_las_escenas(g):
         salida += [(e, c) for e in _lista(cap.get("gancho_short"))]
         salida += [(e, c) for e in cap["escenas"]]
     salida += [(e, None) for e in g.get("cierre") or []]
+    return salida
+
+
+# =====================================================================
+#  Imágenes (Wikimedia Commons o carpeta propia)
+# =====================================================================
+
+def preparar_imagenes(g):
+    hay = 0
+    for e, _ in todas_las_escenas(g):
+        if e.get("imagen") or e.get("buscar_imagen"):
+            e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
+            hay += e["_img"] is not None
+    m = g.get("miniatura") or {}
+    if m.get("imagen") or m.get("buscar_imagen"):
+        m["_img"], _ = imagenes.conseguir(m, GUIONES)
+    print(f"Imágenes: {hay} listas")
+
+
+def creditos_imagenes(g):
+    vistos, salida = set(), []
+    for e, _ in todas_las_escenas(g):
+        info = e.get("_commons")
+        if info and info["titulo"] not in vistos:
+            vistos.add(info["titulo"])
+            salida.append(f"{info['titulo'].replace('File:', '')} — {info['autor']} ({info['licencia']}) — {info['pagina']}")
+        elif e.get("_img") is not None and e.get("credito") and e["credito"] not in vistos:
+            vistos.add(e["credito"])
+            salida.append(str(e["credito"]))
     return salida
 
 
@@ -127,7 +158,7 @@ def generar_voces(g, canal):
         sr = 24000
         print("Prueba SIN VOZ: tiempos calculados a ojo")
         for e in escenas:
-            e["_audio"] = np.zeros(int(sr * max(1.8, len(str(e["voz"]).split()) / 2.5)), dtype=np.float32)
+            e["_audio"] = np.zeros(int(sr * max(2.0, len(str(e["voz"]).split()) / 2.5)), dtype=np.float32)
         return sr
 
     os.environ["GEMINI_VOZ"] = (os.environ.get("VOZ_HISTORIA") or "").strip() or canal["voz"]
@@ -169,7 +200,8 @@ def _fuente_corta(g, e):
 
 def _bloque_escena(g, e, cap, sr, t):
     dur_voz = len(e["_audio"]) / sr
-    return {"tipo": "escena", "escena": e, "cap": cap, "ini": t, "fin": t + ANTES_VOZ + dur_voz + DESPUES_VOZ,
+    extra = float(e.get("pausa", 0) or 0)  # segundos de más para que la imagen respire
+    return {"tipo": "escena", "escena": e, "cap": cap, "ini": t, "fin": t + ANTES_VOZ + dur_voz + DESPUES_VOZ + extra,
             "voz_ini": t + ANTES_VOZ, "dur_voz": dur_voz, "fuente": _fuente_corta(g, e)}
 
 
@@ -192,8 +224,7 @@ def bloques_largo(g, sr, canal):
         b = _bloque_escena(g, e, None, sr, t)
         bloques.append(b)
         t = b["fin"]
-    fin = float(canal.get("pantalla_final", 12))
-    bloques.append({"tipo": "final", "ini": t, "fin": t + fin, "cap": None})
+    bloques.append({"tipo": "final", "ini": t, "fin": t + float(canal.get("pantalla_final", 12)), "cap": None})
     return bloques
 
 
@@ -252,10 +283,9 @@ def escribir_srt(trozos, ruta):
 
 
 class Subtitulos:
-    def __init__(self, trozos, geo, tema):
-        self.trozos, self.geo, self.tema = trozos, geo, tema
-        self.vertical = geo["H"] > geo["W"]
-        self.f = fuente(F_TIT if self.vertical else F_TXT, 62 if self.vertical else 44)
+    def __init__(self, trozos, geo, ctx):
+        self.trozos, self.geo, self.ctx = trozos, geo, ctx
+        self.f = ctx.f("txt_b", 60 if ctx.vertical else 42)
         self.cache = {}
         self.i = 0
 
@@ -267,9 +297,9 @@ class Subtitulos:
             h = alto_l * len(lineas) + 26
             capa = Image.new("RGBA", (w, h), (0, 0, 0, 0))
             d = ImageDraw.Draw(capa)
-            d.rounded_rectangle((0, 0, w - 1, h - 1), radius=14, fill=(0, 0, 0, 170))
+            d.rectangle((0, 0, w - 1, h - 1), fill=self.ctx.c("fondo", 215))
             for k, l in enumerate(lineas):
-                d.text(((w - self.f.getlength(l)) / 2, 10 + k * alto_l), l, font=self.f, fill=(255, 255, 255, 255))
+                d.text(((w - self.f.getlength(l)) / 2, 10 + k * alto_l), l, font=self.f, fill=self.ctx.c("texto"))
             self.cache[texto] = capa
         return self.cache[texto]
 
@@ -283,130 +313,132 @@ class Subtitulos:
 
 
 # =====================================================================
-#  Fondos y pantallas fijas (cabecera, capítulo, final)
+#  Fondo, grano y pantallas fijas (cabecera, capítulo, final)
 # =====================================================================
 
-def fondo_base(geo, tema, semilla=0):
-    W, H = geo["W"], geo["H"]
+def fondo_base(ctx, semilla=0):
+    W, H, tema = ctx.W, ctx.H, ctx.tema
     y = np.linspace(0, 1, H)[:, None, None]
+    x = np.linspace(-1, 1, W)[None, :, None]
     c1, c2 = np.array(tema["fondo2"], np.float32), np.array(tema["fondo"], np.float32)
-    col = c1 * (1 - y) * 0.75 + c2 * (0.25 + 0.75 * y)
-    img = Image.fromarray(np.repeat(col, W, axis=1).clip(0, 255).astype(np.uint8)).convert("RGBA")
-    capa = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(capa)
-    rnd = random.Random(semilla)
-    r = int(min(W, H) * 0.55)
-    x, yy = rnd.choice([(W * 0.85, H * 0.1), (W * 0.1, H * 0.15), (W * 0.9, H * 0.9)])
-    d.ellipse((x - r, yy - r, x + r, yy + r), fill=color(tema, "acento", 34))
-    from PIL import ImageFilter
-    img.alpha_composite(capa.filter(ImageFilter.GaussianBlur(160)))
-    d = ImageDraw.Draw(img)
-    paso = 48
-    for gx in range(paso // 2, W, paso):
-        for gy in range(paso // 2, H, paso):
-            d.point((gx, gy), fill=color(tema, "linea", 110))
-    return img
+    col = np.broadcast_to(c1 * (1 - y) + c2 * y, (H, W, 3)).copy()
+    col *= 1 - 0.2 * (x ** 2 + (y - 0.5) ** 2 * 1.4)
+    col += _grano(W, H, 8, semilla)[..., None]
+    return Image.fromarray(col.clip(0, 255).astype(np.uint8)).convert("RGBA")
+
+
+class Grano:
+    """Grano de película que cambia 12 veces por segundo (da textura sin distraer)."""
+
+    def __init__(self, W, H, n=6, fuerza=22):
+        self.capas = []
+        for k in range(n):
+            g = _grano(W, H, 1.0, 100 + k)
+            a = (np.abs(g) * fuerza * 2).clip(0, 255).astype(np.uint8)
+            claro = (g > 0)
+            rgb = np.where(claro[..., None], 255, 0).astype(np.uint8)
+            capa = Image.fromarray(np.dstack([np.broadcast_to(rgb, (H, W, 3)), a]), "RGBA")
+            self.capas.append(capa)
+
+    def en(self, t):
+        return self.capas[int(t * 12) % len(self.capas)]
 
 
 class Pantallas:
     """Cabecera del canal, tarjeta de capítulo y pantallas finales."""
 
-    def __init__(self, geo, tema, canal, g):
-        self.geo, self.tema, self.canal, self.g = geo, tema, canal, g
-        self.W, self.H = geo["W"], geo["H"]
+    def __init__(self, ctx, canal, g):
+        self.ctx, self.canal, self.g = ctx, canal, g
+        self.W, self.H = ctx.W, ctx.H
 
     def sting(self, base, t, dur):
+        ctx = self.ctx
         img = base.copy()
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
-        # Línea que sube como un gráfico
-        rnd = random.Random(7)
-        pts, v = [], 0.0
-        for k in range(40):
-            v += rnd.uniform(-0.6, 1.0)
-            pts.append((W * 0.08 + W * 0.84 * k / 39, H * 0.78 - v * H * 0.012))
-        r = suave(t / 1.6)
-        n = max(2, int(len(pts) * r))
-        d.line(pts[:n], fill=color(self.tema, "acento"), width=8, joint="curve")
-        xe, ye = pts[n - 1]
-        d.ellipse((xe - 14, ye - 14, xe + 14, ye + 14), fill=color(self.tema, "acento"))
-        f, lineas, tam = ajustar(self.canal["marca"], F_TIT, 120, W - 200, 2, 50)
-        a = suave((t - 0.5) / 0.6)
-        y0 = H * 0.42 - tam * 1.15 * len(lineas) / 2
+        f, lineas, tam = ctx.ajustar(self.canal["marca"].title() if not ctx.vertical else self.canal["marca"].title(),
+                                     "tit", 150 if not ctx.vertical else 130, W - 2 * ctx.m, 3, 50)
+        alto = tam * 1.05 * len(lineas)
+        y0 = H / 2 - alto / 2 - 30
         for k, l in enumerate(lineas):
-            d.text(((W - f.getlength(l)) / 2, y0 + k * tam * 1.15 + 30 * (1 - a)), l, font=f,
-                   fill=color(self.tema, "texto", int(255 * a)))
+            a = suave((t - 0.15 - 0.15 * k) / 0.6)
+            d.text((W / 2, y0 + k * tam * 1.05 + 30 * (1 - a)), l, font=f, fill=ctx.c("texto", int(255 * a)), anchor="ma")
+        r = suave((t - 0.6) / 0.8)
+        yb = y0 + alto + 36
+        d.rectangle((W / 2 - 160 * r, yb, W / 2 + 160 * r, yb + 6), fill=ctx.c("acento"))
         b = suave((t - 1.0) / 0.5)
-        lema = caja("HISTORIA ECONÓMICA, CON DATOS", F_TXT_B, 36, color(self.tema, "fondo"), color(self.tema, "acento2"),
-                    pad=(20, 10), radio=8)
-        pegar(img, lema, W / 2, y0 + len(lineas) * tam * 1.15 + 60, b)
-        salida = suave((t - (dur - 0.35)) / 0.35)
+        d.text((W / 2, yb + 40), str(self.canal.get("lema", "")).upper(), font=ctx.f("txt_b", 30),
+               fill=ctx.c("acento2", int(255 * b)), anchor="ma")
+        salida = suave((t - (dur - 0.4)) / 0.4)
         if salida > 0:
             img = Image.blend(img, base, salida)
         return img
 
     def capitulo(self, base, t, dur, c):
+        ctx = self.ctx
         img = base.copy()
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
-        vertical = H > W
-        numero = f"{c + 1:02d}"
-        fn = fuente(F_NUM, 300 if vertical else 280)
         a = suave(t / 0.5)
-        x_num = W / 2 if vertical else W * 0.27
-        y_num = H * 0.36 if vertical else H * 0.5
-        c_num = fn.getbbox(numero)
-        capa = Image.new("RGBA", (c_num[2] + 40, c_num[3] + 40), (0, 0, 0, 0))
-        ImageDraw.Draw(capa).text((20 - c_num[0], 20 - c_num[1]), numero, font=fn, fill=(0, 0, 0, 0),
-                                  stroke_width=5, stroke_fill=color(self.tema, "acento"))
-        pegar(img, capa, x_num - 60 * (1 - a), y_num, a)
-        titulo = str(self.g["capitulos"][c]["titulo"])
-        ancho = W - 160 if vertical else W * 0.5
-        f, lineas, tam = ajustar(titulo, F_TIT, 96, ancho, 3, 44)
+        num = f"{c + 1:02d}"
+        fn = ctx.f("num", 420 if ctx.vertical else 400)
+        if ctx.vertical:
+            d.text((W / 2, H * 0.38 + 40 * (1 - a)), num, font=fn, fill=ctx.c("acento", int(255 * a)), anchor="mm")
+            x0, ancho, y0 = ctx.m, W - 2 * ctx.m, H * 0.52
+            centro = True
+        else:
+            d.text((W * 0.30 - 40 * (1 - a), H / 2), num, font=fn, fill=ctx.c("acento", int(255 * a)), anchor="rm")
+            x0, ancho, y0 = W * 0.36, W * 0.54, None
+            centro = False
+            d.line((W * 0.33, H * 0.3, W * 0.33, H * 0.3 + H * 0.4 * suave((t - 0.1) / 0.6)), fill=ctx.c("linea"), width=3)
+        f, lineas, tam = ctx.ajustar(str(self.g["capitulos"][c]["titulo"]), "tit", 104, ancho, 3, 44)
+        alto = tam * 1.08 * len(lineas)
+        if y0 is None:
+            y0 = H / 2 - alto / 2 + 20
         b = suave((t - 0.25) / 0.5)
-        x0 = (W - ancho) / 2 if vertical else W * 0.45
-        y0 = (H * 0.55 if vertical else H * 0.5 - tam * 1.15 * len(lineas) / 2 + 20)
-        etiqueta = caja("CAPÍTULO", F_TXT_B, 32, color(self.tema, "fondo"), color(self.tema, "acento"), pad=(16, 8), radio=6)
-        pegar(img, etiqueta, x0 + (ancho / 2 - etiqueta.width / 2 if vertical else 0), y0 - 80, b, centro=False)
+        kick = f"CAPÍTULO {c + 1}"
+        fk = ctx.f("txt_b", 28)
+        if centro:
+            d.text((W / 2, y0 - 60), kick, font=fk, fill=ctx.c("acento2", int(255 * b)), anchor="ma")
+        else:
+            d.text((x0, y0 - 60), kick, font=fk, fill=ctx.c("acento2", int(255 * b)))
         for k, l in enumerate(lineas):
-            x = x0 + ((ancho - f.getlength(l)) / 2 if vertical else 0)
-            d.text((x + 40 * (1 - b), y0 + k * tam * 1.15), l, font=f, fill=color(self.tema, "texto", int(255 * b)))
-        d.rounded_rectangle((x0, y0 + len(lineas) * tam * 1.15 + 20, x0 + 160 * suave((t - 0.5) / 0.6),
-                             y0 + len(lineas) * tam * 1.15 + 28), radius=4, fill=color(self.tema, "acento2"))
+            q = suave((t - 0.3 - 0.1 * k) / 0.5)
+            if centro:
+                d.text((W / 2, y0 + k * tam * 1.08 + 20 * (1 - q)), l, font=f, fill=ctx.c("texto", int(255 * q)), anchor="ma")
+            else:
+                d.text((x0 + 30 * (1 - q), y0 + k * tam * 1.08), l, font=f, fill=ctx.c("texto", int(255 * q)))
         return img
 
     def final(self, base, t, dur):
+        ctx = self.ctx
         img = base.copy()
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
         a = suave(t / 0.6)
-        f = fuente(F_TIT, 84)
-        txt = "Gracias por ver"
-        d.text(((W - f.getlength(txt)) / 2, H * 0.12 + 20 * (1 - a)), txt, font=f, fill=color(self.tema, "texto", int(255 * a)))
-        sub = caja("FUENTES Y DATOS EN LA DESCRIPCIÓN", F_TXT_B, 34, color(self.tema, "fondo"), color(self.tema, "acento2"),
-                   pad=(20, 10), radio=8)
-        pegar(img, sub, W / 2, H * 0.12 + 150, suave((t - 0.3) / 0.5))
-        # Huecos para los elementos de pantalla final de YouTube (otros vídeos y suscripción)
+        d.text((W / 2, H * 0.11 + 20 * (1 - a)), "Gracias por ver", font=ctx.f("tit", 88), fill=ctx.c("texto", int(255 * a)), anchor="ma")
+        b = suave((t - 0.3) / 0.5)
+        d.text((W / 2, H * 0.11 + 130), "FUENTES, DATOS Y CRÉDITOS EN LA DESCRIPCIÓN", font=ctx.f("txt_b", 28),
+               fill=ctx.c("acento2", int(255 * b)), anchor="ma")
         q = suave((t - 0.6) / 0.6)
-        for x in (W * 0.27, W * 0.73):
-            d.rounded_rectangle((x - 400, H * 0.45, x + 400, H * 0.45 + 450), radius=24,
-                                outline=color(self.tema, "linea", int(255 * q)), width=4)
-        marca = fuente(F_TXT_B, 32)
-        d.text(((W - marca.getlength(self.canal["marca"])) / 2, H - 70), self.canal["marca"], font=marca,
-               fill=color(self.tema, "suave", int(255 * a)))
+        for x in (W * 0.27, W * 0.73):  # huecos para los vídeos de la pantalla final de YouTube
+            d.rectangle((x - 400, H * 0.40, x + 400, H * 0.40 + 450), outline=ctx.c("linea", int(255 * q)), width=3)
+        d.text((W / 2, H - 70), self.canal["marca"], font=ctx.f("txt_b", 28), fill=ctx.c("suave", int(255 * a)), anchor="mm")
         return img
 
     def final_short(self, base, t, dur):
+        ctx = self.ctx
         img = base.copy()
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
         a = rebote(min(1, t / 0.5))
-        f, lineas, tam = ajustar("Historia completa en el canal", F_TIT, 104, W - 140, 3, 50)
-        y0 = H * 0.36
+        f, lineas, tam = ctx.ajustar("La historia completa, en el canal", "tit", 110, W - 2 * ctx.m, 4, 50)
+        y0 = H * 0.34
         for k, l in enumerate(lineas):
-            d.text(((W - f.getlength(l)) / 2, y0 + k * tam * 1.15), l, font=f, fill=color(self.tema, "texto", int(255 * min(1, a))))
-        marca = caja(self.canal["marca"], F_TXT_B, 40, color(self.tema, "fondo"), color(self.tema, "acento"), pad=(22, 12), radio=10)
-        pegar(img, marca, W / 2, y0 + len(lineas) * tam * 1.15 + 90, min(1, a))
+            d.text((W / 2, y0 + k * tam * 1.08), l, font=f, fill=ctx.c("texto", int(255 * min(1, a))), anchor="ma")
+        yb = y0 + len(lineas) * tam * 1.08 + 50
+        d.rectangle((W / 2 - 120, yb, W / 2 + 120, yb + 6), fill=ctx.c("acento"))
+        d.text((W / 2, yb + 50), self.canal["marca"], font=ctx.f("txt_b", 36), fill=ctx.c("acento2", int(255 * min(1, a))), anchor="ma")
         return img
 
 
@@ -425,7 +457,7 @@ def mezclar_audio(bloques, sr, duracion, carpeta):
     n = int(duracion * sonido.SR) + sonido.SR
     voz = np.zeros(n, np.float32)
     fx = np.zeros(n, np.float32)
-    woosh = [sonido.whoosh(dur=0.5, semilla=k) * 0.45 for k in range(4)]
+    woosh = [sonido.whoosh(dur=0.5, semilla=k) * 0.4 for k in range(4)]
 
     def poner(pista, seg, s):
         a = int(seg * sonido.SR)
@@ -437,22 +469,20 @@ def mezclar_audio(bloques, sr, duracion, carpeta):
         if b["tipo"] == "escena":
             poner(voz, b["voz_ini"], _a_48k(b["escena"]["_audio"], sr))
             if b["escena"].get("tipo") == "cifra":
-                poner(fx, b["ini"] + 0.1, sonido.pop() * 0.6)
+                poner(fx, b["ini"] + 0.1, sonido.pop() * 0.5)
         if b["tipo"] in ("sting", "capitulo"):
             poner(fx, b["ini"], sonido.golpe() * 0.7)
         if i > 0:
             poner(fx, max(0, b["ini"] - 0.2), woosh[i % 4])
-    musica = sonido.musica(n / sonido.SR, "datos", bpm=86)[:n]
-    # La música baja cuando habla la voz (media móvil con suma acumulada: rápido aunque dure 15 min)
+    musica = sonido.musica(n / sonido.SR, "datos", bpm=80)[:n]
     v = np.abs(voz)
     ventana = int(0.4 * sonido.SR)
     cs = np.cumsum(np.concatenate([[0.0], v]))
     env = (cs[ventana:] - cs[:-ventana]) / ventana
     env = np.concatenate([env, np.full(len(v) - len(env), env[-1] if len(env) else 0)])
     env = env / (env.max() + 1e-9)
-    musica = musica * 0.30 * (1 - 0.7 * np.clip(env * 4, 0, 1))
-    mezcla = voz + fx * 0.5 + musica
-    mezcla = mezcla[: int(duracion * sonido.SR)]
+    musica = musica * 0.28 * (1 - 0.7 * np.clip(env * 4, 0, 1))
+    mezcla = (voz + fx * 0.5 + musica)[: int(duracion * sonido.SR)]
     mezcla = mezcla / max(1.0, float(np.abs(mezcla).max()) / 0.95)
     bruto, final = carpeta / "mezcla.wav", carpeta / "mezcla_norm.wav"
     sf.write(bruto, mezcla.astype(np.float32), sonido.SR)
@@ -465,60 +495,59 @@ def mezclar_audio(bloques, sr, duracion, carpeta):
 #  Montaje
 # =====================================================================
 
-def montar(g, canal, bloques, sr, geo, salida, subtitulos=False, titulo_arriba=None):
+def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
     """Monta un vídeo (largo o Short) a partir de sus bloques."""
     from pexels import buscar_clip
 
     salida = Path(salida)
     salida.parent.mkdir(parents=True, exist_ok=True)
     carpeta = Path(tempfile.mkdtemp())
-    tema = canal["tema"]
     W, H = geo["W"], geo["H"]
-    vertical = H > W
+    ctx = Contexto(W, H, canal["tema"], canal["fuentes"], semilla=g["_nombre"])
+    vertical = ctx.vertical
     duracion = bloques[-1]["fin"]
     n_frames = int(math.ceil(duracion * FPS))
     audio = mezclar_audio(bloques, sr, duracion, carpeta)
 
-    base = fondo_base(geo, tema, semilla=len(g["titulo"]))
-    pantallas = Pantallas(geo, tema, canal, g)
-    zx, zy, zw, zh = geo["zona"]
+    base = fondo_base(ctx, semilla=len(g["titulo"]))
+    grano = Grano(W, H)
+    pantallas = Pantallas(ctx, canal, g)
     trozos = trozos_subtitulos(bloques, 5 if vertical else 9, 30 if vertical else 60)
-    subs = Subtitulos(trozos, geo, tema) if subtitulos else None
+    subs = Subtitulos(trozos, geo, ctx) if subtitulos else None
 
-    # Elementos fijos
-    marca = caja(canal["marca"], F_TXT_B, 30 if vertical else 24, color(tema, "texto"), None, pad=(0, 0))
-    punto = Image.new("RGBA", (26, 26), (0, 0, 0, 0))
-    ImageDraw.Draw(punto).rounded_rectangle((0, 0, 25, 25), radius=6, fill=color(tema, "acento"))
-    caps_cache = {}
-    fuente_cache = {}
-    f_fuente = fuente(F_TXT_M, 26 if vertical else 22)
+    marca_f = ctx.f("txt_b", 28 if vertical else 24)
+    caps_cache, fuente_cache = {}, {}
+    f_fuente = ctx.f("txt", 24 if vertical else 21)
 
     def etiqueta_cap(c):
         if c not in caps_cache:
-            texto = f"CAPÍTULO {c + 1} · {str(g['capitulos'][c]['titulo']).upper()}"
             if vertical:
-                f, lineas, tam = ajustar(str(g["capitulos"][c]["titulo"]), F_TIT, 52, W - 140, 2, 30)
-                capa = Image.new("RGBA", (W, int(tam * 1.2 * len(lineas)) + 20), (0, 0, 0, 0))
+                f, lineas, tam = ctx.ajustar(str(g["capitulos"][c]["titulo"]), "tit", 50, W - 2 * ctx.m, 2, 30)
+                capa = Image.new("RGBA", (W, int(tam * 1.15 * len(lineas)) + 20), (0, 0, 0, 0))
                 dd = ImageDraw.Draw(capa)
                 for k, l in enumerate(lineas):
-                    dd.text(((W - f.getlength(l)) / 2, k * tam * 1.2), l, font=f, fill=color(tema, "acento2"))
-                caps_cache[c] = capa
+                    dd.text((W / 2, k * tam * 1.15), l, font=f, fill=ctx.c("acento2"), anchor="ma")
             else:
-                caps_cache[c] = caja(texto, F_TXT_B, 22, color(tema, "suave"), None, pad=(0, 0))
+                texto = f"{c + 1:02d} · {str(g['capitulos'][c]['titulo']).upper()}"
+                f = ctx.f("txt", 21)
+                capa = Image.new("RGBA", (int(f.getlength(texto)) + 4, 34), (0, 0, 0, 0))
+                ImageDraw.Draw(capa).text((0, 4), texto, font=f, fill=ctx.c("suave"))
+            caps_cache[c] = capa
         return caps_cache[c]
 
     def etiqueta_fuente(txt):
         if txt not in fuente_cache:
-            lineas = envolver(txt, f_fuente, (W - 120))
+            lineas = envolver(txt, f_fuente, W - 2 * ctx.m)
             capa = Image.new("RGBA", (W, int(f_fuente.size * 1.3 * len(lineas)) + 8), (0, 0, 0, 0))
             dd = ImageDraw.Draw(capa)
             for k, l in enumerate(lineas):
-                x = (W - f_fuente.getlength(l)) / 2 if vertical else 60
-                dd.text((x, k * f_fuente.size * 1.3), l, font=f_fuente, fill=color(tema, "suave", 230))
+                if vertical:
+                    dd.text((W / 2, k * f_fuente.size * 1.3), l, font=f_fuente, fill=ctx.c("suave", 220), anchor="ma")
+                else:
+                    dd.text((72, k * f_fuente.size * 1.3), l, font=f_fuente, fill=ctx.c("suave", 220))
             fuente_cache[txt] = capa
         return fuente_cache[txt]
 
-    # Marcas de capítulo en la barra de progreso
     inicios_cap = [b["ini"] for b in bloques if b["tipo"] == "capitulo"]
 
     ffmpeg = subprocess.Popen(
@@ -550,7 +579,8 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False, titulo_arriba=N
                                        orientacion="portrait" if vertical else "landscape")
                     if clip:
                         clips_usados.append(clip)
-                pieza = crear_pieza(e, zw, zh, tema, f"{g['_nombre']}-{bi}", (W, H), clip=clip, dur=b["fin"] - b["ini"])
+                ctx.semilla = f"{g['_nombre']}-{bi}"
+                pieza = crear_pieza(e, ctx, b["fin"] - b["ini"], imagen=e.get("_img"), credito=e.get("_credito", ""), clip=clip)
         b = bloques[bi]
         tl, dur = t - b["ini"], b["fin"] - b["ini"]
 
@@ -563,57 +593,53 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False, titulo_arriba=N
         elif b["tipo"] == "final_short":
             lienzo = pantallas.final_short(base, tl, dur)
         else:
-            lienzo = pieza.fondo(tl) if pieza.fondo_propio else base.copy()
-            capa = pieza.cuadro(tl, dur)
-            if not pieza.fondo_propio:
-                z = 1.0 + 0.025 * tl / max(dur, 0.1)  # zoom muy lento para que la imagen respire
-                if z > 1.001:
-                    nw, nh = int(zw * z), int(zh * z)
-                    capa = capa.resize((nw, nh), Image.BILINEAR)
-                    lienzo.alpha_composite(capa, (int(zx - (nw - zw) / 2), int(zy - (nh - zh) / 2)))
-                else:
-                    lienzo.alpha_composite(capa, (zx, zy))
+            capa = pieza.cuadro(tl)
+            if pieza.opaca:
+                lienzo = capa.copy()
             else:
-                lienzo.alpha_composite(capa, (zx, zy))
+                lienzo = base.copy()
+                lienzo.alpha_composite(capa)
             if b["fuente"]:
                 capa_f = etiqueta_fuente(b["fuente"])
-                lienzo.alpha_composite(capa_f, (0, (H - 150 if vertical else H - 50) - capa_f.height // 2))
+                lienzo.alpha_composite(capa_f, (0, int((H - 120 if vertical else H - 46) - capa_f.height / 2)))
 
         # Cabecera fija: marca y capítulo
+        d = ImageDraw.Draw(lienzo)
         if b["tipo"] not in ("sting", "final", "final_short"):
             if vertical:
-                pegar(lienzo, marca, W / 2 + 18, 110)
-                lienzo.alpha_composite(punto, (int(W / 2 - marca.width / 2 - 24), 97))
-                if b.get("cap") is not None:
-                    lienzo.alpha_composite(etiqueta_cap(b["cap"]), (0, 170))
+                tw = marca_f.getlength(canal["marca"])
+                d.rectangle((W / 2 - tw / 2 - 26, 98, W / 2 - tw / 2 - 14, 122), fill=ctx.c("acento"))
+                d.text((W / 2 + 0, 110), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="mm")
+                if b.get("cap") is not None and b["tipo"] != "capitulo":
+                    lienzo.alpha_composite(etiqueta_cap(b["cap"]), (0, 165))
             else:
-                lienzo.alpha_composite(punto, (60, 46))
-                lienzo.alpha_composite(marca, (100, 48))
+                d.rectangle((72, 58, 84, 82), fill=ctx.c("acento"))
+                d.text((100, 70), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="lm")
                 if b.get("cap") is not None and b["tipo"] != "capitulo":
                     capa_c = etiqueta_cap(b["cap"])
-                    lienzo.alpha_composite(capa_c, (W - 60 - capa_c.width, 50))
+                    lienzo.alpha_composite(capa_c, (W - 72 - capa_c.width, 54))
         if subs:
             subs.dibujar(lienzo, t)
 
         # Barra de progreso (en el largo, con las marcas de los capítulos)
-        d = ImageDraw.Draw(lienzo)
         if vertical:
-            d.rectangle((0, 0, int(W * t / duracion), 10), fill=color(tema, "acento"))
+            d.rectangle((0, 0, int(W * t / duracion), 8), fill=ctx.c("acento"))
         else:
-            d.rectangle((0, H - 6, W, H), fill=color(tema, "panel"))
-            d.rectangle((0, H - 6, int(W * t / duracion), H), fill=color(tema, "acento"))
+            d.rectangle((0, H - 5, W, H), fill=ctx.c("panel"))
+            d.rectangle((0, H - 5, int(W * t / duracion), H), fill=ctx.c("acento"))
             for x in inicios_cap:
                 xx = int(W * x / duracion)
-                d.rectangle((xx - 2, H - 6, xx + 2, H), fill=color(tema, "fondo"))
+                d.rectangle((xx - 2, H - 5, xx + 2, H), fill=ctx.c("fondo"))
 
         # Fundido corto con la escena anterior
         if anterior is not None and tl < FUNDIDO and bi > 0:
             lienzo = Image.blend(anterior, lienzo, suave(tl / FUNDIDO))
         ultimo = lienzo
-        ffmpeg.stdin.write(lienzo.convert("RGB").tobytes())
+        salida_img = lienzo.copy()
+        salida_img.alpha_composite(grano.en(t))
+        ffmpeg.stdin.write(salida_img.convert("RGB").tobytes())
         if nf % (FPS * 30) == 0:
-            pasado = time.time() - inicio
-            print(f"  {salida.name}: {t:.0f}/{duracion:.0f} s de vídeo ({pasado:.0f} s montando)")
+            print(f"  {salida.name}: {t:.0f}/{duracion:.0f} s de vídeo ({time.time() - inicio:.0f} s montando)")
 
     if pieza:
         pieza.cerrar()
@@ -654,55 +680,66 @@ def descripcion(g, bloques, clips):
                 linea += f" — {f['url']}"
             lineas.append(linea)
         lineas.append("")
-    if clips:
-        lineas.append("Clips de archivo de Pixabay / Pexels (licencia libre). Gráficos y música: originales del canal.")
+    creditos = creditos_imagenes(g)
+    if creditos:
+        lineas.append("Imágenes:")
+        lineas += creditos
         lineas.append("")
+    if clips:
+        lineas.append("Clips de archivo de Pixabay / Pexels (licencia libre).")
+    lineas.append("Gráficos, mapas (datos de Natural Earth) y música: originales del canal.")
+    lineas.append("")
     if g.get("hashtags"):
         lineas.append(str(g["hashtags"]))
     return "\n".join(lineas)
 
 
-def miniatura(g, canal, ruta):
-    tema = canal["tema"]
-    geo = {"W": 1280, "H": 720}
-    img = fondo_base(geo, tema, semilla=3)
-    d = ImageDraw.Draw(img)
+def _primera_imagen(g):
     m = g.get("miniatura") or {}
-    texto = str(m.get("texto") or g["titulo"])
-    resaltar = {p.strip(".,:;¿?¡!").lower() for p in str(m.get("resaltar") or "").split()}
-    cifra = m.get("cifra")
-    ancho = 700 if cifra else 1140
-    f, lineas, tam = ajustar(texto.upper(), F_TIT, 110, ancho, 3, 50)
-    alto_l = tam * 1.15
-    y0 = (720 - alto_l * len(lineas)) / 2
-    asc = f.getbbox("Á")[1]
+    if m.get("_img") is not None:
+        return m["_img"]
+    for e, _ in todas_las_escenas(g):
+        if e.get("_img") is not None:
+            return e["_img"]
+    return None
+
+
+def miniatura(g, canal, ruta):
+    ctx = Contexto(1280, 720, canal["tema"], canal["fuentes"])
+    img = fondo_base(ctx, semilla=3)
+    foto = _primera_imagen(g)
+    if foto is not None:
+        f = recortar_a(duotono(foto, canal["tema"], contraste=1.3, grano=10), 760, 720, (0.5, 0.3))
+        m = np.ones((720, 760), np.float32)
+        r = np.linspace(0, 1, 340) ** 1.4
+        m[:, :340] *= r[None, :]
+        f.putalpha(Image.fromarray((m * 255).astype(np.uint8)))
+        img.alpha_composite(f, (520, 0))
+    d = ImageDraw.Draw(img)
+    mi = g.get("miniatura") or {}
+    texto = str(mi.get("texto") or g["titulo"])
+    resaltar = {p.strip(".,:;¿?¡!").lower() for p in str(mi.get("resaltar") or "").split()}
+    f, lineas, tam = ctx.ajustar(texto, "tit", 120, 700 if foto is not None else 1100, 3, 50)
+    alto_l = tam * 1.02
+    y0 = 360 - alto_l * len(lineas) / 2 - (30 if mi.get("cifra") else 0)
     for k, l in enumerate(lineas):
-        x = 60
+        x = 56
         for p in l.split():
-            w = f.getlength(p)
-            if p.strip(".,:;¿?¡!").lower() in resaltar:
-                d.rounded_rectangle((x - 10, y0 + k * alto_l + asc - 8, x + w + 10, y0 + k * alto_l + tam * 1.08),
-                                    radius=10, fill=color(tema, "acento2"))
-                d.text((x, y0 + k * alto_l), p, font=f, fill=color(tema, "fondo"))
-            else:
-                d.text((x, y0 + k * alto_l), p, font=f, fill=color(tema, "texto"), stroke_width=3, stroke_fill=(0, 0, 0, 200))
-            x += w + f.getlength(" ")
-    if cifra:
-        tam_c = 230
-        fc = fuente(F_NUM, tam_c)
-        while fc.getlength(str(cifra)) > 480 and tam_c > 80:
-            tam_c -= 10
-            fc = fuente(F_NUM, tam_c)
-        c = fc.getbbox(str(cifra))
-        d.text((1280 - 60 - (c[2] - c[0]) - c[0], 360 - (c[3] - c[1]) / 2 - c[1]), str(cifra), font=fc,
-               fill=color(tema, "acento"), stroke_width=4, stroke_fill=(0, 0, 0, 220))
-    marca = caja(canal["marca"], F_TXT_B, 26, color(tema, "fondo"), color(tema, "acento"), pad=(14, 8), radio=6)
-    img.alpha_composite(marca, (60, 720 - 60 - marca.height))
+            col = ctx.c("acento2") if p.strip(".,:;¿?¡!").lower() in resaltar else ctx.c("texto")
+            d.text((x, y0 + k * alto_l), p, font=f, fill=col, stroke_width=3, stroke_fill=ctx.c("fondo"))
+            x += f.getlength(p + " ")
+    if mi.get("cifra"):
+        fc = ctx.f("num", 110)
+        yc = y0 + len(lineas) * alto_l + 10
+        d.rectangle((56, yc, 56 + fc.getlength(str(mi["cifra"])) + 40, yc + 130), fill=ctx.c("acento"))
+        d.text((76, yc + 65), str(mi["cifra"]), font=fc, fill=ctx.c("texto"), anchor="lm")
+    d.rectangle((56, 50, 66, 72), fill=ctx.c("acento"))
+    d.text((80, 61), canal["marca"], font=ctx.f("txt_b", 22), fill=ctx.c("texto"), anchor="lm")
     img.convert("RGB").save(ruta)
 
 
 def copia_ligera(entrada, salida, duracion, max_mb=45):
-    """Copia en 720p que cabe en Telegram (límite de 50 MB para bots)."""
+    """Copia que cabe en Telegram (límite de 50 MB para bots)."""
     if Path(entrada).stat().st_size < max_mb * 1024 * 1024:  # ya cabe: se manda tal cual
         import shutil
         shutil.copyfile(entrada, salida)
@@ -732,6 +769,7 @@ def main():
     g = cargar_guion(nombre)
     SALIDA.mkdir(exist_ok=True)
     inicio = time.time()
+    preparar_imagenes(g)
     sr = generar_voces(g, canal)
 
     if que in ("todo", "largo"):
@@ -753,13 +791,12 @@ def main():
             r = montar(g, canal, bloques, sr, VERTICAL, base.with_suffix(".mp4"),
                        subtitulos=bool(canal.get("subtitulos_shorts", True)))
             dur = r["duracion"]
-            notas = []
-            notas.append("✅ Más de 1 minuto: vale para el programa de pagos de TikTok" if dur > 61
-                         else "⚠️ Menos de 1 minuto: TikTok no lo paga (alarga el capítulo si quieres cobrar allí)")
-            notas.append("✅ Vale para YouTube Shorts (hasta 3 minutos)" if dur <= 180
-                         else "⚠️ Pasa de 3 minutos: YouTube no lo trataría como Short")
+            notas = ["✅ Más de 1 minuto: vale para el programa de pagos de TikTok" if dur > 61
+                     else "⚠️ Menos de 1 minuto: TikTok no lo paga (alarga el capítulo si quieres cobrar allí)",
+                     "✅ Vale para YouTube Shorts (hasta 3 minutos)" if dur <= 180
+                     else "⚠️ Pasa de 3 minutos: YouTube no lo trataría como Short"]
             titulo = str(cap.get("titulo_short") or cap["titulo"])
-            texto = f"{titulo}\n\nHistoria completa en el canal.\n\n{g.get('hashtags', '')}\n\n— Dura {dur:.0f} s\n" + "\n".join(notas)
+            texto = f"{titulo}\n\nLa historia completa, en el canal.\n\n{g.get('hashtags', '')}\n\n— Dura {dur:.0f} s\n" + "\n".join(notas)
             base.with_suffix(".txt").write_text(texto, encoding="utf-8")
     print(f"Todo listo en {(time.time() - inicio) / 60:.1f} minutos")
 

@@ -1,15 +1,17 @@
 # GUION DE PRUEBA DEL ROBOT — enseña todos los tipos de escena. No es para publicar:
 # algunos datos y la cita son de ejemplo.
 
-titulo: "El día que España dejó la peseta (prueba del robot)"
+titulo: "De la peseta al euro (prueba del robot)"
 descripcion: >-
-  Vídeo de prueba del formato largo del canal: cabecera, capítulos, gráficos y Shorts.
+  Vídeo de prueba del formato largo del canal: cabecera, capítulos, fotos de época, bocetos,
+  mapas, esquemas, gráficos y Shorts.
 hashtags: "#historia #economía #peseta #euro"
 
 miniatura:
   texto: "Adiós a la peseta"
   resaltar: "peseta"
   cifra: "166,386"
+  buscar_imagen: "peseta 1869 coin"
 
 fuentes:
   - id: 1
@@ -20,28 +22,70 @@ fuentes:
     corta: "INE (datos de ejemplo)"
     cita: "Instituto Nacional de Estadística. Índice de Precios de Consumo."
     url: "https://www.ine.es"
+  - id: 3
+    corta: "Decreto de 19 de octubre de 1868"
+    cita: "Decreto de 19 de octubre de 1868 por el que se establece la peseta como unidad monetaria."
 
-# Gancho: lo primero que se oye, antes de la cabecera del canal
 gancho:
-  - voz: "El uno de enero de 2002, cuarenta millones de españoles se despertaron con otro dinero en el bolsillo."
+  - voz: "Durante ciento treinta y tres años, los españoles pagaron con pesetas. Y una noche, desaparecieron."
     tipo: titulo
-    texto: "Un país se despierta con otro dinero"
-    resaltar: "otro dinero"
+    texto: "133 años de pesetas, y una noche desaparecieron"
+    resaltar: "desaparecieron"
 
 capitulos:
-  - titulo: "La noche del cambio"
+  - titulo: "Cómo nació la peseta"
     short: true
-    # Solo en el Short: una frase-gancho antes de empezar
     gancho_short:
-      - voz: "¿Sabes cuántas pesetas valía un euro? La cifra exacta tenía tres decimales."
+      - voz: "¿Sabes quién inventó la peseta? Fue un ministro catalán, en 1868."
         tipo: titulo
-        texto: "¿Cuántas pesetas valía un euro?"
-        resaltar: "un euro"
+        texto: "¿Quién inventó la peseta?"
+        resaltar: "peseta"
     escenas:
-      - voz: "Esa madrugada, los primeros cajeros empezaron a dar billetes de euro."
+      - voz: "En octubre de 1868, el ministro de Hacienda Laureano Figuerola firmó el decreto que creaba la peseta."
+        tipo: boceto
+        buscar_imagen: "Laureano Figuerola"
+        kicker: "Ministro de Hacienda"
+        nombre: "Laureano Figuerola"
+        sub: "1816 – 1903"
+        revelar: true
+        fuente: 3
+      - voz: "La fecha quedó grabada en la historia del dinero en España."
         tipo: fecha
-        fecha: "1 ENE 2002"
-        lugar: "España"
+        fecha: "19 OCT 1868"
+        lugar: "Madrid"
+        fuente: 3
+      - voz: "Las primeras monedas de plata llevaban la imagen de una mujer recostada, que representaba a España."
+        tipo: foto
+        diseno: marco
+        buscar_imagen: "1 peseta 1869"
+        kicker: "La primera moneda"
+        texto: "Una peseta de 1869"
+        sub: "Plata, con la figura de Hispania"
+      - voz: "¿Por qué la creó? Para entrar en un club de monedas que se cambiaban entre sí."
+        tipo: esquema
+        modo: causas
+        titulo: "Por qué nació la peseta"
+        nodos:
+          - {etiqueta: "Problema", texto: "Monedas distintas en cada reino"}
+          - {etiqueta: "Modelo", texto: "La Unión Monetaria Latina"}
+          - {etiqueta: "Objetivo", texto: "Comerciar más con Europa"}
+        resultado: {etiqueta: "Decisión", texto: "Una moneda nueva: la peseta"}
+
+  - titulo: "Doce países, una moneda"
+    short: true
+    escenas:
+      - voz: "Ciento treinta y tres años después, el uno de enero de 2002, doce países estrenaron a la vez el euro."
+        tipo: mapa
+        region: europa
+        titulo: "Doce países, una sola moneda"
+        grupos:
+          - paises: [Alemania, Francia, Italia, Países Bajos, Bélgica, Luxemburgo, Austria, Finlandia, Irlanda, Portugal, Grecia]
+            leyenda: "Euro desde 2002"
+          - paises: [España]
+            color: acento2
+            leyenda: "España"
+        etiquetas:
+          - {pais: España, texto: "1 € = 166,386 pts"}
         fuente: 1
       - voz: "El cambio estaba fijado desde 1998: un euro valía exactamente ciento sesenta y seis con trescientas ochenta y seis pesetas."
         tipo: cifra
@@ -49,17 +93,13 @@ capitulos:
         decimales: 3
         etiqueta: "pesetas por cada euro, fijado de forma irrevocable"
         fuente: 1
-      - voz: "Así que un billete de mil pesetas pasaba a valer poco más de seis euros."
-        tipo: comparar
-        titulo: "Lo que valía un billete de 1.000 pesetas"
-        izquierda: {etiqueta: "Pesetas", valor: 1000, texto: "1.000 pts"}
-        derecha: {etiqueta: "Euros", valor: 6.01, texto: "6,01 €"}
-        fuente: 1
-      - voz: "Durante dos meses, las dos monedas convivieron en las tiendas."
-        tipo: archivo
-        buscar: "old coins money"
-        texto: "Dos monedas a la vez"
-        sub: "Enero y febrero de 2002"
+      - voz: "Las colas en los cajeros de la Puerta del Sol se hicieron famosas aquella madrugada."
+        tipo: foto
+        diseno: sangre
+        buscar_imagen: "Puerta del Sol Madrid"
+        kicker: "Madrid · 1 de enero de 2002"
+        texto: "Las primeras colas en los cajeros"
+        sub: "Foto de ejemplo para la prueba del robot."
 
   - titulo: "¿Subieron los precios?"
     short: false
@@ -69,28 +109,46 @@ capitulos:
         kicker: "La sospecha"
         texto: "¿El euro lo hizo todo más caro?"
         resaltar: "más caro"
+      - voz: "Así podía colarse una subida: se pasaba a euros, y luego se redondeaba al alza."
+        tipo: esquema
+        modo: cadena
+        titulo: "Así se colaba la subida"
+        subtitulo: "Ejemplo ilustrativo"
+        nodos:
+          - {etiqueta: "Precio en pesetas", texto: "1.000 pts"}
+          - {etiqueta: "Precio exacto", texto: "6,01 €"}
+          - {etiqueta: "Precio en la tienda", texto: "6,50 €", destacar: true}
+        flechas: ["÷ 166,386", "Redondeo"]
+        nota: "Un 8 % más, sin que cambie nada"
       - voz: "Este gráfico de ejemplo muestra la inflación de cada diciembre, antes y después del cambio."
         tipo: linea
-        titulo: "IPC en España, diciembre (%) — datos de ejemplo"
+        titulo: "La inflación, antes y después"
+        subtitulo: "IPC en España, diciembre de cada año — datos de ejemplo"
         valores: [1.4, 2.9, 4.0, 2.7, 4.0, 2.6, 3.2]
         etiquetas: ["1998", "1999", "2000", "2001", "2002", "2003", "2004"]
         decimales: 1
         sufijo: " %"
-        desde_cero: true
         marcas:
           - {indice: 4, texto: "Llega el euro"}
         fuente: 2
       - voz: "Y en barras se ve igual: el salto no fue tan distinto al de otros años."
         tipo: barras
-        titulo: "Inflación anual (%) — datos de ejemplo"
+        titulo: "Inflación anual — datos de ejemplo"
         valores: [2.9, 4.0, 2.7, 4.0, 2.6]
         etiquetas: ["1999", "2000", "2001", "2002", "2003"]
         decimales: 1
+        sufijo: " %"
         destacar: [3]
         fuente: 2
+      - voz: "Un billete de mil pesetas pasaba a valer poco más de seis euros."
+        tipo: comparar
+        titulo: "Lo que valía un billete de 1.000 pesetas"
+        izquierda: {etiqueta: "Pesetas", valor: 1000, texto: "1.000 pts"}
+        derecha: {etiqueta: "Euros", valor: 6.01, texto: "6,01 €"}
+        fuente: 1
       - voz: "Aun así, mucha gente lo vivió de otra manera, y lo resumía con una frase."
         tipo: cita
-        texto: "Esto es una cita de ejemplo para ver cómo queda en pantalla una frase larga de un testigo de la época."
+        texto: "Esto es una cita de ejemplo para ver cómo queda en pantalla una frase de un testigo de la época."
         autor: "Cita de ejemplo"
         fecha: "2002"
       - voz: "¿Por qué? Hay tres explicaciones."
@@ -100,6 +158,11 @@ capitulos:
           - "Los precios pequeños se redondearon"
           - "Costaba calcular en euros"
           - "Seguíamos pensando en pesetas"
+      - voz: "Durante dos meses, las dos monedas convivieron en las tiendas."
+        tipo: archivo
+        buscar: "old coins money"
+        texto: "Dos monedas a la vez"
+        sub: "Enero y febrero de 2002"
 
 cierre:
   - voz: "Si te ha gustado, suscríbete: cada semana, una historia de dinero contada con datos."
