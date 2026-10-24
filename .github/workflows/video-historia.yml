@@ -113,7 +113,9 @@ jobs:
           for f in "${GUION}"_descripcion.txt "${GUION}"_largo.srt; do
             comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F document=@"$f" "$API/sendDocument")" "$f"
           done
-          for f in "${GUION}"_short_*.mp4; do
-            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$f" -F supports_streaming=true \
-              -F caption="$(head -c 1000 "${f%.mp4}.txt")" "$API/sendVideo")" "$f"
+          for f in "${GUION}"_short_[0-9][0-9].mp4; do
+            m="${f%.mp4}_movil.mp4"   # copia que cabe en Telegram (el original, en Artifacts)
+            [ -f "$m" ] || m="$f"
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$m" -F supports_streaming=true \
+              -F caption="$(head -c 1000 "${f%.mp4}.txt")" "$API/sendVideo")" "$m"
           done
