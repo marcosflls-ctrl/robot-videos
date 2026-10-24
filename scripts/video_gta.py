@@ -36,17 +36,14 @@ else:
 tema = dict(TEMA_GTA, cifra=cifra, bajo_cifra=bajo,
             dato=f"{ESTRENO.day} · {MESES[ESTRENO.month - 1]} · {ESTRENO.year}")
 
-from motor_voz import crear_motor  # se importa aquí porque tarda en cargar
+from motor_voz import crear_motor, decir_guion  # se importa aquí porque tarda en cargar
 
 inicio = time.time()
 voz = crear_motor()
 print(f"Voz cargada en {round(time.time() - inicio)} s")
-audios, trozos = [], []
-for f in frases:
-    t = time.time()
-    audios.append(voz.decir(f))
-    trozos.append(voz.ultimas_piezas)
-    print(f"    ({round(time.time() - t)} s)")
+t = time.time()
+audios, trozos = decir_guion(voz, frases)
+print(f"    (voz en {round(time.time() - t)} s)")
 
 os.makedirs(SALIDA, exist_ok=True)
 if (os.environ.get("MONTAJE") or "escenas").strip() == "clasico":
