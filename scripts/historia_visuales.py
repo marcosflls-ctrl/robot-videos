@@ -664,7 +664,7 @@ class Foto(Pieza):
         self.velo = None
         if self.diseno == "completa":
             y = np.linspace(0, 1, H)[:, None]
-            a = 0.15 + 0.75 * np.clip((y - 0.5) / 0.5, 0, 1) ** 1.3 + 0.35 * np.clip((0.15 - y) / 0.15, 0, 1)
+            a = 0.15 + 0.8 * np.clip((y - 0.45) / 0.4, 0, 1) ** 1.3 + 0.45 * np.clip((0.15 - y) / 0.15, 0, 1)
             self.velo = Image.new("RGBA", (W, H), ctx.c("fondo"))
             self.velo.putalpha(Image.fromarray((np.broadcast_to(a, (H, W)).clip(0, 1) * 255).astype(np.uint8)))
         self.textos = self._preparar_textos()
@@ -699,7 +699,10 @@ class Foto(Pieza):
         for tipo, txt, f, tam in partes:
             alto += (tam * 1.6) if tipo == "kicker" else len(txt) * tam * (1.08 if tipo == "tit" else 1.35) + 16
         if y is None:
-            y = (self.H * 0.82 - alto) if self.diseno == "completa" else ((ctx.arriba + ctx.abajo) / 2 - alto / 2)
+            if self.diseno == "completa":  # abajo, pero por encima de los subtítulos en los Shorts
+                y = (ctx.abajo - 40 - alto) if ctx.vertical else (self.H * 0.82 - alto)
+            else:
+                y = (ctx.arriba + ctx.abajo) / 2 - alto / 2
         for tipo, txt, f, tam in partes:
             if tipo == "kicker":
                 bloques.append((tipo, [(x + 24, y)], txt, f))
