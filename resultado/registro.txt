@@ -1,0 +1,21 @@
+  Commons: «Laureano Figuerola» -> File:Laureano Figuerola Ballester (Palacio del Senado de España).jpg (Public domain, Eduardo Balaca)
+  Commons: «1 peseta 1869» -> File:2 pesetas 1869 - reverso.jpg (CC BY-SA 4.0, Rafandalucia)
+  Commons: «Puerta del Sol Madrid» -> File:Interior Árbol de Navidad -- 2013 -- Puerta del Sol, Madrid, España.jpg (CC BY-SA 3.0, Jose María Ligero Loarte)
+  Commons: «peseta 1869 coin» -> File:2 pesetas 1869 - reverso.jpg (CC BY-SA 4.0, Rafandalucia)
+Imágenes: 3 listas
+Prueba SIN VOZ: tiempos calculados a ojo
+Vídeo largo: 22 bloques, 2.3 minutos
+  ejemplo_largo.mp4: 0/137 s de vídeo (0 s montando)
+  ejemplo_largo.mp4: 30/137 s de vídeo (51 s montando)
+  ejemplo_largo.mp4: 60/137 s de vídeo (99 s montando)
+  ejemplo_largo.mp4: 90/137 s de vídeo (158 s montando)
+  Pixabay: «old coins money» -> 91679 (1280x720, 27 s) de NickyPe
+  ejemplo_largo.mp4: 120/137 s de vídeo (189 s montando)
+Vídeo listo: salida/ejemplo_largo.mp4 (137.2 s) en 201 s
+Copia ligera: salida/ejemplo_largo_movil.mp4 (43.7 MB)
+  ejemplo_short_01.mp4: 0/35 s de vídeo (0 s montando)
+  ejemplo_short_01.mp4: 30/35 s de vídeo (74 s montando)
+Vídeo listo: salida/ejemplo_short_01.mp4 (35.4 s) en 81 s
+  ejemplo_short_02.mp4: 0/27 s de vídeo (0 s montando)
+Vídeo listo: salida/ejemplo_short_02.mp4 (27.4 s) en 30 s
+Todo listo en 5.9 minutos
