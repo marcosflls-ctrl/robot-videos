@@ -52,8 +52,8 @@ def rebote(x):
 
 
 def numero(valor, decimales=0, prefijo="", sufijo=""):
-    """Número a la española: 1.250.000 · 4,9 · 166,386 (las cifras de 4 dígitos, sin punto)."""
-    txt = f"{abs(valor):,.{decimales}f}" if abs(valor) >= 10000 else f"{abs(valor):.{decimales}f}"
+    """Número a la española: 1.250.000 · 1.234 · 4,9 · 166,386."""
+    txt = f"{abs(valor):,.{decimales}f}" if abs(valor) >= 1000 else f"{abs(valor):.{decimales}f}"
     txt = txt.replace(",", "\x00").replace(".", ",").replace("\x00", ".")
     return f"{prefijo}{'−' if valor < 0 else ''}{txt}{sufijo}"
 
@@ -664,7 +664,7 @@ class Foto(Pieza):
         self.velo = None
         if self.diseno == "completa":
             y = np.linspace(0, 1, H)[:, None]
-            a = 0.15 + 0.75 * np.clip((y - 0.5) / 0.5, 0, 1) ** 1.3 + 0.35 * np.clip((0.15 - y) / 0.15, 0, 1)
+            a = 0.15 + 0.8 * np.clip((y - 0.45) / 0.4, 0, 1) ** 1.3 + 0.45 * np.clip((0.15 - y) / 0.15, 0, 1)
             self.velo = Image.new("RGBA", (W, H), ctx.c("fondo"))
             self.velo.putalpha(Image.fromarray((np.broadcast_to(a, (H, W)).clip(0, 1) * 255).astype(np.uint8)))
         self.textos = self._preparar_textos()
@@ -699,7 +699,10 @@ class Foto(Pieza):
         for tipo, txt, f, tam in partes:
             alto += (tam * 1.6) if tipo == "kicker" else len(txt) * tam * (1.08 if tipo == "tit" else 1.35) + 16
         if y is None:
-            y = (self.H * 0.82 - alto) if self.diseno == "completa" else ((ctx.arriba + ctx.abajo) / 2 - alto / 2)
+            if self.diseno == "completa":  # abajo, pero por encima de los subtítulos en los Shorts
+                y = (ctx.abajo - 40 - alto) if ctx.vertical else (self.H * 0.82 - alto)
+            else:
+                y = (ctx.arriba + ctx.abajo) / 2 - alto / 2
         for tipo, txt, f, tam in partes:
             if tipo == "kicker":
                 bloques.append((tipo, [(x + 24, y)], txt, f))
@@ -1475,8 +1478,13 @@ TIPOS = {"titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea,
 
 def crear_pieza(d, ctx, dur, imagen=None, credito="", clip=None):
     tipo = d.get("tipo", "titulo")
-    if tipo not in TIPOS:
-        raise SystemExit(f"::error::Tipo de escena desconocido: «{tipo}». Hay: {', '.join(TIPOS)}")
+    if tipo not in TIPOS and tipo != "ilustracion":
+        raise SystemExit(f"::error::Tipo de escena desconocido: «{tipo}». Hay: {', '.join(TIPOS)}, ilustracion")
+    if tipo == "ilustracion":  # se monta como una foto, pero con sus colores y a pantalla completa por defecto
+        d2 = dict(d)
+        d2.setdefault("diseno", "completa")
+        d2["color"] = True
+        return Foto(d2, ctx, dur, imagen=imagen, credito=credito)
     if tipo in ("foto", "boceto"):
         return TIPOS[tipo](d, ctx, dur, imagen=imagen, credito=credito)
     if tipo == "archivo":

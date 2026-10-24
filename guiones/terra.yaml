@@ -1,0 +1,578 @@
+# Terra: la burbuja de internet que arruinó a medio país
+# Guion para revisar. Cada dato lleva su fuente (lista de «fuentes» al final de este bloque).
+
+titulo: "Terra: la acción que pasó de 157 euros a 3 (la burbuja puntocom española)"
+descripcion: >-
+  En febrero del año 2000, una empresa de internet que casi no ganaba dinero llegó a ser una de las más
+  valiosas de la Bolsa española. Cinco años después, su acción valía un 98 % menos. Esta es la historia de
+  Terra: la salida a bolsa que desató la fiebre, la compra de Lycos por 12.500 millones de dólares y la
+  caída que se llevó por delante los ahorros de cientos de miles de familias.
+hashtags: "#historia #economía #bolsa #Terra #burbuja #puntocom #Telefónica"
+
+miniatura:
+  texto: "De 157 € a 3 €"
+  resaltar: "3"
+  cifra: "−98 %"
+
+fuentes:
+  - id: 1
+    corta: "EFE / Periodista Digital (2005)"
+    cita: "EFE. «Terra concluye a 3,04 euros después de llegar a cotizar a 157,65». Periodista Digital, 15 de julio de 2005."
+    url: "https://www.periodistadigital.com/old/125552.shtml"
+  - id: 2
+    corta: "Público (2019)"
+    cita: "«Terra: veinte años del gran fiasco puntocom español». Público, 2019."
+    url: "https://www.publico.es/economia/terra-veinte-anos-gran-fiasco-puntocom-espanol.html"
+  - id: 3
+    corta: "CNN Money (2000)"
+    cita: "«Terra to buy Lycos». CNN Money, 16 de mayo de 2000."
+    url: "https://money.cnn.com/2000/05/16/europe/terra/"
+  - id: 4
+    corta: "Eroski Consumer (2003)"
+    cita: "«500.000 familias pueden perder más del 60 % de sus inversiones en Terra por la OPA de Telefónica». Eroski Consumer, 7 de junio de 2003."
+    url: "https://www.consumer.es/?p=171869"
+  - id: 5
+    corta: "Kippel01 (2018)"
+    cita: "«Auge y caída de Terra: cuando Telefónica decidió poner a la venta “el futuro”». Kippel01, 2018."
+    url: "https://www.kippel01.com/empresa/auge-y-caida-de-terra-cuando-telefonica-decidio-poner-a-la-venta-el-futuro.html"
+  - id: 6
+    corta: "Wikipedia: Terra Networks"
+    cita: "«Terra Networks». Wikipedia, la enciclopedia libre."
+    url: "https://es.wikipedia.org/wiki/Terra_Networks"
+  - id: 7
+    corta: "Wikipedia: Juan Villalonga"
+    cita: "«Juan Villalonga». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Juan_Villalonga"
+  - id: 8
+    corta: "Nasdaq (cierres anuales)"
+    cita: "Nasdaq Composite, cierres de fin de año 1995–2002."
+    url: "https://www.nasdaq.com"
+  - id: 9
+    corta: "Techdirt (2004)"
+    cita: "«How To Lose $12 Billion On A Hot Property». Techdirt, 28 de julio de 2004."
+    url: "https://www.techdirt.com/2004/07/28/how-to-lose-12-billion-on-a-hot-property/"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "El 14 de febrero del año 2000, una acción de Terra costaba 157 euros."
+    tipo: cifra
+    valor: 157.65
+    decimales: 2
+    sufijo: " €"
+    etiqueta: "precio máximo de la acción de Terra · 14 de febrero de 2000"
+    fuente: 1
+  - voz: "Cinco años después, valía 3."
+    tipo: cifra
+    valor: 3.04
+    decimales: 2
+    sufijo: " €"
+    color: baja
+    etiqueta: "último precio · 15 de julio de 2005"
+    fuente: 1
+  - voz: "Entre medias, cientos de miles de familias españolas metieron sus ahorros en una empresa que casi no ganaba dinero."
+    tipo: ilustracion
+    escena: "Una familia española de clase media en la cocina de su piso a finales de los años noventa: el padre lee las páginas de bolsa del periódico, la madre mira una libreta de ahorros, una televisión de tubo encendida al fondo."
+    kicker: "España · 1999"
+    texto: "Los ahorros de toda una vida"
+  - voz: "Esta es la historia de Terra: la burbuja de internet que hizo soñar a medio país, y lo despertó de golpe."
+    tipo: titulo
+    texto: "La burbuja que hizo soñar a medio país"
+    resaltar: "soñar"
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Telefónica descubre internet"
+    short: false
+    escenas:
+      - voz: "Para entender a Terra hay que volver a 1998. Internet era todavía una rareza: se entraba con un módem que pitaba y bloqueaba el teléfono de casa."
+        tipo: foto
+        diseno: marco
+        imagen: "File:Analog Modem 56K.jpg"
+        kicker: "Finales de los noventa"
+        texto: "Conectarse era una aventura"
+        sub: "Módems de 56 kbps y la línea de teléfono ocupada"
+      - voz: "Y era caro: la conexión se pagaba como una llamada, por minutos. Muchos jóvenes descubrían internet en los cibercafés, chateando con desconocidos."
+        tipo: ilustracion
+        escena: "Un cibercafé español hacia 1999: filas de ordenadores beige con monitores de tubo, adolescentes con auriculares chateando, carteles de precios por hora en la pared, luz fluorescente, ambiente animado."
+        kicker: "Cibercafés"
+        texto: "Internet se pagaba por minutos"
+      - voz: "En Estados Unidos, las empresas de internet ya multiplicaban su valor en bolsa sin ganar un dólar. Y en España, alguien quería subirse a ese tren."
+        tipo: ilustracion
+        escena: "Una oficina de una empresa tecnológica en Estados Unidos a finales de los noventa: jóvenes con monitores de tubo, carteles de colores, una pizarra con flechas hacia arriba, ambiente eufórico."
+        kicker: "Estados Unidos · 1998"
+        texto: "La fiebre de las puntocom"
+      - voz: "Ese alguien era Telefónica, la antigua compañía pública de teléfonos, recién privatizada y presidida por Juan Villalonga."
+        tipo: boceto
+        imagen: "File:Edificio Telefónica (Gran Vía 28, Madrid) 01.jpg"
+        kicker: "Gran Vía 28 · Madrid"
+        nombre: "Telefónica"
+        sub: "La antigua compañía pública de teléfonos"
+        revelar: true
+        fuente: 7
+      - voz: "Villalonga, amigo de colegio del presidente del Gobierno, José María Aznar, llegó a Telefónica en 1996 con una idea fija: convertirla en un gigante de internet."
+        tipo: titulo
+        kicker: "Juan Villalonga · presidente de Telefónica"
+        texto: "Una idea fija: ser un gigante de internet"
+        resaltar: "gigante de internet"
+        fuente: 7
+      - voz: "En 1998 nace Telefónica Interactiva, el embrión de lo que sería Terra."
+        tipo: fecha
+        fecha: "1998"
+        lugar: "Nace Telefónica Interactiva"
+        fuente: 7
+      - voz: "Para ganar tiempo, compró el portal Olé por 2.000 millones de pesetas y un 8 % de las acciones de la nueva empresa."
+        tipo: esquema
+        modo: cadena
+        titulo: "Cómo se montó Terra"
+        nodos:
+          - {etiqueta: "1998", texto: "Telefónica Interactiva"}
+          - {etiqueta: "Compra", texto: "Portal Olé"}
+          - {etiqueta: "1999", texto: "Terra Networks", destacar: true}
+        flechas: ["2.000 M pts + 8 %", "Nueva marca"]
+        fuente: 6
+      - voz: "No a todos les gustó el giro. Treinta y seis empleados del proyecto se marcharon para fundar Ya.com, el portal rival que lanzó Jazztel."
+        tipo: cifra
+        valor: 36
+        etiqueta: "empleados que se fueron a fundar Ya.com, la competencia"
+        fuente: 6
+      - voz: "Luego vinieron portales en Brasil, México, Argentina, Chile y Perú. El plan era ambicioso: ser la puerta de entrada a internet de todo el mundo hispano."
+        tipo: mapa
+        caja: [-118, 12, -56, 45]
+        titulo: "Un portal para todo el mundo hispano"
+        grupos:
+          - paises: [España]
+            color: acento2
+            leyenda: "Sede: España"
+          - paises: [Brasil, México, Argentina, Chile, Perú, Colombia]
+            leyenda: "Portales de Terra"
+        fuente: 6
+      - voz: "Terra se presentaba como una ciudad virtual: correo, chat, noticias, compras. Todo en un mismo sitio."
+        tipo: lista
+        titulo: "Lo que prometía Terra"
+        puntos:
+          - "Correo electrónico gratis"
+          - "Chats y foros"
+          - "Noticias y entretenimiento"
+          - "Compras por internet"
+        fuente: 5
+      - voz: "Para toda una generación, Terra fue sobre todo su chat: el lugar donde se hacían amigos, se ligaba y se pasaban las tardes."
+        tipo: ilustracion
+        escena: "Una habitación juvenil española a finales de los noventa: una adolescente frente a un ordenador de tubo de noche, pósters en la pared, un teléfono fijo inalámbrico junto al teclado, la luz azul de la pantalla en su cara."
+        diseno: marco
+        kicker: "La generación del chat"
+        texto: "Tardes enteras en el chat de Terra"
+      - voz: "El problema es que todo eso costaba mucho dinero, y apenas ingresaba. Pero en 1999 eso no le importaba a nadie."
+        tipo: titulo
+        texto: "Costaba mucho y casi no ingresaba"
+        resaltar: "casi no ingresaba"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La fiebre"
+    short: true
+    titulo_short: "El día que España se volvió loca por una acción"
+    gancho_short:
+      - voz: "En 1999 una acción triplicó su precio en un solo día. Y medio país quiso comprarla."
+        tipo: titulo
+        texto: "Una acción que se triplicó en un día"
+        resaltar: "triplicó"
+    escenas:
+      - voz: "El 17 de noviembre de 1999, Terra salió a bolsa en Madrid y en Nueva York."
+        tipo: fecha
+        fecha: "17 NOV 1999"
+        lugar: "Madrid y Nueva York"
+        fuente: 6
+      - voz: "Los pequeños inversores podían comprar cada acción a 11,81 euros."
+        tipo: cifra
+        valor: 11.81
+        decimales: 2
+        sufijo: " €"
+        etiqueta: "precio de salida para los pequeños inversores"
+        fuente: 1
+      - voz: "Telefónica sacó al mercado alrededor de una cuarta parte de la empresa. El resto se lo quedaba ella."
+        tipo: cifra
+        valor: 24
+        sufijo: " %"
+        etiqueta: "parte del capital de Terra que se vendió en la salida a bolsa"
+        fuente: 1
+      - voz: "La demanda fue tan grande que hubo que repartir las acciones en lotes pequeños, de 25 en 25. Hubo quien hizo cola en la sucursal del banco para conseguirlas."
+        tipo: ilustracion
+        escena: "Cola de gente variada, con abrigos de finales de los noventa, ante la puerta de una sucursal bancaria española en una calle de Madrid, por la mañana, algunos con el periódico bajo el brazo."
+        diseno: sangre
+        kicker: "Noviembre de 1999"
+        texto: "Colas para comprar acciones"
+        fuente: [2, 5]
+      - voz: "Ese mismo día, la acción cerró a 37 euros. Había subido un 213 %. Nunca una empresa se había revalorizado tanto en su estreno en la Bolsa española."
+        tipo: comparar
+        titulo: "El primer día de Terra en bolsa"
+        izquierda: {etiqueta: "Precio de salida", valor: 11.81, texto: "11,81 €"}
+        derecha: {etiqueta: "Cierre del primer día", valor: 37, texto: "37 €"}
+        fuente: 1
+      - voz: "Dicho de otra forma: quien metió 1.000 euros por la mañana tenía más de 3.100 euros esa misma noche."
+        tipo: comparar
+        titulo: "Si hubieras invertido 1.000 € en la salida"
+        izquierda: {etiqueta: "Por la mañana", valor: 1000, texto: "1.000 €"}
+        derecha: {etiqueta: "Por la noche", valor: 3133, texto: "3.133 €", color: sube}
+        fuente: 1
+      - voz: "La noticia corrió por los bares, las oficinas y las cenas familiares. Todo el mundo conocía a alguien que había ganado dinero con Terra."
+        tipo: ilustracion
+        escena: "Un bar español tradicional a finales de los noventa: barra de madera, televisión en lo alto con un gráfico de bolsa subiendo, clientes con traje y obreros comentando animados con cafés y cañas."
+        kicker: "La noticia del día"
+        texto: "Todo el mundo hablaba de Terra"
+      - voz: "Según titulaba El País, los directivos de Terra ganaron 4.496 millones de pesetas sobre el papel con la salida a bolsa."
+        tipo: cifra
+        texto: "4.496 M pts"
+        etiqueta: "lo que ganaron sobre el papel los directivos con la salida a bolsa, según El País (1999)"
+        fuente: 6
+      - voz: "Y la acción no paraba. En enero del año 2000 entró en el Ibex 35, el índice de las grandes empresas españolas."
+        tipo: titulo
+        kicker: "Enero de 2000"
+        texto: "Terra entra en el Ibex 35"
+        resaltar: "Ibex 35"
+        fuente: 6
+      - voz: "Para muchos españoles, aquella era la primera vez que compraban acciones. La bolsa ya no era cosa de banqueros: era cosa de todos."
+        tipo: ilustracion
+        escena: "Un matrimonio de jubilados españoles sentados frente a un empleado de banco en su mesa, a finales de los noventa, firmando papeles; folletos de inversión sobre la mesa y un ordenador de tubo."
+        diseno: marco
+        kicker: "Pequeños inversores"
+        texto: "La primera vez en bolsa"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "157 euros"
+    short: true
+    titulo_short: "De 11,81 € a 157 € en tres meses"
+    gancho_short:
+      - voz: "Imagina comprar una acción a 11 euros y verla a 157 tres meses después."
+        tipo: titulo
+        texto: "De 11 a 157 euros en tres meses"
+        resaltar: "157"
+    escenas:
+      - voz: "El 14 de febrero del año 2000, día de San Valentín, la acción de Terra tocó su máximo histórico: 157,65 euros."
+        tipo: fecha
+        fecha: "14 FEB 2000"
+        lugar: "Máximo histórico"
+        fuente: 1
+      - voz: "Desde su salida a bolsa, en apenas tres meses, había subido más de un 1.200 %."
+        tipo: cifra
+        valor: 1234
+        sufijo: " %"
+        etiqueta: "subida desde el precio de salida hasta el máximo"
+        fuente: 1
+      - voz: "Aquellos 1.000 euros de la salida se habían convertido en más de 13.000. Sin hacer nada, en tres meses."
+        tipo: comparar
+        titulo: "Tus 1.000 € de la salida, en el máximo"
+        izquierda: {etiqueta: "Noviembre 1999", valor: 1000, texto: "1.000 €"}
+        derecha: {etiqueta: "Febrero 2000", valor: 13348, texto: "13.348 €", color: sube}
+        fuente: 1
+      - voz: "Terra llegó a ser una de las cuatro empresas más valiosas de la Bolsa española, con una capitalización cercana a los 40.000 millones de euros."
+        tipo: foto
+        diseno: completa
+        imagen: "File:Interior Bolsa de Madrid.jpg"
+        kicker: "Bolsa de Madrid"
+        texto: "Entre las cuatro más valiosas de España"
+        fuente: 1
+      - voz: "Más que bancos centenarios, con miles de oficinas y beneficios. Y eso que Terra apenas tenía ingresos."
+        tipo: ilustracion
+        escena: "Sala de operaciones de bolsa en Madrid en el año 2000: operadores con camisa y corbata gritando al teléfono, paneles de cotizaciones luminosos en verde, papeles por el suelo."
+        kicker: "Febrero de 2000"
+        texto: "La euforia en el parqué"
+        fuente: 2
+      - voz: "¿Cómo podía valer tanto una empresa que perdía dinero? Porque el mercado no compraba lo que Terra era, sino lo que prometía ser."
+        tipo: esquema
+        modo: cadena
+        titulo: "Cómo se infla una burbuja"
+        nodos:
+          - {etiqueta: "Paso 1", texto: "Internet crece cada mes"}
+          - {etiqueta: "Paso 2", texto: "Se promete ganar mucho en el futuro"}
+          - {etiqueta: "Paso 3", texto: "Todos compran y la acción sube"}
+          - {etiqueta: "Paso 4", texto: "La subida atrae a más compradores", destacar: true}
+        nota: "Y vuelta a empezar, hasta que alguien pregunta por los beneficios"
+      - voz: "Como resumió años después el diario Público: nadie sabía de dónde vendrían los beneficios, pero daba igual."
+        tipo: cita
+        texto: "Nadie sabía de dónde vendrían los beneficios, pero daba igual."
+        autor: "Público"
+        fecha: "2019"
+        fuente: 2
+      - voz: "No era solo cosa de España. Al otro lado del Atlántico, el índice tecnológico Nasdaq casi se había multiplicado por cuatro entre 1995 y 1999."
+        tipo: linea
+        titulo: "El Nasdaq, el índice de las tecnológicas"
+        subtitulo: "Cierre de cada año, en puntos"
+        valores: [1052, 1291, 1570, 2193, 4069]
+        etiquetas: ["1995", "1996", "1997", "1998", "1999"]
+        fuente: 8
+      - voz: "El 10 de marzo del año 2000, el Nasdaq marcó su máximo. Fue la cima de la burbuja puntocom."
+        tipo: foto
+        diseno: sangre
+        imagen: "File:NASDAQ studio.jpg"
+        kicker: "Nasdaq · Nueva York"
+        texto: "La cima de la burbuja"
+        sub: "El Nasdaq cerró por encima de los 5.000 puntos"
+        fuente: 8
+      - voz: "Lo que nadie sabía es que, a partir de ese día, todo iba a ir cuesta abajo."
+        tipo: titulo
+        texto: "A partir de ahí, todo fue cuesta abajo"
+        resaltar: "cuesta abajo"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La compra de Lycos"
+    short: true
+    titulo_short: "12.500 millones por un buscador, sin poner un euro"
+    gancho_short:
+      - voz: "En el año 2000, una empresa española pagó 12.500 millones de dólares por un buscador americano. Sin poner ni un euro en efectivo."
+        tipo: titulo
+        texto: "12.500 millones sin poner ni un euro"
+        resaltar: "ni un euro"
+    escenas:
+      - voz: "En la primavera del 2000, la acción de Terra ya había caído más de la mitad desde su máximo. Pero todavía valía mucho. Y Terra decidió usar ese valor para comprar."
+        tipo: ilustracion
+        escena: "Una gran sala de juntas de una empresa española en el año 2000, mesa larga de madera, ejecutivos de espaldas o de perfil sin rasgos definidos, ventanales con vista a Madrid al atardecer, documentos y botellas de agua."
+        kicker: "Primavera de 2000"
+        texto: "Comprar con acciones"
+      - voz: "El objetivo era Lycos, uno de los portales más visitados de Estados Unidos."
+        tipo: mapa
+        region: mundo
+        titulo: "De Madrid a Boston"
+        grupos:
+          - paises: [España]
+            color: acento2
+            leyenda: "Terra"
+          - paises: [Estados Unidos]
+            leyenda: "Lycos"
+        etiquetas:
+          - {pais: Estados Unidos, texto: "Lycos"}
+        fuente: 3
+      - voz: "El 16 de mayo del año 2000 se anunció la compra: 12.500 millones de dólares, pagados con acciones de Terra."
+        tipo: fecha
+        fecha: "16 MAY 2000"
+        lugar: "Terra compra Lycos"
+        fuente: 3
+      - voz: "Era una de las mayores compras de internet de la historia. Nacía Terra Lycos."
+        tipo: cifra
+        texto: "12.500 M$"
+        etiqueta: "lo que pagó Terra por Lycos, en acciones"
+        fuente: 3
+      - voz: "Terra ofrecía 97,55 dólares por cada acción de Lycos: un 80 % más de lo que valía en bolsa solo cuatro días antes. Una oferta difícil de rechazar."
+        tipo: cifra
+        valor: 80
+        prefijo: "+"
+        sufijo: " %"
+        etiqueta: "lo que pagaba Terra por encima del precio de Lycos el viernes anterior"
+        fuente: 3
+      - voz: "Además, el grupo alemán Bertelsmann se comprometió a gastar 1.000 millones de dólares en publicidad en Terra Lycos durante cinco años."
+        tipo: cifra
+        texto: "1.000 M$"
+        etiqueta: "publicidad comprometida por Bertelsmann en cinco años"
+        fuente: 6
+      - voz: "La jugada tenía truco: Terra no pagaba con dinero, sino con sus propias acciones, que en aquel momento estaban carísimas."
+        tipo: esquema
+        modo: cadena
+        titulo: "La compra con acciones"
+        nodos:
+          - {etiqueta: "Terra", texto: "Acciones muy caras"}
+          - {etiqueta: "Lycos", texto: "Accionistas de Lycos"}
+          - {etiqueta: "Resultado", texto: "Terra Lycos", destacar: true}
+        flechas: ["Las entrega", "Ceden Lycos"]
+        fuente: 3
+      - voz: "Pocas semanas después, el protagonista de la historia se caía del cartel."
+        tipo: titulo
+        texto: "Y entonces cayó Villalonga"
+        resaltar: "Villalonga"
+      - voz: "En junio del 2000, el diario El Mundo publicó que Villalonga habría usado información privilegiada. En julio dimitió, presionado también por el Gobierno."
+        tipo: fecha
+        fecha: "JULIO 2000"
+        lugar: "Villalonga deja Telefónica"
+        fuente: 7
+      - voz: "Un mes después, la Comisión Nacional del Mercado de Valores le exculpó. Pero ya no volvería: la era de las grandes apuestas en Telefónica había terminado."
+        tipo: ilustracion
+        escena: "Un despacho de dirección vacío en una gran empresa en el año 2000: sillón de cuero, mesa despejada con una caja de cartón con objetos personales, luz de tarde entrando por un ventanal con vistas a Madrid."
+        diseno: marco
+        kicker: "Agosto de 2000"
+        texto: "Exculpado, pero fuera"
+        fuente: 7
+      - voz: "Su sustituto fue César Alierta, que venía de presidir Tabacalera. Él sería quien tendría que gestionar la resaca de Terra."
+        tipo: boceto
+        imagen: "File:César Alierta 2014 (cropped).jpg"
+        kicker: "Presidente de Telefónica desde julio de 2000"
+        nombre: "César Alierta"
+        sub: "Le tocó gestionar la resaca"
+        revelar: true
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La caída"
+    short: true
+    titulo_short: "Cómo se pinchó la burbuja de Terra"
+    escenas:
+      - voz: "La burbuja puntocom empezó a desinflarse en todo el mundo. El Nasdaq perdió casi el 80 % de su valor en dos años y medio."
+        tipo: linea
+        titulo: "El pinchazo del Nasdaq"
+        subtitulo: "Cierre de cada año, en puntos"
+        valores: [1052, 1291, 1570, 2193, 4069, 2471, 1950, 1336]
+        etiquetas: ["1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002"]
+        marcas:
+          - {indice: 4, texto: "Fin de 1999"}
+        fuente: 8
+      - voz: "Las empresas de internet empezaron a cerrar una tras otra. Los inversores se dieron cuenta de que muchas nunca iban a ganar dinero."
+        tipo: ilustracion
+        escena: "Una oficina de empresa de internet abandonada hacia 2001: mesas vacías, monitores de tubo apagados, cajas de cartón, sillas giratorias desordenadas, una planta seca, luz fría por los ventanales."
+        kicker: "2001"
+        texto: "Las puntocom se apagan"
+      - voz: "Terra no fue una excepción. En 2001 ingresó unos 690 millones de euros… y perdió más de 5.000."
+        tipo: comparar
+        titulo: "Las cuentas de Terra en 2001"
+        izquierda: {etiqueta: "Ingresos", valor: 690, texto: "690 M€", color: sube}
+        derecha: {etiqueta: "Pérdidas", valor: 5663, texto: "−5.663 M€", color: baja}
+        fuente: 5
+      - voz: "Detrás de esas pérdidas estaba, sobre todo, lo pagado por Lycos y otras compras, que hubo que ir rebajando en las cuentas."
+        tipo: esquema
+        modo: causas
+        titulo: "Por qué se hundió Terra"
+        nodos:
+          - {etiqueta: "El mercado", texto: "Se pincha la burbuja puntocom"}
+          - {etiqueta: "Las cuentas", texto: "Pérdidas enormes y pocos ingresos"}
+          - {etiqueta: "Las compras", texto: "Lycos valía mucho menos de lo pagado"}
+        resultado: {etiqueta: "Resultado", texto: "La acción se desploma"}
+        fuente: [5, 9]
+      - voz: "La fecha en la que Terra iba a empezar a ganar dinero se fue retrasando: primero era 2003, luego 2005."
+        tipo: esquema
+        modo: cadena
+        titulo: "La rentabilidad, siempre más lejos"
+        nodos:
+          - {etiqueta: "Promesa", texto: "Beneficios en 2003"}
+          - {etiqueta: "Nueva promesa", texto: "Beneficios en 2005", destacar: true}
+        flechas: ["Se aplaza"]
+        fuente: 1
+      - voz: "Mes a mes, la acción siguió bajando. Los pequeños inversores que habían entrado en lo más alto veían cómo sus ahorros se evaporaban."
+        tipo: ilustracion
+        escena: "Un hombre de mediana edad sentado de noche frente a un ordenador de tubo en un salón español a principios de los 2000, iluminado por la pantalla con un gráfico rojo que cae, una taza de café fría al lado."
+        diseno: sangre
+        kicker: "2001 – 2002"
+        texto: "Los ahorros se evaporan"
+      - voz: "En mayo de 2003, Telefónica lanzó una oferta para comprar las acciones de Terra que no tenía. Ofrecía 5,25 euros por acción."
+        tipo: cifra
+        valor: 5.25
+        decimales: 2
+        sufijo: " €"
+        etiqueta: "lo que ofreció Telefónica por cada acción de Terra (mayo de 2003)"
+        fuente: [1, 4]
+      - voz: "Menos de la mitad del precio de salida. Y treinta veces menos que en el máximo."
+        tipo: barras
+        titulo: "El precio de una acción de Terra"
+        subtitulo: "En euros, en cuatro momentos clave"
+        valores: [11.81, 37, 157.65, 5.25]
+        etiquetas: ["Salida 1999", "1.er día", "Máximo 2000", "Oferta 2003"]
+        decimales: 2
+        destacar: [3]
+        fuente: [1, 4]
+      - voz: "La asociación de consumidores Adicae calculó que medio millón de familias podían perder más del 60 % de lo que habían invertido."
+        tipo: cifra
+        texto: "500.000"
+        etiqueta: "familias que podían perder más del 60 % de su inversión, según Adicae (2003)"
+        fuente: 4
+      - voz: "Su presidente, Manuel Pardos, lo dijo sin rodeos."
+        tipo: cita
+        texto: "Ruina para medio millón de familias."
+        autor: "Manuel Pardos, presidente de Adicae"
+        fecha: "junio de 2003"
+        fuente: 4
+      - voz: "Hubo demandas colectivas en Nueva York y recursos en España. Pero Telefónica se hizo con más del 70 % de Terra."
+        tipo: ilustracion
+        escena: "Una reunión de pequeños accionistas indignados en un salón de actos sencillo de Madrid hacia 2003: sillas plegables, personas mayores y de mediana edad con carpetas y papeles, un hombre habla de pie, ambiente tenso."
+        kicker: "2003"
+        texto: "Los pequeños accionistas se organizan"
+        fuente: 5
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El final"
+    short: true
+    titulo_short: "Pagaron 12.500 millones y lo vendieron por 100"
+    gancho_short:
+      - voz: "Una empresa española pagó 12.500 millones de dólares por un buscador. Cuatro años después lo vendió por menos del 1 %."
+        tipo: titulo
+        texto: "Pagó 12.500 millones y lo vendió por menos del 1 %"
+        resaltar: "menos del 1 %"
+    escenas:
+      - voz: "En 2004 llegó la humillación final de la gran apuesta: Lycos se vendió a la empresa surcoreana Daum."
+        tipo: mapa
+        region: mundo
+        titulo: "Lycos cambia de manos"
+        grupos:
+          - paises: [Estados Unidos]
+            leyenda: "Lycos"
+          - paises: [Corea del Sur]
+            color: acento2
+            leyenda: "Daum, el comprador"
+        etiquetas:
+          - {pais: Corea del Sur, texto: "Daum"}
+        fuente: 6
+      - voz: "El precio: unos 100 millones de dólares. Menos del 1 % de lo que Terra había pagado cuatro años antes."
+        tipo: comparar
+        titulo: "Lycos: lo que costó y lo que se sacó"
+        izquierda: {etiqueta: "Compra (2000)", valor: 12500, texto: "12.500 M$"}
+        derecha: {etiqueta: "Venta (2004)", valor: 105, texto: "≈100 M$", color: baja}
+        fuente: [6, 9]
+      - voz: "En 2005, Telefónica absorbió a Terra. Cada nueve acciones de Terra se cambiaron por dos de Telefónica."
+        tipo: esquema
+        modo: cadena
+        titulo: "La fusión de 2005"
+        nodos:
+          - {etiqueta: "Antes", texto: "9 acciones de Terra"}
+          - {etiqueta: "Después", texto: "2 acciones de Telefónica", destacar: true}
+        flechas: ["Canje"]
+        fuente: 1
+      - voz: "El 15 de julio de 2005, la acción de Terra cotizó por última vez. Cerró a 3,04 euros."
+        tipo: fecha
+        fecha: "15 JUL 2005"
+        lugar: "Último día en bolsa"
+        fuente: 1
+      - voz: "Un 98 % menos que en su mejor día."
+        tipo: cifra
+        valor: -98
+        sufijo: " %"
+        color: baja
+        etiqueta: "caída desde el máximo de febrero de 2000"
+        fuente: 1
+      - voz: "¿Qué le quedó a cada inversor? Quien compró en la salida y aguantó hasta el final, el último día tenía acciones por valor de unos 257 euros de cada 1.000 invertidos."
+        tipo: comparar
+        titulo: "1.000 € invertidos en la salida (1999)"
+        izquierda: {etiqueta: "Invertido", valor: 1000, texto: "1.000 €"}
+        derecha: {etiqueta: "Último día (2005)", valor: 257, texto: "257 €", color: baja}
+        fuente: 1
+      - voz: "Pero quien se dejó llevar por la euforia y compró en lo más alto, se quedó con unos 19 euros de cada 1.000."
+        tipo: comparar
+        titulo: "1.000 € invertidos en el máximo (2000)"
+        izquierda: {etiqueta: "Invertido", valor: 1000, texto: "1.000 €"}
+        derecha: {etiqueta: "Último día (2005)", valor: 19, texto: "19 €", color: baja}
+        fuente: 1
+      - voz: "Entre el máximo y su desaparición, se esfumaron unos 47.000 millones de euros de valor en bolsa."
+        tipo: cifra
+        texto: "47.000 M€"
+        etiqueta: "valor en bolsa que desapareció entre 2000 y 2005, según Público"
+        fuente: 2
+      - voz: "La marca sobrevivió unos años más. Hasta que, en 2017, Terra cerró su correo y sus portales en casi todos los países."
+        tipo: ilustracion
+        escena: "Un portátil abierto sobre una mesa de cocina en 2017, con la pantalla iluminando suavemente una habitación en penumbra; al lado una taza y unas gafas, ambiente de despedida."
+        diseno: marco
+        kicker: "2017"
+        texto: "El último correo de Terra"
+        fuente: 6
+      - voz: "Hoy, Terra es un recuerdo para los que crecieron con su chat. Y una lección para los que invirtieron en ella."
+        tipo: titulo
+        texto: "Un recuerdo y una lección"
+        resaltar: "lección"
+      - voz: "Una lección que se puede resumir en tres ideas."
+        tipo: lista
+        titulo: "Lo que nos enseñó Terra"
+        puntos:
+          - "Una empresa vale lo que gana, no lo que promete"
+          - "Si todo el mundo compra, quizá llegas tarde"
+          - "No pongas todos tus ahorros en una sola acción"
+      - voz: "Cada pocos años aparece una nueva revolución que promete cambiarlo todo. A veces lo consigue. Pero eso no significa que cualquier precio sea un buen precio."
+        tipo: ilustracion
+        escena: "Una persona joven de espaldas mira por la ventana de un piso moderno la ciudad de Madrid al anochecer, con el móvil en la mano mostrando un gráfico; en la mesa, un viejo módem y un periódico doblado del año 2000, como recuerdo."
+        kicker: "Hoy"
+        texto: "Cada época tiene su burbuja"
+
+cierre:
+  - voz: "Si te ha gustado esta historia, suscríbete. Cada semana contamos una historia de dinero, con datos y con fuentes."
+    tipo: titulo
+    texto: "Una historia de dinero cada semana"
+    resaltar: "cada semana"

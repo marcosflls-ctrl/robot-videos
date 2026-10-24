@@ -108,6 +108,8 @@ rojo anaranjado y dorado, titulares con serifa y grano de película.
 - **Escenas:** titulares, cifras, gráficos, fechas, citas, listas, fotos de época, bocetos que se dibujan a trazos,
   mapas animados, esquemas de cajas y flechas y clips de archivo.
 - **Fotos e imágenes:** de Wikimedia Commons, solo con licencia libre; el crédito sale en pantalla y en la descripción.
+- **Ilustraciones con IA** (escenas `ilustracion`): modelo de imágenes de Gemini con la misma clave `GEMINI_API_KEY`.
+  Necesita la facturación activada en Google AI Studio (el plan gratuito no incluye imágenes). Unos céntimos por imagen.
 - **Mapas:** datos de Natural Earth (dominio público), en `mapas/paises.geojson`.
 - **Voz:** Gemini (clave `GEMINI_API_KEY`), con una voz de narrador distinta de la de los Shorts de las webs.
   Las frases ya leídas y las imágenes se guardan entre ejecuciones.
