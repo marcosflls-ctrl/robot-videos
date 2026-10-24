@@ -1,0 +1,23 @@
+# TEMPORAL: prueba de las escenas «ilustracion» (3 imágenes).
+titulo: "Prueba de ilustraciones"
+capitulos:
+  - titulo: "Tres escenas de época"
+    short: true
+    escenas:
+      - voz: "Madrid, 1868. La Puerta del Sol es el corazón de una ciudad que está a punto de estrenar moneda."
+        tipo: ilustracion
+        escena: "La Puerta del Sol de Madrid en 1868: plaza amplia con edificios de cuatro plantas, faroles de gas, carruajes de caballos, vendedores y paseantes con ropa del siglo XIX, luz de mañana."
+        kicker: "Madrid · 1868"
+        texto: "Una ciudad a punto de estrenar moneda"
+      - voz: "Octubre de 1929. Ante las puertas de un banco, cientos de personas esperan para sacar sus ahorros."
+        tipo: ilustracion
+        escena: "Una larga cola de gente con abrigos y sombreros de los años veinte ante la fachada de piedra de un gran banco con columnas, en una calle de ciudad, cielo gris de otoño."
+        diseno: sangre
+        kicker: "Octubre de 1929"
+        texto: "El pánico llega a los bancos"
+      - voz: "Hoy, aquella historia se cuenta en los museos: monedas, gráficos y bustos de los que pensaron el dinero."
+        tipo: ilustracion
+        escena: "Sala amplia y luminosa de un museo moderno de historia económica: a la izquierda un gran busto clásico de mármol, al fondo un ventanal con árboles y montañas, a la derecha paneles con mapas antiguos y monedas, visitantes de espaldas."
+        diseno: marco
+        kicker: "Hoy"
+        texto: "La historia del dinero, en el museo"
