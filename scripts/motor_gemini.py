@@ -2,9 +2,8 @@
 
 Variables:
     GEMINI_API_KEY   clave de la API de Gemini (Google AI Studio)
-    GEMINI_VOICE_ID  voz clonada de Marcos creada en AI Studio («voice_...»).
-    GEMINI_VOZ       «clonada» (por defecto: la de GEMINI_VOICE_ID) o el nombre de una voz de
-                     Gemini (Orus, Charon, Puck...). Sin voz clonada, se usa Orus.
+    GEMINI_VOZ       nombre de una voz de Gemini (por defecto Orus; también Charon, Puck...).
+                     «clonada» usa GEMINI_VOICE_ID si algún día se crea una voz propia.
     GEMINI_MODELO    modelo (por defecto gemini-3.8-flash-tts)
     GEMINI_ESTILO    cómo debe sonar (por defecto, presentador de vídeos cortos)
 
@@ -39,11 +38,9 @@ class MotorVozGemini:
     def __init__(self):
         self.clave = os.environ["GEMINI_API_KEY"].strip()
         self.modelo = (os.environ.get("GEMINI_MODELO") or "gemini-3.8-flash-tts").strip()
-        elegida = (os.environ.get("GEMINI_VOZ") or "clonada").strip()
+        elegida = (os.environ.get("GEMINI_VOZ") or "Orus").strip()
         clonada = (os.environ.get("GEMINI_VOICE_ID") or "").strip()
         if elegida == "clonada":
-            if not clonada:
-                print("::warning::No hay GEMINI_VOICE_ID (tu voz clonada): uso la voz Orus de Gemini")
             self.voz = clonada or "Orus"
         else:
             self.voz = elegida
