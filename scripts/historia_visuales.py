@@ -833,6 +833,8 @@ class Boceto(Pieza):
         self.foto = None
         if imagen is not None:
             img = imagen.convert("RGB")
+            m = int(min(img.size) * 0.025)  # quita el borde (marcos de cuadros, filos del escaneo)
+            img = img.crop((m, m, img.width - m, img.height - m))
             r = min(bw / img.width, bh / img.height)
             img = img.resize((max(1, int(img.width * r)), max(1, int(img.height * r))), Image.LANCZOS)
             self.ox = self.caja[0] + (bw - img.width) // 2
@@ -876,7 +878,16 @@ class Boceto(Pieza):
         sx = self.iw / g.shape[1]
         sy = self.ih / g.shape[0]
         salida = []
+        gh, gw = g.shape
         for tr in trazos:
+            arr = np.array(tr, np.float32)
+            # fuera las líneas rectas pegadas al borde (filos de marcos y escaneos)
+            if len(arr) > 40:
+                xs, ys = arr[:, 0], arr[:, 1]
+                pegado = (xs.max() < gw * 0.06 or xs.min() > gw * 0.94 or ys.max() < gh * 0.06 or ys.min() > gh * 0.94)
+                recto = (xs.max() - xs.min() < 6) or (ys.max() - ys.min() < 6)
+                if pegado or (recto and len(arr) > gh * 0.4):
+                    continue
             a = _suavizar(tr)
             a = a * [sx, sy] + [self.ox, self.oy]
             # un poco de pulso de mano

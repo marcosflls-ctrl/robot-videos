@@ -328,9 +328,9 @@ def fondo_base(ctx, semilla=0):
 
 
 class Grano:
-    """Grano de película que cambia 12 veces por segundo (da textura sin distraer)."""
+    """Grano de película suave que cambia 6 veces por segundo (da textura sin inflar el archivo)."""
 
-    def __init__(self, W, H, n=6, fuerza=22):
+    def __init__(self, W, H, n=4, fuerza=9):
         self.capas = []
         for k in range(n):
             g = _grano(W, H, 1.0, 100 + k)
@@ -341,7 +341,7 @@ class Grano:
             self.capas.append(capa)
 
     def en(self, t):
-        return self.capas[int(t * 12) % len(self.capas)]
+        return self.capas[int(t * 6) % len(self.capas)]
 
 
 class Pantallas:
@@ -554,7 +554,7 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         ["ffmpeg", "-loglevel", "error", "-y",
          "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
          "-i", str(audio),
-         "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-pix_fmt", "yuv420p",
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "192k", "-t", f"{n_frames / FPS:.3f}", "-movflags", "+faststart", str(salida)],
         stdin=subprocess.PIPE,
     )
