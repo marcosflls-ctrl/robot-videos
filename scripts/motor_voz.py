@@ -1,7 +1,7 @@
 """Voces para los vídeos.
 
 - crear_motor(): elige el motor con la variable VOZ_MOTOR:
-    gemini     -> Gemini TTS (voz clonada de Marcos si hay GEMINI_VOICE_ID; si no, una voz de Gemini)
+    gemini     -> Gemini TTS (voz de Google: Orus por defecto)
     chatterbox -> Chatterbox español de España con la voz de Marcos (en el ordenador de GitHub)
   Si se pide Gemini pero no hay GEMINI_API_KEY, se usa Chatterbox.
 

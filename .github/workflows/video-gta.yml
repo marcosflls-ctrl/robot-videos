@@ -13,10 +13,10 @@ on:
         options: ["gemini", "chatterbox"]
         default: "gemini"
       voz_gemini:
-        description: "Voz de Gemini: clonada (la tuya, si existe GEMINI_VOICE_ID) o una de Gemini"
+        description: "Voz de Gemini (Orus es la de siempre)"
         type: choice
-        options: ["clonada", "Orus", "Charon", "Puck", "Fenrir", "Sadaltager", "Iapetus", "Kore", "Aoede"]
-        default: "clonada"
+        options: ["Orus", "Charon", "Puck", "Fenrir", "Sadaltager", "Iapetus", "Kore", "Aoede"]
+        default: "Orus"
       voz:
         description: "Estilo de voz: natural (pausas en las comas), expresivo (más entonación) o antes (como la primera prueba)"
         type: choice
