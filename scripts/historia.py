@@ -746,7 +746,7 @@ def miniatura(g, canal, ruta):
     img.convert("RGB").save(ruta)
 
 
-def copia_ligera(entrada, salida, duracion, max_mb=45):
+def copia_ligera(entrada, salida, duracion, max_mb=45, escala="1280:720"):
     """Copia que cabe en Telegram (límite de 50 MB para bots)."""
     if Path(entrada).stat().st_size < max_mb * 1024 * 1024:  # ya cabe: se manda tal cual
         import shutil
@@ -757,7 +757,7 @@ def copia_ligera(entrada, salida, duracion, max_mb=45):
     if video < 180:
         print("::warning::El vídeo es demasiado largo para mandarlo por Telegram: descárgalo de GitHub (Artifacts)")
         return False
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(entrada), "-vf", "scale=1280:720",
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(entrada), "-vf", f"scale={escala}",
                     "-c:v", "libx264", "-preset", "veryfast", "-b:v", f"{video}k", "-maxrate", f"{int(video * 1.4)}k",
                     "-bufsize", f"{video * 2}k", "-c:a", "aac", "-b:a", "80k", "-movflags", "+faststart", str(salida)],
                    check=True)
@@ -799,6 +799,8 @@ def main():
             r = montar(g, canal, bloques, sr, VERTICAL, base.with_suffix(".mp4"),
                        subtitulos=bool(canal.get("subtitulos_shorts", True)))
             dur = r["duracion"]
+            # Copia que cabe en Telegram (los bots no pueden mandar más de 50 MB); el original queda en Artifacts
+            copia_ligera(base.with_suffix(".mp4"), base.parent / f"{base.name}_movil.mp4", dur, escala="1080:1920")
             notas = ["✅ Más de 1 minuto: vale para el programa de pagos de TikTok" if dur > 61
                      else "⚠️ Menos de 1 minuto: TikTok no lo paga (alarga el capítulo si quieres cobrar allí)",
                      "✅ Vale para YouTube Shorts (hasta 3 minutos)" if dur <= 180
