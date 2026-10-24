@@ -1094,8 +1094,12 @@ class Mapa(Pieza):
         RH = int((self.ext[3] - self.ext[2]) * self.res)
         self.RW, self.RH = RW, RH
         self.grupos = []
-        for i, g in enumerate(d.get("grupos") or []):
-            self.grupos.append({"paises": [_buscar_pais(p) for p in g["paises"]], "color": g.get("color", "acento" if i == 0 else "acento2"),
+        lista = d.get("grupos") or []
+        usados = {g.get("color") for g in lista if g.get("color")}
+        libres = [c for c in ("acento", "acento2", "sube", "texto") if c not in usados]
+        for g in lista:
+            color = g.get("color") or (libres.pop(0) if libres else "acento")  # sin color: uno que no se repita
+            self.grupos.append({"paises": [_buscar_pais(p) for p in g["paises"]], "color": color,
                                 "leyenda": g.get("leyenda")})
         self.base = self._render(None)
         self.capas = [self._render(g) for g in self.grupos]
