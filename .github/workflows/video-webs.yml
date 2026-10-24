@@ -1,6 +1,6 @@
 # Vídeos de prueba de las tres webs: Zona Leonida, Al Final de Mes y Dinero en Claro.
 # Lee los datos de las dos webs (solo lectura), monta los vídeos con tu voz
-# y te los manda por Telegram para revisarlos. NO publica nada ni toca las webs.
+# te los manda por Telegram y los sube a YouTube EN PRIVADO (no publica nada ni toca las webs).
 # Se lanza solo cada mañana; también a mano: pestaña "Actions" -> "Vídeos de las tres webs" -> "Run workflow".
 
 name: Vídeos de las tres webs
@@ -47,6 +47,10 @@ on:
         type: choice
         options: ["", "mercados", "aportaciones", "ahorro", "cripto"]
         default: ""
+      subir_youtube:
+        description: "Subir también a YouTube (siempre en privado)"
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -157,3 +161,15 @@ jobs:
               echo "::error::Telegram no aceptó $v: $(echo "$respuesta" | cut -c1-200)"
             fi
           done
+      - name: Subir a YouTube en privado (si está configurado)
+        if: github.event.inputs.subir_youtube != 'false'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_GTA: ${{ secrets.YOUTUBE_REFRESH_GTA }}
+          YOUTUBE_REFRESH_AFDM: ${{ secrets.YOUTUBE_REFRESH_AFDM }}
+          YOUTUBE_REFRESH_DEC: ${{ secrets.YOUTUBE_REFRESH_DEC }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        working-directory: scripts
+        run: python subir_youtube.py
