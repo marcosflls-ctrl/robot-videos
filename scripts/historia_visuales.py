@@ -1475,8 +1475,13 @@ TIPOS = {"titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea,
 
 def crear_pieza(d, ctx, dur, imagen=None, credito="", clip=None):
     tipo = d.get("tipo", "titulo")
-    if tipo not in TIPOS:
-        raise SystemExit(f"::error::Tipo de escena desconocido: «{tipo}». Hay: {', '.join(TIPOS)}")
+    if tipo not in TIPOS and tipo != "ilustracion":
+        raise SystemExit(f"::error::Tipo de escena desconocido: «{tipo}». Hay: {', '.join(TIPOS)}, ilustracion")
+    if tipo == "ilustracion":  # se monta como una foto, pero con sus colores y a pantalla completa por defecto
+        d2 = dict(d)
+        d2.setdefault("diseno", "completa")
+        d2["color"] = True
+        return Foto(d2, ctx, dur, imagen=imagen, credito=credito)
     if tipo in ("foto", "boceto"):
         return TIPOS[tipo](d, ctx, dur, imagen=imagen, credito=credito)
     if tipo == "archivo":
