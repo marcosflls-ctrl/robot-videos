@@ -120,3 +120,71 @@ class MotorVozGemini:
             wav = wav[max(0, activo[0] - int(0.03 * self.sr)): activo[-1] + int(0.08 * self.sr)]
         self.ultimas_piezas = [(texto_pantalla, 0.0, len(wav) / self.sr)]
         return wav.astype(np.float32)
+
+
+    # ---------- varias frases en UNA sola petición (ahorra cupo: 1 petición por vídeo) ----------
+
+    def decir_varias(self, frases):
+        """Devuelve [(audio, piezas)] por frase, pidiendo todo el guion de una vez.
+
+        Gemini lee el texto seguido; luego se corta el audio en los silencios que caen más
+        cerca de donde debería acabar cada frase (según su número de letras).
+        """
+        dichos = [a_voz(f, GLOSARIO_GEMINI) for f in frases]
+        print("  · (una sola petición) " + " | ".join(dichos))
+        wav = self._audio(self._pedir(" ".join(dichos)))
+        cortes = _cortar_en_silencios(wav, self.sr, [len(d) for d in dichos])
+        salida = []
+        for (a, b), frase in zip(cortes, frases):
+            trozo = _recortar(wav[a:b], self.sr)
+            salida.append((trozo, [(frase, 0.0, len(trozo) / self.sr)]))
+        return salida
+
+
+def _recortar(wav, sr):
+    env = np.abs(wav)
+    activo = np.where(env > 0.02 * (env.max() or 1))[0]
+    if len(activo):
+        wav = wav[max(0, activo[0] - int(0.03 * sr)): activo[-1] + int(0.08 * sr)]
+    return wav.astype(np.float32)
+
+
+def _cortar_en_silencios(wav, sr, letras):
+    """Divide el audio en len(letras) tramos, cortando en silencios cercanos al punto esperado."""
+    n = len(letras)
+    if n <= 1:
+        return [(0, len(wav))]
+    ventana = max(1, int(0.02 * sr))
+    env = np.convolve(np.abs(wav), np.ones(ventana) / ventana, mode="same")
+    umbral = 0.04 * (env.max() or 1)
+    silencio = env < umbral
+    # Huecos de silencio de al menos 0,12 s: (inicio, fin, centro)
+    huecos, i = [], 0
+    while i < len(silencio):
+        if silencio[i]:
+            j = i
+            while j < len(silencio) and silencio[j]:
+                j += 1
+            if (j - i) / sr >= 0.12 and i > 0 and j < len(silencio):
+                huecos.append((i, j, (i + j) // 2))
+            i = j
+        else:
+            i += 1
+    total = sum(letras)
+    acumulado, esperados = 0, []
+    for l in letras[:-1]:
+        acumulado += l
+        esperados.append(int(len(wav) * acumulado / total))
+    cortes, ultimo = [], 0
+    for e in esperados:
+        candidatos = [h for h in huecos if h[2] > ultimo + int(0.3 * sr)]
+        if candidatos:
+            # El hueco más cercano al punto esperado; a igualdad, el más largo
+            h = min(candidatos, key=lambda h: abs(h[2] - e) - 0.3 * (h[1] - h[0]))
+            corte = h[2]
+        else:
+            corte = max(e, ultimo + 1)
+        cortes.append(corte)
+        ultimo = corte
+    limites = [0] + cortes + [len(wav)]
+    return [(limites[k], limites[k + 1]) for k in range(n)]

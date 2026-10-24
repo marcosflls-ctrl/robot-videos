@@ -196,6 +196,23 @@ class MotorVoz:
         return np.concatenate(audio)
 
 
+def decir_guion(voz, frases):
+    """Audios y trozos de todas las frases. Con Gemini, una sola petición por vídeo."""
+    if hasattr(voz, "decir_varias"):
+        try:
+            res = voz.decir_varias(frases)
+            return [a for a, _ in res], [p for _, p in res]
+        except SystemExit:
+            raise
+        except Exception as error:  # si falla el corte, frase a frase
+            print(f"::warning::No se pudo hacer de una vez ({error}); voy frase a frase")
+    audios, trozos = [], []
+    for f in frases:
+        audios.append(voz.decir(f))
+        trozos.append(voz.ultimas_piezas)
+    return audios, trozos
+
+
 def crear_motor():
     motor = (os.environ.get("VOZ_MOTOR") or "gemini").strip().lower()
     if motor == "gemini" and (os.environ.get("GEMINI_API_KEY") or "").strip():

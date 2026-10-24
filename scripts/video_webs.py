@@ -53,19 +53,16 @@ for web in webs:
         print("  -", f)
     trabajos.append((web, tema, guion))
 
-from motor_voz import crear_motor  # tarda en cargar: solo después de comprobar los datos
+from motor_voz import crear_motor, decir_guion  # tarda en cargar: solo después de comprobar los datos
 
 inicio = time.time()
 voz = crear_motor()
 print(f"Voz cargada en {round(time.time() - inicio)} s")
 os.makedirs(SALIDA, exist_ok=True)
 for web, tema, guion in trabajos:
-    audios, trozos = [], []
-    for f in guion["frases"]:
-        t = time.time()
-        audios.append(voz.decir(f))
-        trozos.append(voz.ultimas_piezas)
-        print(f"    ({round(time.time() - t)} s)")
+    t = time.time()
+    audios, trozos = decir_guion(voz, guion["frases"])
+    print(f"    (voz en {round(time.time() - t)} s)")
     base = f"{SALIDA}/{NOMBRES[web]}_{hoy().isoformat()}_{tema}"
     if MONTAJE == "clasico":
         montador = video_gta.montar if web == "gta" else montar
