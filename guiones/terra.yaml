@@ -213,7 +213,7 @@ capitulos:
         izquierda: {etiqueta: "Por la mañana", valor: 1000, texto: "1.000 €"}
         derecha: {etiqueta: "Por la noche", valor: 3133, texto: "3.133 €", color: sube}
         fuente: 1
-      - voz: "Los que entraron por la mañana habían triplicado su dinero antes de cenar. La noticia corrió por los bares, las oficinas y las cenas familiares."
+      - voz: "La noticia corrió por los bares, las oficinas y las cenas familiares. Todo el mundo conocía a alguien que había ganado dinero con Terra."
         tipo: ilustracion
         escena: "Un bar español tradicional a finales de los noventa: barra de madera, televisión en lo alto con un gráfico de bolsa subiendo, clientes con traje y obreros comentando animados con cafés y cañas."
         kicker: "La noticia del día"
@@ -315,12 +315,12 @@ capitulos:
 # ---------------------------------------------------------------------------------------------
   - titulo: "La compra de Lycos"
     short: true
-    titulo_short: "Pagaron 12.500 millones y lo vendieron por 100"
+    titulo_short: "12.500 millones por un buscador, sin poner un euro"
     gancho_short:
-      - voz: "Una empresa española pagó 12.500 millones de dólares por un buscador. Cuatro años después lo vendió por menos del 1 %."
+      - voz: "En el año 2000, una empresa española pagó 12.500 millones de dólares por un buscador americano. Sin poner ni un euro en efectivo."
         tipo: titulo
-        texto: "Pagó 12.500 millones y lo vendió por menos del 1 %"
-        resaltar: "menos del 1 %"
+        texto: "12.500 millones sin poner ni un euro"
+        resaltar: "ni un euro"
     escenas:
       - voz: "En la primavera del 2000, la acción de Terra ya había caído más de la mitad desde su máximo. Pero todavía valía mucho. Y Terra decidió usar ese valor para comprar."
         tipo: ilustracion
@@ -421,7 +421,7 @@ capitulos:
         izquierda: {etiqueta: "Ingresos", valor: 690, texto: "690 M€", color: sube}
         derecha: {etiqueta: "Pérdidas", valor: 5663, texto: "−5.663 M€", color: baja}
         fuente: 5
-      - voz: "Buena parte de esas pérdidas venía de reconocer que Lycos, y otras compras, valían mucho menos de lo que se había pagado."
+      - voz: "Detrás de esas pérdidas estaba, sobre todo, lo pagado por Lycos y otras compras, que hubo que ir rebajando en las cuentas."
         tipo: esquema
         modo: causas
         titulo: "Por qué se hundió Terra"
@@ -456,7 +456,7 @@ capitulos:
       - voz: "Menos de la mitad del precio de salida. Y treinta veces menos que en el máximo."
         tipo: barras
         titulo: "El precio de una acción de Terra"
-        subtitulo: "En euros, en cinco momentos clave"
+        subtitulo: "En euros, en cuatro momentos clave"
         valores: [11.81, 37, 157.65, 5.25]
         etiquetas: ["Salida 1999", "1.er día", "Máximo 2000", "Oferta 2003"]
         decimales: 2
@@ -483,7 +483,12 @@ capitulos:
 # ---------------------------------------------------------------------------------------------
   - titulo: "El final"
     short: true
-    titulo_short: "Así terminó Terra"
+    titulo_short: "Pagaron 12.500 millones y lo vendieron por 100"
+    gancho_short:
+      - voz: "Una empresa española pagó 12.500 millones de dólares por un buscador. Cuatro años después lo vendió por menos del 1 %."
+        tipo: titulo
+        texto: "Pagó 12.500 millones y lo vendió por menos del 1 %"
+        resaltar: "menos del 1 %"
     escenas:
       - voz: "En 2004 llegó la humillación final de la gran apuesta: Lycos se vendió a la empresa surcoreana Daum."
         tipo: mapa
@@ -525,7 +530,7 @@ capitulos:
         color: baja
         etiqueta: "caída desde el máximo de febrero de 2000"
         fuente: 1
-      - voz: "¿Qué le quedó a cada inversor? Quien compró en la salida y aguantó hasta el final, tenía unos 257 euros por cada 1.000 invertidos."
+      - voz: "¿Qué le quedó a cada inversor? Quien compró en la salida y aguantó hasta el final, el último día tenía acciones por valor de unos 257 euros de cada 1.000 invertidos."
         tipo: comparar
         titulo: "1.000 € invertidos en la salida (1999)"
         izquierda: {etiqueta: "Invertido", valor: 1000, texto: "1.000 €"}
