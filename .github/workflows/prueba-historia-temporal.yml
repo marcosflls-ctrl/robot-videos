@@ -16,16 +16,11 @@ jobs:
           python-version: "3.11"
       - run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
       - run: pip install --quiet numpy soundfile num2words pillow pyyaml scikit-image
-      - name: Montar sin voz
+      - name: Buscar candidatas en Commons
         env:
-          GUION: prueba_ilustraciones
-          QUE: todo
-          SIN_VOZ: "1"
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          BUSQUEDAS: "Edificio Telefónica Gran Vía Madrid;Juan Villalonga;Palacio de la Bolsa de Madrid;Bolsa de Madrid interior;Nasdaq MarketSite Times Square;Distrito Telefónica Las Tablas;César Alierta;dial-up modem;iMac G3;Internet cafe 2000;stock market crash newspaper;New York Stock Exchange trading floor 1990s"
         working-directory: scripts
-        run: mkdir -p salida; python historia.py 2>&1 | tee salida/registro.txt; exit ${PIPESTATUS[0]}
+        run: mkdir -p salida; python buscar_imagenes.py 2>&1 | tee salida/registro.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
