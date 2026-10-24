@@ -52,8 +52,8 @@ def rebote(x):
 
 
 def numero(valor, decimales=0, prefijo="", sufijo=""):
-    """Número a la española: 1.250.000 · 4,9 · 166,386 (las cifras de 4 dígitos, sin punto)."""
-    txt = f"{abs(valor):,.{decimales}f}" if abs(valor) >= 10000 else f"{abs(valor):.{decimales}f}"
+    """Número a la española: 1.250.000 · 1.234 · 4,9 · 166,386."""
+    txt = f"{abs(valor):,.{decimales}f}" if abs(valor) >= 1000 else f"{abs(valor):.{decimales}f}"
     txt = txt.replace(",", "\x00").replace(".", ",").replace("\x00", ".")
     return f"{prefijo}{'−' if valor < 0 else ''}{txt}{sufijo}"
 
