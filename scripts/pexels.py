@@ -25,19 +25,26 @@ def _pedir(url, clave):
         return json.loads(r.read().decode("utf-8"))
 
 
-def _mejor_archivo(video):
-    """Elige el archivo vertical más cercano a 1080x1920 (o el mejor que haya)."""
+def _mejor_archivo(video, orientacion="portrait"):
+    """Elige el archivo más cercano a 1080x1920 (vertical) o a 1920x1080 (horizontal)."""
     archivos = [f for f in video.get("video_files", []) if f.get("file_type") == "video/mp4" and f.get("width") and f.get("height")]
     if not archivos:
         return None
+    if orientacion == "landscape":
+        horizontales = [f for f in archivos if f["width"] > f["height"]]
+        candidatos = horizontales or archivos
+        return min(candidatos, key=lambda f: abs(f["width"] - 1920) + (0 if f["width"] >= 1280 else 5000))
     verticales = [f for f in archivos if f["height"] > f["width"]]
     candidatos = verticales or archivos
     return min(candidatos, key=lambda f: abs(f["height"] - 1920) + (0 if f["height"] >= 1280 else 5000))
 
 
-def buscar_clip(consulta, semilla="", minimo_seg=4):
-    """Busca un clip en Pexels y, si no hay clave o no encuentra nada, en Pixabay."""
-    clip = _buscar_pexels(consulta, semilla, minimo_seg)
+def buscar_clip(consulta, semilla="", minimo_seg=4, orientacion="portrait"):
+    """Busca un clip en Pexels y, si no hay clave o no encuentra nada, en Pixabay.
+
+    orientacion: «portrait» (Shorts, por defecto) o «landscape» (vídeos largos horizontales).
+    """
+    clip = _buscar_pexels(consulta, semilla, minimo_seg, orientacion)
     if clip is None:
         clip = _buscar_pixabay(consulta, semilla, minimo_seg)
     return clip
@@ -88,13 +95,13 @@ def _pedir_sin_cabecera(url):
         return json.loads(r.read().decode("utf-8"))
 
 
-def _buscar_pexels(consulta, semilla="", minimo_seg=4):
+def _buscar_pexels(consulta, semilla="", minimo_seg=4, orientacion="portrait"):
     clave = (os.environ.get("PEXELS_API_KEY") or "").strip()
     if not clave:
         return None
     try:
         CARPETA.mkdir(exist_ok=True)
-        url = API + "?" + urllib.parse.urlencode({"query": consulta, "orientation": "portrait", "size": "medium", "per_page": 30})
+        url = API + "?" + urllib.parse.urlencode({"query": consulta, "orientation": orientacion, "size": "medium", "per_page": 30})
         datos = _pedir(url, clave)
         videos = [v for v in datos.get("videos", []) if v.get("duration", 0) >= minimo_seg and v["id"] not in _usados]
         if not videos:
@@ -107,7 +114,7 @@ def _buscar_pexels(consulta, semilla="", minimo_seg=4):
         # Mismo día y misma consulta -> mismo clip; otro día -> otro clip
         rnd = random.Random(int(hashlib.md5((consulta + semilla).encode()).hexdigest(), 16))
         video = rnd.choice(videos[:20])
-        archivo = _mejor_archivo(video)
+        archivo = _mejor_archivo(video, orientacion)
         if not archivo:
             return None
         _usados.add(video["id"])

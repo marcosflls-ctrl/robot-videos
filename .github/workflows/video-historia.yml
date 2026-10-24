@@ -1,0 +1,119 @@
+# Canal de historia económica: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion
+# de la carpeta guiones/. Te lo manda todo por Telegram para revisarlo. NO publica nada.
+# Se lanza a mano: pestaña "Actions" -> "Vídeo de historia" -> "Run workflow".
+
+name: Vídeo de historia
+
+on:
+  workflow_dispatch:
+    inputs:
+      guion:
+        description: "Nombre del guion (el archivo de la carpeta guiones/, sin .yaml)"
+        type: string
+        default: "ejemplo"
+      que:
+        description: "Qué montar: todo (largo + Shorts), solo el largo o solo los Shorts"
+        type: choice
+        options: ["todo", "largo", "shorts"]
+        default: "todo"
+      voz:
+        description: "Voz del narrador (vacío = la de canal_historia.yaml)"
+        type: choice
+        options: ["", "Charon", "Sadaltager", "Iapetus", "Orus", "Rasalgethi", "Schedar"]
+        default: ""
+      sin_voz:
+        description: "Prueba rápida sin voz (solo para ver cómo queda el montaje)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Instalar librerías
+        run: pip install --quiet numpy soundfile num2words pillow pyyaml scikit-image
+      # Las frases ya leídas se guardan: si cambias una escena, solo se vuelve a pedir esa voz
+      - name: Recuperar las voces e imágenes ya hechas
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            cache_voz
+            cache_imagenes
+          key: voz-historia-${{ github.run_id }}
+          restore-keys: voz-historia-
+      - name: Montar los vídeos
+        env:
+          GUION: ${{ github.event.inputs.guion }}
+          QUE: ${{ github.event.inputs.que }}
+          VOZ_HISTORIA: ${{ github.event.inputs.voz }}
+          SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
+          VOZ_MOTOR: gemini
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        working-directory: scripts
+        run: |
+          if [ -z "$SIN_VOZ" ] && [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Falta la clave GEMINI_API_KEY para la voz. Mira el README."
+            exit 1
+          fi
+          python historia.py
+      - name: Guardar las voces e imágenes para la próxima vez
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            cache_voz
+            cache_imagenes
+          key: voz-historia-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          retention-days: 7
+          name: video-historia
+          path: |
+            scripts/salida/*.mp4
+            scripts/salida/*.txt
+            scripts/salida/*.srt
+            scripts/salida/*.png
+      - name: Mandarlo por Telegram (si está configurado)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GUION: ${{ github.event.inputs.guion }}
+        working-directory: scripts/salida
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga los vídeos en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          API="https://api.telegram.org/bot${TELEGRAM_TOKEN}"
+          comprobar() {
+            if echo "$1" | grep -q '"ok":true'; then echo "Enviado: $2"; else echo "::warning::Telegram no aceptó $2: $(echo "$1" | cut -c1-200)"; fi
+          }
+          shopt -s nullglob
+          for f in "${GUION}"_miniatura.png; do
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F photo=@"$f" -F caption="Miniatura · $GUION" "$API/sendPhoto")" "$f"
+          done
+          for f in "${GUION}"_largo_movil.mp4; do
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$f" -F supports_streaming=true \
+              -F caption="Vídeo largo (copia ligera para el móvil). El de calidad completa está en GitHub: Actions → esta ejecución → Artifacts." \
+              "$API/sendVideo")" "$f"
+          done
+          for f in "${GUION}"_descripcion.txt "${GUION}"_largo.srt; do
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F document=@"$f" "$API/sendDocument")" "$f"
+          done
+          for f in "${GUION}"_short_*.mp4; do
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$f" -F supports_streaming=true \
+              -F caption="$(head -c 1000 "${f%.mp4}.txt")" "$API/sendVideo")" "$f"
+          done

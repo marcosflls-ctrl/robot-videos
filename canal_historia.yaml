@@ -1,0 +1,43 @@
+# Identidad del canal de historia económica (estilo «Editorial»).
+# Todo lo que hace que el canal se reconozca está aquí: cambiar una línea cambia todos los vídeos.
+
+# Nombre provisional: se cambia aquí cuando elijas el definitivo.
+marca: "EL PRECIO DE LA HISTORIA"
+lema: "Historia económica, con datos"
+
+# Voz de narrador (Gemini). Otras voces posibles: Sadaltager, Iapetus, Orus, Rasalgethi, Schedar.
+voz: "Charon"
+estilo_voz: >-
+  Narrador de documental de historia económica en español de España: voz clara y serena,
+  ritmo pausado, entonación natural, sin titubeos y sin sonar a anuncio.
+
+# Colores (rojo, verde, azul de 0 a 255)
+colores:
+  fondo: [21, 18, 15]          # negro cálido
+  fondo2: [36, 30, 24]         # marrón muy oscuro (arriba del degradado)
+  panel: [44, 37, 30]          # cajas y países sin resaltar
+  linea: [70, 60, 49]          # rejillas y bordes
+  texto: [242, 234, 219]       # crema
+  suave: [168, 156, 138]       # textos secundarios
+  acento: [228, 87, 46]        # rojo anaranjado: color principal del canal
+  acento2: [242, 177, 52]      # dorado: lo que hay que mirar
+  sombra_foto: [24, 19, 15]    # fotos de época en dos tonos: sombras...
+  luz_foto: [245, 230, 205]    # ...y luces
+  sube: [126, 186, 110]
+  baja: [228, 87, 46]
+
+# Fuentes (carpeta fuentes/, todas con licencia libre SIL OFL)
+fuentes:
+  tit: "Fraunces-Black.ttf"         # titulares
+  tit2: "Fraunces-SemiBold.ttf"     # citas y textos destacados
+  txt: "SpaceGrotesk-Medium.ttf"    # textos
+  txt_b: "SpaceGrotesk-Bold.ttf"    # etiquetas
+  num: "Fraunces-Black.ttf"         # cifras
+
+# Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
+# porque de todas formas se genera el archivo .srt para subirlo a YouTube)
+subtitulos_largo: false
+subtitulos_shorts: true
+
+# Segundos de pantalla final del vídeo largo (YouTube pide entre 5 y 20 para poner otros vídeos)
+pantalla_final: 12
