@@ -1,0 +1,49 @@
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una familia española de clase media en la cocina de su piso »
+  Commons: «File:Analog Modem 56K.jpg» -> File:Analog Modem 56K.jpg (CC BY-SA 3.0, Digitalsignal)
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un cibercafé español hacia 1999: filas de ordenadores beige »
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una oficina de una empresa tecnológica en Estados Unidos a f»
+  Commons: «File:Edificio Telefónica (Gran Vía 28, Madrid) 01.jpg» -> File:Edificio Telefónica (Gran Vía 28, Madrid) 01.jpg (CC BY-SA 2.0, Lev from Spain)
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una habitación juvenil española a finales de los noventa: un»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Cola de gente variada, con abrigos de finales de los noventa»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un bar español tradicional a finales de los noventa: barra d»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un matrimonio de jubilados españoles sentados frente a un em»
+  Commons: «File:Interior Bolsa de Madrid.jpg» -> File:Interior Bolsa de Madrid.jpg (CC0, User:Alavisan)
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Sala de operaciones de bolsa en Madrid en el año 2000: opera»
+  Commons: «File:NASDAQ studio.jpg» -> File:NASDAQ studio.jpg (CC BY 2.0, Luis Villa del Campo from Madrid, Spain)
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una gran sala de juntas de una empresa española en el año 20»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un despacho de dirección vacío en una gran empresa en el año»
+  Commons: «File:César Alierta 2014 (cropped).jpg» -> File:César Alierta 2014 (cropped).jpg (CC BY-SA 2.0, Junta Informa)
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una oficina de empresa de internet abandonada hacia 2001: me»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un hombre de mediana edad sentado de noche frente a un orden»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una reunión de pequeños accionistas indignados en un salón d»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Un portátil abierto sobre una mesa de cocina en 2017, con la»
+::warning::Sin GEMINI_API_KEY no se puede generar la ilustración «Una persona joven de espaldas mira por la ventana de un piso»
+Imágenes: 5 listas
+Prueba SIN VOZ: tiempos calculados a ojo
+Vídeo largo: 79 bloques, 11.0 minutos
+  terra_largo.mp4: 0/662 s de vídeo (0 s montando)
+  terra_largo.mp4: 30/662 s de vídeo (55 s montando)
+  terra_largo.mp4: 60/662 s de vídeo (149 s montando)
+  terra_largo.mp4: 90/662 s de vídeo (234 s montando)
+  terra_largo.mp4: 120/662 s de vídeo (317 s montando)
+  terra_largo.mp4: 150/662 s de vídeo (367 s montando)
+  terra_largo.mp4: 180/662 s de vídeo (410 s montando)
+  terra_largo.mp4: 210/662 s de vídeo (481 s montando)
+  terra_largo.mp4: 240/662 s de vídeo (536 s montando)
+  terra_largo.mp4: 270/662 s de vídeo (585 s montando)
+  terra_largo.mp4: 300/662 s de vídeo (709 s montando)
+  terra_largo.mp4: 330/662 s de vídeo (774 s montando)
+  terra_largo.mp4: 360/662 s de vídeo (845 s montando)
+  terra_largo.mp4: 390/662 s de vídeo (876 s montando)
+  terra_largo.mp4: 420/662 s de vídeo (945 s montando)
+  terra_largo.mp4: 450/662 s de vídeo (1059 s montando)
+  terra_largo.mp4: 480/662 s de vídeo (1165 s montando)
+  terra_largo.mp4: 510/662 s de vídeo (1244 s montando)
+  terra_largo.mp4: 540/662 s de vídeo (1298 s montando)
+  terra_largo.mp4: 570/662 s de vídeo (1379 s montando)
+  terra_largo.mp4: 600/662 s de vídeo (1432 s montando)
+  terra_largo.mp4: 630/662 s de vídeo (1480 s montando)
+  terra_largo.mp4: 660/662 s de vídeo (1537 s montando)
+Vídeo listo: salida/terra_largo.mp4 (661.5 s) en 1538 s
+Copia ligera: salida/terra_largo_movil.mp4 (43.3 MB)
+Todo listo en 28.5 minutos
