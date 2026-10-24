@@ -703,6 +703,10 @@ def miniatura(g, canal, ruta):
 
 def copia_ligera(entrada, salida, duracion, max_mb=45):
     """Copia en 720p que cabe en Telegram (límite de 50 MB para bots)."""
+    if Path(entrada).stat().st_size < max_mb * 1024 * 1024:  # ya cabe: se manda tal cual
+        import shutil
+        shutil.copyfile(entrada, salida)
+        return True
     total = max_mb * 8192 / max(duracion, 1)
     video = int(total - 96)
     if video < 180:
