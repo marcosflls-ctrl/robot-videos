@@ -1,0 +1,108 @@
+# GUION DE PRUEBA DEL ROBOT — enseña todos los tipos de escena. No es para publicar:
+# algunos datos y la cita son de ejemplo.
+
+titulo: "El día que España dejó la peseta (prueba del robot)"
+descripcion: >-
+  Vídeo de prueba del formato largo del canal: cabecera, capítulos, gráficos y Shorts.
+hashtags: "#historia #economía #peseta #euro"
+
+miniatura:
+  texto: "Adiós a la peseta"
+  resaltar: "peseta"
+  cifra: "166,386"
+
+fuentes:
+  - id: 1
+    corta: "Banco de España"
+    cita: "Banco de España. El euro: billetes y monedas."
+    url: "https://www.bde.es"
+  - id: 2
+    corta: "INE (datos de ejemplo)"
+    cita: "Instituto Nacional de Estadística. Índice de Precios de Consumo."
+    url: "https://www.ine.es"
+
+# Gancho: lo primero que se oye, antes de la cabecera del canal
+gancho:
+  - voz: "El uno de enero de 2002, cuarenta millones de españoles se despertaron con otro dinero en el bolsillo."
+    tipo: titulo
+    texto: "Un país se despierta con otro dinero"
+    resaltar: "otro dinero"
+
+capitulos:
+  - titulo: "La noche del cambio"
+    short: true
+    # Solo en el Short: una frase-gancho antes de empezar
+    gancho_short:
+      - voz: "¿Sabes cuántas pesetas valía un euro? La cifra exacta tenía tres decimales."
+        tipo: titulo
+        texto: "¿Cuántas pesetas valía un euro?"
+        resaltar: "un euro"
+    escenas:
+      - voz: "Esa madrugada, los primeros cajeros empezaron a dar billetes de euro."
+        tipo: fecha
+        fecha: "1 ENE 2002"
+        lugar: "España"
+        fuente: 1
+      - voz: "El cambio estaba fijado desde 1998: un euro valía exactamente ciento sesenta y seis con trescientas ochenta y seis pesetas."
+        tipo: cifra
+        valor: 166.386
+        decimales: 3
+        etiqueta: "pesetas por cada euro, fijado de forma irrevocable"
+        fuente: 1
+      - voz: "Así que un billete de mil pesetas pasaba a valer poco más de seis euros."
+        tipo: comparar
+        titulo: "Lo que valía un billete de 1.000 pesetas"
+        izquierda: {etiqueta: "Pesetas", valor: 1000, texto: "1.000 pts"}
+        derecha: {etiqueta: "Euros", valor: 6.01, texto: "6,01 €"}
+        fuente: 1
+      - voz: "Durante dos meses, las dos monedas convivieron en las tiendas."
+        tipo: archivo
+        buscar: "old coins money"
+        texto: "Dos monedas a la vez"
+        sub: "Enero y febrero de 2002"
+
+  - titulo: "¿Subieron los precios?"
+    short: false
+    escenas:
+      - voz: "La gran pregunta de aquellos años fue si el euro trajo un redondeo hacia arriba."
+        tipo: titulo
+        kicker: "La sospecha"
+        texto: "¿El euro lo hizo todo más caro?"
+        resaltar: "más caro"
+      - voz: "Este gráfico de ejemplo muestra la inflación de cada diciembre, antes y después del cambio."
+        tipo: linea
+        titulo: "IPC en España, diciembre (%) — datos de ejemplo"
+        valores: [1.4, 2.9, 4.0, 2.7, 4.0, 2.6, 3.2]
+        etiquetas: ["1998", "1999", "2000", "2001", "2002", "2003", "2004"]
+        decimales: 1
+        sufijo: " %"
+        desde_cero: true
+        marcas:
+          - {indice: 4, texto: "Llega el euro"}
+        fuente: 2
+      - voz: "Y en barras se ve igual: el salto no fue tan distinto al de otros años."
+        tipo: barras
+        titulo: "Inflación anual (%) — datos de ejemplo"
+        valores: [2.9, 4.0, 2.7, 4.0, 2.6]
+        etiquetas: ["1999", "2000", "2001", "2002", "2003"]
+        decimales: 1
+        destacar: [3]
+        fuente: 2
+      - voz: "Aun así, mucha gente lo vivió de otra manera, y lo resumía con una frase."
+        tipo: cita
+        texto: "Esto es una cita de ejemplo para ver cómo queda en pantalla una frase larga de un testigo de la época."
+        autor: "Cita de ejemplo"
+        fecha: "2002"
+      - voz: "¿Por qué? Hay tres explicaciones."
+        tipo: lista
+        titulo: "Tres razones de la sensación de subida"
+        puntos:
+          - "Los precios pequeños se redondearon"
+          - "Costaba calcular en euros"
+          - "Seguíamos pensando en pesetas"
+
+cierre:
+  - voz: "Si te ha gustado, suscríbete: cada semana, una historia de dinero contada con datos."
+    tipo: titulo
+    texto: "Una historia de dinero cada semana"
+    resaltar: "cada semana"

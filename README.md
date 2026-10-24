@@ -96,3 +96,21 @@ La voz es la de Gemini. Lo manda por Telegram; **no publica nada**.
 - El motor 3D está en `scripts/escena3d.py` y el montaje en `scripts/video_fisica.py`.
 - Para un tema nuevo: copiar `fisica_motor.py`, cambiar el guion (`FRASES`), las cámaras (`ESCENAS`) y el dibujo, y añadirlo a `TEMAS` en `video_fisica.py` y a las opciones del robot.
 - Opción **Prueba rápida sin voz**: monta solo la animación, para ver cómo queda sin gastar la API.
+
+## Canal de historia económica (vídeo largo + Shorts)
+
+El robot **Vídeo de historia** monta un vídeo largo horizontal (1920x1080) a partir de un guion de la carpeta
+`guiones/`, y un Short vertical por cada capítulo marcado. Estilo «datos moderno»: fondo azul noche, cian y ámbar,
+gráficos animados hechos con código.
+
+- **Identidad del canal** (nombre, colores, voz del narrador, subtítulos): `canal_historia.yaml`. El nombre es provisional.
+- **Guiones:** cómo se escriben, en `guiones/LEEME.md`. `guiones/ejemplo.yaml` es una prueba con todos los tipos de escena.
+- **Voz:** Gemini (clave `GEMINI_API_KEY`), con una voz de narrador distinta de la de los Shorts de las webs.
+  Las frases ya leídas se guardan entre ejecuciones: si cambias una escena, solo se vuelve a pedir esa.
+- **Clips de archivo:** Pixabay o Pexels, si están sus claves (si no, fondos propios).
+- **Qué te llega por Telegram:** miniatura, copia ligera del vídeo largo, descripción con capítulos y fuentes,
+  subtítulos `.srt` y los Shorts con su texto. El largo en calidad completa está en **Artifacts** (7 días).
+- Cómo lanzarlo: **Actions** → **Vídeo de historia** → **Run workflow**, escribe el nombre del guion.
+  Con **Prueba rápida sin voz** se ve el montaje en pocos minutos sin gastar la API.
+
+**No publica nada.**

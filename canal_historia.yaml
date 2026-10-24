@@ -1,0 +1,32 @@
+# Identidad del canal de historia económica (estilo «datos moderno»).
+# Todo lo que hace que el canal se reconozca está aquí: cambiar una línea cambia todos los vídeos.
+
+# Nombre provisional: se cambia aquí cuando elijas el definitivo.
+marca: "EL PRECIO DE LA HISTORIA"
+
+# Voz de narrador (Gemini). Otras voces posibles: Sadaltager, Iapetus, Orus, Rasalgethi, Schedar.
+voz: "Charon"
+estilo_voz: >-
+  Narrador de documental de historia económica en español de España: voz clara y serena,
+  ritmo pausado, entonación natural, sin titubeos y sin sonar a anuncio.
+
+# Colores (rojo, verde, azul de 0 a 255)
+colores:
+  fondo: [7, 11, 24]          # azul casi negro
+  fondo2: [16, 25, 54]        # azul noche
+  panel: [21, 30, 58]         # tarjetas y ejes
+  linea: [48, 62, 102]        # rejilla
+  texto: [238, 242, 250]
+  suave: [146, 158, 188]      # textos secundarios
+  acento: [0, 214, 201]       # cian: color principal del canal
+  acento2: [255, 184, 0]      # ámbar: lo que hay que mirar
+  sube: [46, 213, 115]
+  baja: [255, 82, 99]
+
+# Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
+# porque de todas formas se genera el archivo .srt para subirlo a YouTube)
+subtitulos_largo: false
+subtitulos_shorts: true
+
+# Segundos de pantalla final del vídeo largo (YouTube pide entre 5 y 20 para poner otros vídeos)
+pantalla_final: 12
