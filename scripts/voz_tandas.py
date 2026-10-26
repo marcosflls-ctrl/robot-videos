@@ -141,6 +141,8 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
         letras_despues = sum(len(esperadas[i]) for i in range(primera, despues[0]))
         reparto = letras_antes / (letras_antes + letras_despues) if letras_antes + letras_despues else 0.5
         estimado = t0 + (t1 - t0) * reparto
+        if t1 - t0 > 1.2:  # anclas demasiado separadas: alguna está mal; el corte, justo tras la frase
+            t1, estimado = t0 + 0.4, t0 + 0.3
         # Ventana: entre las dos anclas (el reconocedor suele adelantarse), sin alejarse mucho de lo estimado
         desde = max(min(t0, t1) - 0.15, estimado - 0.8)
         hasta = min(max(t0, t1) + 0.6, estimado + 0.8)
