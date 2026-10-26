@@ -1,0 +1,115 @@
+{
+ "titulo": "GTA 6: ¿Han cazado a la actriz de Lucía en directo? Rumor y filtración",
+ "frases": [
+  "¿Acaban de pillar a la actriz de Lucía en pleno directo de Instagram?",
+  "La actriz Manni L. Perez hizo un directo para sus fans, pero el chat no paraba de preguntarle por GTA 6.",
+  "Ella respondió de todo, pero esquivó por completo el tema de Rockstar con miradas y sonrisas cómplices.",
+  "Muchos creen que su silencio confirma un estricto contrato de confidencialidad, mientras otros piensan que solo aprovecha el tirón.",
+  "Aunque participó en GTA 5 con papeles menores, Rockstar todavía no ha confirmado si realmente dará vida a Lucía.",
+  "¿Crees que Manni Perez es la verdadera Lucía o solo está jugando con el misterio?"
+ ],
+ "claves": [
+  "actriz",
+  "Lucía",
+  "Instagram",
+  "Manni L. Perez",
+  "GTA 6",
+  "Rockstar",
+  "confidencialidad",
+  "GTA 5",
+  "misterio"
+ ],
+ "fondo": "rejilla",
+ "subtitulos": "volteo",
+ "escenas": [
+  {
+   "frase": 0,
+   "tipo": "titular",
+   "datos": {
+    "texto": "LUCÍA PILLADA",
+    "resaltar": "PILLADA",
+    "sub": "RUMOR EN INSTAGRAM",
+    "variante": "letras3d"
+   },
+   "camara": "acercar",
+   "transicion": "flash",
+   "fondo": "img:f4"
+  },
+  {
+   "frase": 1,
+   "tipo": "imagen",
+   "datos": {
+    "src": "img:f1",
+    "marco": "cristal",
+    "etiqueta": "MANNI L. PEREZ",
+    "pastilla": "DIRECTO VIRAL",
+    "desde": "izq"
+   },
+   "camara": "paneo_der",
+   "transicion": "empuje",
+   "fondo": "img:f1"
+  },
+  {
+   "frase": 2,
+   "tipo": "alerta",
+   "datos": {
+    "icono": "aviso",
+    "texto": "SILENCIO",
+    "pastilla": "EVITA PREGUNTAS",
+    "color": "acento"
+   },
+   "camara": "bajar",
+   "transicion": "glitch",
+   "fondo": "img:f7"
+  },
+  {
+   "frase": 3,
+   "tipo": "comparar",
+   "datos": {
+    "modo": "bifurcacion",
+    "arriba": "TEORÍAS EN REDES",
+    "a": {
+     "texto": "CONTRATO NDA",
+     "sub": "SILENCIO TOTAL",
+     "etiqueta": "OFICIALIDAD",
+     "estado": "ok"
+    },
+    "b": {
+     "texto": "PURO HYPE",
+     "sub": "ATENCIÓN EXTRA",
+     "etiqueta": "OPORTUNISMO",
+     "estado": "mal"
+    }
+   },
+   "camara": "inclinar",
+   "transicion": "barrido",
+   "fondo": null
+  },
+  {
+   "frase": 4,
+   "tipo": "prensa",
+   "datos": {
+    "medio": "Zona Leonida",
+    "fecha": "26 OCT",
+    "titular": "Rockstar mantiene en secreto a la actriz protagonista de GTA 6",
+    "resaltar": "mantiene en secreto",
+    "entradilla": "La actriz esquivó todas las preguntas sobre el juego durante una transmisión.",
+    "pastilla": "SIN CONFIRMAR"
+   },
+   "camara": "subir",
+   "transicion": "zoom",
+   "fondo": "img:f3"
+  },
+  {
+   "frase": 5,
+   "tipo": "pregunta",
+   "datos": {
+    "pregunta": "¿Es la actriz real de Lucía?",
+    "comentario": "Comenta si crees que es ella"
+   },
+   "camara": "quieta",
+   "transicion": "corte",
+   "fondo": "img:f2"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+  Commons: «Miami skyline night» -> File:Downtown Miami skyline 20100305.jpg (CC BY-SA 3.0, Dori)
+foto f1 -> Dori · CC BY-SA 3.0 · Wikimedia Commons
+  Commons: «Miami Beach aerial view» -> File:Miami Beach - Aerial view of Miami Beach.jpg (Public domain, Curt Teich & Co., Chicago (publisher))
+foto f2 -> Curt Teich & Co., Chicago (publisher) · Public domain · Wikimedia Commons
+  Commons: «Miami palm trees sunset» -> File:The sunset from Key Biscayne off the causeway with the shore and water in the foreground with coconut trees and the Miami, FL skyline and storm clouds to the west lit up by the setting sun 2014-04-25.jpg (CC BY-SA 3.0, Barry haynes)
+foto f3 -> Barry haynes · CC BY-SA 3.0 · Wikimedia Commons
+  Commons: «Ocean Drive Miami Beach art deco» -> File:Boulevard Hotel (Neon sign), Miami Beach.jpg (Public domain, Photograph: Radomianin)
+foto f4 -> Photograph: Radomianin · Public domain · Wikimedia Commons
+  Commons: «Florida Everglades airboat» -> File:Everglades-airboat (cropped).jpg (CC BY 2.5, User:Cacophony)
+foto f5 -> User:Cacophony · CC BY 2.5 · Wikimedia Commons
+  Commons: «Florida Keys Seven Mile Bridge» -> File:Seven Mile Bridge, Florida Keys aerial (2003).jpg (Public domain, United States Department of Transportation)
+foto f6 -> United States Department of Transportation · Public domain · Wikimedia Commons
+  Commons: «sports car night city lights» -> File:Dülmen, Dülmener Sommer, Open-Air-Konzert -- 2018 -- 9366-8.jpg (CC BY-SA 4.0, Dietmar Rabich)
+foto f7 -> Dietmar Rabich · CC BY-SA 4.0 · Wikimedia Commons
+  Commons: «video game controller» -> File:Xbox-360-Wireless-Controller-White.jpg (Public domain, Evan-Amos)
+foto f8 -> Evan-Amos · Public domain · Wikimedia Commons
+
+== cuenta_atras
+  [0] cifra      acercar   corte    fondo=img:f1  {"valor": 24, "decimales": 0, "prefijo": "", "sufijo": " DÍAS", "etiqueta": "PARA GTA 6", "arriba": "CUENTA AT
+  [1] galeria    paneo_der barrido  fondo=None  {"imagenes": ["img:f1", "img:f2", "img:f3", "img:f5"], "foco": 1, "etiqueta": "ESTADO LEONIDA"}
+  [2] titular    acercar   flash    fondo=img:f7  {"texto": "LUCÍA Y JASON", "resaltar": "LUCÍA", "sub": "DÚO PROTAGONISTA", "variante": "letras3d"}
+  [3] cifra      inclinar  glitch   fondo=img:f6  {"valor": 576, "decimales": 0, "prefijo": "", "sufijo": " HORAS", "etiqueta": "3 SEMANAS Y 3 DÍAS", "arriba": 
+  [4] prensa     paneo_izq empuje   fondo=img:f3  {"medio": "Zona Leonida", "fecha": "NOV 2026", "titular": "Sigue la cuenta atrás diaria en zonaleonida.com", "
+  [5] pregunta   orbita    zoom     fondo=img:f8  {"pregunta": "¿En qué consola jugarás a GTA 6?", "comentario": "¡Comenta abajo tu plataforma!"}
+  fondo: particulas · subtítulos: pop
+
+== noticia_1
+  [0] alerta     acercar   corte    fondo=img:f4  {"icono": "aviso", "texto": "NOTAS ANTES", "pastilla": "FILTRACIÓN", "color": "acento"}
+  [1] cronologia paneo_der barrido  fondo=img:f1  {"orientacion": "horizontal", "hitos": [{"arriba": "RESEÑAS", "fecha": "18 NOV", "texto": "Notas de prensa", "
+  [2] objeto     orbita    empuje   fondo=img:f8  {"src": "objeto:ps5", "aura": "halo", "etiqueta": "COPIAS PRENSA", "pastilla": "SEMANAS ANTES"}
+  [3] comparar   paneo_izq flash    fondo=img:f3  {"modo": "vs", "arriba": "RÉCORDS SAGA", "a": {"src": "img:f7", "sub": "Puntos 98", "etiqueta": "GTA 4", "esta
+  [4] prensa     subir     glitch   fondo=img:f6  {"medio": "Zona Leonida", "fecha": "26 OCT", "titular": "GTA 6: los análisis se publicarían el 18 de noviembre
+  [5] pregunta   quieta    corte    fondo=img:f1  {"pregunta": "¿Superará el 98 en Metacritic?", "comentario": "Deja tu nota esperada abajo"}
+  fondo: humo · subtítulos: deslizar
+
+== noticia_2
+  [0] titular    acercar   flash    fondo=img:f4  {"texto": "LUCÍA PILLADA", "resaltar": "PILLADA", "sub": "RUMOR EN INSTAGRAM", "variante": "letras3d"}
+  [1] imagen     paneo_der empuje   fondo=img:f1  {"src": "img:f1", "marco": "cristal", "etiqueta": "MANNI L. PEREZ", "pastilla": "DIRECTO VIRAL", "desde": "izq
+  [2] alerta     bajar     glitch   fondo=img:f7  {"icono": "aviso", "texto": "SILENCIO", "pastilla": "EVITA PREGUNTAS", "color": "acento"}
+  [3] comparar   inclinar  barrido  fondo=None  {"modo": "bifurcacion", "arriba": "TEORÍAS EN REDES", "a": {"texto": "CONTRATO NDA", "sub": "SILENCIO TOTAL", 
+  [4] prensa     subir     zoom     fondo=img:f3  {"medio": "Zona Leonida", "fecha": "26 OCT", "titular": "Rockstar mantiene en secreto a la actriz protagonista
+  [5] pregunta   quieta    corte    fondo=img:f2  {"pregunta": "¿Es la actriz real de Lucía?", "comentario": "Comenta si crees que es ella"}
+  fondo: rejilla · subtítulos: volteo
+
+listo
