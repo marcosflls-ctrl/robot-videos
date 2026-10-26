@@ -5,10 +5,10 @@
    silencios: [(20.89, 20.98), (21.02, 21.13), (21.18, 21.3), (21.36, 21.52), (21.68, 21.78), (21.95, 22.07), (22.22, 22.37), (22.41, 22.49), (22.53, 22.66), (23.01, 23.24), (23.29, 23.4), (23.45, 23.58), (23.69, 24.16), (24.21, 24.36), (24.61, 24.7), (24.75, 24.83), (24.91, 24.99), (25.14, 25.3), (25.36, 25.45), (25.5, 25.58), (25.72, 25.87), (25.91, 25.98), (26.05, 26.11)]
 cortes bien 58 · mal 1 · tandas sin cortar 0 · 39 s
 == otra semilla
-cortes bien 59 · mal 0 · tandas sin cortar 0 · 31 s
+cortes bien 59 · mal 0 · tandas sin cortar 0 · 32 s
 == semilla 3
 12 corte fuera 27.85 hueco 28.21 28.64
    frases: ['Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros.', 'Las dos empresas no paraban de crecer. En dos mil seis, Afinsa tenía unos ciento setenta y cinco mil clientes, y Fórum, unos doscientos mil.', 'Tenían oficinas en toda España. Solo Afinsa llegó a tener setecientos dieciséis delegaciones.', 'Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde mil novecientos ochenta y tres.', "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's.", '¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía.']
    oídas: [('ese', 25.78, 26.12), ('mil', 26.12, 26.4), ('novecientos', 26.4, 27.48), ('ochenta', 26.4, 27.48), ('y', 26.4, 27.48), ('tres', 26.4, 27.48), ('y', 27.48, 27.78), ('a', 27.78, 28.78), ('fin', 28.78, 28.92), ('sai', 28.92, 29.2), ('no', 29.2, 29.4), ('hacer', 29.4, 29.6), ('la', 29.6, 29.82), ('tercera', 29.82, 30.12), ('empresa', 30.12, 30.52), ('de', 30.52, 30.74)]
    silencios: [(25.23, 25.35), (25.39, 25.5), (25.84, 25.93), (26.0, 26.16), (26.43, 26.53), (26.71, 26.83), (26.99, 27.09), (27.14, 27.24), (27.3, 27.38), (27.55, 27.64), (27.78, 27.93), (28.07, 28.65), (28.77, 28.86), (28.99, 29.08), (29.12, 29.23), (29.28, 29.34), (29.47, 29.56), (29.65, 29.75), (29.8, 29.88), (29.92, 30.08), (30.26, 30.42), (30.48, 30.57)]
-cortes bien 58 · mal 1 · tandas sin cortar 0 · 36 s
+cortes bien 58 · mal 1 · tandas sin cortar 0 · 34 s
