@@ -158,6 +158,29 @@ def creditos_imagenes(g):
 #  Voz (con caché: si el texto no cambia, no se vuelve a pedir)
 # =====================================================================
 
+def _recortar_voz(wav, sr):
+    """Quita el silencio del principio y del final de una frase."""
+    env = np.abs(wav)
+    activo = np.where(env > 0.02 * (env.max() or 1))[0]
+    if len(activo):
+        wav = wav[max(0, activo[0] - int(0.03 * sr)): activo[-1] + int(0.08 * sr)]
+    return wav.astype(np.float32)
+
+
+def _tanda_cuadra(audios, textos):
+    """Comprueba que cada trozo dura más o menos lo que le toca por su número de letras."""
+    letras = [max(1, len(t)) for t in textos]
+    largos = [len(a) for a in audios]
+    if min(largos) == 0:
+        return False
+    total_l, total_a = sum(letras), sum(largos)
+    for l, a in zip(letras, largos):
+        proporcion = (a / total_a) / (l / total_l)
+        if not 0.5 <= proporcion <= 2.0:
+            return False
+    return True
+
+
 def generar_voces(g, canal):
     escenas = [e for e, _ in todas_las_escenas(g)]
     if (os.environ.get("SIN_VOZ") or "").strip() == "1":
@@ -171,23 +194,63 @@ def generar_voces(g, canal):
     os.environ["GEMINI_ESTILO"] = canal["estilo_voz"]
     os.environ.setdefault("VOZ_MOTOR", "gemini")
     from motor_voz import crear_motor
+    from voz_tandas import cortar_tanda
     motor = crear_motor()
     sr = motor.sr
     CACHE_VOZ.mkdir(exist_ok=True)
     firma = f"{type(motor).__name__}|{getattr(motor, 'modelo', '')}|{getattr(motor, 'voz', '')}|{getattr(motor, 'estilo', '')}"
-    nuevas = 0
-    for i, e in enumerate(escenas, 1):
+    pendientes = []
+    for e in escenas:
         texto = str(e.get("pronunciar") or e["voz"]).strip()
         clave = hashlib.sha1(f"{firma}|{texto}".encode("utf-8")).hexdigest()[:20]
         ruta = CACHE_VOZ / f"{clave}.wav"
         if ruta.exists():
             e["_audio"], _ = sf.read(ruta, dtype="float32")
-            continue
-        print(f"Voz {i}/{len(escenas)}")
-        audio = motor.decir(texto)
-        sf.write(ruta, audio, sr)
-        e["_audio"] = audio
-        nuevas += 1
+        else:
+            pendientes.append((e, texto, ruta))
+    # Varias frases por petición para gastar menos cupo de Gemini (100 peticiones al día)
+    por_peticion = int(os.environ.get("VOZ_POR_PETICION") or 6)
+    try:
+        import faster_whisper  # noqa: F401  (hace falta para cortar las tandas en frases)
+    except ImportError:
+        print("::warning::Falta faster-whisper: pido las frases una a una")
+        por_peticion = 1
+    tandas, tanda = [], []
+    for p in pendientes:
+        if tanda and (len(tanda) >= por_peticion or sum(len(x[1].split()) for x in tanda + [p]) > 110):
+            tandas.append(tanda)
+            tanda = []
+        tanda.append(p)
+    if tanda:
+        tandas.append(tanda)
+    if pendientes:
+        print(f"Voces por pedir: {len(pendientes)} frases en {len(tandas)} peticiones")
+    peticiones = 0
+    for k, tanda in enumerate(tandas, 1):
+        print(f"Voz: petición {k}/{len(tandas)} ({len(tanda)} frases)")
+        audios = None
+        if len(tanda) > 1 and hasattr(motor, "decir_seguido"):
+            textos = [t for _, t, _ in tanda]
+            wav, dichos = motor.decir_seguido(textos)
+            peticiones += 1
+            cortes = cortar_tanda(wav, sr, dichos)
+            if cortes:
+                audios = [_recortar_voz(wav[a:b], sr) for a, b in cortes]
+                if not _tanda_cuadra(audios, dichos):
+                    audios = None
+            if audios is None:
+                print("  ::warning::No se pudo cortar bien esta tanda: pido sus frases una a una")
+        if audios is None:
+            audios = []
+            for _, t, _ in tanda:
+                audios.append(motor.decir(t))
+                peticiones += 1
+        for (e, _, ruta), audio in zip(tanda, audios):
+            sf.write(ruta, audio, sr)  # se guarda enseguida: si se corta, mañana sigue por aquí
+            e["_audio"] = audio
+    nuevas = len(pendientes)
+    if pendientes:
+        print(f"Peticiones de voz gastadas: {peticiones}")
     print(f"Voces: {len(escenas)} escenas · {nuevas} nuevas · {len(escenas) - nuevas} de la caché")
     return sr
 
