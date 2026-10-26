@@ -1,10 +1,23 @@
 == base
   (no se reconocen las palabras alrededor del final de la frase 1)
 0 NONE
-12 corte fuera 29.17 hueco 29.45 29.81
+  (un corte cae en mitad de una palabra, en el segundo 29.2)
+12 NONE
 24 corte fuera 27.08 hueco 27.22 27.63
-cortes bien 52 · mal 2 · tandas sin cortar 1 · 62 s
+  (un corte cae en mitad de una palabra, en el segundo 45.0)
+30 NONE
+cortes bien 43 · mal 1 · tandas sin cortar 3 · 57 s
 == small
+  (un corte cae en mitad de una palabra, en el segundo 16.9)
+6 NONE
+  (un corte cae en mitad de una palabra, en el segundo 29.6)
+12 NONE
+  (un corte cae en mitad de una palabra, en el segundo 38.5)
+18 NONE
 24 corte fuera 27.08 hueco 27.22 27.63
+  (un corte cae en mitad de una palabra, en el segundo 26.6)
+30 NONE
 54 corte fuera 23.54 hueco 23.9 24.3
-cortes bien 57 · mal 2 · tandas sin cortar 0 · 105 s
+  (un corte cae en mitad de una palabra, en el segundo 29.8)
+66 NONE
+cortes bien 33 · mal 2 · tandas sin cortar 5 · 102 s
