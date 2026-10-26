@@ -1,0 +1,584 @@
+# Fórum Filatélico y Afinsa: el timo de los sellos
+# Guion para revisar. Cada dato lleva su fuente (lista de «fuentes» al final de este bloque).
+
+titulo: "Fórum Filatélico y Afinsa: 350.000 ahorradores y unos sellos que no valían lo que pagaron"
+descripcion: >-
+  El 9 de mayo de 2006, la policía entró en Fórum Filatélico y Afinsa. Unos 350.000 españoles descubrieron
+  esa mañana que sus ahorros eran sellos: sellos que valían una pequeña parte de lo que habían pagado.
+  Esta es la historia del timo de los sellos: cómo funcionaba, los avisos que nadie atendió, las condenas
+  y lo poco que recuperaron los afectados.
+hashtags: "#historia #economía #estafa #Afinsa #FórumFilatélico #Ponzi #ahorro"
+
+miniatura:
+  texto: "Sus ahorros eran sellos"
+  resaltar: "sellos"
+  cifra: "350.000"
+
+fuentes:
+  - id: 1
+    corta: "Eroski Consumer (2006)"
+    cita: "«La presunta estafa de Fórum Filatélico y Afinsa afecta a unos 350.000 usuarios». Eroski Consumer, 10 de mayo de 2006."
+    url: "https://www.consumer.es/economia-domestica/finanzas/la-presunta-estafa-de-forum-filatelico-y-afinsa-afecta-a-unos-350-000-usuarios.html"
+  - id: 2
+    corta: "Wikipedia: Fórum Filatélico"
+    cita: "«Fórum Filatélico». Wikipedia, la enciclopedia libre."
+    url: "https://es.wikipedia.org/wiki/F%C3%B3rum_Filat%C3%A9lico"
+  - id: 3
+    corta: "Wikipedia: Afinsa"
+    cita: "«Afinsa». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Afinsa"
+  - id: 4
+    corta: "elDiario.es (2016)"
+    cita: "«Condenados 11 directivos de Afinsa a penas de hasta 12 años por la gran estafa de los sellos». elDiario.es, 27 de julio de 2016."
+    url: "https://www.eldiario.es/economia/condenados-directivos-afinsa-alcanzan-sellos_1_3888128.html"
+  - id: 5
+    corta: "OCU (2016)"
+    cita: "OCU. Nota de prensa sobre la sentencia de Afinsa, 27 de julio de 2016."
+    url: "https://www.ocu.org/organizacion/prensa/notas-de-prensa/2016/afinsa"
+  - id: 6
+    corta: "El Independiente (2017)"
+    cita: "«El Supremo rebaja las penas a los exdirectivos de Afinsa». El Independiente, 23 de noviembre de 2017."
+    url: "https://www.elindependiente.com/?p=229585"
+  - id: 7
+    corta: "El Independiente (2018)"
+    cita: "«La Audiencia Nacional condena al ex presidente de Fórum Filatélico a 12 años y cuatro meses de prisión». El Independiente, 13 de julio de 2018."
+    url: "https://www.elindependiente.com/politica/2018/07/13/la-audiencia-nacional-condena-al-ex-presidente-de-forum-filatelico-a-12-anos-de-prision/"
+  - id: 8
+    corta: "Tribunal Supremo (2020)"
+    cita: "Poder Judicial. «El Tribunal Supremo confirma la estafa piramidal de Fórum Filatélico y establece penas de entre seis meses y once años de cárcel para 16 acusados», 5 de marzo de 2020."
+    url: "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Tribunal-Supremo/Noticias-Judiciales/El-Tribunal-Supremo-confirma-la-estafa-piramidal-de-Forum-Filatelico-y-establece-penas-de-entre-seis-meses-y-once-anos-de-carcel-para-16-acusados"
+  - id: 9
+    corta: "Eroski Consumer (2008)"
+    cita: "«Fórum Filatélico y Afinsa multiplicaron hasta diez veces el valor de los sellos mediante operaciones internacionales». Eroski Consumer, 6 de mayo de 2008."
+    url: "https://www.consumer.es/economia-domestica/forum-filatelico-y-afinsa-multiplicaron-hasta-diez-veces-el-valor-de-los-sellos-mediante-operaciones-internacionales.html"
+  - id: 10
+    corta: "Diagonal (2006)"
+    cita: "«Afinsa y Fórum Filatélico: una estafa paso a paso». Diagonal (hemeroteca de El Salto), 17 de julio de 2006."
+    url: "https://www.elsaltodiario.com/hemeroteca-diagonal/afinsa-y-forum-filatelico-una-estafa-paso-a-paso"
+  - id: 11
+    corta: "COPE (2021)"
+    cita: "«Los afectados por Fórum Filatélico han recuperado un 23,5 % de lo invertido». COPE, 12 de mayo de 2021."
+    url: "https://www.cope.es/actualidad/economia/noticias/los-afectados-por-forum-filatelico-han-recupera-235-invertido-20210512_1286907"
+  - id: 12
+    corta: "elEconomista (2023)"
+    cita: "«Los 190.000 afectados por Fórum Filatélico ya pueden compensar las pérdidas en la Renta de 2022». elEconomista, mayo de 2023."
+    url: "https://www.eleconomista.es/legal/noticias/12259957/05/23/los-190000-afectados-por-forum-filatelico-ya-pueden-compensar-las-perdidas-en-la-renta-de-2022.html"
+  - id: 13
+    corta: "Vozpópuli (2021)"
+    cita: "«Afinsa: 28.320 afectados sin localizar y 10,6 millones que pueden acabar en el Tesoro». Vozpópuli, 15 de marzo de 2021."
+    url: "https://www.vozpopuli.com/economia/afinsa-afectados-tesoro.html"
+  - id: 14
+    corta: "CMM (2023)"
+    cita: "«Caso Fórum Filatélico y Afinsa: 17 años de la mayor estafa piramidal de España». Castilla-La Mancha Media, 9 de mayo de 2023."
+    url: "https://www.cmmedia.es/noticias/castilla-la-mancha/caso-forum-filatelico-afinsa-17-anos-mayor-estafa-piramidal-espana.html"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "En mayo de 2006, unos 350.000 españoles descubrieron que habían metido sus ahorros en sellos."
+    tipo: cifra
+    valor: 350000
+    etiqueta: "ahorradores afectados por Fórum Filatélico y Afinsa · estimación de 2006"
+    fuente: 1
+  - voz: "Millones de sellos guardados en almacenes. Sellos que, según los jueces, valían solo una pequeña parte del dinero que habían entregado."
+    tipo: ilustracion
+    escena: "Un enorme almacén en penumbra con estanterías metálicas altísimas llenas de álbumes y cajas de sellos, filas que se pierden al fondo, luz de fluorescentes, polvo flotando en el aire."
+    kicker: "Madrid · 2006"
+    texto: "Millones de sellos en un almacén"
+    fuente: 8
+  - voz: "Les habían prometido un interés fijo, mejor que el del banco, y que siempre podrían recuperar su dinero."
+    tipo: titulo
+    texto: "Más que el banco, y sin riesgo"
+    resaltar: "sin riesgo"
+    fuente: 8
+  - voz: "Esta es la historia de Fórum Filatélico y Afinsa: la mayor estafa piramidal de la historia de España."
+    tipo: titulo
+    texto: "La mayor estafa piramidal de España"
+    resaltar: "estafa piramidal"
+    fuente: 14
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El banco de los sellos"
+    short: false
+    escenas:
+      - voz: "Para entender esta historia hay que volver a finales de los años setenta. En 1979 nace en Madrid Fórum Filatélico."
+        tipo: fecha
+        fecha: "1979"
+        lugar: "Nace Fórum Filatélico"
+        fuente: [1, 2]
+      - voz: "Un año después, un empresario portugués afincado en España, Albertino de Figueiredo, funda Afinsa."
+        tipo: fecha
+        fecha: "1980"
+        lugar: "Albertino de Figueiredo funda Afinsa"
+        fuente: 3
+      - voz: "Coleccionar sellos era entonces una afición enorme. Había abuelos y nietos que pasaban las tardes con la lupa, las pinzas y el álbum."
+        tipo: ilustracion
+        escena: "Salón de un piso español en los años ochenta: un abuelo y su nieto sentados a una mesa camilla con un álbum de sellos abierto, una lupa, unas pinzas y sobres con sellos sueltos; lámpara de pie encendida, luz cálida de tarde."
+        kicker: "Años ochenta"
+        texto: "La afición de los sellos"
+      - voz: "Y algunos sellos antiguos, como el Penny Black, el primer sello de la historia, de 1840, se pagaban a precio de coleccionista."
+        tipo: foto
+        diseno: marco
+        imagen: "File:Penny black.jpg"
+        kicker: "Reino Unido · 1840"
+        texto: "El primer sello de la historia"
+        sub: "Penny Black"
+      - voz: "Fórum y Afinsa convirtieron esa afición en un producto de ahorro. Sus clientes no compraban sellos para coleccionarlos. Los compraban como inversión."
+        tipo: foto
+        diseno: sangre
+        imagen: "File:Stamp collection (7181777988).jpg"
+        kicker: "Bienes tangibles"
+        texto: "No era coleccionismo: era inversión"
+        fuente: 8
+      - voz: "La oferta era sencilla: tú les das tu dinero, ellos te asignan un lote de sellos, y al cabo de un tiempo te lo recompran más caro."
+        tipo: esquema
+        modo: cadena
+        titulo: "Lo que firmaba el cliente"
+        nodos:
+          - {etiqueta: "Paso 1", texto: "Entrega su dinero"}
+          - {etiqueta: "Paso 2", texto: "Recibe un lote de sellos"}
+          - {etiqueta: "Paso 3", texto: "Se lo recompran más caro", destacar: true}
+        fuente: 8
+      - voz: "El interés prometido rondaba entre el 6 y el 8 % al año. Un depósito en el banco daba entonces entre el 2 y el 3."
+        tipo: comparar
+        titulo: "Lo que daba tu dinero cada año"
+        izquierda: {etiqueta: "Depósito bancario", valor: 2.5, texto: "2–3 %"}
+        derecha: {etiqueta: "Sellos de Fórum", valor: 7, texto: "6–8 %", color: sube}
+        fuente: 2
+      - voz: "Y era fijo. Pasara lo que pasara en la bolsa o en la economía."
+        tipo: ilustracion
+        escena: "Una libreta de ahorros abierta junto a un contrato con un sello de correos grapado y una pluma, sobre el hule de una mesa de cocina española de los años noventa; luz de mañana."
+        kicker: "Rentabilidad fija"
+        texto: "Fijo, pasara lo que pasara"
+      - voz: "Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros."
+        tipo: ilustracion
+        escena: "Una pareja de jubilados españoles sentados frente a un comercial en una oficina luminosa de los años noventa, firmando un contrato; en la pared, vitrinas con sellos enmarcados y un cartel con una flecha hacia arriba."
+        diseno: marco
+        kicker: "Los clientes"
+        texto: "Algo mejor que la libreta"
+        fuente: [3, 5]
+      - voz: "Las dos empresas no paraban de crecer. En 2006, Afinsa tenía unos 175.000 clientes, y Fórum, unos 200.000."
+        tipo: comparar
+        titulo: "Clientes en 2006"
+        izquierda: {etiqueta: "Afinsa", valor: 175000, texto: "175.000"}
+        derecha: {etiqueta: "Fórum Filatélico", valor: 200000, texto: "200.000"}
+        fuente: 1
+      - voz: "Tenían oficinas en toda España. Solo Afinsa llegó a tener 716 delegaciones."
+        tipo: cifra
+        valor: 716
+        etiqueta: "delegaciones de Afinsa"
+        fuente: 4
+      - voz: "Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde 1983."
+        tipo: foto
+        diseno: completa
+        imagen: "File:Polideportivo Pisuerga (GCV).JPG"
+        kicker: "Polideportivo Pisuerga · Valladolid"
+        texto: "Un equipo con nombre de empresa de sellos"
+        fuente: 1
+      - voz: "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's."
+        tipo: titulo
+        texto: "La tercera del mundo en coleccionismo"
+        resaltar: "tercera del mundo"
+        fuente: 3
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El truco"
+    short: true
+    titulo_short: "Así funcionaba el timo de los sellos"
+    gancho_short:
+      - voz: "Te prometen un 7 % al año por comprar sellos. Parece un buen negocio. Hasta que preguntas de dónde sale el dinero."
+        tipo: titulo
+        texto: "¿De dónde salía el dinero?"
+        resaltar: "dinero"
+    escenas:
+      - voz: "¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía."
+        tipo: ilustracion
+        escena: "Un comercial con traje enseña un folleto con un gráfico que sube a una familia sentada en el sofá de su salón, a mediados de los noventa; café sobre la mesa baja, todos sonríen."
+        kicker: "La venta"
+        texto: "La pregunta que nadie se hacía"
+      - voz: "Según el Tribunal Supremo, la clave estaba en la recompra. Al acabar el plazo, Fórum se comprometía a vender los sellos del cliente más caros o, si no había comprador, a comprarlos ella misma."
+        tipo: esquema
+        modo: cadena
+        titulo: "La recompra"
+        nodos:
+          - {etiqueta: "Inicio", texto: "El cliente compra un lote"}
+          - {etiqueta: "Fin del plazo", texto: "¿Hay comprador?"}
+          - {etiqueta: "Casi siempre", texto: "Fórum lo recompra con interés", destacar: true}
+        flechas: ["Pasa el tiempo", "No"]
+        fuente: 8
+      - voz: "Y lo que pasaba casi siempre es que recompraba ella. Pero Fórum no tenía otros ingresos."
+        tipo: titulo
+        texto: "Y no tenía otros ingresos"
+        resaltar: "otros ingresos"
+        fuente: 8
+      - voz: "Así que el dinero para pagar a los clientes antiguos salía de los clientes nuevos. El negocio, dice el Supremo, producía pérdidas constantes."
+        tipo: esquema
+        modo: cadena
+        titulo: "De dónde salía el dinero"
+        nodos:
+          - {etiqueta: "Entrada", texto: "Dinero de clientes nuevos"}
+          - {etiqueta: "Caja", texto: "La empresa"}
+          - {etiqueta: "Salida", texto: "Intereses de los antiguos", destacar: true}
+        nota: "Si dejan de entrar clientes nuevos, todo se cae"
+        fuente: 8
+      - voz: "Este truco tiene nombre: esquema Ponzi. Por Charles Ponzi, que en 1920 lo montó en Boston. Y, curiosamente, también con papeles de correos: cupones de respuesta postal."
+        tipo: boceto
+        imagen: "File:Chas. Ponzi LCCN2014711137.jpg"
+        kicker: "Boston · 1920"
+        nombre: "Charles Ponzi"
+        sub: "El estafador que dio nombre al truco"
+        revelar: true
+      - voz: "¿Y los sellos? Ahí estaba el segundo truco: su precio lo ponían las propias empresas."
+        tipo: titulo
+        texto: "El precio lo ponían ellas"
+        resaltar: "ellas"
+      - voz: "La Audiencia Nacional describió un mercado de valores filatélicos aparte, con precios muy por encima de lo que pagaban los coleccionistas de verdad."
+        tipo: ilustracion
+        escena: "Una mesa de oficina con catálogos de sellos abiertos, etiquetas de precio enormes pegadas sobre sellos pequeños, una calculadora antigua, unas pinzas y una lupa; luz de flexo, ambiente de despacho de los años noventa."
+        kicker: "Precios de catálogo"
+        texto: "Un mercado de sellos aparte"
+        fuente: 4
+      - voz: "Para alimentar el sistema, Afinsa compraba pruebas de imprenta, desechos, bocetos y sellos fiscales, y les ponía precios elevados."
+        tipo: lista
+        titulo: "Lo que se vendía como inversión"
+        puntos:
+          - "Pruebas de imprenta"
+          - "Desechos"
+          - "Bocetos"
+          - "Sellos fiscales"
+        fuente: 4
+      - voz: "Según los investigadores, las empresas vendían sellos a sociedades vinculadas en el extranjero, que se los revendían más caros. Así, su valor se multiplicaba entre cinco y diez veces."
+        tipo: esquema
+        modo: cadena
+        titulo: "La recirculación de los sellos"
+        nodos:
+          - {etiqueta: "España", texto: "La empresa vende sellos"}
+          - {etiqueta: "Extranjero", texto: "Sociedad vinculada"}
+          - {etiqueta: "Vuelta", texto: "Valen de 5 a 10 veces más", destacar: true}
+        flechas: ["Barato", "Más caro"]
+        fuente: 9
+      - voz: "Además, según la sentencia de Afinsa, muchos sellos eran de baja calidad, falsos o manipulados."
+        tipo: ilustracion
+        escena: "Primer plano de una mano con pinzas sosteniendo un sello antiguo bajo una gran lupa; a través de la lupa se ven bordes rotos, una mancha y un dentado recortado; fondo oscuro de terciopelo."
+        diseno: marco
+        kicker: "La calidad"
+        texto: "Baja calidad, falsos o manipulados"
+        fuente: 4
+      - voz: "El tribunal lo resumió en una frase."
+        tipo: cita
+        texto: "Cualquier crisis de confianza derribaría la pirámide."
+        autor: "Audiencia Nacional · sentencia de Afinsa"
+        fecha: "2016"
+        fuente: 4
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Las alarmas"
+    short: true
+    titulo_short: "Hubo avisos durante años. Nadie paró el timo de los sellos"
+    gancho_short:
+      - voz: "Durante diez años hubo avisos de que algo no cuadraba con los sellos de Afinsa y Fórum. Y nadie los paró."
+        tipo: titulo
+        texto: "Diez años de avisos"
+        resaltar: "avisos"
+    escenas:
+      - voz: "Lo más sorprendente de esta historia es que hubo avisos. Muchos."
+        tipo: ilustracion
+        escena: "Una mesa con recortes de periódico apilados, algunos subrayados en rojo, una lupa y una taza de café frío; titulares sin texto legible; luz de flexo."
+        kicker: "1996–2005"
+        texto: "Hubo avisos. Muchos."
+      - voz: "La organización de consumidores OCU desaconsejaba este tipo de inversión desde 1996."
+        tipo: fecha
+        fecha: "1996"
+        lugar: "La OCU desaconseja invertir en sellos"
+        fuente: 1
+      - voz: "Pero había un problema de fondo: no eran bancos. Así que no las vigilaba ni el Banco de España ni la CNMV, el supervisor de la bolsa."
+        tipo: titulo
+        texto: "No eran bancos: no las vigilaba nadie"
+        resaltar: "nadie"
+        fuente: [3, 10]
+      - voz: "Tampoco tenían fondo de garantía. Si quebraban, el dinero de los clientes no estaba protegido, como sí lo está un depósito en el banco."
+        tipo: comparar
+        titulo: "Si la empresa quebraba"
+        izquierda: {etiqueta: "Depósito bancario", valor: 1, texto: "Protegido"}
+        derecha: {etiqueta: "Sellos", valor: 0, texto: "Sin garantía", color: baja}
+        fuente: [3, 10]
+      - voz: "En enero de 2002 quebró otra empresa del sector, Banco Filatélico. Y ese abril, un informe jurídico del Estado concluyó que ni la CNMV ni el Banco de España debían supervisarlas."
+        tipo: fecha
+        fecha: "2002"
+        lugar: "Quiebra Banco Filatélico"
+        fuente: 10
+      - voz: "A finales de 2003 pasaron a depender del Ministerio de Sanidad y Consumo, que solo les pedía cada año una copia de sus auditorías."
+        tipo: ilustracion
+        escena: "Un despacho de un ministerio español a principios de los dos mil: estanterías con archivadores, una pila de carpetas de auditorías sobre la mesa sin abrir, un sello de caucho y una taza de café; luz gris por la ventana."
+        kicker: "Finales de 2003"
+        texto: "Una copia de la auditoría al año"
+        fuente: 10
+      - voz: "En febrero de 2004, la OCU denunció que los sellos de Fórum y Afinsa estaban sobrevalorados. Según sus cálculos, al menos cinco veces."
+        tipo: cifra
+        texto: "×5"
+        etiqueta: "sobrevaloración mínima de los sellos, según la OCU · febrero de 2004"
+        fuente: 10
+      - voz: "Ese mismo año, el servicio que persigue el blanqueo de capitales relacionó a personas y empresas del entorno de Fórum con tramas de blanqueo."
+        tipo: fecha
+        fecha: "SEP 2004"
+        lugar: "Alerta del servicio contra el blanqueo"
+        fuente: 10
+      - voz: "Y en mayo de 2005, la revista financiera estadounidense Barron's publicó un reportaje sobre Afinsa. ¿Por qué en Estados Unidos? Porque Afinsa controlaba Escala Group, una empresa que cotizaba en el Nasdaq."
+        tipo: mapa
+        caja: [-125, 18, 12, 58]
+        titulo: "De Madrid a Nueva York"
+        grupos:
+          - paises: [España]
+            color: acento2
+            leyenda: "Afinsa"
+          - paises: [Estados Unidos]
+            leyenda: "Escala Group, en el Nasdaq"
+        etiquetas:
+          - {pais: Estados Unidos, texto: "Barron's · mayo de 2005"}
+        fuente: [3, 10]
+      - voz: "Mientras tanto, las empresas seguían creciendo. En 2005, Fórum compró un 0,80 % de Enagás."
+        tipo: cifra
+        valor: 0.80
+        decimales: 2
+        sufijo: " %"
+        etiqueta: "parte de Enagás que compró Fórum en 2005"
+        fuente: 1
+      - voz: "Y en la primavera de 2006, un 0,85 % del Banco Pastor. Una empresa de sellos comprando un trozo de un banco."
+        tipo: foto
+        diseno: sangre
+        imagen: "File:A Coruña - Banco Pastor 3.JPG"
+        kicker: "Banco Pastor · A Coruña"
+        texto: "Una empresa de sellos compra parte de un banco"
+        sub: "Un 0,85 %, en la primavera de 2006"
+        fuente: 1
+      - voz: "Sus clientes seguían firmando, convencidos de que su dinero estaba en algo sólido: sellos de verdad, guardados en una cámara."
+        tipo: ilustracion
+        escena: "Una cámara acorazada con puerta redonda de acero abierta; dentro, estanterías con álbumes de sellos perfectamente ordenados bajo una luz cálida, como un tesoro."
+        diseno: marco
+        kicker: "Primavera de 2006"
+        texto: "Algo sólido. O eso creían"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "9 de mayo de 2006"
+    short: true
+    titulo_short: "El día que cayeron Afinsa y Fórum Filatélico"
+    gancho_short:
+      - voz: "Una mañana de mayo, cientos de miles de personas se enteraron por la tele de que sus ahorros estaban en peligro."
+        tipo: titulo
+        texto: "Se enteraron por la tele"
+        resaltar: "tele"
+    escenas:
+      - voz: "El 9 de mayo de 2006, la policía entró en las sedes de Fórum Filatélico y Afinsa."
+        tipo: fecha
+        fecha: "9 MAY 2006"
+        lugar: "Intervención de Fórum y Afinsa"
+        fuente: 1
+      - voz: "Actuaba por orden de la Audiencia Nacional, tras las denuncias de la Fiscalía Anticorrupción y de la Agencia Tributaria. Veintitrés inspectores de Hacienda participaron en la operación."
+        tipo: ilustracion
+        escena: "Agentes de policía españoles sin rasgos definidos sacando cajas de documentos de un edificio de oficinas de Madrid por la mañana, furgonetas aparcadas, curiosos mirando desde la acera."
+        diseno: sangre
+        kicker: "Madrid · 9 de mayo de 2006"
+        texto: "La policía entra en las sedes"
+        fuente: 1
+      - voz: "Hubo nueve detenidos. Entre ellos, el fundador de Afinsa, Albertino de Figueiredo, y su hijo Carlos."
+        tipo: cifra
+        valor: 9
+        etiqueta: "detenidos el día de la intervención"
+        fuente: [1, 3]
+      - voz: "Se les acusaba de estafa, blanqueo de capitales, insolvencia punible, delito contra Hacienda y administración desleal."
+        tipo: lista
+        titulo: "Las acusaciones"
+        puntos:
+          - "Estafa"
+          - "Blanqueo de capitales"
+          - "Insolvencia punible"
+          - "Delito contra Hacienda"
+          - "Administración desleal"
+        fuente: 1
+      - voz: "En pocas horas, más de un centenar de clientes se plantó ante la sede de Madrid. Querían saber qué había pasado con su dinero."
+        tipo: ilustracion
+        escena: "Un grupo de personas mayores españolas, preocupadas, ante la puerta cerrada de una oficina con la persiana bajada en una calle de Madrid; uno sostiene un contrato en la mano, otra habla por un teléfono móvil de 2006."
+        kicker: "Ese mismo día"
+        texto: "¿Qué ha pasado con mi dinero?"
+        fuente: 1
+      - voz: "La OCU recibió más de 2.800 llamadas en solo tres horas."
+        tipo: cifra
+        valor: 2800
+        etiqueta: "llamadas a la OCU en tres horas"
+        fuente: 1
+      - voz: "En Nueva York, la acción de Escala Group se hundió más de un 85 % en los días siguientes."
+        tipo: cifra
+        valor: 85
+        prefijo: "−"
+        sufijo: " %"
+        color: baja
+        etiqueta: "caída de la acción de Escala Group tras la intervención"
+        fuente: 3
+      - voz: "Pronto se supo el tamaño del agujero. Según los administradores concursales, superaba los 2.800 millones de euros en Fórum y los 1.700 millones en Afinsa."
+        tipo: comparar
+        titulo: "El agujero patrimonial"
+        izquierda: {etiqueta: "Afinsa", valor: 1700, texto: "1.700 M€", color: baja}
+        derecha: {etiqueta: "Fórum Filatélico", valor: 2800, texto: "2.800 M€", color: baja}
+        fuente: 9
+      - voz: "¿Y los sellos? En 2008, el juez rebajó el valor de los sellos de Fórum de 1.380 millones de euros a 283."
+        tipo: comparar
+        titulo: "Lo que valían los sellos de Fórum"
+        izquierda: {etiqueta: "Según la empresa", valor: 1380, texto: "1.380 M€"}
+        derecha: {etiqueta: "Según el juez (2008)", valor: 283, texto: "283 M€", color: baja}
+        fuente: 2
+      - voz: "Solo en los almacenes de Afinsa había 150 millones de sellos."
+        tipo: cifra
+        texto: "150 M"
+        etiqueta: "sellos en los almacenes de Afinsa"
+        fuente: 4
+      - voz: "Para muchas familias, aquello era el dinero de toda una vida."
+        tipo: ilustracion
+        escena: "Una mujer mayor española sentada sola en la cocina de su piso, de noche, con un contrato y una carpeta de papeles sobre el hule de la mesa; en la televisión del fondo, un informativo sin texto legible; luz de una lámpara pequeña."
+        diseno: marco
+        kicker: "Mayo de 2006"
+        texto: "Los ahorros de toda una vida"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Las condenas"
+    short: true
+    titulo_short: "Las condenas del timo de los sellos"
+    gancho_short:
+      - voz: "Tardaron diez años en juzgarlos. Y entre los condenados había un abogado del Estado."
+        tipo: titulo
+        texto: "Entre los condenados, un abogado del Estado"
+        resaltar: "abogado del Estado"
+    escenas:
+      - voz: "La justicia fue lenta. El sumario de Afinsa ocupó casi 60.000 folios."
+        tipo: cifra
+        valor: 59600
+        etiqueta: "folios del sumario de Afinsa"
+        fuente: 4
+      - voz: "El caso se juzgó en la Audiencia Nacional, en Madrid."
+        tipo: foto
+        diseno: completa
+        imagen: "File:Audiencia-Nacional-141115.jpg"
+        kicker: "Audiencia Nacional · Madrid"
+        texto: "Diez años después"
+      - voz: "En julio de 2016 llegó la sentencia de Afinsa. Once directivos condenados por estafa agravada, insolvencia punible, falseamiento de cuentas, blanqueo y delito fiscal."
+        tipo: fecha
+        fecha: "JUL 2016"
+        lugar: "11 directivos de Afinsa condenados"
+        fuente: 4
+      - voz: "La pena más alta fue para el expresidente, Juan Antonio Cano: 12 años y 10 meses. El fundador, Albertino de Figueiredo, 11 años."
+        tipo: barras
+        titulo: "Penas de cárcel en la sentencia de Afinsa"
+        subtitulo: "En años · Audiencia Nacional, 2016"
+        valores: [12.8, 11.9, 11.5, 11, 10.3]
+        etiquetas: ["J. A. Cano", "C. de Figueiredo", "V. Martín", "A. de Figueiredo", "E. Ballester"]
+        decimales: 1
+        destacar: [0]
+        fuente: 4
+      - voz: "Entre los condenados había un nombre inesperado: el que fue jefe de la Abogacía del Estado en el Tribunal Superior de Justicia de Madrid hasta 2006."
+        tipo: titulo
+        kicker: "Condenado como cooperador necesario"
+        texto: "Un jefe de la Abogacía del Estado"
+        resaltar: "Abogacía del Estado"
+        fuente: 4
+      - voz: "La sentencia describió el negocio como un relato que solo podían creerse quienes no tenían información."
+        tipo: cita
+        texto: "Un relato imaginado, que solo inversores no informados y crédulos podían aceptar sin reserva."
+        autor: "Audiencia Nacional · sentencia de Afinsa"
+        fecha: "2016"
+        fuente: 4
+      - voz: "Los condenados debían indemnizar con 2.574 millones de euros a 190.022 clientes."
+        tipo: cifra
+        texto: "2.574 M€"
+        etiqueta: "indemnización fijada para 190.022 clientes de Afinsa"
+        fuente: [4, 5]
+      - voz: "En noviembre de 2017, el Supremo rebajó las penas: la Audiencia había aplicado una reforma del Código Penal posterior a los hechos. Cano se quedó en 8 años y 7 meses."
+        tipo: comparar
+        titulo: "La pena del expresidente de Afinsa"
+        izquierda: {etiqueta: "Audiencia Nacional, 2016", valor: 12.8, texto: "12 a. 10 m."}
+        derecha: {etiqueta: "Supremo, 2017", valor: 8.6, texto: "8 a. 7 m."}
+        fuente: 6
+      - voz: "El juicio de Fórum terminó dos años después, en julio de 2018: veinte condenados, con penas de hasta 12 años. Su expresidente, Francisco Briones, recibió 12 años y 4 meses."
+        tipo: fecha
+        fecha: "JUL 2018"
+        lugar: "20 condenados en Fórum Filatélico"
+        fuente: [2, 7]
+      - voz: "En 2020, el Supremo confirmó la estafa. Rebajó la pena de Briones a 11 años y 10 meses y absolvió a cuatro acusados por falta de pruebas."
+        tipo: fecha
+        fecha: "MAR 2020"
+        lugar: "El Supremo confirma la estafa de Fórum"
+        fuente: 8
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Lo que se recuperó"
+    short: true
+    titulo_short: "¿Recuperaron su dinero los afectados de Afinsa y Fórum?"
+    gancho_short:
+      - voz: "Quince años después, los afectados de Fórum habían recuperado menos de una cuarta parte de su dinero. Los de Afinsa, todavía menos."
+        tipo: titulo
+        texto: "Menos de una cuarta parte"
+        resaltar: "cuarta parte"
+    escenas:
+      - voz: "Quedaba la pregunta más importante para los afectados: ¿iban a recuperar su dinero?"
+        tipo: foto
+        diseno: completa
+        imagen: "File:Forum Afinsa.jpg"
+        kicker: "Afectados de Fórum y Afinsa"
+        texto: "¿Y nuestro dinero?"
+      - voz: "Las dos empresas entraron en concurso de acreedores. Los administradores fueron vendiendo lo que quedaba: sellos, edificios y obras de arte."
+        tipo: ilustracion
+        escena: "Una sala de subastas sobria: un subastador de espaldas en un atril, lotes de álbumes de sellos y cuadros apoyados en caballetes, pocas personas sentadas en sillas plegables, ambiente frío y medio vacío."
+        kicker: "Concurso de acreedores"
+        texto: "Vender lo que quedaba"
+        fuente: 13
+      - voz: "Quince años después de la intervención, los clientes de Fórum habían recuperado un 23,5 % de lo invertido. Los de Afinsa, un 15,7 %."
+        tipo: comparar
+        titulo: "Lo recuperado tras 15 años"
+        izquierda: {etiqueta: "Afinsa", valor: 15.7, texto: "15,7 %", color: baja}
+        derecha: {etiqueta: "Fórum Filatélico", valor: 23.5, texto: "23,5 %", color: baja}
+        fuente: 11
+      - voz: "Dicho de otra forma: de cada 100 euros, a un cliente de Afinsa le habían devuelto unos 16."
+        tipo: comparar
+        titulo: "De cada 100 € invertidos en Afinsa"
+        izquierda: {etiqueta: "Lo que entregó", valor: 100, texto: "100 €"}
+        derecha: {etiqueta: "Lo que le devolvieron", valor: 15.7, texto: "15,70 €", color: baja}
+        fuente: 11
+      - voz: "El Estado no pagó. En 2010, la Audiencia Nacional decidió que no tenía responsabilidad en lo ocurrido."
+        tipo: fecha
+        fecha: "2010"
+        lugar: "El Estado no tendrá que indemnizar"
+        fuente: 2
+      - voz: "El concurso de Fórum no se cerró hasta julio de 2022, dieciséis años después. Solo entonces sus clientes pudieron restar las pérdidas en la declaración de la renta."
+        tipo: fecha
+        fecha: "JUL 2022"
+        lugar: "Se cierra el concurso de Fórum"
+        fuente: 12
+      - voz: "Algunos afectados no llegaron a verlo. Murieron esperando recuperar sus ahorros."
+        tipo: ilustracion
+        escena: "Una silla vacía junto a una ventana con luz de tarde; sobre la mesa, un álbum de sellos cerrado, unas gafas de lectura y un sobre con documentos atados con una goma."
+        diseno: marco
+        kicker: "Diecisiete años de espera"
+        texto: "Algunos murieron esperando"
+        fuente: 14
+      - voz: "Y hay un detalle amargo: en 2020, la administración concursal de Afinsa no lograba localizar a 28.320 antiguos clientes. Su dinero, 10,6 millones de euros, puede acabar en el Tesoro si nadie lo reclama."
+        tipo: cifra
+        valor: 28320
+        etiqueta: "clientes de Afinsa sin localizar, con 10,6 millones pendientes de cobrar"
+        fuente: 13
+      - voz: "¿Qué enseña esta historia? Que antes de meter tus ahorros en algo, conviene hacerse cuatro preguntas."
+        tipo: lista
+        titulo: "Cuatro preguntas antes de invertir"
+        puntos:
+          - "¿Promete mucho, fijo y sin riesgo?"
+          - "¿Quién lo supervisa?"
+          - "¿Hay fondo de garantía?"
+          - "¿De dónde sale el dinero?"
+      - voz: "Porque algo solo vale lo que alguien está dispuesto a pagar por ello. Y los sellos de Fórum y Afinsa no los quería casi nadie."
+        tipo: titulo
+        texto: "Algo vale lo que alguien paga por ello"
+        resaltar: "alguien paga"
+
+# ---------------------------------------------------------------------------------------------
+cierre:
+  - voz: "Si te ha gustado esta historia, suscríbete. Cada semana contamos una historia de dinero, con datos y con fuentes."
+    tipo: titulo
+    texto: "Una historia de dinero cada semana"
+    resaltar: "cada semana"

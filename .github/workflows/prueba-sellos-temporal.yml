@@ -1,4 +1,4 @@
-# TEMPORAL: busca fotos libres en Wikimedia Commons para el guion de los sellos.
+# TEMPORAL: prueba del corte por frases de la voz (se borra al acabar).
 name: Prueba sellos (temporal)
 on:
   push:
@@ -8,22 +8,21 @@ permissions:
 jobs:
   prueba:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install --quiet numpy pillow pyyaml
-      - name: Buscar candidatas
-        env:
-          BUSQUEDAS: "Charles Ponzi;Penny Black;stamp collection album;philately tweezers magnifying glass;Audiencia Nacional Madrid;Afinsa;Forum Filatelico baloncesto Valladolid;Polideportivo Pisuerga;Sellos España Isabel II 1850;Palacio de las Salesas Reales Tribunal Supremo;Enagas;Banco Pastor"
+      - run: sudo apt-get install -y -qq espeak-ng >/dev/null
+      - run: pip install --quiet numpy soundfile num2words pyyaml faster-whisper
+      - name: Probar el corte
         working-directory: scripts
-        run: mkdir -p salida; python buscar_imagenes.py 2>&1 | tee salida/registro.txt
+        run: mkdir -p salida; python prueba_tandas.py 2>&1 | tee salida/registro.txt
       - name: Guardar el resultado en la rama de prueba
         if: always()
         run: |
           mkdir -p resultado
-          cp scripts/salida/candidatas.* scripts/salida/registro.txt resultado/ 2>/dev/null || true
+          cp scripts/salida/registro.txt resultado/ 2>/dev/null || true
           git config user.name "robot" && git config user.email "robot@users.noreply.github.com"
-          git add -f resultado && git commit -qm "Resultado de la búsqueda" && git push -q origin HEAD:prueba-sellos
+          git add -f resultado && git commit -qm "Resultado de la prueba" && git push -q origin HEAD:prueba-sellos
