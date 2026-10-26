@@ -1,122 +1,173 @@
 == base
-   frase 1: ancla «en»→6.96 «en»→9.46 estimado 7.44 ventana 6.81-8.24 corte 7.74
-   frase 2: ancla «habian»→14.78 «les»→15.66 estimado 15.66 ventana 14.86-16.26 corte 15.55
-   frase 3: ancla «dinero»→22.26 «esta»→22.68 estimado 22.47 ventana 22.11-23.27 corte 22.53
-   frase 4: ancla «espana»→28.30 «para»→28.62 estimado 28.46 ventana 28.15-29.22 corte 28.51
-   frase 5: ancla «madrid»→36.04 «un»→37.62 estimado 37.62 ventana 36.82-38.22 corte 37.55
-   frase 1: ancla «album»→7.68 «y»→8.02 estimado 7.85 ventana 7.53-8.62 corte 7.82
-   frase 2: ancla «coleccionista»→16.62 «aficion»→18.56 estimado 16.62 ventana 16.47-17.42 corte 16.90
-   frase 3: ancla «inversion»→25.18 «la»→25.56 estimado 25.37 ventana 25.03-26.16 corte 25.42
-   frase 4: ancla «caro»→34.26 «el»→34.46 estimado 34.36 ventana 34.11-35.06 corte 34.33
-   frase 5: ancla «tres»→40.96 «y»→41.32 estimado 41.14 ventana 40.81-41.92 corte 41.15
-   frase 1: ancla «de»→6.04 «las»→6.90 estimado 6.90 ventana 6.10-7.50 corte 6.67
-   frase 2: ancla «mil»→16.96 «espana»→18.62 estimado 16.96 ventana 16.81-17.76 corte 17.25
-   frase 3: ancla «tener»→20.64 «incluso»→23.36 estimado 22.99 ventana 22.19-23.79 corte 22.94
+  (no se reconocen las palabras alrededor del final de la frase 1)
+0 NONE
+   frase 1: ancla «album»→7.70 «y»→8.02 estimado 7.86 ventana 7.55-8.62 corte 7.82
+   frase 2: ancla «a»→15.20 «esa»→15.60 estimado 15.50 ventana 15.05-16.20 corte 15.25
+   frase 3: ancla «como»→24.54 «la»→25.60 estimado 25.60 ventana 24.80-26.20 corte 25.42
+   frase 4: ancla «caro»→34.28 «el»→34.46 estimado 34.37 ventana 34.13-35.06 corte 34.33
+   frase 5: ancla «tres»→41.02 «y»→41.30 estimado 41.16 ventana 40.87-41.90 corte 41.15
+6 corte fuera 15.25 hueco 16.65 17.09
+   frases: ['Coleccionar sellos era entonces una afición enorme. Había abuelos y nietos que pasaban las tardes con la lupa, las pinzas y el álbum.', 'Y algunos sellos antiguos, como el Penny Black, el primer sello de la historia, de mil ochocientos cuarenta, se pagaban a precio de coleccionista.', 'Fórum y Afinsa convirtieron esa afición en un producto de ahorro. Sus clientes no compraban sellos para coleccionarlos. Los compraban como inversión.', 'La oferta era sencilla: tú les das tu dinero, ellos te asignan un lote de sellos, y al cabo de un tiempo te lo recompran más caro.', 'El interés prometido rondaba entre el seis y el ocho por ciento al año. Un depósito en el banco daba entonces entre el dos y el tres.', 'Y era fijo. Pasara lo que pasara en la bolsa o en la economía.']
+   oídas: [('se', 14.6, 14.7), ('pagaban', 14.7, 15.08), ('a', 15.08, 15.2), ('precion', 15.2, 15.58), ('ecoreccionista', 15.58, 16.64), ('forumia', 17.02, 17.48), ('finza', 17.48, 17.82), ('con', 17.82, 18.02), ('mi', 18.02, 18.14), ('tienda', 18.14, 18.36), ('esa', 18.36, 18.68), ('aficion', 18.68, 19.08), ('en', 19.08, 19.22)]
+   silencios: [(13.65, 13.73), (13.77, 13.96), (14.23, 14.31), (14.38, 14.64), (14.69, 14.78), (14.83, 14.89), (15.08, 15.14), (15.18, 15.32), (15.39, 15.51), (15.59, 15.68), (15.74, 15.85), (15.98, 16.19), (16.44, 16.58), (16.64, 17.16), (17.3, 17.37), (17.49, 17.58), (17.7, 17.78), (17.83, 17.92), (17.96, 18.06), (18.13, 18.26), (18.56, 18.64), (18.74, 18.83), (18.89, 18.98)]
+   frase 1: ancla «de»→6.04 «las»→6.80 estimado 6.80 ventana 6.00-7.40 corte 6.67
+   frase 2: ancla «mil»→16.96 «espana»→17.36 estimado 17.26 ventana 16.81-17.96 corte 17.25
+   frase 3: ancla «dieciseis»→21.70 «incluso»→22.10 estimado 22.00 ventana 21.55-22.70 corte 22.01
    frase 4: ancla «tres»→29.04 «y»→29.04 estimado 29.04 ventana 28.89-29.64 corte 29.58
-   frase 5: ancla «y»→36.26 «como»→37.26 estimado 37.26 ventana 36.46-37.86 corte 37.09
+   frase 5: ancla «y»→36.22 «como»→37.20 estimado 37.20 ventana 36.40-37.80 corte 37.09
+12 corte fuera 22.01 hueco 22.76 23.18
+   frases: ['Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros.', 'Las dos empresas no paraban de crecer. En dos mil seis, Afinsa tenía unos ciento setenta y cinco mil clientes, y Fórum, unos doscientos mil.', 'Tenían oficinas en toda España. Solo Afinsa llegó a tener setecientos dieciséis delegaciones.', 'Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde mil novecientos ochenta y tres.', "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's.", '¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía.']
+   oídas: [('satenia', 19.86, 20.3), ('setecientos', 20.3, 21.7), ('dieciseis', 20.3, 21.7), ('mil', 21.7, 22.18), ('elecciones', 22.18, 22.66), ('fom', 23.1, 23.36), ('incluso', 23.36, 23.74), ('naba', 23.74, 24.12), ('nombre', 24.12, 24.4), ('a', 24.4, 24.54), ('un', 24.54, 24.66), ('equipo', 24.66, 24.9), ('nela', 24.9, 25.18)]
+   silencios: [(19.92, 20.0), (20.05, 20.14), (20.19, 20.25), (20.39, 20.46), (20.63, 20.79), (20.83, 20.9), (20.94, 21.05), (21.19, 21.27), (21.31, 21.52), (21.58, 21.67), (21.72, 21.8), (21.94, 22.09), (22.21, 22.28), (22.32, 22.41), (22.64, 23.25), (23.39, 23.45), (23.54, 23.66), (23.76, 23.85), (23.89, 23.97), (24.27, 24.41), (24.58, 24.64), (24.67, 24.78), (24.85, 24.92), (24.96, 25.04)]
    frase 1: ancla «misma»→11.32 «y»→11.60 estimado 11.46 ventana 11.17-12.20 corte 11.48
    frase 2: ancla «ingresos»→16.10 «asi»→16.46 estimado 16.28 ventana 15.95-17.06 corte 16.29
-   frase 3: ancla «constantes»→26.20 «este»→26.50 estimado 26.35 ventana 26.05-27.10 corte 26.29
-   frase 4: ancla «postal»→38.32 «y»→38.68 estimado 38.50 ventana 38.17-39.28 corte 38.55
-   frase 5: ancla «empresas»→44.36 «la»→44.96 estimado 44.66 ventana 44.21-45.46 corte 44.79
-   frase 1: ancla «elevados»→7.06 «segun»→7.56 estimado 7.31 ventana 6.91-8.11 corte 7.31
-   frase 2: ancla «veces»→17.50 «ademas»→17.78 estimado 17.64 ventana 17.35-18.38 corte 17.62
-   frase 3: ancla «manipulados»→24.52 «el»→24.94 estimado 24.73 ventana 24.37-25.53 corte 24.75
+   frase 3: ancla «constantes»→26.22 «este»→26.22 estimado 26.22 ventana 26.07-26.82 corte 26.29
+   frase 4: ancla «postal»→38.40 «y»→38.68 estimado 38.54 ventana 38.25-39.28 corte 38.55
+   frase 5: ancla «empresas»→44.36 «la»→45.00 estimado 44.68 ventana 44.21-45.48 corte 44.79
+   frase 1: ancla «elevados»→7.06 «segun»→7.54 estimado 7.30 ventana 6.91-8.10 corte 7.31
+   frase 2: ancla «veces»→17.46 «ademas»→17.78 estimado 17.62 ventana 17.31-18.38 corte 17.62
+   frase 3: ancla «manipulados»→24.56 «el»→24.94 estimado 24.75 ventana 24.41-25.54 corte 24.75
    frase 4: ancla «frase»→27.08 «lo»→27.08 estimado 27.08 ventana 26.93-27.68 corte 27.43
-   frase 5: ancla «muchos»→30.78 «la»→31.32 estimado 31.05 ventana 30.63-31.85 corte 31.12
-   frase 1: ancla «bolsa»→8.28 «tampoco»→8.56 estimado 8.42 ventana 8.13-9.16 corte 8.49
+   frase 5: ancla «muchos»→30.80 «la»→31.32 estimado 31.06 ventana 30.65-31.86 corte 31.12
+   frase 1: ancla «bolsa»→8.28 «fondo»→9.30 estimado 8.28 ventana 8.13-9.08 corte 8.49
    frase 2: ancla «banco»→15.76 «en»→16.20 estimado 15.98 ventana 15.61-16.78 corte 15.99
-   frase 3: ancla «supervisarlas»→26.42 «mil»→27.84 estimado 26.42 ventana 26.27-27.22 corte 26.60
+   frase 3: ancla «banco»→24.62 «mil»→25.02 estimado 24.92 ventana 24.47-25.62 corte 24.88
    frase 4: ancla «auditorias»→35.64 «en»→36.06 estimado 35.85 ventana 35.49-36.65 corte 35.80
-   frase 5: ancla «veces»→44.72 «ese»→45.24 estimado 44.98 ventana 44.57-45.78 corte 45.01
-   frase 1: ancla «el»→14.00 «mientras»→14.96 estimado 14.96 ventana 14.16-15.56 corte 14.76
-   frase 2: ancla «de»→21.86 «y»→22.62 estimado 22.62 ventana 21.82-23.22 corte 22.46
-   frase 3: ancla «banco»→32.20 «sus»→32.80 estimado 32.50 ventana 32.05-33.30 corte 32.56
+   frase 5: ancla «veces»→44.70 «mismo»→45.52 estimado 44.70 ventana 44.55-45.50 corte 45.01
+30 corte fuera 24.88 hueco 26.43 26.88
+   frases: ['Pero había un problema de fondo: no eran bancos. Así que no las vigilaba ni el Banco de España ni la CNMV, el supervisor de la bolsa.', 'Tampoco tenían fondo de garantía. Si quebraban, el dinero de los clientes no estaba protegido, como sí lo está un depósito en el banco.', 'En enero de dos mil dos quebró otra empresa del sector, Banco Filatélico. Y ese abril, un informe jurídico del Estado concluyó que ni la CNMV ni el Banco de España debían supervisarlas.', 'A finales de dos mil tres pasaron a depender del Ministerio de Sanidad y Consumo, que solo les pedía cada año una copia de sus auditorías.', 'En febrero de dos mil cuatro, la OCU denunció que los sellos de Fórum y Afinsa estaban sobrevalorados. Según sus cálculos, al menos cinco veces.', 'Ese mismo año, el servicio que persigue el blanqueo de capitales relacionó a personas y empresas del entorno de Fórum con tramas de blanqueo.']
+   oídas: [('cnmu', 23.48, 23.98), ('venia', 23.98, 24.18), ('el', 24.18, 24.38), ('banco', 24.38, 24.62), ('de', 24.62, 24.76), ('espana', 24.76, 25.08), ('ni', 25.08, 25.32), ('eran', 25.32, 25.5), ('supervisarlas', 25.5, 26.42), ('afinales', 26.42, 27.5), ('nemos', 27.5, 27.84), ('mil', 27.84, 28.12), ('tres', 28.12, 28.4), ('pasaron', 28.4, 28.88), ('a', 28.88, 29.02)]
+   silencios: [(23.45, 23.56), (24.25, 24.38), (24.49, 24.6), (24.63, 24.72), (24.82, 24.93), (25.01, 25.11), (25.15, 25.24), (25.46, 25.62), (25.67, 25.75), (25.79, 25.92), (25.97, 26.06), (26.18, 26.27), (26.31, 26.89), (26.95, 27.07), (27.39, 27.56), (27.63, 27.73), (27.85, 27.95), (28.14, 28.29), (28.38, 28.55), (28.6, 28.7)]
+   frase 1: ancla «el»→14.00 «mientras»→14.86 estimado 14.86 ventana 14.06-15.46 corte 14.76
+   frase 2: ancla «de»→21.86 «y»→22.56 estimado 22.56 ventana 21.76-23.16 corte 22.46
+   frase 3: ancla «un»→31.78 «sus»→32.72 estimado 32.72 ventana 31.92-33.32 corte 32.56
    frase 4: ancla «camara»→39.50 «el»→40.02 estimado 39.76 ventana 39.35-40.56 corte 39.79
-   frase 5: ancla «y»→44.84 «por»→46.32 estimado 45.52 ventana 44.72-46.32 corte 45.57
-   frase 1: ancla «carlos»→7.14 «se»→7.56 estimado 7.35 ventana 6.99-8.15 corte 7.41
+   frase 5: ancla «y»→44.84 «por»→45.24 estimado 45.14 ventana 44.69-45.84 corte 45.57
+   frase 1: ancla «carlos»→7.12 «se»→7.56 estimado 7.34 ventana 6.97-8.14 corte 7.41
    frase 2: ancla «administracion»→14.02 «en»→14.92 estimado 14.92 ventana 14.12-15.52 corte 14.78
    frase 3: ancla «dinero»→21.40 «la»→21.80 estimado 21.60 ventana 21.25-22.40 corte 21.67
-   frase 4: ancla «horas»→25.30 «en»→25.56 estimado 25.43 ventana 25.15-26.16 corte 25.40
-   frase 5: ancla «siguientes»→32.34 «pronto»→32.68 estimado 32.51 ventana 32.19-33.28 corte 32.55
-   frase 1: ancla «tres»→7.70 «solo»→8.14 estimado 7.92 ventana 7.55-8.72 corte 7.99
+   frase 4: ancla «horas»→25.28 «en»→25.54 estimado 25.41 ventana 25.13-26.14 corte 25.40
+   frase 5: ancla «siguientes»→32.36 «pronto»→32.70 estimado 32.53 ventana 32.21-33.30 corte 32.55
+   frase 1: ancla «tres»→7.66 «solo»→8.08 estimado 7.87 ventana 7.51-8.67 corte 7.99
    frase 2: ancla «de»→11.44 «para»→12.30 estimado 12.30 ventana 11.50-12.90 corte 12.08
-   frase 3: ancla «vida»→15.24 «la»→15.80 estimado 15.52 ventana 15.09-16.32 corte 15.60
+   frase 3: ancla «de»→14.58 «la»→15.78 estimado 15.78 ventana 14.98-16.38 corte 15.60
    frase 4: ancla «folios»→20.04 «el»→20.52 estimado 20.28 ventana 19.89-21.08 corte 20.29
-   frase 5: ancla «madrid»→23.66 «en»→29.46 estimado 26.56 ventana 25.76-27.36 corte 26.59
-48 corte fuera 26.59 hueco 23.79 24.16
-   frases: ['¿Y los sellos? En dos mil ocho, el juez rebajó el valor de los sellos de Fórum de mil trescientos ochenta millones de euros a doscientos ochenta y tres.', 'Solo en los almacenes de Afinsa había ciento cincuenta millones de sellos.', 'Para muchas familias, aquello era el dinero de toda una vida.', 'La justicia fue lenta. El sumario de Afinsa ocupó casi sesenta mil folios.', 'El caso se juzgó en la Audiencia Nacional, en Madrid.', 'En julio de dos mil dieciséis llegó la sentencia de Afinsa. Once directivos condenados por estafa agravada, insolvencia punible, falseamiento de cuentas, blanqueo y delito fiscal.']
-   oídas: [('se', 20.92, 21.18), ('juzlo', 21.18, 21.54), ('en', 21.54, 21.72), ('la', 21.72, 21.86), ('union', 21.86, 22.1), ('nacional', 22.1, 22.66), ('en', 22.66, 23.32), ('madrid', 23.32, 23.66)]
-   silencios: [(20.89, 20.98), (21.02, 21.13), (21.18, 21.3), (21.36, 21.52), (21.68, 21.78), (21.95, 22.07), (22.22, 22.37), (22.41, 22.49), (22.53, 22.66), (23.01, 23.24), (23.29, 23.4), (23.45, 23.58), (23.69, 24.16), (24.21, 24.36), (24.61, 24.7), (24.75, 24.83), (24.91, 24.99), (25.14, 25.3), (25.36, 25.45), (25.5, 25.58), (25.72, 25.87), (25.91, 25.98), (26.05, 26.11)]
-   frase 1: ancla «anos»→7.68 «entre»→8.00 estimado 7.84 ventana 7.53-8.60 corte 7.80
+   frase 5: ancla «madrid»→23.66 «en»→24.16 estimado 23.91 ventana 23.51-24.71 corte 23.93
+   frase 1: ancla «anos»→7.58 «entre»→7.98 estimado 7.78 ventana 7.43-8.58 corte 7.80
    frase 2: ancla «seis»→17.28 «la»→18.10 estimado 17.69 ventana 17.13-18.49 corte 17.83
    frase 3: ancla «informacion»→23.66 «los»→24.28 estimado 23.97 ventana 23.51-24.77 corte 24.10
    frase 4: ancla «clientes»→30.84 «en»→31.22 estimado 31.03 ventana 30.69-31.82 corte 31.00
-   frase 5: ancla «meses»→42.12 «el»→42.70 estimado 42.41 ventana 41.97-43.21 corte 42.46
+   frase 5: ancla «meses»→42.10 «el»→42.70 estimado 42.40 ventana 41.95-43.20 corte 42.46
    frase 1: ancla «pruebas»→8.90 «la»→9.46 estimado 8.90 ventana 8.75-9.70 corte 9.07
-   frase 2: ancla «dinero»→13.32 «las»→13.86 estimado 13.59 ventana 13.17-14.39 corte 13.70
-   frase 3: ancla «arte»→21.50 «quince»→21.78 estimado 21.64 ventana 21.35-22.38 corte 21.69
-   frase 4: ancla «ciento»→33.88 «dicho»→34.22 estimado 34.05 ventana 33.73-34.82 corte 34.08
-   frase 5: ancla «dieciseis»→39.08 «el»→39.76 estimado 39.42 ventana 38.93-40.22 corte 39.58
-   frase 1: ancla «renta»→9.82 «algunos»→9.92 estimado 9.87 ventana 9.67-10.52 corte 9.77
-   frase 2: ancla «sus»→14.10 «y»→14.94 estimado 14.94 ventana 14.14-15.54 corte 14.73
-   frase 3: ancla «reclama»→29.50 «que»→29.96 estimado 29.73 ventana 29.35-30.53 corte 29.80
-   frase 4: ancla «preguntas»→35.58 «porque»→36.12 estimado 35.85 ventana 35.43-36.65 corte 35.95
-cortes bien 58 · mal 1 · tandas sin cortar 0 · 53 s
+   frase 2: ancla «dinero»→13.34 «las»→13.86 estimado 13.60 ventana 13.19-14.40 corte 13.70
+   frase 3: ancla «arte»→21.48 «quince»→21.78 estimado 21.63 ventana 21.33-22.38 corte 21.69
+   frase 4: ancla «ciento»→33.86 «dicho»→34.22 estimado 34.04 ventana 33.71-34.82 corte 34.08
+   frase 5: ancla «dieciseis»→39.06 «el»→39.78 estimado 39.42 ventana 38.91-40.22 corte 39.58
+   frase 1: ancla «renta»→9.62 «algunos»→9.94 estimado 9.78 ventana 9.47-10.54 corte 9.77
+   frase 2: ancla «sus»→14.10 «y»→14.92 estimado 14.92 ventana 14.12-15.52 corte 14.73
+   frase 3: ancla «reclama»→29.50 «que»→29.90 estimado 29.70 ventana 29.35-30.50 corte 29.80
+   frase 4: ancla «preguntas»→35.58 «porque»→36.16 estimado 35.87 ventana 35.43-36.67 corte 35.95
+cortes bien 51 · mal 3 · tandas sin cortar 1 · 78 s
 == otra semilla
-cortes bien 59 · mal 0 · tandas sin cortar 0 · 33 s
+0 corte fuera 6.23 hueco 6.75 7.2
+   frases: ['En mayo de dos mil seis, unos trescientos cincuenta mil españoles descubrieron que habían metido sus ahorros en sellos.', 'Millones de sellos guardados en almacenes. Sellos que, según los jueces, valían solo una pequeña parte del dinero que habían entregado.', 'Les habían prometido un interés fijo, mejor que el del banco, y que siempre podrían recuperar su dinero.', 'Esta es la historia de Fórum Filatélico y Afinsa: la mayor estafa piramidal de la historia de España.', 'Para entender esta historia hay que volver a finales de los años setenta. En mil novecientos setenta y nueve nace en Madrid Fórum Filatélico.', 'Un año después, un empresario portugués afincado en España, Albertino de Figueiredo, funda Afinsa.']
+   oídas: [('les', 3.96, 4.12), ('cuneo', 4.12, 4.54), ('en', 4.54, 4.64), ('que', 4.64, 4.74), ('a', 4.74, 4.86), ('dia', 4.86, 4.94), ('metimos', 4.94, 5.44), ('sus', 5.44, 5.68), ('aores', 5.68, 5.98), ('ensenos', 5.98, 6.68), ('millones', 7.14, 7.52), ('de', 7.52, 7.86), ('cejos', 7.86, 8.3), ('guardamos', 8.3, 8.98), ('en', 8.98, 9.24)]
+   silencios: [(3.82, 3.98), (4.03, 4.17), (4.23, 4.33), (4.55, 4.71), (5.02, 5.14), (5.19, 5.26), (5.34, 5.41), (5.46, 5.57), (5.63, 5.73), (5.88, 5.96), (6.0, 6.1), (6.15, 6.31), (6.48, 6.58), (6.64, 7.26), (7.65, 7.81), (7.88, 7.99), (8.13, 8.22), (8.28, 8.51), (8.6, 8.77), (8.87, 8.95), (9.01, 9.12)]
+6 corte fuera 16.33 hueco 17.73 17.95
+   frases: ['Coleccionar sellos era entonces una afición enorme. Había abuelos y nietos que pasaban las tardes con la lupa, las pinzas y el álbum.', 'Y algunos sellos antiguos, como el Penny Black, el primer sello de la historia, de mil ochocientos cuarenta, se pagaban a precio de coleccionista.', 'Fórum y Afinsa convirtieron esa afición en un producto de ahorro. Sus clientes no compraban sellos para coleccionarlos. Los compraban como inversión.', 'La oferta era sencilla: tú les das tu dinero, ellos te asignan un lote de sellos, y al cabo de un tiempo te lo recompran más caro.', 'El interés prometido rondaba entre el seis y el ocho por ciento al año. Un depósito en el banco daba entonces entre el dos y el tres.', 'Y era fijo. Pasara lo que pasara en la bolsa o en la economía.']
+   oídas: [('se', 15.66, 15.78), ('pagaban', 15.78, 16.16), ('a', 16.16, 16.3), ('precion', 16.3, 16.66), ('ecoreccionista', 16.66, 17.7), ('formia', 17.98, 18.36), ('a', 18.36, 18.46), ('finza', 18.46, 18.76), ('convirtiones', 18.76, 19.48), ('a', 19.48, 19.72), ('aficion', 19.72, 20.16)]
+   silencios: [(14.73, 14.81), (14.85, 15.04), (15.31, 15.39), (15.45, 15.71), (15.76, 15.86), (15.91, 15.97), (16.15, 16.22), (16.26, 16.39), (16.46, 16.58), (16.66, 16.76), (16.81, 16.92), (17.05, 17.27), (17.52, 17.66), (17.72, 18.02), (18.19, 18.25), (18.38, 18.47), (18.62, 18.71), (18.75, 18.86), (18.91, 19.01), (19.1, 19.24), (19.56, 19.65), (19.76, 19.85)]
+30 corte fuera 28.34 hueco 29.23 29.54
+   frases: ['Pero había un problema de fondo: no eran bancos. Así que no las vigilaba ni el Banco de España ni la CNMV, el supervisor de la bolsa.', 'Tampoco tenían fondo de garantía. Si quebraban, el dinero de los clientes no estaba protegido, como sí lo está un depósito en el banco.', 'En enero de dos mil dos quebró otra empresa del sector, Banco Filatélico. Y ese abril, un informe jurídico del Estado concluyó que ni la CNMV ni el Banco de España debían supervisarlas.', 'A finales de dos mil tres pasaron a depender del Ministerio de Sanidad y Consumo, que solo les pedía cada año una copia de sus auditorías.', 'En febrero de dos mil cuatro, la OCU denunció que los sellos de Fórum y Afinsa estaban sobrevalorados. Según sus cálculos, al menos cinco veces.', 'Ese mismo año, el servicio que persigue el blanqueo de capitales relacionó a personas y empresas del entorno de Fórum con tramas de blanqueo.']
+   oídas: [('nmu', 26.28, 26.78), ('ni', 26.88, 26.98), ('el', 26.98, 27.14), ('banco', 27.14, 27.4), ('ni', 27.4, 27.56), ('espana', 27.56, 27.8), ('ni', 27.8, 28.1), ('han', 28.1, 28.32), ('superquisadas', 28.32, 29.02), ('afinales', 29.02, 30.16), ('hemos', 30.16, 30.44), ('mil', 30.44, 30.76), ('tres', 30.76, 31.04), ('pasados', 31.04, 31.5), ('a', 31.5, 31.68)]
+   silencios: [(26.26, 26.36), (27.06, 27.18), (27.29, 27.4), (27.43, 27.52), (27.62, 27.74), (27.81, 27.91), (27.95, 28.04), (28.26, 28.42), (28.47, 28.55), (28.59, 28.73), (28.78, 28.86), (28.98, 29.07), (29.11, 29.54), (29.6, 29.72), (30.04, 30.21), (30.28, 30.38), (30.5, 30.6), (30.79, 30.94), (31.03, 31.2), (31.25, 31.35)]
+60 corte fuera 40.97 hueco 41.81 42.18
+   frases: ['En dos mil veinte, el Supremo confirmó la estafa. Rebajó la pena de Briones a once años y diez meses y absolvió a cuatro acusados por falta de pruebas.', 'Quedaba la pregunta más importante para los afectados: ¿iban a recuperar su dinero?', 'Las dos empresas entraron en concurso de acreedores. Los administradores fueron vendiendo lo que quedaba: sellos, edificios y obras de arte.', 'Quince años después de la intervención, los clientes de Fórum habían recuperado un veintitrés coma cinco por ciento de lo invertido. Los de Afinsa, un quince coma siete por ciento.', 'Dicho de otra forma: de cada cien euros, a un cliente de Afinsa le habían devuelto unos dieciséis.', 'El Estado no pagó. En dos mil diez, la Audiencia Nacional decidió que no tenía responsabilidad en lo ocurrido.']
+   oídas: [('de', 38.9, 39.08), ('afin', 39.08, 39.32), ('sale', 39.32, 39.66), ('a', 39.66, 39.8), ('mi', 39.8, 39.9), ('antehuelto', 39.9, 40.62), ('unos', 40.62, 40.88), ('nieces', 40.88, 41.26), ('y', 41.26, 41.64), ('seis', 41.64, 41.92), ('el', 42.14, 42.28), ('estado', 42.28, 42.54), ('no', 42.54, 42.8), ('paro', 42.8, 43.16), ('en', 43.46, 43.64), ('dos', 43.64, 43.82), ('mil', 43.82, 44.02), ('niefs', 44.02, 44.5)]
+   silencios: [(38.91, 39.0), (39.14, 39.24), (39.4, 39.5), (39.55, 39.62), (39.99, 40.14), (40.21, 40.3), (40.45, 40.59), (40.85, 41.08), (41.15, 41.27), (41.34, 41.44), (41.67, 42.18), (42.33, 42.45), (42.53, 42.6), (42.8, 42.88), (42.93, 43.02), (43.19, 43.52), (43.57, 43.7), (43.8, 43.89), (44.05, 44.18)]
+cortes bien 55 · mal 4 · tandas sin cortar 0 · 51 s
 == semilla 3
-  (no se reconocen las palabras alrededor del final de la frase 1)
-0 NONE
-   frase 1: ancla «album»→6.96 «y»→7.28 estimado 7.12 ventana 6.81-7.88 corte 7.13
-   frase 2: ancla «a»→15.50 «convirtieron»→18.34 estimado 17.31 ventana 16.51-18.11 corte 17.30
-   frase 3: ancla «inversion»→27.54 «la»→27.98 estimado 27.76 ventana 27.39-28.56 corte 27.80
-   frase 4: ancla «mas»→34.56 «el»→35.12 estimado 35.12 ventana 34.41-35.72 corte 34.99
-   frase 5: ancla «tres»→42.42 «y»→42.76 estimado 42.59 ventana 42.27-43.36 corte 42.55
+   frase 1: ancla «ahorros»→6.76 «guardados»→7.16 estimado 7.06 ventana 6.61-7.76 corte 7.70
+   frase 2: ancla «que»→14.44 «les»→15.56 estimado 15.56 ventana 14.76-16.16 corte 15.48
+   frase 3: ancla «dinero»→20.90 «esta»→21.34 estimado 21.12 ventana 20.75-21.92 corte 21.17
+   frase 4: ancla «espana»→27.74 «para»→27.74 estimado 27.74 ventana 27.59-28.34 corte 28.03
+   frase 5: ancla «filatelico»→36.06 «un»→36.32 estimado 36.19 ventana 35.91-36.92 corte 36.17
+   frase 1: ancla «album»→6.94 «y»→7.28 estimado 7.11 ventana 6.79-7.88 corte 7.13
+   frase 2: ancla «a»→15.50 «convirtieron»→15.90 estimado 15.80 ventana 15.35-16.50 corte 15.53
+   frase 3: ancla «inversion»→27.52 «la»→27.98 estimado 27.75 ventana 27.37-28.55 corte 27.80
+   frase 4: ancla «mas»→34.58 «el»→35.12 estimado 35.12 ventana 34.43-35.72 corte 34.99
+   frase 5: ancla «el»→42.00 «y»→42.70 estimado 42.70 ventana 41.90-43.30 corte 42.55
+6 corte fuera 15.53 hueco 17.09 17.43
+   frases: ['Coleccionar sellos era entonces una afición enorme. Había abuelos y nietos que pasaban las tardes con la lupa, las pinzas y el álbum.', 'Y algunos sellos antiguos, como el Penny Black, el primer sello de la historia, de mil ochocientos cuarenta, se pagaban a precio de coleccionista.', 'Fórum y Afinsa convirtieron esa afición en un producto de ahorro. Sus clientes no compraban sellos para coleccionarlos. Los compraban como inversión.', 'La oferta era sencilla: tú les das tu dinero, ellos te asignan un lote de sellos, y al cabo de un tiempo te lo recompran más caro.', 'El interés prometido rondaba entre el seis y el ocho por ciento al año. Un depósito en el banco daba entonces entre el dos y el tres.', 'Y era fijo. Pasara lo que pasara en la bolsa o en la economía.']
+   oídas: [('se', 14.8, 14.9), ('pagaba', 14.9, 15.32), ('a', 15.32, 15.5), ('precion', 15.5, 15.9), ('ecoreccionista', 15.9, 17.06), ('forumia', 17.38, 17.9), ('finza', 17.9, 18.34), ('convirtieron', 18.34, 19.08), ('esa', 19.08, 19.38), ('aficion', 19.38, 19.88)]
+   silencios: [(14.36, 14.45), (14.53, 14.84), (14.89, 14.99), (15.05, 15.11), (15.34, 15.4), (15.45, 15.61), (15.69, 15.82), (15.91, 16.01), (16.07, 16.2), (16.34, 16.58), (16.86, 17.01), (17.08, 17.52), (17.7, 17.77), (17.93, 18.03), (18.2, 18.3), (18.35, 18.47), (18.53, 18.64), (18.74, 18.89), (19.24, 19.34)]
    frase 1: ancla «de»→4.86 «las»→5.48 estimado 5.48 ventana 4.71-6.08 corte 5.32
-   frase 2: ancla «mil»→14.32 «en»→15.60 estimado 14.32 ventana 14.17-15.12 corte 14.60
-   frase 3: ancla «dieciseis»→19.06 «incluso»→20.60 estimado 20.15 ventana 19.35-20.95 corte 20.19
-   frase 4: ancla «tres»→27.58 «y»→27.58 estimado 27.58 ventana 27.43-28.18 corte 28.36
-   frase 5: ancla «de»→33.40 «como»→34.68 estimado 34.68 ventana 33.88-35.28 corte 34.53
-   frase 1: ancla «misma»→11.32 «y»→11.74 estimado 11.53 ventana 11.17-12.33 corte 11.57
-   frase 2: ancla «ingresos»→16.76 «asi»→17.14 estimado 16.95 ventana 16.61-17.74 corte 16.95
+   frase 2: ancla «mil»→14.32 «en»→14.72 estimado 14.62 ventana 14.17-15.32 corte 14.60
+   frase 3: ancla «dieciseis»→19.02 «incluso»→19.42 estimado 19.32 ventana 18.87-20.02 corte 19.36
+   frase 4: ancla «tres»→27.46 «y»→27.46 estimado 27.46 ventana 27.31-28.06 corte 27.85
+   frase 5: ancla «y»→33.82 «como»→34.72 estimado 34.72 ventana 33.92-35.32 corte 34.53
+12 corte fuera 19.36 hueco 20.1 20.31
+   frases: ['Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros.', 'Las dos empresas no paraban de crecer. En dos mil seis, Afinsa tenía unos ciento setenta y cinco mil clientes, y Fórum, unos doscientos mil.', 'Tenían oficinas en toda España. Solo Afinsa llegó a tener setecientos dieciséis delegaciones.', 'Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde mil novecientos ochenta y tres.', "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's.", '¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía.']
+   oídas: [('se', 17.2, 17.38), ('miedo', 17.38, 17.64), ('a', 17.64, 17.78), ('tener', 17.78, 17.96), ('setecientos', 17.96, 19.02), ('dieciseis', 17.96, 19.02), ('nelaciones', 19.02, 19.84), ('formo', 20.32, 20.62), ('incluso', 20.62, 21.12), ('nada', 21.12, 21.4), ('a', 21.4, 21.64), ('nombre', 21.64, 21.84), ('de', 21.84, 22.02), ('un', 22.02, 22.1), ('equipo', 22.1, 22.42)]
+   silencios: [(17.26, 17.34), (17.39, 17.49), (17.54, 17.6), (17.73, 17.8), (17.97, 18.13), (18.17, 18.24), (18.28, 18.4), (18.53, 18.61), (18.65, 18.86), (18.92, 19.01), (19.06, 19.15), (19.28, 19.43), (19.56, 19.62), (19.66, 19.75), (19.98, 20.4), (20.58, 20.66), (20.76, 20.91), (21.04, 21.15), (21.19, 21.29), (21.39, 21.46), (21.67, 21.84), (22.18, 22.3)]
+12 corte fuera 27.85 hueco 28.21 28.64
+   frases: ['Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros.', 'Las dos empresas no paraban de crecer. En dos mil seis, Afinsa tenía unos ciento setenta y cinco mil clientes, y Fórum, unos doscientos mil.', 'Tenían oficinas en toda España. Solo Afinsa llegó a tener setecientos dieciséis delegaciones.', 'Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde mil novecientos ochenta y tres.', "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's.", '¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía.']
+   oídas: [('ese', 25.76, 26.12), ('mil', 26.12, 26.4), ('novecientos', 26.4, 27.46), ('ochenta', 26.4, 27.46), ('y', 26.4, 27.46), ('tres', 26.4, 27.46), ('y', 27.46, 27.78), ('tres', 27.78, 28.04), ('y', 28.6, 28.74), ('a', 28.74, 28.82), ('fin', 28.82, 28.94), ('se', 28.94, 29.12), ('miren', 29.12, 29.34), ('a', 29.34, 29.5), ('ser', 29.5, 29.62), ('la', 29.62, 29.82), ('tercera', 29.82, 30.12), ('empresa', 30.12, 30.52), ('de', 30.52, 30.74)]
+   silencios: [(25.23, 25.35), (25.39, 25.5), (25.84, 25.93), (26.0, 26.16), (26.43, 26.53), (26.71, 26.83), (26.99, 27.09), (27.14, 27.24), (27.3, 27.38), (27.55, 27.64), (27.78, 27.93), (28.07, 28.65), (28.77, 28.86), (28.99, 29.08), (29.12, 29.23), (29.28, 29.34), (29.47, 29.56), (29.65, 29.75), (29.8, 29.88), (29.92, 30.08), (30.26, 30.42), (30.48, 30.57)]
+   frase 1: ancla «misma»→11.34 «y»→11.74 estimado 11.54 ventana 11.19-12.34 corte 11.57
+   frase 2: ancla «ingresos»→16.76 «asi»→17.12 estimado 16.94 ventana 16.61-17.72 corte 16.95
    frase 3: ancla «constantes»→24.92 «este»→25.32 estimado 25.12 ventana 24.77-25.92 corte 25.06
-   frase 4: ancla «postal»→35.88 «y»→35.88 estimado 35.88 ventana 35.73-36.48 corte 36.12
+   frase 4: ancla «postal»→35.92 «y»→35.92 estimado 35.92 ventana 35.77-36.52 corte 36.12
    frase 5: ancla «empresas»→41.34 «la»→41.98 estimado 41.66 ventana 41.19-42.46 corte 41.75
-   frase 1: ancla «elevados»→8.92 «segun»→9.34 estimado 9.13 ventana 8.77-9.93 corte 9.11
-   frase 2: ancla «veces»→20.28 «ademas»→20.84 estimado 20.56 ventana 20.13-21.36 corte 20.55
-   frase 3: ancla «o»→26.88 «el»→28.04 estimado 28.04 ventana 27.24-28.64 corte 27.83
-   frase 4: ancla «frase»→30.22 «lo»→30.64 estimado 30.43 ventana 30.07-31.23 corte 30.51
-   frase 5: ancla «muchos»→34.84 «la»→35.16 estimado 35.00 ventana 34.69-35.76 corte 34.99
-  (solo se reconoció el 59 % de las palabras)
-30 NONE
-   frase 1: ancla «el»→12.38 «mientras»→13.24 estimado 13.24 ventana 12.44-13.84 corte 13.10
-   frase 2: ancla «de»→19.58 «y»→20.38 estimado 20.38 ventana 19.58-20.98 corte 20.20
-   frase 3: ancla «banco»→28.10 «sus»→28.10 estimado 28.10 ventana 27.95-28.70 corte 28.41
+   frase 1: ancla «elevados»→8.92 «segun»→9.32 estimado 9.12 ventana 8.77-9.92 corte 9.11
+   frase 2: ancla «y»→19.62 «ademas»→20.72 estimado 20.72 ventana 19.92-21.32 corte 20.55
+   frase 3: ancla «calidad»→25.78 «el»→26.18 estimado 26.08 ventana 25.63-26.78 corte 26.13
+   frase 4: ancla «frase»→30.20 «lo»→30.68 estimado 30.44 ventana 30.05-31.24 corte 30.51
+   frase 5: ancla «muchos»→34.82 «la»→35.16 estimado 34.99 ventana 34.67-35.76 corte 34.99
+24 corte fuera 26.13 hueco 27.73 28.06
+   frases: ['Para alimentar el sistema, Afinsa compraba pruebas de imprenta, desechos, bocetos y sellos fiscales, y les ponía precios elevados.', 'Según los investigadores, las empresas vendían sellos a sociedades vinculadas en el extranjero, que se los revendían más caros. Así, su valor se multiplicaba entre cinco y diez veces.', 'Además, según la sentencia de Afinsa, muchos sellos eran de baja calidad, falsos o manipulados.', 'El tribunal lo resumió en una frase.', 'Lo más sorprendente de esta historia es que hubo avisos. Muchos.', 'La organización de consumidores OCU desaconsejaba este tipo de inversión desde mil novecientos noventa y seis.']
+   oídas: [('de', 24.88, 25.04), ('baja', 25.04, 25.34), ('calidad', 25.34, 25.78), ('al', 25.78, 26.02), ('falso', 26.22, 26.66), ('somanipurados', 26.66, 27.62), ('el', 28.04, 28.24), ('tibu', 28.24, 28.5), ('al', 28.5, 28.72), ('lo', 28.72, 28.94), ('resumio', 28.94, 29.44), ('en', 29.44, 29.62), ('una', 29.62, 29.82), ('frase', 29.82, 30.2)]
+   silencios: [(24.84, 24.98), (25.05, 25.12), (25.23, 25.35), (25.4, 25.51), (25.68, 25.78), (25.93, 26.33), (26.48, 26.61), (26.66, 26.77), (26.83, 26.9), (27.07, 27.16), (27.43, 27.53), (27.6, 28.06), (28.12, 28.33), (28.38, 28.45), (28.72, 28.82), (28.92, 29.01), (29.07, 29.17), (29.24, 29.34), (29.82, 29.99)]
+   frase 1: ancla «bolsa»→7.38 «tampoco»→7.66 estimado 7.52 ventana 7.23-8.26 corte 7.57
+   frase 2: ancla «banco»→15.64 «en»→15.94 estimado 15.79 ventana 15.49-16.54 corte 15.81
+   frase 3: ancla «espana»→24.72 «a»→25.12 estimado 25.02 ventana 24.57-25.72 corte 25.26
+   frase 4: ancla «auditorias»→34.22 «en»→34.74 estimado 34.48 ventana 34.07-35.28 corte 34.46
+   frase 5: ancla «veces»→42.54 «ese»→42.88 estimado 42.71 ventana 42.39-43.48 corte 42.73
+30 corte fuera 25.26 hueco 26.15 26.45
+   frases: ['Pero había un problema de fondo: no eran bancos. Así que no las vigilaba ni el Banco de España ni la CNMV, el supervisor de la bolsa.', 'Tampoco tenían fondo de garantía. Si quebraban, el dinero de los clientes no estaba protegido, como sí lo está un depósito en el banco.', 'En enero de dos mil dos quebró otra empresa del sector, Banco Filatélico. Y ese abril, un informe jurídico del Estado concluyó que ni la CNMV ni el Banco de España debían supervisarlas.', 'A finales de dos mil tres pasaron a depender del Ministerio de Sanidad y Consumo, que solo les pedía cada año una copia de sus auditorías.', 'En febrero de dos mil cuatro, la OCU denunció que los sellos de Fórum y Afinsa estaban sobrevalorados. Según sus cálculos, al menos cinco veces.', 'Ese mismo año, el servicio que persigue el blanqueo de capitales relacionó a personas y empresas del entorno de Fórum con tramas de blanqueo.']
+   oídas: [('cnmu', 23.2, 23.7), ('y', 23.7, 23.9), ('el', 23.9, 24.08), ('banco', 24.08, 24.34), ('de', 24.34, 24.5), ('espana', 24.5, 24.72), ('me', 24.72, 25.02), ('dian', 25.02, 25.22), ('superprizadas', 25.22, 26.04), ('afinales', 26.46, 27.0), ('hemos', 27.06, 27.28), ('mil', 27.28, 27.54), ('prestas', 27.54, 28.02), ('a', 28.02, 28.18), ('lo', 28.18, 28.24), ('han', 28.24, 28.32), ('de', 28.32, 28.48)]
+   silencios: [(23.17, 23.28), (23.97, 24.1), (24.21, 24.32), (24.35, 24.44), (24.54, 24.66), (24.73, 24.83), (24.87, 24.96), (25.18, 25.34), (25.39, 25.47), (25.51, 25.65), (25.7, 25.78), (25.9, 25.99), (26.03, 26.46), (26.51, 26.62), (26.91, 27.06), (27.13, 27.21), (27.3, 27.39), (27.55, 27.7), (27.77, 27.92), (27.96, 28.05), (28.21, 28.27), (28.32, 28.41)]
+   frase 1: ancla «el»→12.38 «mientras»→13.30 estimado 13.30 ventana 12.50-13.90 corte 13.10
+   frase 2: ancla «de»→19.60 «y»→20.28 estimado 20.28 ventana 19.48-20.88 corte 20.20
+   frase 3: ancla «banco»→28.08 «sus»→28.08 estimado 28.08 ventana 27.93-28.68 corte 28.41
    frase 4: ancla «camara»→35.34 «el»→35.82 estimado 35.58 ventana 35.19-36.38 corte 35.61
-   frase 5: ancla «afinsa»→41.88 «por»→42.78 estimado 41.88 ventana 41.73-42.68 corte 42.09
-   frase 1: ancla «carlos»→7.12 «se»→7.50 estimado 7.31 ventana 6.97-8.10 corte 7.34
-   frase 2: ancla «administracion»→13.26 «en»→14.22 estimado 14.22 ventana 13.42-14.82 corte 14.00
+   frase 5: ancla «afinsa»→41.88 «por»→42.76 estimado 41.88 ventana 41.73-42.68 corte 42.09
+   frase 1: ancla «carlos»→7.12 «se»→7.52 estimado 7.32 ventana 6.97-8.12 corte 7.34
+   frase 2: ancla «administracion»→13.24 «en»→14.22 estimado 14.22 ventana 13.42-14.82 corte 14.00
    frase 3: ancla «dinero»→20.68 «la»→21.24 estimado 20.96 ventana 20.53-21.76 corte 21.03
-   frase 4: ancla «horas»→25.06 «en»→25.38 estimado 25.22 ventana 24.91-25.98 corte 25.22
-   frase 5: ancla «siguientes»→31.44 «pronto»→31.98 estimado 31.71 ventana 31.29-32.51 corte 31.74
+   frase 4: ancla «horas»→25.06 «en»→25.06 estimado 25.06 ventana 24.91-25.66 corte 25.22
+   frase 5: ancla «siguientes»→31.46 «pronto»→31.98 estimado 31.72 ventana 31.31-32.52 corte 31.74
    frase 1: ancla «tres»→8.50 «solo»→9.12 estimado 8.81 ventana 8.35-9.61 corte 8.94
    frase 2: ancla «sellos»→13.84 «para»→13.84 estimado 13.84 ventana 13.69-14.44 corte 13.90
    frase 3: ancla «vida»→17.82 «la»→18.32 estimado 18.07 ventana 17.67-18.87 corte 18.15
    frase 4: ancla «folios»→23.02 «el»→23.36 estimado 23.19 ventana 22.87-23.96 corte 23.19
-   frase 5: ancla «madrid»→26.46 «en»→26.98 estimado 26.72 ventana 26.31-27.52 corte 26.75
-   frase 1: ancla «anos»→8.58 «entre»→8.90 estimado 8.74 ventana 8.43-9.50 corte 8.69
+   frase 5: ancla «madrid»→26.44 «en»→26.98 estimado 26.71 ventana 26.29-27.51 corte 26.75
+   frase 1: ancla «anos»→8.44 «entre»→8.90 estimado 8.67 ventana 8.29-9.47 corte 8.69
    frase 2: ancla «seis»→16.30 «la»→16.84 estimado 16.57 ventana 16.15-17.37 corte 16.68
    frase 3: ancla «informacion»→22.40 «los»→22.98 estimado 22.69 ventana 22.25-23.49 corte 22.82
-   frase 4: ancla «clientes»→29.54 «en»→29.54 estimado 29.54 ventana 29.39-30.14 corte 29.62
-   frase 5: ancla «meses»→41.96 «el»→42.46 estimado 42.21 ventana 41.81-43.01 corte 42.25
+   frase 4: ancla «clientes»→29.54 «en»→29.78 estimado 29.66 ventana 29.39-30.38 corte 29.62
+   frase 5: ancla «meses»→41.96 «el»→42.44 estimado 42.20 ventana 41.81-43.00 corte 42.25
    frase 1: ancla «pruebas»→8.90 «la»→9.42 estimado 8.90 ventana 8.75-9.70 corte 9.04
-   frase 2: ancla «dinero»→13.72 «las»→14.22 estimado 13.97 ventana 13.57-14.77 corte 14.06
+   frase 2: ancla «dinero»→13.68 «las»→14.22 estimado 13.95 ventana 13.53-14.75 corte 14.06
    frase 3: ancla «arte»→21.84 «quince»→22.12 estimado 21.98 ventana 21.69-22.72 corte 22.02
-   frase 4: ancla «ciento»→32.78 «dicho»→33.26 estimado 33.02 ventana 32.63-33.82 corte 33.10
-   frase 5: ancla «unos»→38.94 «el»→40.08 estimado 40.08 ventana 39.28-40.68 corte 40.04
+   frase 4: ancla «ciento»→33.10 «dicho»→33.10 estimado 33.10 ventana 32.95-33.70 corte 33.10
+   frase 5: ancla «unos»→38.98 «el»→39.38 estimado 39.28 ventana 38.83-39.98 corte 39.02
+60 corte fuera 39.02 hueco 39.87 40.34
+   frases: ['En dos mil veinte, el Supremo confirmó la estafa. Rebajó la pena de Briones a once años y diez meses y absolvió a cuatro acusados por falta de pruebas.', 'Quedaba la pregunta más importante para los afectados: ¿iban a recuperar su dinero?', 'Las dos empresas entraron en concurso de acreedores. Los administradores fueron vendiendo lo que quedaba: sellos, edificios y obras de arte.', 'Quince años después de la intervención, los clientes de Fórum habían recuperado un veintitrés coma cinco por ciento de lo invertido. Los de Afinsa, un quince coma siete por ciento.', 'Dicho de otra forma: de cada cien euros, a un cliente de Afinsa le habían devuelto unos dieciséis.', 'El Estado no pagó. En dos mil diez, la Audiencia Nacional decidió que no tenía responsabilidad en lo ocurrido.']
+   oídas: [('de', 36.96, 37.12), ('la', 37.12, 37.2), ('finza', 37.2, 37.6), ('de', 37.6, 37.76), ('la', 37.76, 37.88), ('via', 37.88, 38.02), ('de', 38.02, 38.24), ('huelto', 38.24, 38.66), ('unos', 38.66, 38.98), ('nieces', 38.98, 39.32), ('y', 39.32, 40.22), ('el', 40.22, 40.44), ('estado', 40.44, 40.66), ('no', 40.66, 40.9), ('pano', 40.9, 41.2), ('en', 41.46, 41.6), ('los', 41.6, 41.8), ('mil', 41.8, 41.96), ('niers', 41.96, 42.34)]
+   silencios: [(36.97, 37.06), (37.19, 37.29), (37.46, 37.56), (37.61, 37.68), (38.05, 38.2), (38.27, 38.35), (38.5, 38.64), (38.91, 39.14), (39.21, 39.32), (39.39, 39.5), (39.73, 40.34), (40.48, 40.58), (40.66, 40.72), (40.89, 40.96), (41.01, 41.09), (41.24, 41.51), (41.55, 41.67), (41.75, 41.83), (41.98, 42.13), (42.27, 42.34)]
    frase 1: ancla «renta»→10.84 «algunos»→11.00 estimado 10.92 ventana 10.69-11.60 corte 10.80
    frase 2: ancla «ahorros»→15.68 «y»→16.04 estimado 15.86 ventana 15.53-16.64 corte 15.81
-   frase 3: ancla «reclama»→30.60 «que»→30.98 estimado 30.79 ventana 30.45-31.58 corte 30.88
-   frase 4: ancla «preguntas»→36.10 «porque»→36.60 estimado 36.35 ventana 35.95-37.15 corte 36.45
-cortes bien 49 · mal 0 · tandas sin cortar 2 · 38 s
+   frase 3: ancla «reclama»→30.58 «que»→31.00 estimado 30.79 ventana 30.43-31.59 corte 30.88
+   frase 4: ancla «preguntas»→36.10 «porque»→36.62 estimado 36.36 ventana 35.95-37.16 corte 36.45
+cortes bien 53 · mal 6 · tandas sin cortar 0 · 73 s
