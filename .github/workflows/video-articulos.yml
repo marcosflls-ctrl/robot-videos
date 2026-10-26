@@ -6,6 +6,8 @@
 name: Vídeos de los artículos
 
 on:
+  push:
+    branches: [segunda-tanda]
   # Cada día a las 16:07 UTC (17:07 en Madrid en invierno, 18:07 en verano).
   schedule:
     - cron: "7 16 * * *"
@@ -65,7 +67,7 @@ jobs:
       - name: Montar los vídeos
         env:
           WEBS: ${{ (github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs }}
-          VENTANA_HORAS: ${{ github.event.inputs.horas }}
+          VENTANA_HORAS: ${{ github.event.inputs.horas || '72' }}
           VOZ_MOTOR: gemini
           GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -102,7 +104,7 @@ jobs:
             fi
           done
       - name: Subir a YouTube en privado (si está configurado)
-        if: github.event.inputs.subir_youtube != 'false'
+        if: github.event_name != 'push' && github.event.inputs.subir_youtube != 'false'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
