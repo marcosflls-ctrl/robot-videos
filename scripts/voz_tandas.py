@@ -89,7 +89,7 @@ def _elegir_corte(huecos, sr, t0, t1, estimado):
     def nota(h):
         largo = (h[1] - h[0]) / sr
         centro = (h[0] + h[1]) / 2 / sr
-        return largo - 1.5 * abs(centro - estimado)
+        return largo - 1.5 * max(0.0, abs(centro - estimado) - 0.5)
     h = max(tocan, key=nota)
     return (h[0] + h[1]) // 2
 
