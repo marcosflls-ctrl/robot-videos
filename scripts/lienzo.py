@@ -383,13 +383,16 @@ class Recorte(Pieza):
     giro_entrada = 0.0
     balanceo = 3.0
 
-    def __init__(self, x, y, t0, imagen, alto=700, escudo=False, t_escudo=None, color=None, **kw):
+    def __init__(self, x, y, t0, imagen, alto=700, max_ancho=None, escudo=False, t_escudo=None, color=None, **kw):
         super().__init__(x, y, t0, **kw)
         im = imagen.convert("RGBA")
-        caja = im.getbbox()
+        caja = im.getchannel("A").point(lambda v: 255 if v > 20 else 0).getbbox()
         if caja:
             im = im.crop(caja)
         esc = alto / im.height
+        if max_ancho and im.width * esc > max_ancho:
+            esc = max_ancho / im.width
+            alto = int(im.height * esc)
         self.foto = im.resize((max(1, int(im.width * esc * BS)), max(1, int(alto * BS))), Image.LANCZOS)
         self.escudo = escudo
         self.t_escudo = t0 + 0.8 if t_escudo is None else t_escudo
@@ -632,7 +635,7 @@ def dibujar_subtitulo(capa, trozo, t, claves):
         return
     f = fuente("anton", 76)
     palabras = [w[0].strip(".,:;") for w in trozo]
-    espacio = f.getlength(" ") + 12
+    espacio = f.getlength(" ") + 6
     anchos = [f.getlength(p.upper()) for p in palabras]
     total = sum(anchos) + espacio * (len(palabras) - 1)
     lienzo = Image.new("RGBA", (int(total + 80), 150), (0, 0, 0, 0))

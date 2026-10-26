@@ -43,23 +43,25 @@ def foto(busqueda):
 ses = new_session("isnet-general-use")
 
 
-def recorte(busqueda):
-    im, cred = imagenes.conseguir({"buscar_imagen": busqueda}, Path("."))
+def recorte(archivo):
+    busqueda = archivo
+    im, cred = imagenes.conseguir({"imagen": archivo}, Path("."))
     print("recorte:", busqueda, "->", cred)
     if im is None:
         return None
     im.thumbnail((1400, 1400))
     sin_fondo = remove(im, session=ses)
-    sin_fondo.save(SAL / f"recorte_{busqueda.split()[0].lower()}.png")
+    sin_fondo.save(SAL / f"recorte_{abs(hash(archivo)) % 1000}.png")
     return sin_fondo
 
 
-miami_noche = foto("Ocean Drive Miami Beach night neon")
+miami_noche = foto("Miami skyline night")
 miami_aire = foto("Miami Beach aerial view")
 palmeras = foto("Miami palm trees sunset")
 coche = foto("Miami Beach classic car Ocean Drive")
-ps5 = recorte("PlayStation 5 console")
-xbox = recorte("Xbox Series X console")
+ps5 = recorte("File:PlayStation 5 and DualSense with transparent background.png")
+xbox = recorte("File:Xbox series X (50648118708).jpg")
+pc_foto = recorte("File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png")
 
 T = L.Tarjeta
 b = []
@@ -68,26 +70,28 @@ y = 0
 c1 = T(540, y, ini[0] + 0.15, "24", etiqueta="Cuenta atrás", sub="días para GTA 6")
 c1.giro_entrada, c1.balanceo = 70, 4
 tit = L.Titular3D(540, y - 330, ini[0] + 0.5, "Días", tam=96)
-b.append({"ini": ini[0], "piezas": [c1, tit], "foco": (540, y - 60, 1.2), "fondo": L.preparar_fondo(miami_noche),
+b.append({"ini": ini[0], "piezas": [c1, tit], "foco": (540, y - 60, 1.2), "fondo": L.preparar_fondo(palmeras),
           "efectos": [L.flash(0.0)]})
 # 2. Consolas reales recortadas
 y2 = 800
 piezas2 = [L.Pastilla(540, y2 - 330, ini[1] + 0.2, "19 nov 2026"),
            L.Conector(540, y2 - 170, ini[1] + 0.6, separacion=500, alto=150)]
-piezas2.append(L.Recorte(290, y2 + 160, ini[1] + 1.4, ps5, alto=520, escudo=True) if ps5 is not None
+piezas2.append(L.Recorte(290, y2 + 160, ini[1] + 1.4, ps5, alto=520, max_ancho=360, escudo=True) if ps5 is not None
                else T(290, y2 + 160, ini[1] + 1.4, "PS5", ancho=320, alto=260, barra=False))
-piezas2.append(L.Recorte(790, y2 + 160, ini[1] + 2.0, xbox, alto=420) if xbox is not None
+piezas2.append(L.Recorte(790, y2 + 160, ini[1] + 2.0, xbox, alto=460, max_ancho=360) if xbox is not None
                else T(790, y2 + 160, ini[1] + 2.0, "XBOX", ancho=320, alto=260, barra=False))
 b.append({"ini": ini[1], "piezas": piezas2, "foco": (540, y2 + 40, 0.92)})
 # 3. PC bloqueado
 y3 = y2 + 900
-pc = T(540, y3, ini[2], "PC", etiqueta="Ordenador", sub="sin fecha", ancho=360, alto=300, barra=False)
+pc = (L.Recorte(540, y3 + 20, ini[2], pc_foto, alto=440, max_ancho=420) if pc_foto is not None
+      else T(540, y3, ini[2], "PC", etiqueta="Ordenador", sub="sin fecha", ancho=360, alto=300, barra=False))
 pc.giro_entrada = -60
-cand = L.Candado(540, y3 - 250, ini[2] + 1.1, color=L.ROJO)
-tn = L.Pastilla(540, y3 + 210, ini[2] + 1.3, "Todavía no", color=L.ROJO)
-g = lambda te: pc.iluminar(te)
+cand = L.Candado(540, y3 - 300, ini[2] + 1.1, color=L.ROJO)
+tn = L.Pastilla(540, y3 + 300, ini[2] + 1.3, "Todavía no", color=L.ROJO)
+g = lambda te: pc.iluminar(te) if hasattr(pc, "iluminar") else None
 g.golpe = True
-b.append({"ini": ini[2], "piezas": [pc, cand, tn], "foco": (540, y3, 1.2), "efectos": [(ini[2] + 1.1, g)]})
+b.append({"ini": ini[2], "piezas": [pc, cand, tn], "foco": (540, y3, 1.1), "efectos": [(ini[2] + 1.1, g)],
+          "fondo": L.preparar_fondo(miami_noche)})
 # 4. Vice City: portada girando, titular 3D, lluvia de tarjetas
 y4 = y3 + 900
 lluvia = L.Lluvia(540, y4, ini[3] + 0.9, palmeras, n=8, radio=560)
