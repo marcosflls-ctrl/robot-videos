@@ -1,16 +1,10 @@
 == base
-0 corte fuera 28.32 hueco 28.37 28.63
-6 corte fuera 7.68 hueco 7.74 8.02
-12 corte fuera 29.2 hueco 29.45 29.81
+  (no se reconocen las palabras alrededor del final de la frase 1)
+0 NONE
+12 corte fuera 29.17 hueco 29.45 29.81
 24 corte fuera 27.08 hueco 27.22 27.63
-48 corte fuera 26.59 hueco 23.79 24.16
-cortes bien 54 · mal 5 · tandas sin cortar 0 · 35 s
+cortes bien 52 · mal 2 · tandas sin cortar 1 · 62 s
 == small
-0 corte fuera 28.25 hueco 28.37 28.63
-12 corte fuera 28.76 hueco 29.45 29.81
-18 corte fuera 44.38 hueco 44.61 45.06
 24 corte fuera 27.08 hueco 27.22 27.63
-30 corte fuera 26.22 hueco 26.43 26.88
-54 corte fuera 23.5 hueco 23.9 24.3
-66 corte fuera 29.52 hueco 29.59 29.98
-cortes bien 52 · mal 7 · tandas sin cortar 0 · 75 s
+54 corte fuera 23.54 hueco 23.9 24.3
+cortes bien 57 · mal 2 · tandas sin cortar 0 · 105 s
