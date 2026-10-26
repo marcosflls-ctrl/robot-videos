@@ -1,0 +1,663 @@
+{
+ "duracion": 53.02,
+ "audio": null,
+ "palabras": [
+  {
+   "t": "¿Sabías",
+   "ini": 0.35,
+   "fin": 0.895
+  },
+  {
+   "t": "que",
+   "ini": 0.945,
+   "fin": 1.27
+  },
+  {
+   "t": "podrás",
+   "ini": 1.32,
+   "fin": 1.81
+  },
+  {
+   "t": "ver",
+   "ini": 1.86,
+   "fin": 2.185
+  },
+  {
+   "t": "las",
+   "ini": 2.235,
+   "fin": 2.56
+  },
+  {
+   "t": "notas",
+   "ini": 2.61,
+   "fin": 3.045
+  },
+  {
+   "t": "de",
+   "ini": 3.095,
+   "fin": 3.365
+  },
+  {
+   "t": "GTA",
+   "ini": 3.415,
+   "fin": 3.74
+  },
+  {
+   "t": "6",
+   "ini": 3.79,
+   "fin": 4.005
+  },
+  {
+   "t": "antes",
+   "ini": 4.055,
+   "fin": 4.49
+  },
+  {
+   "t": "de",
+   "ini": 4.54,
+   "fin": 4.81
+  },
+  {
+   "t": "comprarlo?",
+   "ini": 4.86,
+   "fin": 5.57
+  },
+  {
+   "t": "Según",
+   "ini": 5.97,
+   "fin": 6.405
+  },
+  {
+   "t": "filtraciones",
+   "ini": 6.455,
+   "fin": 7.275
+  },
+  {
+   "t": "de",
+   "ini": 7.325,
+   "fin": 7.595
+  },
+  {
+   "t": "Insider",
+   "ini": 7.645,
+   "fin": 8.19
+  },
+  {
+   "t": "Gaming,",
+   "ini": 8.24,
+   "fin": 8.785
+  },
+  {
+   "t": "el",
+   "ini": 8.835,
+   "fin": 9.105
+  },
+  {
+   "t": "embargo",
+   "ini": 9.155,
+   "fin": 9.7
+  },
+  {
+   "t": "de",
+   "ini": 9.75,
+   "fin": 10.02
+  },
+  {
+   "t": "análisis",
+   "ini": 10.07,
+   "fin": 10.67
+  },
+  {
+   "t": "terminaría",
+   "ini": 10.72,
+   "fin": 11.43
+  },
+  {
+   "t": "el",
+   "ini": 11.48,
+   "fin": 11.75
+  },
+  {
+   "t": "dieciocho",
+   "ini": 11.8,
+   "fin": 12.455
+  },
+  {
+   "t": "de",
+   "ini": 12.505,
+   "fin": 12.775
+  },
+  {
+   "t": "noviembre,",
+   "ini": 12.825,
+   "fin": 13.535
+  },
+  {
+   "t": "justo",
+   "ini": 13.585,
+   "fin": 14.02
+  },
+  {
+   "t": "un",
+   "ini": 14.07,
+   "fin": 14.34
+  },
+  {
+   "t": "día",
+   "ini": 14.39,
+   "fin": 14.715
+  },
+  {
+   "t": "antes",
+   "ini": 14.765,
+   "fin": 15.2
+  },
+  {
+   "t": "del",
+   "ini": 15.25,
+   "fin": 15.575
+  },
+  {
+   "t": "lanzamiento.",
+   "ini": 15.625,
+   "fin": 16.445
+  },
+  {
+   "t": "Varios",
+   "ini": 16.845,
+   "fin": 17.335
+  },
+  {
+   "t": "medios",
+   "ini": 17.385,
+   "fin": 17.875
+  },
+  {
+   "t": "especializados",
+   "ini": 17.925,
+   "fin": 18.855
+  },
+  {
+   "t": "ya",
+   "ini": 18.905,
+   "fin": 19.175
+  },
+  {
+   "t": "tendrían",
+   "ini": 19.225,
+   "fin": 19.825
+  },
+  {
+   "t": "copias",
+   "ini": 19.875,
+   "fin": 20.365
+  },
+  {
+   "t": "del",
+   "ini": 20.415,
+   "fin": 20.74
+  },
+  {
+   "t": "juego",
+   "ini": 20.79,
+   "fin": 21.225
+  },
+  {
+   "t": "desde",
+   "ini": 21.275,
+   "fin": 21.71
+  },
+  {
+   "t": "finales",
+   "ini": 21.76,
+   "fin": 22.305
+  },
+  {
+   "t": "de",
+   "ini": 22.355,
+   "fin": 22.625
+  },
+  {
+   "t": "octubre",
+   "ini": 22.675,
+   "fin": 23.22
+  },
+  {
+   "t": "para",
+   "ini": 23.27,
+   "fin": 23.65
+  },
+  {
+   "t": "exprimir",
+   "ini": 23.7,
+   "fin": 24.3
+  },
+  {
+   "t": "a",
+   "ini": 24.35,
+   "fin": 24.565
+  },
+  {
+   "t": "fondo",
+   "ini": 24.615,
+   "fin": 25.05
+  },
+  {
+   "t": "Vice",
+   "ini": 25.1,
+   "fin": 25.48
+  },
+  {
+   "t": "City.",
+   "ini": 25.53,
+   "fin": 25.965
+  },
+  {
+   "t": "Rockstar",
+   "ini": 26.365,
+   "fin": 26.965
+  },
+  {
+   "t": "se",
+   "ini": 27.015,
+   "fin": 27.285
+  },
+  {
+   "t": "enfrenta",
+   "ini": 27.335,
+   "fin": 27.935
+  },
+  {
+   "t": "a",
+   "ini": 27.985,
+   "fin": 28.2
+  },
+  {
+   "t": "su",
+   "ini": 28.25,
+   "fin": 28.52
+  },
+  {
+   "t": "mayor",
+   "ini": 28.57,
+   "fin": 29.005
+  },
+  {
+   "t": "reto",
+   "ini": 29.055,
+   "fin": 29.435
+  },
+  {
+   "t": "histórico:",
+   "ini": 29.485,
+   "fin": 30.195
+  },
+  {
+   "t": "igualar",
+   "ini": 30.245,
+   "fin": 30.79
+  },
+  {
+   "t": "el",
+   "ini": 30.84,
+   "fin": 31.11
+  },
+  {
+   "t": "legendario",
+   "ini": 31.16,
+   "fin": 31.87
+  },
+  {
+   "t": "noventa",
+   "ini": 31.92,
+   "fin": 32.465
+  },
+  {
+   "t": "y",
+   "ini": 32.515,
+   "fin": 32.73
+  },
+  {
+   "t": "ocho",
+   "ini": 32.78,
+   "fin": 33.16
+  },
+  {
+   "t": "en",
+   "ini": 33.21,
+   "fin": 33.48
+  },
+  {
+   "t": "Metacritic",
+   "ini": 33.53,
+   "fin": 34.24
+  },
+  {
+   "t": "de",
+   "ini": 34.29,
+   "fin": 34.56
+  },
+  {
+   "t": "GTA",
+   "ini": 34.61,
+   "fin": 34.935
+  },
+  {
+   "t": "4.",
+   "ini": 34.985,
+   "fin": 35.255
+  },
+  {
+   "t": "Aunque",
+   "ini": 35.655,
+   "fin": 36.145
+  },
+  {
+   "t": "la",
+   "ini": 36.195,
+   "fin": 36.465
+  },
+  {
+   "t": "compañía",
+   "ini": 36.515,
+   "fin": 37.115
+  },
+  {
+   "t": "aún",
+   "ini": 37.165,
+   "fin": 37.49
+  },
+  {
+   "t": "no",
+   "ini": 37.54,
+   "fin": 37.81
+  },
+  {
+   "t": "lo",
+   "ini": 37.86,
+   "fin": 38.13
+  },
+  {
+   "t": "confirma",
+   "ini": 38.18,
+   "fin": 38.78
+  },
+  {
+   "t": "oficialmente,",
+   "ini": 38.83,
+   "fin": 39.705
+  },
+  {
+   "t": "estas",
+   "ini": 39.755,
+   "fin": 40.19
+  },
+  {
+   "t": "reseñas",
+   "ini": 40.24,
+   "fin": 40.785
+  },
+  {
+   "t": "serán",
+   "ini": 40.835,
+   "fin": 41.27
+  },
+  {
+   "t": "la",
+   "ini": 41.32,
+   "fin": 41.59
+  },
+  {
+   "t": "prueba",
+   "ini": 41.64,
+   "fin": 42.13
+  },
+  {
+   "t": "de",
+   "ini": 42.18,
+   "fin": 42.45
+  },
+  {
+   "t": "fuego",
+   "ini": 42.5,
+   "fin": 42.935
+  },
+  {
+   "t": "antes",
+   "ini": 42.985,
+   "fin": 43.42
+  },
+  {
+   "t": "del",
+   "ini": 43.47,
+   "fin": 43.795
+  },
+  {
+   "t": "estreno.",
+   "ini": 43.845,
+   "fin": 44.445
+  },
+  {
+   "t": "¿Crees",
+   "ini": 44.845,
+   "fin": 45.335
+  },
+  {
+   "t": "que",
+   "ini": 45.385,
+   "fin": 45.71
+  },
+  {
+   "t": "GTA",
+   "ini": 45.76,
+   "fin": 46.085
+  },
+  {
+   "t": "6",
+   "ini": 46.135,
+   "fin": 46.35
+  },
+  {
+   "t": "logrará",
+   "ini": 46.4,
+   "fin": 46.945
+  },
+  {
+   "t": "superar",
+   "ini": 46.995,
+   "fin": 47.54
+  },
+  {
+   "t": "la",
+   "ini": 47.59,
+   "fin": 47.86
+  },
+  {
+   "t": "nota",
+   "ini": 47.91,
+   "fin": 48.29
+  },
+  {
+   "t": "perfecta",
+   "ini": 48.34,
+   "fin": 48.94
+  },
+  {
+   "t": "de",
+   "ini": 48.99,
+   "fin": 49.26
+  },
+  {
+   "t": "GTA",
+   "ini": 49.31,
+   "fin": 49.635
+  },
+  {
+   "t": "4",
+   "ini": 49.685,
+   "fin": 49.9
+  },
+  {
+   "t": "o",
+   "ini": 49.95,
+   "fin": 50.165
+  },
+  {
+   "t": "se",
+   "ini": 50.215,
+   "fin": 50.485
+  },
+  {
+   "t": "quedará",
+   "ini": 50.535,
+   "fin": 51.08
+  },
+  {
+   "t": "corto?",
+   "ini": 51.13,
+   "fin": 51.62
+  }
+ ],
+ "claves": [
+  "notas de GTA 6",
+  "Insider Gaming",
+  "18 de noviembre",
+  "copias del juego",
+  "98 en Metacritic",
+  "Rockstar",
+  "superar"
+ ],
+ "paleta": {
+  "fondo1": "#0e0816",
+  "fondo2": "#2a1636",
+  "texto": "#faf4fa",
+  "suave": "#bcaec4",
+  "acento": "#ffc446",
+  "acento2": "#ff5caa",
+  "acento3": "#5adcff",
+  "peligro": "#ff4658"
+ },
+ "fondo": "particulas",
+ "subtitulos": "pop",
+ "marca": "ZONA LEONIDA",
+ "fondos": [
+  "fotogramas/t1.jpg",
+  "fotogramas/t2.jpg",
+  "fotogramas/t3.jpg",
+  "fotogramas/t4.jpg",
+  "fotogramas/t5.jpg",
+  "fotogramas/t6.jpg"
+ ],
+ "escenas": [
+  {
+   "ini": 0.0,
+   "fin": 5.85,
+   "tipo": "titular",
+   "datos": {
+    "texto": "NOTAS ANTES",
+    "resaltar": "NOTAS",
+    "sub": "Críticas antes de jugar",
+    "variante": "gigante"
+   },
+   "camara": "acercar",
+   "transicion": "corte",
+   "fondo": "fotogramas/t32.jpg"
+  },
+  {
+   "ini": 5.85,
+   "fin": 16.725,
+   "tipo": "cronologia",
+   "datos": {
+    "orientacion": "horizontal",
+    "hitos": [
+     {
+      "arriba": "Prensa",
+      "fecha": "18 NOV",
+      "texto": "Fin del embargo de reseñas",
+      "estado": "futuro",
+      "pastilla": "Filtrado"
+     },
+     {
+      "arriba": "Mundial",
+      "fecha": "19 NOV",
+      "texto": "Lanzamiento oficial de GTA 6",
+      "estado": "ok",
+      "pastilla": "Estreno"
+     }
+    ]
+   },
+   "camara": "paneo_der",
+   "transicion": "barrido",
+   "fondo": "fotogramas/t24.jpg"
+  },
+  {
+   "ini": 16.725,
+   "fin": 26.245,
+   "tipo": "pila",
+   "datos": {
+    "titulo": "Copias de análisis",
+    "tarjetas": [
+     {
+      "arriba": "Acceso previo",
+      "titulo": "Finales de octubre",
+      "sub": "Envío anticipado de códigos a prensa"
+     },
+     {
+      "arriba": "Tiempo de juego",
+      "titulo": "Casi un mes",
+      "sub": "Semanas para explorar Vice City"
+     }
+    ]
+   },
+   "camara": "subir",
+   "transicion": "zoom",
+   "fondo": "fotogramas/t6.jpg"
+  },
+  {
+   "ini": 26.245,
+   "fin": 35.535,
+   "tipo": "cifra",
+   "datos": {
+    "valor": 98,
+    "decimales": 0,
+    "prefijo": "",
+    "sufijo": "/100",
+    "etiqueta": "Metacritic GTA 4",
+    "arriba": "Récord histórico",
+    "pastilla": "A batir",
+    "variante": "anillo"
+   },
+   "camara": "alejar",
+   "transicion": "flash",
+   "fondo": "fotogramas/t38.jpg"
+  },
+  {
+   "ini": 35.535,
+   "fin": 44.725,
+   "tipo": "prensa",
+   "datos": {
+    "medio": "Zona Leonida",
+    "fecha": "26 OCTUBRE",
+    "titular": "Los análisis de GTA 6 saldrán el 18 de noviembre",
+    "resaltar": "18 de noviembre",
+    "entradilla": "La prensa especializada valorará el juego antes de su llegada a las tiendas.",
+    "pastilla": "Rumor fuerte"
+   },
+   "camara": "paneo_izq",
+   "transicion": "giro",
+   "fondo": "fotogramas/t28.jpg"
+  },
+  {
+   "ini": 44.725,
+   "fin": 53.02,
+   "tipo": "pregunta",
+   "datos": {
+    "pregunta": "¿Superará el 98 en Metacritic?",
+    "comentario": "Deja tu nota prevista abajo"
+   },
+   "camara": "quieta",
+   "transicion": "glitch",
+   "fondo": "fotogramas/t42.jpg"
+  }
+ ]
+}

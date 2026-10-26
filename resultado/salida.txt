@@ -1,0 +1,6 @@
+total 8580
+drwxr-xr-x 2 runner runner    4096 Oct 26 21:45 .
+drwxr-xr-x 4 runner runner    4096 Oct 26 21:32 ..
+-rw-r--r-- 1 runner runner    9218 Oct 26 21:43 zonaleonida_2026-10-26_articulo.json
+-rw-r--r-- 1 runner runner 8757632 Oct 26 21:45 zonaleonida_2026-10-26_articulo.mp4
+-rw-r--r-- 1 runner runner     414 Oct 26 21:45 zonaleonida_2026-10-26_articulo.txt

@@ -1,0 +1,98 @@
+Preparando el proyecto...
+Downloading Chrome Headless Shell https://www.remotion.dev/chrome-headless-shell
+Customize this behavior by adding a onBrowserDownload function to selectComposition().
+Downloading from: https://remotion.media/chromium-headless-shell-linux-x64-157.0.8080.0.zip?clear
+Downloading Chrome Headless Shell - 9.5 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 19.1 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 28.6 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 38.2 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 47.7 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 57.3 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 66.8 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 76.4 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 85.9 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 95.5 Mb/98.9 Mb
+Downloading Chrome Headless Shell - 98.9 Mb/98.9 Mb
+Montando 1591 fotogramas...
+  0 %
+  10 %
+  20 %
+  30 %
+  40 %
+  50 %
+  60 %
+  70 %
+  80 %
+  90 %
+  100 %
+Listo: /home/runner/work/robot-videos/robot-videos/motor/scripts/salida/zonaleonida_2026-10-26_articulo.mp4
+Vídeo: articulo
+  fotograma Launch_00m02s_002.jpg: Fotograma de GTA 6: camioneta remolcando una moto acuática en carretera al atardecer.
+  fotograma Launch_00m09s_003.jpg: Un hombre pule un barco de día en un taller, en GTA 6.
+  fotograma Launch_00m10s_004.jpg: Hombres junto a un gran yate en un taller diurno de GTA 6.
+  fotograma Launch_00m11s_005.jpg: Fotograma de GTA 6: hombre al teléfono de día en un puerto con barcos.
+  fotograma Launch_00m13s_006.jpg: En GTA 6, un hombre contempla un hidroavión en el muelle de día.
+  fotograma Launch_00m26s_009.jpg: Fotograma de GTA 6: una pareja en descapotable recorre la ciudad de día.
+  fotograma Launch_00m28s_010.jpg: Soldados armados avanzan por un pantano al atardecer junto a una lancha.
+  fotograma Launch_00m29s_011.jpg: Un hombre empuña un puño americano en un lugar oscuro con luz roja.
+  fotograma Launch_00m32s_012.jpg: En GTA 6, un hombre conduce un hidrodeslizador por un pantano al atardecer.
+  fotograma Launch_00m35s_014.jpg: Dos personas dentro de una cámara acorazada bancaria entre humo y billetes flotando.
+  fotograma Launch_00m36s_015.jpg: Jason y Lucía en la ducha al atardecer en GTA 6.
+  fotograma Launch_00m37s_016.jpg: Un hombre abre los brazos de espaldas en una discoteca en GTA 6.
+  fotograma Launch_00m38s_017.jpg: Al atardecer, alguien viaja sobre una camioneta bajo un avión en un aeropuerto.
+  fotograma Launch_00m40s_018.jpg: Dos personas junto a un coche rojo en una zona industrial al atardecer.
+  fotograma Launch_00m42s_019.jpg: Un hombre calvo inmoviliza a otro tras la barra de un bar nocturno.
+  fotograma Launch_00m44s_020.jpg: Fotograma de GTA 6 con cantantes sobre el escenario de un club nocturno.
+  fotograma Launch_00m48s_021.jpg: Coche policial y transeúntes en una avenida de día, fotograma de GTA 6.
+  fotograma Launch_00m53s_022.jpg: Un hombre en una azotea de noche con un helicóptero explotando detrás.
+  fotograma Launch_00m56s_023.jpg: Una persona con bengala sobre una avioneta rosa sobrevuela una playa de día.
+  fotograma Launch_00m56s_024.jpg: Fotograma de GTA 6 con un hombre musculoso entrenando en un gimnasio.
+  fotograma Launch_00m58s_025.jpg: Un hombre tatuado sostiene una serpiente en una habitación de día en GTA 6.
+  fotograma Launch_01m00s_026.jpg: Una mujer armada observa una explosión de coches en una ciudad de noche.
+  fotograma Launch_01m03s_027.jpg: Lucía de GTA 6 en la terraza de un rascacielos durante el atardecer.
+  fotograma Launch_01m03s_028.jpg: Deportivos compiten de noche en una autopista de Vice City en GTA 6.
+  fotograma Launch_01m07s_029.jpg: Lucía y Jason de GTA 6 se abrazan en un balcón al atardecer.
+  fotograma Launch_01m08s_030.jpg: Un helicóptero ilumina y rompe los cristales de un rascacielos de noche.
+  fotograma Launch_01m12s_031.jpg: Lucía de GTA 6 dispara en una calle diurna con vehículos y explosiones.
+  fotograma Trailer1_00m02s_002.jpg: Vehículos circulan por una autopista al atardecer en este fotograma de GTA 6.
+  fotograma Trailer1_00m06s_003.jpg: Fotograma de GTA 6 con una valla carcelaria y palmeras al atardecer.
+  fotograma Trailer1_00m08s_004.jpg: Fotograma de GTA 6 con Lucía en una celda de prisión al atardecer.
+  fotograma Trailer1_00m09s_005.jpg: Fotograma de GTA 6 con Lucía en prisión con mono naranja de día.
+  fotograma Trailer1_00m18s_007.jpg: Rascacielos y palmeras a plena luz del día en Vice City de GTA 6.
+  fotograma Trailer1_00m20s_008.jpg: Flamencos vuelan sobre un pantano de día en un fotograma de GTA 6.
+  fotograma Trailer1_00m21s_009.jpg: Fotograma de GTA 6 con personas y vehículos en una playa de día.
+  fotograma Trailer1_00m23s_010.jpg: Personas en lanchas rápidas navegan de día por un puerto en GTA 6.
+  fotograma Trailer1_00m28s_012.jpg: Escena diurna de GTA 6 con personas y autos modificados en la calle.
+  fotograma Trailer1_00m29s_013.jpg: Gente de fiesta y bailarinas de noche en un club de GTA 6.
+  fotograma Trailer1_00m31s_014.jpg: Vista aérea nocturna de GTA 6 con vehículos, barcos y rascacielos iluminados.
+  fotograma Trailer1_00m32s_015.jpg: Escena de GTA 6 con coches deportivos y peatones en Vice City al anochecer.
+  fotograma Trailer1_00m35s_016.jpg: Fotograma de GTA 6 con gente bailando en una discoteca durante la noche.
+  fotograma Trailer1_00m35s_017.jpg: De día, un hidroavión sobrevuela puentes con vehículos en costas de GTA 6.
+  fotograma Trailer1_00m40s_019.jpg: Fotograma de GTA 6 con el cartel gigante de VICE al amanecer.
+  fotograma Trailer1_00m47s_025.jpg: En GTA 6, un caimán invade una tienda con personas por la mañana.
+  fotograma Trailer1_00m54s_029.jpg: En GTA 6, un anciano en tanga riega un jardín de día.
+  fotograma Trailer1_00m55s_030.jpg: Gente y vehículos en una fiesta de barro al atardecer en GTA 6.
+  fotograma Trailer1_01m00s_033.jpg: En GTA 6, un conductor ve patrullas policiales en una carretera de día.
+  fotograma Trailer1_01m03s_034.jpg: Lucía de GTA 6 sostiene billetes en un coche durante el día.
+  fotograma Trailer1_01m05s_037.jpg: Personas en motos y quads recorren una calle al atardecer en GTA 6.
+  fotograma Trailer1_01m08s_040.jpg: Lucía y Jason de GTA 6 atracan una tienda con el rostro tapado.
+  fotograma Trailer1_01m10s_041.jpg: Un coche clásico derrapa de día frente a una armería en GTA 6.
+  fotograma Trailer1_01m15s_042.jpg: Fotograma de GTA 6 con Lucía y Jason en un motel nocturno.
+  fotograma Trailer2_00m08s_002.jpg: Escena diurna de GTA 6 con una casa sobre pilotes y coches clásicos.
+  fotograma Trailer2_00m10s_003.jpg: Fotograma de GTA 6 con un hombre junto a una camioneta de día.
+  fotograma Trailer2_00m12s_004.jpg: En GTA 6, un hombre sube al tejado costero con barcos de día.
+  fotograma Trailer2_00m14s_005.jpg: Un hombre junto a una camioneta en una calle de día en GTA 6.
+  fotograma Trailer2_00m19s_006.jpg: Hombre musculoso sin camiseta junto a una cabaña de día en GTA 6.
+  fotograma Trailer2_00m22s_007.jpg: Un hombre junto a vehículos de día en un barrio de GTA 6.
+  fotograma Trailer2_00m23s_008.jpg: Un hombre sin camiseta camina frente a una cabaña costera de día.
+  fotograma Trailer2_00m32s_009.jpg: Fotograma de GTA 6 donde dos hombres conversan en una tienda de día.
+  fotograma Trailer2_00m34s_010.jpg: Jason roba dinero de una caja registradora durante un atraco en GTA 6.
+Fotogramas: 60 (60 descritos ahora, el resto de la caché)
+  [0] titular    acercar   corte    {"texto": "NOTAS ANTES", "resaltar": "NOTAS", "sub": "Críticas antes de jugar", "variante": "gigante
+  [1] cronologia paneo_der barrido  {"orientacion": "horizontal", "hitos": [{"arriba": "Prensa", "fecha": "18 NOV", "texto": "Fin del em
+  [2] pila       subir     zoom     {"titulo": "Copias de análisis", "tarjetas": [{"arriba": "Acceso previo", "titulo": "Finales de octu
+  [3] cifra      alejar    flash    {"valor": 98, "decimales": 0, "prefijo": "", "sufijo": "/100", "etiqueta": "Metacritic GTA 4", "arri
+  [4] prensa     paneo_izq giro     {"medio": "Zona Leonida", "fecha": "26 OCTUBRE", "titular": "Los análisis de GTA 6 saldrán el 18 de 
+  [5] pregunta   quieta    glitch   {"pregunta": "¿Superará el 98 en Metacritic?", "comentario": "Deja tu nota prevista abajo"}
+  fondo: particulas · subtítulos: pop
+Listo: /home/runner/work/robot-videos/robot-videos/motor/scripts/salida/zonaleonida_2026-10-26_articulo.mp4
