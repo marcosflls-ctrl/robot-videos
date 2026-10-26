@@ -120,7 +120,7 @@ def _encajar_vertical(img, w, h, tema):
     fondo = Image.blend(fondo, Image.new("RGBA", (w, h), tuple(tema["fondo"]) + (255,)), 0.35)
     fh = int(w * img.height / img.width)
     frente = img.resize((w, fh), Image.LANCZOS)
-    y = int(h * 0.40 - fh / 2)
+    y = int(h * 0.45 - fh / 2)  # un poco por debajo del centro: deja sitio arriba para el título
     sombra = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     ImageDraw.Draw(sombra).rectangle((0, y + 10, w, y + fh + 26), fill=(0, 0, 0, 90))
     fondo.alpha_composite(sombra.filter(ImageFilter.GaussianBlur(18)))
@@ -709,8 +709,10 @@ class Foto(Pieza):
         partes = []
         if d.get("kicker"):
             partes.append(("kicker", str(d["kicker"]).upper(), ctx.f("txt_b", 28), 28))
+        arriba = bool(d.get("encajar") and ctx.vertical and self.diseno == "completa")
         if d.get("texto"):
-            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 92 if self.diseno != "completa" else 96, ancho, 4, 40)
+            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 84 if arriba else (92 if self.diseno != "completa" else 96),
+                                     ancho, 3 if arriba else 4, 40)
             partes.append(("tit", ls, f, tam))
         if d.get("sub"):
             f, ls, tam = ctx.ajustar(str(d["sub"]), "txt", 34, ancho, 3, 24)
@@ -718,6 +720,10 @@ class Foto(Pieza):
         alto = 0
         for tipo, txt, f, tam in partes:
             alto += (tam * 1.6) if tipo == "kicker" else len(txt) * tam * (1.08 if tipo == "tit" else 1.35) + 16
+        if y is None and arriba:
+            # Short con el dibujo entero: el título va arriba, por encima del dibujo, bien lejos
+            # de los subtítulos de la narración, que van abajo
+            y = max(150, 470 - alto)
         if y is None:
             if self.diseno == "completa":  # abajo, pero por encima de los subtítulos en los Shorts
                 y = (ctx.abajo - 40 - alto) if ctx.vertical else (self.H * 0.82 - alto)
