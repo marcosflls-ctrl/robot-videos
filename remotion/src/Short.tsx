@@ -13,6 +13,7 @@ const ESCENAS: Record<string, React.FC<PropsEscena>> = {
 };
 
 const T = 9; // fotogramas de transición (solapan la escena que sale con la que entra)
+const ADELANTO = 6; // el contenido empieza a animarse durante la transición, no después (si no, queda un hueco vacío)
 
 /** Movimiento de cámara a lo largo de la escena (p: 0 -> 1) */
 const camara = (tipo: Camara | undefined, p: number, f: number): string => {
@@ -30,31 +31,54 @@ const camara = (tipo: Camara | undefined, p: number, f: number): string => {
   }
 };
 
-/** Cómo entra (e: 0 -> 1) y sale (s: 0 -> 1) la escena */
-const transicion = (tipo: Transicion | undefined, e: number, s: number): React.CSSProperties => {
-  const ee = salida(e), ss = suave(s);
+/** Cómo entra la escena (e: 0 -> 1). La transición es la de ESTA escena. */
+const entradaEstilo = (tipo: Transicion | undefined, e: number): { transform?: string; filter?: string; opacity: number } => {
+  const ee = salida(e);
+  const tarde = Math.max(0, (e - 0.3) / 0.7); // aparece cuando la anterior ya se ha ido
   switch (tipo) {
-    case "barrido": return { transform: `translateX(${(1 - ee) * 110 - ss * 110}%)`, filter: `blur(${(1 - ee) * 18 + ss * 18}px)` };
-    case "zoom": return { transform: `scale(${(1 + (1 - ee) * 1.4) * (1 - ss * 0.4)})`, opacity: ee * (1 - ss), filter: `blur(${(1 - ee) * 14 + ss * 10}px)` };
-    case "giro": return { transform: `perspective(1600px) rotateY(${(1 - ee) * 90 - ss * 90}deg)`, opacity: Math.min(ee * 2, 1) * (1 - ss) };
-    case "empuje": return { transform: `translateY(${(1 - ee) * 100 - ss * 100}%)` };
+    case "barrido": return { transform: `translateX(${(1 - ee) * 110}%)`, filter: `blur(${(1 - ee) * 18}px)`, opacity: 1 };
+    case "zoom": return { transform: `scale(${1 + (1 - ee) * 1.4})`, filter: `blur(${(1 - ee) * 14}px)`, opacity: tarde };
+    case "giro": return { transform: `perspective(1600px) rotateY(${(1 - ee) * 90}deg)`, opacity: Math.min(tarde * 2, 1) };
+    case "empuje": return { transform: `translateY(${(1 - ee) * 100}%)`, opacity: 1 };
     case "glitch": {
       const j = e < 1 ? Math.sin(e * 40) * 30 * (1 - e) : 0;
-      return { transform: `translateX(${j}px)`, opacity: Math.min(1, e * 3) * (1 - ss), filter: e < 1 ? `drop-shadow(${12 * (1 - e)}px 0 0 rgba(255,0,80,0.8)) drop-shadow(${-12 * (1 - e)}px 0 0 rgba(0,220,255,0.8))` : undefined };
+      return { transform: `translateX(${j}px)`, opacity: Math.min(1, tarde * 3), filter: e < 1 ? `drop-shadow(${12 * (1 - e)}px 0 0 rgba(255,0,80,0.8)) drop-shadow(${-12 * (1 - e)}px 0 0 rgba(0,220,255,0.8))` : undefined };
     }
-    case "corte": return { opacity: e > 0.5 && s < 0.5 ? 1 : 0 };
-    default: return { opacity: ee * (1 - ss) }; // flash y fundido: el fogonazo lo pone la capa de arriba
+    case "corte": return { opacity: e > 0.5 ? 1 : 0 };
+    default: return { opacity: salida(tarde) }; // flash y fundido: el fogonazo lo pone la capa de arriba
   }
 };
 
-const BloqueEscena: React.FC<{ esc: Escena; durCore: number }> = ({ esc, durCore }) => {
+/** Cómo sale la escena (s: 0 -> 1). Va con la transición de la escena SIGUIENTE y siempre se apaga
+ *  deprisa (a mitad de la transición ya no se ve), para que nada suyo quede encima del texto nuevo. */
+const salidaEstilo = (tipo: Transicion | undefined, s: number): { transform?: string; filter?: string; opacity: number } => {
+  const ss = suave(s);
+  const apaga = 1 - Math.min(1, s * 3); // a un tercio de la transición ya no se ve
+  switch (tipo) {
+    case "barrido": return { transform: `translateX(${-ss * 110}%)`, filter: `blur(${ss * 18}px)`, opacity: apaga };
+    case "zoom": return { transform: `scale(${1 - ss * 0.4})`, filter: `blur(${ss * 10}px)`, opacity: apaga };
+    case "giro": return { transform: `perspective(1600px) rotateY(${-ss * 90}deg)`, opacity: apaga };
+    case "empuje": return { transform: `translateY(${-ss * 100}%)`, opacity: apaga };
+    case "corte": return { opacity: s > 0.5 ? 0 : 1 };
+    default: return { opacity: apaga };
+  }
+};
+
+const unir = (a: any, b: any): React.CSSProperties => ({
+  transform: [a.transform, b.transform].filter(Boolean).join(" ") || undefined,
+  filter: [a.filter, b.filter].filter(Boolean).join(" ") || undefined,
+  opacity: a.opacity * b.opacity,
+});
+
+const BloqueEscena: React.FC<{ esc: Escena; durCore: number; siguiente?: Transicion }> = ({ esc, durCore, siguiente }) => {
   const f = useCurrentFrame() - T; // 0 = empieza la escena de verdad
   const { fps } = useVideoConfig();
   const pal = usePaleta();
   const Comp = ESCENAS[esc.tipo] || Titular;
-  const e = prog(f, -T, T, (x) => x), s = prog(f, durCore, T, (x) => x);
+  // sale en los mismos fotogramas en que entra la siguiente (los T últimos de esta escena)
+  const e = prog(f, -T, T, (x) => x), s = siguiente ? prog(f, durCore - T, T, (x) => x) : 0;
   return (
-    <AbsoluteFill style={transicion(esc.transicion, e, s)}>
+    <AbsoluteFill style={unir(entradaEstilo(esc.transicion, e), salidaEstilo(siguiente, s))}>
       {esc.fondo && (
         <AbsoluteFill>
           <Img src={fuenteImg(esc.fondo)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.15 + 0.08 * (f / durCore)})`, filter: "blur(5px) brightness(0.5) saturate(1.25)" }} />
@@ -62,7 +86,7 @@ const BloqueEscena: React.FC<{ esc: Escena; durCore: number }> = ({ esc, durCore
         </AbsoluteFill>
       )}
       <AbsoluteFill style={{ transform: camara(esc.camara, Math.max(0, f) / durCore, f) }}>
-        <Comp d={esc.datos || {}} f={f} dur={durCore} fps={fps} />
+        <Comp d={esc.datos || {}} f={f + ADELANTO} dur={durCore} fps={fps} />
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -144,8 +168,8 @@ export const Short: React.FC<Guion> = (g) => {
           const desde = Math.round(esc.ini * fps), hasta = Math.round(esc.fin * fps);
           const durCore = Math.max(1, hasta - desde);
           return (
-            <Sequence key={i} from={desde - T} durationInFrames={durCore + 2 * T} layout="none">
-              <BloqueEscena esc={esc.fondo || !g.fondos?.length ? esc : { ...esc, fondo: g.fondos[i % g.fondos.length] }} durCore={durCore} />
+            <Sequence key={i} from={desde - T} durationInFrames={durCore + T} layout="none">
+              <BloqueEscena esc={esc.fondo || !g.fondos?.length ? esc : { ...esc, fondo: g.fondos[i % g.fondos.length] }} durCore={durCore} siguiente={escenas[i + 1]?.transicion} />
             </Sequence>
           );
         })}
