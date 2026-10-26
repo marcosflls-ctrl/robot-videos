@@ -145,6 +145,9 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
         desde = max(min(t0, t1) - 0.15, estimado - 0.8)
         hasta = min(max(t0, t1) + 0.6, estimado + 0.8)
         cortes.append(_elegir_corte(huecos, sr, desde, hasta, estimado))
+        if os.environ.get("VOZ_TANDAS_DEPURAR"):
+            print(f"   frase {k + 1}: ancla «{esperadas[antes[0]]}»→{t0:.2f} «{esperadas[despues[0]]}»→{t1:.2f} "
+                  f"estimado {estimado:.2f} ventana {desde:.2f}-{hasta:.2f} corte {cortes[-1] / sr:.2f}")
     if any(b <= a for a, b in zip([0] + cortes, cortes + [len(wav)])):
         return None
     limites = [0] + cortes + [len(wav)]

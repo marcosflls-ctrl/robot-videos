@@ -21,11 +21,11 @@ jobs:
         run: |
           mkdir -p salida
           echo "== base" | tee salida/registro.txt
-          python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
+          VOZ_TANDAS_DEPURAR=1 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
           echo "== otra semilla" | tee -a salida/registro.txt
           SEMILLA=7 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
           echo "== semilla 3" | tee -a salida/registro.txt
-          SEMILLA=3 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
+          VOZ_TANDAS_DEPURAR=1 SEMILLA=3 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
 
       - name: Guardar el resultado en la rama de prueba
         if: always()
