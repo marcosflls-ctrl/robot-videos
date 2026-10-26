@@ -1,4 +1,7 @@
-"""Canal de historia económica: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion.
+"""Vídeos largos con capítulos (canal de historia económica y canal de misterios): monta el vídeo largo
+(horizontal) y sus Shorts a partir de un guion.
+
+El canal sale del propio guion: «canal: misterios» usa canal_misterios.yaml; sin esa línea, canal_historia.yaml.
 
 El guion es un archivo de guiones/ (por ejemplo guiones/corralito.yaml) con capítulos y escenas.
 Cada escena tiene lo que dice la voz («voz») y lo que se ve («tipo» y sus datos).
@@ -18,7 +21,7 @@ Variables:
     GUION         nombre del guion (sin .yaml)
     QUE           todo | largo | shorts
     SIN_VOZ=1     prueba rápida sin voz (tiempos calculados a ojo)
-    VOZ_HISTORIA  voz de Gemini (vacío = la de canal_historia.yaml)
+    VOZ_HISTORIA  voz de Gemini (vacío = la del archivo del canal)
 """
 import hashlib
 import math
@@ -59,8 +62,12 @@ VERTICAL = {"W": 1080, "H": 1920, "y_sub": 1500, "ancho_sub": 940}
 #  Canal y guion
 # =====================================================================
 
-def cargar_canal():
-    canal = yaml.safe_load((RAIZ / "canal_historia.yaml").read_text(encoding="utf-8"))
+def cargar_canal(nombre="historia"):
+    ruta = RAIZ / f"canal_{nombre}.yaml"
+    if not ruta.exists():
+        hay = ", ".join(sorted(p.stem.replace("canal_", "") for p in RAIZ.glob("canal_*.yaml")))
+        raise SystemExit(f"::error::No existe {ruta.name}. Canales que hay: {hay}")
+    canal = yaml.safe_load(ruta.read_text(encoding="utf-8"))
     canal["tema"] = {k: tuple(v) for k, v in canal["colores"].items()}
     return canal
 
@@ -136,7 +143,9 @@ def preparar_imagenes(g, canal):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
             hay += e["_img"] is not None
     m = g.get("miniatura") or {}
-    if m.get("imagen") or m.get("buscar_imagen"):
+    if m.get("escena"):  # ilustración propia para la miniatura, con el estilo del canal
+        m["_img"], _ = ilustraciones.generar(m, canal)
+    elif m.get("imagen") or m.get("buscar_imagen"):
         m["_img"], _ = imagenes.conseguir(m, GUIONES)
     print(f"Imágenes: {hay} listas")
 
@@ -717,7 +726,8 @@ def miniatura(g, canal, ruta):
     img = fondo_base(ctx, semilla=3)
     foto = _primera_imagen(g)
     if foto is not None:
-        f = recortar_a(duotono(foto, canal["tema"], contraste=1.3, grano=10), 760, 720, (0.5, 0.3))
+        tratada = foto.convert("RGBA") if canal.get("miniatura_color") else duotono(foto, canal["tema"], contraste=1.3, grano=10)
+        f = recortar_a(tratada, 760, 720, (0.5, 0.3))
         m = np.ones((720, 760), np.float32)
         r = np.linspace(0, 1, 340) ** 1.4
         m[:, :340] *= r[None, :]
@@ -773,8 +783,9 @@ def copia_ligera(entrada, salida, duracion, max_mb=45, escala="1280:720"):
 def main():
     nombre = (os.environ.get("GUION") or "ejemplo").strip()
     que = (os.environ.get("QUE") or "todo").strip()
-    canal = cargar_canal()
     g = cargar_guion(nombre)
+    canal = cargar_canal(str(g.get("canal") or "historia").strip())
+    print(f"Canal: {canal['marca']}")
     SALIDA.mkdir(exist_ok=True)
     inicio = time.time()
     preparar_imagenes(g, canal)

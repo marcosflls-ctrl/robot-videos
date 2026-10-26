@@ -1,0 +1,605 @@
+# Los Rodeos (Tenerife, 1977): el peor accidente de la historia de la aviación
+# Canal de misterios · sección Desastres. Guion para revisar antes de montar.
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+
+canal: misterios
+
+titulo: "El peor accidente de avión de la historia ocurrió en España (Los Rodeos, 1977)"
+descripcion: >-
+  El 27 de marzo de 1977, dos Boeing 747 chocaron en la pista del aeropuerto de Los Rodeos, en Tenerife.
+  Murieron 583 personas: sigue siendo el peor accidente de la historia de la aviación. Ninguno de los dos
+  aviones tendría que haber estado allí. Una bomba, un aeropuerto desbordado, la niebla, la prisa y una
+  frase por radio que nadie entendió se juntaron en un domingo por la tarde. Esta es la historia completa,
+  minuto a minuto, y lo que cambió en la aviación desde entonces.
+hashtags: "#LosRodeos #Tenerife #aviación #historia #desastres #1977"
+
+miniatura:
+  texto: "Dos aviones en la misma pista"
+  resaltar: "misma"
+  cifra: "1977"
+  escena: >-
+    Dos grandes aviones de pasajeros de cuatro motores, de frente el uno al otro en la misma pista,
+    envueltos en niebla espesa; sus faros encendidos atraviesan la bruma. En primer plano, un muñeco de
+    palo con los ojos muy abiertos y cara de alarma mira hacia ellos. Atardecer gris, mucho contraste.
+
+fuentes:
+  - id: 1
+    corta: "FAA · Lessons Learned"
+    cita: "Federal Aviation Administration. «Boeing 747-206B and Boeing 747-121, Tenerife, Canary Islands, Spain, March 27, 1977». Lessons Learned from Civil Aviation Accidents."
+    url: "https://www.faa.gov/lessons_learned/transport_airplane/accidents/PH-BUF"
+  - id: 2
+    corta: "Wikipedia: Accidente de Los Rodeos"
+    cita: "«Accidente de Los Rodeos». Wikipedia, la enciclopedia libre."
+    url: "https://es.wikipedia.org/wiki/Accidente_de_Los_Rodeos"
+  - id: 3
+    corta: "Wikipedia: Tenerife airport disaster"
+    cita: "«Tenerife airport disaster». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Tenerife_airport_disaster"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "El veintisiete de marzo de 1977, dos de los aviones más grandes del mundo estaban en la misma pista de un aeropuerto de Tenerife. Y ninguno podía ver al otro."
+    tipo: ilustracion
+    escena: &pista_niebla >-
+      La pista de un aeropuerto de montaña en 1977, cubierta de niebla espesa al final de la tarde: el
+      asfalto gris se pierde en la bruma a pocos metros; a lo lejos apenas se adivinan las luces
+      amarillentas de un gran avión de cuatro motores. Ambiente húmedo, frío y silencioso.
+    kicker: "Tenerife · 27 de marzo de 1977"
+    fuente: 2
+  - voz: "Uno empezó a acelerar para despegar. El otro todavía rodaba por la pista, hacia él."
+    tipo: ilustracion
+    escena: &dos_aviones >-
+      Vista lateral muy amplia de una pista envuelta en niebla: a la izquierda, un gran avión de cuatro
+      motores acelera con los faros encendidos; a la derecha, medio oculto por la bruma, otro avión igual
+      de grande avanza despacio por la misma pista. Ninguno parece ver al otro. Luz gris de atardecer.
+    fuente: 1
+  - voz: "Murieron quinientas ochenta y tres personas. Casi cincuenta años después, sigue siendo el peor accidente de la historia de la aviación."
+    tipo: cifra
+    valor: 583
+    etiqueta: "víctimas: el peor accidente de la historia de la aviación"
+    fuente: 1
+  - voz: "Y lo más inquietante es que ninguno de los dos aviones tendría que haber estado allí."
+    tipo: titulo
+    texto: "Ninguno de los dos tenía que estar allí"
+    resaltar: "Ninguno"
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un domingo que empezó con una bomba"
+    short: false
+    escenas:
+      - voz: "Era domingo. Dos Boeing 747, los aviones de pasajeros más grandes de la época, volaban hacia Gran Canaria."
+        tipo: fecha
+        fecha: "27 MAR 1977"
+        lugar: "Islas Canarias"
+        fuente: 2
+      - voz: "Uno era el vuelo cuatro ocho cero cinco de KLM, un chárter que venía de Ámsterdam con doscientos treinta y cuatro pasajeros, casi todos holandeses."
+        pronunciar: "Uno era el vuelo cuatro ocho cero cinco de ka ele eme, un chárter que venía de Ámsterdam con doscientos treinta y cuatro pasajeros, casi todos holandeses."
+        tipo: ilustracion
+        escena: >-
+          Interior de la cabina de pasajeros de un avión grande de los años setenta: filas de asientos con
+          tapicería naranja y marrón llenas de muñecos de palo de vacaciones, algunos con gafas de sol y
+          revistas, otros mirando por la ventanilla hacia un mar azul. Luz de mediodía.
+        kicker: "KLM 4805"
+        texto: "Desde Ámsterdam"
+        sub: "234 pasajeros y 14 tripulantes"
+        fuente: [2, 3]
+      - voz: "El otro era el vuelo mil setecientos treinta y seis de Pan Am. Había salido de Los Ángeles, había hecho escala en Nueva York y llevaba trescientos ochenta pasajeros."
+        tipo: ilustracion
+        escena: >-
+          Un gran avión de pasajeros de cuatro motores, blanco y sin logotipos, cruzando el océano Atlántico
+          sobre un mar de nubes, visto de lado; dentro, por las ventanillas, se ven cabecitas redondas de
+          muñecos de palo. Cielo azul intenso, sol de mediodía.
+        kicker: "Pan Am 1736"
+        texto: "Desde Los Ángeles y Nueva York"
+        sub: "380 pasajeros y 16 tripulantes"
+        fuente: [2, 3]
+      - voz: "A la una y cuarto de la tarde, mientras los dos volaban, estalló una bomba en la terminal del aeropuerto de Gran Canaria. Hubo ocho heridos."
+        tipo: ilustracion
+        escena: >-
+          La fachada de una terminal de aeropuerto de los años setenta en una isla soleada, con palmeras;
+          una nube de humo gris sale de una de las puertas y varios muñecos de palo se alejan corriendo con
+          cara de susto. Sin llamas grandes, sin heridos visibles.
+        kicker: "Gran Canaria · 13:15"
+        texto: "Una bomba en la terminal"
+        fuente: [2, 3]
+      - voz: "La atribuyeron al MPAIAC, un movimiento independentista canario. Poco después llegó el aviso de una segunda bomba, y el aeropuerto cerró."
+        pronunciar: "La atribuyeron al empaiác, un movimiento independentista canario. Poco después llegó el aviso de una segunda bomba, y el aeropuerto cerró."
+        tipo: titulo
+        kicker: "Aviso de una segunda bomba"
+        texto: "El aeropuerto de Gran Canaria cierra"
+        resaltar: "cierra"
+        fuente: [2, 3]
+      - voz: "Así que los aviones que iban hacia allí se desviaron a la isla de al lado, Tenerife. Un salto de apenas veinticinco minutos de vuelo."
+        tipo: mapa
+        caja: [-18.4, -13.2, 27.4, 29.6]
+        titulo: "Desviados a Tenerife"
+        grupos:
+          - paises: [España]
+            color: acento2
+            leyenda: "Islas Canarias"
+        fuente: 2
+      - voz: "El aeropuerto de Los Rodeos, en el norte de Tenerife, era pequeño. Y aquel domingo solo había dos controladores de turno."
+        tipo: ilustracion
+        escena: &torre >-
+          Interior de una pequeña torre de control de aeropuerto de los años setenta: dos muñecos de palo
+          con auriculares ante una consola con micrófonos, radios y luces; por los grandes ventanales solo
+          se ve niebla blanca. Tonos cálidos de lámpara dentro, gris fuera.
+        kicker: "Aeropuerto de Los Rodeos"
+        texto: "Dos controladores de turno"
+        fuente: 2
+      - voz: "Y le faltaban cosas que hoy parecen básicas."
+        tipo: lista
+        titulo: "Lo que le faltaba a Los Rodeos"
+        puntos:
+          - "Una sola pista y una sola calle de rodaje"
+          - "Sin radar de tierra para ver los aviones"
+          - "Las luces del centro de la pista, apagadas"
+        fuente: [1, 2]
+      - voz: "En pocas horas se llenó de aviones desviados. Había tantos aparcados que tapaban la única calle de rodaje."
+        tipo: ilustracion
+        escena: &plataforma_llena >-
+          La plataforma de un aeropuerto pequeño de montaña abarrotada de grandes aviones de pasajeros
+          aparcados uno junto a otro, sin logotipos, bloqueando una estrecha calle de rodaje; algunos muñecos
+          de palo con chaleco señalan con los brazos sin saber dónde meter más. Cielo nublado, montañas verdes.
+        kicker: "Aeropuerto desbordado"
+        texto: "Ni un hueco libre"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La espera"
+    short: false
+    escenas:
+      - voz: "Pasaron las horas. Los pasajeros de KLM bajaron a la terminal a estirar las piernas."
+        pronunciar: "Pasaron las horas. Los pasajeros de ka ele eme bajaron a la terminal a estirar las piernas."
+        tipo: ilustracion
+        escena: >-
+          Una sala de espera de aeropuerto de los años setenta llena de muñecos de palo aburridos: unos
+          sentados en sillas de plástico naranja, otros de pie con bolsas de viaje, uno dormido con la boca
+          abierta. Por los ventanales se ven aviones aparcados y nubes bajas.
+        kicker: "Horas de espera"
+        fuente: 2
+      - voz: "Una de ellas, Robina van Lanschot, vivía en Tenerife. Y decidió no volver a subir: si ya estaba en su isla, ¿para qué ir a Gran Canaria?"
+        pronunciar: "Una de ellas, Robina van Lánschot, vivía en Tenerife. Y decidió no volver a subir: si ya estaba en su isla, ¿para qué ir a Gran Canaria?"
+        tipo: ilustracion
+        escena: &robina >-
+          Un muñeco de palo con un pañuelo en la cabeza y una maleta pequeña se aleja tranquilamente de un
+          gran avión aparcado, caminando hacia la salida de un aeropuerto, con montañas verdes de fondo.
+          Mira hacia atrás con media sonrisa. Luz de tarde.
+        kicker: "La pasajera que se quedó"
+        texto: "Decidió quedarse en casa"
+        fuente: 2
+      - voz: "Por la tarde, Gran Canaria volvió a abrir. El avión de Pan Am estaba listo para irse. Pero no podía."
+        tipo: titulo
+        kicker: "Gran Canaria reabre"
+        texto: "Listos para salir… y bloqueados"
+        resaltar: "bloqueados"
+        fuente: 2
+      - voz: "Delante tenía al KLM, que había decidido llenar los depósitos allí mismo. Así no tendría que repostar en Gran Canaria para volver a Ámsterdam."
+        pronunciar: "Delante tenía al ka ele eme, que había decidido llenar los depósitos allí mismo. Así no tendría que repostar en Gran Canaria para volver a Ámsterdam."
+        tipo: ilustracion
+        escena: &repostaje >-
+          Un gran avión de pasajeros aparcado recibe combustible de un camión cisterna con una manguera
+          gruesa; un muñeco de palo con chaleco controla el surtidor. Justo detrás, otro avión igual de
+          grande espera parado sin espacio para pasar, y en su cabina un muñeco de palo con gorra de piloto
+          mira la escena con los brazos cruzados. Nubes bajas.
+        kicker: "KLM reposta"
+        texto: "Y el Pan Am, detrás, sin hueco"
+        fuente: [2, 3]
+      - voz: "Cargó cincuenta y cinco mil quinientos litros de combustible."
+        tipo: cifra
+        valor: 55500
+        sufijo: " l"
+        etiqueta: "litros de combustible que cargó el avión de KLM en Tenerife"
+        fuente: 1
+      - voz: "Repostar le llevó unos treinta y cinco minutos. Y todo ese tiempo, el Pan Am esperó detrás."
+        tipo: ilustracion
+        escena: *repostaje
+        kicker: "35 minutos"
+        texto: "El Pan Am, esperando"
+        fuente: 3
+      - voz: "El capitán del KLM era Jacob Veldhuyzen van Zanten, jefe de formación de pilotos de la compañía. Su cara salía hasta en la publicidad de KLM."
+        pronunciar: "El capitán del ka ele eme era Jacob Féldjóisen fan Sánten, jefe de formación de pilotos de la compañía. Su cara salía hasta en la publicidad de ka ele eme."
+        tipo: ilustracion
+        escena: &capitan >-
+          Un muñeco de palo con gorra de capitán de aviación y un galón dorado, de pie, seguro de sí mismo,
+          con una carpeta bajo el brazo, en un hangar de aviones; detrás, un cartel publicitario genérico de
+          viajes con un avión dibujado y un sol, sin letras. Luz cálida.
+        kicker: "El capitán de KLM"
+        texto: "El instructor de los pilotos"
+        fuente: 3
+      - voz: "Y tenía prisa. Las nuevas normas holandesas sobre horas de trabajo eran muy estrictas. Si se pasaban del límite, la tripulación no podría seguir volando."
+        tipo: esquema
+        modo: causas
+        titulo: "Por qué había tanta prisa"
+        nodos:
+          - {etiqueta: "Aeropuerto", texto: "Lleno y sin hueco"}
+          - {etiqueta: "Tripulación", texto: "Límite estricto de horas"}
+          - {etiqueta: "Tiempo", texto: "La niebla empeoraba"}
+        resultado: {etiqueta: "Resultado", texto: "Salir cuanto antes"}
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La niebla"
+    short: false
+    escenas:
+      - voz: "Mientras repostaban, entraron nubes bajas en el aeropuerto. Y la visibilidad empezó a cambiar de un minuto a otro."
+        tipo: ilustracion
+        escena: >-
+          Un aeropuerto de montaña visto desde lejos: una gran masa de nubes bajas baja por la ladera verde
+          y empieza a tragarse la pista y los aviones aparcados. Un muñeco de palo en primer plano mira el
+          cielo y se sube el cuello de la chaqueta.
+        kicker: "Entra la niebla"
+        fuente: 1
+      - voz: "Diecisiete minutos antes del choque, en la pista se veía a dos o tres kilómetros. Doce minutos después, a solo trescientos metros."
+        tipo: comparar
+        titulo: "Hasta dónde se veía en la pista"
+        izquierda: {etiqueta: "17 minutos antes", valor: 2500, texto: "2–3 km"}
+        derecha: {etiqueta: "5 minutos antes", valor: 300, texto: "300 m"}
+        fuente: 1
+      - voz: "Desde la torre de control ya no se veía ningún avión. Y no había radar de tierra para seguirlos."
+        tipo: ilustracion
+        escena: *torre
+        kicker: "La torre, a ciegas"
+        texto: "Solo se oían por radio"
+        fuente: [1, 2]
+      - voz: "A las cinco menos cuatro, el KLM pidió permiso para moverse. La torre le dijo que recorriera la pista entera, diera la vuelta al final y esperara allí."
+        pronunciar: "A las cinco menos cuatro, el ka ele eme pidió permiso para moverse. La torre le dijo que recorriera la pista entera, diera la vuelta al final y esperara allí."
+        tipo: ilustracion
+        escena: &klm_rodando >-
+          Un gran avión de pasajeros de cuatro motores, sin logotipos, rodando despacio por una pista
+          envuelta en niebla, con los faros encendidos, alejándose del espectador hacia el fondo gris.
+          Las líneas de la pista desaparecen en la bruma.
+        kicker: "16:56"
+        texto: "El KLM sale hacia el final de la pista"
+        fuente: [1, 2]
+      - voz: "Como la calle de rodaje estaba bloqueada, los aviones tenían que usar la propia pista como si fuera una carretera."
+        tipo: ilustracion
+        escena: *plataforma_llena
+        kicker: "Sin calle de rodaje"
+        texto: "La pista, convertida en carretera"
+        fuente: 2
+      - voz: "Detrás, por la misma pista, iba el Pan Am. Tenía que salir por la tercera desviación a su izquierda, la C3, para dejar la pista libre."
+        tipo: esquema
+        modo: cadena
+        titulo: "El plan de la torre"
+        nodos:
+          - {etiqueta: "1", texto: "KLM recorre la pista y da la vuelta"}
+          - {etiqueta: "2", texto: "Pan Am sale por la C3"}
+          - {etiqueta: "3", texto: "KLM despega con la pista libre", destacar: true}
+        flechas: ["Detrás, el Pan Am", "Pista despejada"]
+        fuente: [1, 2]
+      - voz: "Pero la C3 exigía un giro muy cerrado para un avión tan grande. Y entre la niebla, el Pan Am siguió adelante, hacia la siguiente salida."
+        tipo: ilustracion
+        escena: &panam_rodando >-
+          Desde dentro de la cabina de un avión antiguo de los años setenta: tres muñecos de palo con gorras
+          de piloto se inclinan hacia el parabrisas intentando ver algo; fuera, la pista se pierde en la
+          niebla y una salida lateral apenas se adivina, ya quedándose atrás. Caras de duda.
+        kicker: "Pan Am 1736"
+        texto: "La C3 se queda atrás"
+        fuente: [2, 3]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La frase que nadie entendió"
+    short: true
+    gancho_short:
+      - voz: "Una sola frase por radio, que nadie entendió igual, provocó el peor accidente de la historia de la aviación."
+        tipo: titulo
+        texto: "Una frase por radio. 583 víctimas."
+        resaltar: "Una frase"
+    escenas:
+      - voz: "Al final de la pista, el KLM dio la vuelta y se colocó mirando hacia ella. Delante solo había niebla. Y dentro de la niebla, todavía en la pista, el Pan Am."
+        pronunciar: "Al final de la pista, el ka ele eme dio la vuelta y se colocó mirando hacia ella. Delante solo había niebla. Y dentro de la niebla, todavía en la pista, el Pan Am."
+        tipo: ilustracion
+        escena: *pista_niebla
+        kicker: "Cabecera de la pista 30"
+        texto: "Delante, solo niebla"
+        fuente: [1, 3]
+      - voz: "El capitán empujó las palancas de potencia. Y el copiloto le frenó."
+        tipo: ilustracion
+        escena: &cabina_klm >-
+          La cabina de un gran avión de los años setenta vista desde atrás: tres muñecos de palo; a la
+          izquierda el capitán con gorra de piloto, a la derecha el copiloto, detrás el ingeniero de vuelo
+          ante un panel lleno de relojes redondos. Por el parabrisas solo se ve niebla gris. Ambiente tenso.
+        kicker: "Cabina del KLM"
+        fuente: [1, 2]
+      - voz: "«Espera un momento, no tenemos la autorización». El capitán paró y le dijo que la pidiera."
+        tipo: cita
+        texto: "Espera un momento, no tenemos la autorización."
+        autor: "Copiloto del KLM, en la grabación de cabina"
+        fecha: "17:05"
+        fuente: [2, 3]
+      - voz: "El copiloto llamó a la torre, y la torre le dio la autorización de ruta: qué rumbo seguir y a qué altura subir después de despegar."
+        tipo: ilustracion
+        escena: *torre
+        kicker: "La torre responde"
+        texto: "La ruta, no el despegue"
+        fuente: 1
+      - voz: "Pero una autorización de ruta no es permiso para despegar. Ese permiso no había llegado."
+        tipo: titulo
+        texto: "La ruta no es permiso para despegar"
+        resaltar: "no es permiso"
+        fuente: 1
+      - voz: "Mientras el copiloto repetía la ruta por radio, el capitán soltó los frenos. El avión empezó a acelerar."
+        tipo: ilustracion
+        escena: &klm_acelera >-
+          Un gran avión de pasajeros de cuatro motores, sin logotipos, empieza a correr por una pista mojada
+          y llena de niebla, con los faros encendidos y los motores echando aire caliente que ondula el
+          ambiente; vista desde un lateral, a ras de suelo.
+        kicker: "17:06"
+        texto: "El KLM suelta los frenos"
+        fuente: 1
+      - voz: "Y el copiloto terminó su mensaje con una frase que no existe en el lenguaje de los pilotos."
+        tipo: cita
+        texto: "We are now at take-off."
+        autor: "Copiloto del KLM, por radio (en inglés: «Ahora estamos en despegue»)"
+        fecha: "17:06"
+        fuente: [1, 3]
+      - voz: "¿Quería decir que estaban parados, listos para despegar? ¿O que ya estaban despegando? En la torre entendieron lo primero."
+        tipo: titulo
+        kicker: "«Estamos en despegue»"
+        texto: "¿Esperando o despegando?"
+        resaltar: "despegando?"
+        fuente: 1
+      - voz: "El controlador contestó: «OK». Y casi dos segundos después añadió: «Espere para despegar, le llamaré»."
+        tipo: cita
+        texto: "OK… Espere para despegar, le llamaré."
+        autor: "Torre de control de Los Rodeos"
+        fecha: "17:06"
+        fuente: [1, 2]
+      - voz: "Pero justo en ese momento, el Pan Am también habló por radio: «Todavía estamos rodando por la pista»."
+        tipo: ilustracion
+        escena: *panam_rodando
+        kicker: "Pan Am, a la vez"
+        texto: "«Seguimos en la pista»"
+        fuente: 3
+      - voz: "Las dos voces se pisaron. En la cabina del KLM solo se oyó un pitido de unos tres segundos."
+        tipo: cifra
+        valor: 3
+        sufijo: " s"
+        etiqueta: "de pitido: dos mensajes a la vez se anularon en la radio del KLM"
+        fuente: 1
+      - voz: "De todo aquello, al KLM solo le llegó con claridad una palabra: «OK»."
+        pronunciar: "De todo aquello, al ka ele eme solo le llegó con claridad una palabra: «OK»."
+        tipo: titulo
+        texto: "Solo se oyó «OK»"
+        resaltar: "«OK»"
+        fuente: 3
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Trece segundos"
+    short: true
+    gancho_short:
+      - voz: "Trece segundos antes del choque, alguien en la cabina sospechó lo que pasaba. Y lo preguntó en voz alta."
+        tipo: titulo
+        texto: "Alguien lo sospechó. Y preguntó."
+        resaltar: "sospechó"
+    escenas:
+      - voz: "La torre pidió al Pan Am que avisara en cuanto dejara la pista libre. Y el Pan Am contestó que lo haría. Esa conversación sí se oyó en la cabina del KLM."
+        pronunciar: "La torre pidió al Pan Am que avisara en cuanto dejara la pista libre. Y el Pan Am contestó que lo haría. Esa conversación sí se oyó en la cabina del ka ele eme."
+        tipo: ilustracion
+        escena: *cabina_klm
+        kicker: "Radio, 17:06"
+        texto: "«Avisaremos cuando dejemos la pista»"
+        fuente: [1, 2]
+      - voz: "El ingeniero de vuelo del KLM dudó, y preguntó en holandés:"
+        pronunciar: "El ingeniero de vuelo del ka ele eme dudó, y preguntó en holandés:"
+        tipo: ilustracion
+        escena: &ingeniero >-
+          Primer plano de un muñeco de palo sentado detrás de los pilotos en la cabina de un avión antiguo,
+          ante un panel de relojes redondos; se gira hacia delante con las cejas levantadas y cara de
+          preocupación, como si fuera a decir algo. Luz tenue de cabina.
+        kicker: "El ingeniero de vuelo"
+        fuente: [1, 3]
+      - voz: "«¿No ha salido todavía ese Pan American?»"
+        tipo: cita
+        texto: "¿No ha salido todavía ese Pan American?"
+        autor: "Ingeniero de vuelo del KLM"
+        fecha: "17:06:35"
+        fuente: [1, 3]
+      - voz: "Y el capitán contestó, rotundo: «Sí, claro». Nadie insistió."
+        tipo: titulo
+        kicker: "La respuesta del capitán"
+        texto: "«Sí, claro»"
+        resaltar: "claro»"
+        fuente: [1, 3]
+      - voz: "Era el piloto más veterano, el que enseñaba a los demás. Llevarle la contraria no era fácil."
+        tipo: ilustracion
+        escena: *capitan
+        kicker: "El peso de la jerarquía"
+        fuente: 3
+      - voz: "En el Pan Am, de repente, vieron unas luces dentro de la niebla. Eran los faros del KLM, a unos setecientos metros, viniendo de frente."
+        tipo: ilustracion
+        escena: >-
+          Desde la cabina de un avión antiguo: a través del parabrisas, dentro de la niebla, aparecen de
+          golpe dos faros muy brillantes que vienen de frente. Tres muñecos de palo con gorras de piloto
+          echan la cabeza hacia atrás con los ojos como platos.
+        kicker: "Pan Am 1736"
+        texto: "Luces de frente"
+        fuente: 3
+      - voz: "El capitán del Pan Am dio toda la potencia e intentó girar para salirse de la pista."
+        tipo: ilustracion
+        escena: &panam_gira >-
+          Un gran avión de pasajeros, sin logotipos, gira bruscamente hacia la hierba al borde de una pista
+          con niebla, inclinado, intentando apartarse; sus motores levantan agua y hojas. Vista desde lejos.
+        kicker: "Intentan apartarse"
+        fuente: [1, 2]
+      - voz: "En el KLM también los vieron. El capitán tiró de los mandos para levantar el avión antes de tiempo, tanto que la cola llegó a rozar la pista."
+        pronunciar: "En el ka ele eme también los vieron. El capitán tiró de los mandos para levantar el avión antes de tiempo, tanto que la cola llegó a rozar la pista."
+        tipo: ilustracion
+        escena: >-
+          Un gran avión de pasajeros levanta el morro bruscamente sobre una pista con niebla, con la cola
+          tan baja que saltan chispas del asfalto; delante, entre la bruma, se adivina la silueta de otro
+          avión atravesado. Vista lateral amplia, sin mostrar el choque.
+        kicker: "El KLM intenta elevarse"
+        fuente: 2
+      - voz: "Iba a unos doscientos sesenta kilómetros por hora. Ya no podía frenar."
+        tipo: cifra
+        valor: 260
+        sufijo: " km/h"
+        etiqueta: "velocidad del KLM al levantar el morro: demasiado tarde para frenar"
+        fuente: 3
+      - voz: "El morro pasó por encima del Pan Am. Los motores y el tren de aterrizaje, no. Eran las cinco y seis minutos de la tarde."
+        tipo: ilustracion
+        escena: &destello >-
+          Una pista cubierta de niebla en la que, a lo lejos, un enorme resplandor naranja ilumina la bruma
+          desde dentro, como un amanecer repentino. No se ven aviones, personas ni daños: solo la luz
+          naranja en la niebla y la silueta oscura de una montaña.
+        kicker: "17:06"
+        pausa: 2
+        fuente: [1, 3]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Después del choque"
+    short: false
+    escenas:
+      - voz: "El KLM cayó a unos ciento cincuenta metros y se deslizó por la pista. Con los depósitos llenos, ardió de inmediato. De las doscientas cuarenta y ocho personas a bordo, no sobrevivió nadie."
+        pronunciar: "El ka ele eme cayó a unos ciento cincuenta metros y se deslizó por la pista. Con los depósitos llenos, ardió de inmediato. De las doscientas cuarenta y ocho personas a bordo, no sobrevivió nadie."
+        tipo: ilustracion
+        escena: *destello
+        kicker: "KLM 4805"
+        texto: "Nadie sobrevivió"
+        fuente: [1, 2]
+      - voz: "Desde la torre, a ciegas por la niebla, solo se oyeron explosiones. Tardaron en saber dónde había ocurrido. Y que eran dos aviones."
+        tipo: ilustracion
+        escena: *torre
+        kicker: "La torre"
+        texto: "Solo se oían explosiones"
+        fuente: 2
+      - voz: "Los bomberos llegaron primero a un avión que ardía entero. Al despejarse un poco la niebla, descubrieron una segunda luz: era el otro avión."
+        tipo: ilustracion
+        escena: >-
+          Camiones de bomberos rojos de los años setenta avanzan entre la niebla con las luces encendidas;
+          varios muñecos de palo con casco señalan sorprendidos hacia un segundo resplandor naranja lejano.
+          Sin cuerpos ni heridos visibles.
+        kicker: "Los bomberos"
+        texto: "Había un segundo avión"
+        fuente: 2
+      - voz: "En el Pan Am, los que iban en la parte delantera saltaron desde varios metros de altura por las aberturas del costado. Muchos se rompieron huesos al caer."
+        tipo: ilustracion
+        escena: >-
+          De noche, entre humo y niebla, varios muñecos de palo ayudan a otros a alejarse caminando de un
+          gran avión dañado del que sale humo; se apoyan unos en otros. Escena de rescate, sin heridas
+          visibles ni llamas en primer plano.
+        kicker: "Pan Am 1736"
+        texto: "Saltar a ciegas"
+        fuente: 2
+      - voz: "Taxis y coches particulares llevaron a los heridos a los hospitales de la isla. El fuego no se apagó del todo hasta la madrugada."
+        tipo: ilustracion
+        escena: >-
+          Una carretera de noche en una isla, con varios taxis y coches de los años setenta con los faros
+          encendidos en fila hacia un hospital iluminado; muñecos de palo ayudan a otros a subir a los
+          coches. Ambiente de urgencia y solidaridad.
+        kicker: "Esa noche"
+        texto: "La isla se volcó"
+        fuente: 2
+      - voz: "En el Pan Am sobrevivieron sesenta y una personas, todas de la parte delantera. Entre ellas, los tres pilotos."
+        tipo: cifra
+        valor: 61
+        etiqueta: "supervivientes, todos de la parte delantera del Pan Am"
+        fuente: [1, 3]
+      - voz: "En total, murieron las doscientas cuarenta y ocho personas del KLM y trescientas treinta y cinco del Pan Am."
+        pronunciar: "En total, murieron las doscientas cuarenta y ocho personas del ka ele eme y trescientas treinta y cinco del Pan Am."
+        tipo: comparar
+        titulo: "Víctimas en cada avión"
+        izquierda: {etiqueta: "KLM 4805", valor: 248, texto: "248 de 248"}
+        derecha: {etiqueta: "Pan Am 1736", valor: 335, texto: "335 de 396"}
+        fuente: [1, 3]
+      - voz: "Y Robina, la pasajera que decidió quedarse en Tenerife, se salvó por no volver a subir al avión."
+        tipo: ilustracion
+        escena: *robina
+        kicker: "La pasajera que se quedó"
+        texto: "Se salvó por no subir"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Por qué pasó y qué cambió"
+    short: true
+    gancho_short:
+      - voz: "Desde 1977, los pilotos tienen prohibido usar una palabra por radio salvo en un momento concreto. Esta es la razón."
+        tipo: titulo
+        texto: "La palabra que los pilotos no pueden decir"
+        resaltar: "no pueden"
+    escenas:
+      - voz: "Investigadores de España, Países Bajos y Estados Unidos estudiaron las cajas negras de los dos aviones."
+        tipo: ilustracion
+        escena: >-
+          Una mesa larga en una sala de reuniones de los años setenta, llena de papeles, planos de un
+          aeropuerto y una grabadora de cinta; varios muñecos de palo con corbata escuchan con atención,
+          uno con auriculares. Luz de flexo.
+        kicker: "La investigación"
+        texto: "Tres países, dos cajas negras"
+        fuente: 2
+      - voz: "La investigación española concluyó que la causa fundamental fue que el capitán del KLM despegó sin autorización."
+        pronunciar: "La investigación española concluyó que la causa fundamental fue que el capitán del ka ele eme despegó sin autorización."
+        tipo: titulo
+        kicker: "Causa principal"
+        texto: "Despegar sin autorización"
+        resaltar: "sin autorización"
+        fuente: [1, 3]
+      - voz: "Pero no fue un solo error. Fue una cadena."
+        tipo: lista
+        titulo: "Lo que ayudó a que ocurriera"
+        puntos:
+          - "La niebla, que cambiaba cada minuto"
+          - "Dos mensajes de radio que se pisaron"
+          - "Frases poco claras: «OK», «en despegue»"
+          - "El Pan Am pasó de largo la salida C3"
+          - "Un aeropuerto desbordado"
+        fuente: 1
+      - voz: "Los Países Bajos defendieron que hubo un malentendido de todos. Pero al final, KLM aceptó su responsabilidad e indemnizó a las familias de las víctimas."
+        pronunciar: "Los Países Bajos defendieron que hubo un malentendido de todos. Pero al final, ka ele eme aceptó su responsabilidad e indemnizó a las familias de las víctimas."
+        tipo: titulo
+        kicker: "La responsabilidad"
+        texto: "KLM acabó aceptando la culpa"
+        resaltar: "aceptando"
+        fuente: [2, 3]
+      - voz: "Desde entonces, la palabra «despegue» solo se dice por radio para dar o cancelar el permiso de despegar. Para todo lo demás, se dice «salida»."
+        tipo: lista
+        titulo: "Una palabra con un solo uso"
+        puntos:
+          - "«Take-off» (despegue): solo para dar o cancelar el permiso"
+          - "«Departure» (salida): para todo lo demás"
+        fuente: 3
+      - voz: "Y un simple «OK» ya no vale: cada instrucción se repite completa, para que no haya dudas."
+        tipo: titulo
+        texto: "Un «OK» ya no basta"
+        resaltar: "«OK»"
+        fuente: 3
+      - voz: "También cambió el trabajo en cabina. Hoy los copilotos se entrenan para llevar la contraria al capitán cuando algo no cuadra. Se llama gestión de recursos de la tripulación."
+        tipo: ilustracion
+        escena: >-
+          La cabina de un avión moderno: un muñeco de palo copiloto levanta la mano con decisión y señala
+          un indicador, mientras el muñeco capitán, con gorra, se gira hacia él y asiente escuchando. Luz
+          clara de día, ambiente de equipo.
+        kicker: "Lo que cambió"
+        texto: "Ahora se puede decir «espera»"
+        fuente: [1, 3]
+      - voz: "En Tenerife, en 1978 abrió el nuevo aeropuerto del sur, que ya estaba en obras. Y Los Rodeos acabó teniendo radar de tierra."
+        tipo: ilustracion
+        escena: >-
+          Un aeropuerto moderno y soleado junto al mar, con una pista larga y aviones despegando sin
+          niebla; en primer plano, un muñeco de palo con una maleta mira hacia el cielo despejado.
+        kicker: "Tenerife Sur · 1978"
+        fuente: [2, 3]
+      - voz: "Treinta años después, en 2007, Tenerife inauguró un monumento en memoria de las víctimas, en lo alto de una colina mirando al mar."
+        tipo: ilustracion
+        escena: >-
+          Lo alto de una colina verde junto al mar al atardecer, con un ramo de flores sobre una losa
+          sencilla; varios muñecos de palo, de espaldas, miran en silencio hacia el horizonte. Cielo
+          naranja y rosa, tono sereno.
+        kicker: "Mesa Mota · 2007"
+        texto: "En memoria de las 583 víctimas"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+cierre:
+  - voz: "Una bomba, un aeropuerto desbordado, la niebla, la prisa y una frase mal dicha. Ninguna habría bastado sola. Juntas, cambiaron la aviación para siempre."
+    tipo: ilustracion
+    escena: *dos_aviones
+    texto: "Ningún error habría bastado solo"
+  - voz: "Cuéntanos en los comentarios: ¿cuál crees que fue el error decisivo? Y si te ha gustado, suscríbete: cada semana, un misterio, un desastre o un crimen real."
+    tipo: titulo
+    texto: "¿Cuál fue el error decisivo?"
+    resaltar: "decisivo?"

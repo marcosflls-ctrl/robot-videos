@@ -1,4 +1,14 @@
-# Guiones del canal de historia económica
+# Guiones de los vídeos largos (historia económica y misterios)
+
+Esta carpeta sirve para los dos canales. Lo que cambia de uno a otro (nombre, voz, colores y estilo
+de las ilustraciones) está en `canal_historia.yaml` y `canal_misterios.yaml`. Un guion del canal de
+misterios lleva al principio la línea `canal: misterios`; sin esa línea, el robot usa el de historia.
+
+En el canal de misterios casi todas las imágenes son `ilustracion` (muñecos de palo con fondos de
+acuarela). Para gastar menos, repite fondos: si dos escenas tienen exactamente la misma `escena`,
+la imagen se genera una vez y se reutiliza gratis (en el YAML se marca con `&nombre` la primera vez
+y con `*nombre` las siguientes; mira `los_rodeos.yaml`). La miniatura también puede ser una
+ilustración: `miniatura: {texto: ..., escena: "qué se ve"}`.
 
 Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia** lo convierte en:
 
