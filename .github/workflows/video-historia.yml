@@ -1,8 +1,9 @@
-# Canal de historia económica: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion
+# Canales de historia económica y de misterios: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion
 # de la carpeta guiones/. Te lo manda todo por Telegram para revisarlo. NO publica nada.
-# Se lanza a mano: pestaña "Actions" -> "Vídeo de historia" -> "Run workflow".
+# Se lanza a mano: pestaña "Actions" -> "Vídeo largo (historia y misterios)" -> "Run workflow".
+# El canal lo decide el propio guion (línea «canal: misterios»).
 
-name: Vídeo de historia
+name: Vídeo largo (historia y misterios)
 
 on:
   workflow_dispatch:
@@ -17,9 +18,9 @@ on:
         options: ["todo", "largo", "shorts"]
         default: "todo"
       voz:
-        description: "Voz del narrador (vacío = la de canal_historia.yaml)"
+        description: "Voz del narrador (vacío = la del canal: Charon en historia, Orus en misterios)"
         type: choice
-        options: ["", "Charon", "Sadaltager", "Iapetus", "Orus", "Rasalgethi", "Schedar"]
+        options: ["", "Charon", "Orus", "Sadaltager", "Iapetus", "Rasalgethi", "Schedar"]
         default: ""
       sin_voz:
         description: "Prueba rápida sin voz (solo para ver cómo queda el montaje)"

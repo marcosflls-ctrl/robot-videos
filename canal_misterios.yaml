@@ -1,0 +1,67 @@
+# Identidad del canal de misterios, desastres y crímenes (estilo «muñeco de palo y acuarela»).
+# Un guion usa este canal si lleva la línea:  canal: misterios
+# Cambiar una línea aquí cambia todos los vídeos del canal.
+
+# Nombre provisional: se cambia aquí cuando elijáis el definitivo.
+marca: "CASOS A TRAZOS"
+lema: "Misterios, desastres y crímenes reales"
+
+# Voz de narrador (Gemini). Otras voces posibles: Charon, Sadaltager, Iapetus, Rasalgethi, Schedar.
+voz: "Orus"
+estilo_voz: >-
+  Narrador de documental de misterio en español de España: voz grave y cercana, ritmo pausado,
+  con suspense contenido y pausas antes de los datos importantes. Natural, sin dramatizar en exceso
+  y sin sonar a anuncio.
+
+# Colores (rojo, verde, azul de 0 a 255): tinta oscura y tonos de acuarela cálida
+colores:
+  fondo: [24, 21, 19]          # tinta casi negra
+  fondo2: [43, 37, 32]         # sepia oscuro (arriba del degradado)
+  panel: [52, 45, 38]          # cajas
+  linea: [82, 71, 60]          # rejillas y bordes
+  texto: [244, 236, 220]       # papel
+  suave: [176, 162, 140]       # textos secundarios
+  acento: [196, 78, 52]        # rojo ladrillo: color principal del canal
+  acento2: [222, 168, 78]      # ocre: lo que hay que mirar
+  sombra_foto: [28, 23, 19]
+  luz_foto: [245, 232, 208]
+  sube: [126, 186, 110]
+  baja: [196, 78, 52]
+
+# Fuentes (carpeta fuentes/, todas con licencia libre SIL OFL)
+fuentes:
+  tit: "Fraunces-Black.ttf"
+  tit2: "Fraunces-SemiBold.ttf"
+  txt: "SpaceGrotesk-Medium.ttf"
+  txt_b: "SpaceGrotesk-Bold.ttf"
+  num: "Fraunces-Black.ttf"
+
+# Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
+# 1K cuesta un tercio menos que 2K y en este estilo de dibujo apenas se nota.
+# Si dos escenas llevan exactamente la misma «escena», la imagen se paga una sola vez.
+ilustraciones:
+  modelo: "gemini-nano-banana-2.1"
+  tamano: "1K"
+  credito: "Ilustración"
+  estilo: >-
+    Ilustración dibujada a mano, como la viñeta de un libro ilustrado: línea de tinta negra de trazo
+    irregular y algo tembloroso, coloreada con acuarela suave en tonos cálidos y terrosos (ocre, arena,
+    terracota, marrón, verde oliva apagado y azules grisáceos), con textura de papel. Todas las personas
+    son muñecos de palo muy sencillos: cabeza grande, redonda y blanca con contorno negro, dos ojos de
+    punto con cejas muy expresivas y una boca simple; cuerpo, brazos y piernas de una sola línea negra fina,
+    sin manos ni pies dibujados en detalle. Si la escena lo pide, llevan un único detalle de ropa muy simple
+    (una gorra de piloto, un chaleco), sin rasgos que se parezcan a ninguna persona real. Los fondos, en
+    cambio, son ricos y detallados: edificios, objetos y vehículos fieles a la época indicada.
+    Aviones y vehículos sin logotipos ni nombres de compañías. Composición horizontal amplia, con aire,
+    y el muñeco o el elemento principal fácil de ver de un vistazo. Tono serio pero amable: sin sangre,
+    sin heridas, sin cuerpos, sin violencia explícita. Sin texto, sin letras, sin números, sin logotipos,
+    sin marcas de agua.
+
+# La miniatura se hace con la ilustración en color (no en dos tonos como en el canal de historia)
+miniatura_color: true
+
+subtitulos_largo: false
+subtitulos_shorts: true
+
+# Segundos de pantalla final del vídeo largo (YouTube pide entre 5 y 20 para poner otros vídeos)
+pantalla_final: 12
