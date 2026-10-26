@@ -77,16 +77,20 @@ def _silencios(wav, sr, t0, t1, minimo=0.06):
     return salida
 
 
-def _elegir_corte(wav, sr, t0, t1, estimado):
-    """El silencio entre t0 y t1 más largo y más cerca del momento estimado (todo en segundos)."""
-    huecos = _silencios(wav, sr, t0, t1)
-    if not huecos:
+def _elegir_corte(huecos, sr, t0, t1, estimado):
+    """Entre los silencios que tocan [t0, t1] (segundos), el más largo y más cerca de lo estimado.
+
+    Se mira cada silencio entero, aunque se salga de la ventana: el reconocedor suele dar los
+    tiempos de las palabras un poco adelantados."""
+    a, b = t0 * sr, t1 * sr
+    tocan = [h for h in huecos if h[1] >= a and h[0] <= b]
+    if not tocan:
         return int(((t0 + t1) / 2) * sr)
     def nota(h):
         largo = (h[1] - h[0]) / sr
         centro = (h[0] + h[1]) / 2 / sr
         return largo - 0.5 * abs(centro - estimado)
-    h = max(huecos, key=nota)
+    h = max(tocan, key=nota)
     return (h[0] + h[1]) // 2
 
 
@@ -117,6 +121,7 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
     if len(pareja) < 0.6 * len(esperadas):
         print(f"  (solo se reconoció el {100 * len(pareja) // len(esperadas)} % de las palabras)")
         return None
+    huecos = _silencios(wav, sr, 0, len(wav) / sr)
     cortes = []
     for k in range(n - 1):
         ultima = max(i for i, f in enumerate(frase_de) if f == k)
@@ -136,7 +141,7 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
         letras_despues = sum(len(esperadas[i]) for i in range(primera, despues[0]))
         reparto = letras_antes / (letras_antes + letras_despues) if letras_antes + letras_despues else 0.5
         estimado = t0 + (t1 - t0) * reparto
-        cortes.append(_elegir_corte(wav, sr, min(t0, t1) - 0.05, max(t0, t1) + 0.05, estimado))
+        cortes.append(_elegir_corte(huecos, sr, min(t0, t1) - 0.1, max(t0, t1) + 0.1, estimado))
     if any(b <= a for a, b in zip([0] + cortes, cortes + [len(wav)])):
         return None
     limites = [0] + cortes + [len(wav)]
