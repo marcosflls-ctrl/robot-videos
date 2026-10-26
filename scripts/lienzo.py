@@ -482,7 +482,7 @@ class Lluvia(Pieza):
     """Copias de una imagen que salen volando y girando alrededor de un punto (p. ej. «piratería»)."""
     dur_entrada = 1.2
 
-    def __init__(self, x, y, t0, imagen, n=7, tam=(200, 250), radio=520, **kw):
+    def __init__(self, x, y, t0, imagen, n=7, tam=(280, 350), radio=520, **kw):
         super().__init__(x, y, t0, **kw)
         self.ancho, self.alto = radio * 2 + 400, radio * 2 + 400
         rnd = random.Random(n)
@@ -512,7 +512,7 @@ class Lluvia(Pieza):
             x, y = cx + math.cos(a) * r * s * p, cy + math.sin(a) * r * s * p * 0.8
             carta, _, _ = perspectiva(self.foto, 50 * math.sin(lt * 1.5 * giro + ang), 25 * giro)
             carta = carta.copy()
-            carta.putalpha(carta.getchannel("A").point(lambda v: int(v * min(1, p) * 0.55)))
+            carta.putalpha(carta.getchannel("A").point(lambda v: int(v * min(1, p) * 0.8)))
             im.alpha_composite(carta, (int(x - carta.width / 2), int(y - carta.height / 2)))
 
 
@@ -632,7 +632,7 @@ def dibujar_subtitulo(capa, trozo, t, claves):
         return
     f = fuente("anton", 76)
     palabras = [w[0].strip(".,:;") for w in trozo]
-    espacio = f.getlength(" ")
+    espacio = f.getlength(" ") + 12
     anchos = [f.getlength(p.upper()) for p in palabras]
     total = sum(anchos) + espacio * (len(palabras) - 1)
     lienzo = Image.new("RGBA", (int(total + 80), 150), (0, 0, 0, 0))
@@ -642,7 +642,7 @@ def dibujar_subtitulo(capa, trozo, t, claves):
         clave = _norm(p) in claves
         sonando = w[1] - 0.05 <= t <= w[2] + 0.05
         color = AMBAR if clave else BLANCO
-        tam = 84 if sonando else 76
+        tam = 81 if sonando else 76
         fw = fuente("anton", tam)
         d.text((x + a / 2, 75), p.upper(), font=fw, fill=color + (255,), anchor="mm",
                stroke_width=6, stroke_fill=(10, 4, 14, 220))
