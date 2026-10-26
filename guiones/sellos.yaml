@@ -146,9 +146,10 @@ capitulos:
         derecha: {etiqueta: "Sellos de Fórum", valor: 7, texto: "6–8 %", color: sube}
         fuente: 2
       - voz: "Y era fijo. Pasara lo que pasara en la bolsa o en la economía."
-        tipo: titulo
+        tipo: ilustracion
+        escena: "Una libreta de ahorros abierta junto a un contrato con un sello de correos grapado y una pluma, sobre el hule de una mesa de cocina española de los años noventa; luz de mañana."
+        kicker: "Rentabilidad fija"
         texto: "Fijo, pasara lo que pasara"
-        resaltar: "Fijo"
       - voz: "Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros."
         tipo: ilustracion
         escena: "Una pareja de jubilados españoles sentados frente a un comercial en una oficina luminosa de los años noventa, firmando un contrato; en la pared, vitrinas con sellos enmarcados y un cartel con una flecha hacia arriba."
@@ -191,9 +192,10 @@ capitulos:
         resaltar: "dinero"
     escenas:
       - voz: "¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía."
-        tipo: titulo
+        tipo: ilustracion
+        escena: "Un comercial con traje enseña un folleto con un gráfico que sube a una familia sentada en el sofá de su salón, a mediados de los noventa; café sobre la mesa baja, todos sonríen."
+        kicker: "La venta"
         texto: "La pregunta que nadie se hacía"
-        resaltar: "nadie"
       - voz: "Según el Tribunal Supremo, la clave estaba en la recompra. Al acabar el plazo, Fórum se comprometía a vender los sellos del cliente más caros o, si no había comprador, a comprarlos ella misma."
         tipo: esquema
         modo: cadena
@@ -280,9 +282,10 @@ capitulos:
         resaltar: "avisos"
     escenas:
       - voz: "Lo más sorprendente de esta historia es que hubo avisos. Muchos."
-        tipo: titulo
+        tipo: ilustracion
+        escena: "Una mesa con recortes de periódico apilados, algunos subrayados en rojo, una lupa y una taza de café frío; titulares sin texto legible; luz de flexo."
+        kicker: "1996–2005"
         texto: "Hubo avisos. Muchos."
-        resaltar: "avisos"
       - voz: "La organización de consumidores OCU desaconsejaba este tipo de inversión desde 1996."
         tipo: fecha
         fecha: "1996"
