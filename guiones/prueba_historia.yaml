@@ -1,0 +1,89 @@
+# Prueba del canal de historia económica con casi todo ilustraciones. NO es para publicar.
+# Sirve para ver el aspecto en el vídeo largo y en los Shorts (dibujo entero, título arriba).
+# Los datos de los gráficos son de ejemplo.
+
+titulo: "Prueba del canal de historia con ilustraciones"
+descripcion: "Vídeo de prueba del aspecto del canal. No es para publicar."
+hashtags: "#prueba"
+
+miniatura:
+  texto: "El día que nació la peseta"
+  resaltar: "peseta"
+  cifra: "1868"
+  escena: &calle_1868 >-
+    Una calle comercial de Madrid en 1868: comercios con toldos, carruajes de caballos, faroles de gas y
+    figuras con ropa de la época que compran y venden; en primer plano, un mostrador con monedas de plata.
+    Luz cálida de tarde.
+
+fuentes:
+  - id: 1
+    corta: "Datos de ejemplo"
+    cita: "Datos de ejemplo para la prueba. No son reales."
+    url: "https://example.com"
+
+gancho:
+  - voz: "En 1868, en las calles de Madrid se pagaba con monedas de medio mundo."
+    tipo: ilustracion
+    escena: *calle_1868
+    kicker: "Madrid · 1868"
+    fuente: 1
+
+capitulos:
+  - titulo: "Prueba de escenas"
+    short: true
+    gancho_short:
+      - voz: "¿Cómo se inventa una moneda nueva?"
+        tipo: titulo
+        texto: "Cómo se inventa una moneda"
+        resaltar: "moneda"
+        kicker: "Historia económica"
+    escenas:
+      - voz: "Las ilustraciones ambientan la época cuando no hay fotos."
+        tipo: ilustracion
+        escena: &banco >-
+          El interior de un banco del siglo XIX: mostradores de madera oscura con rejas de latón, empleados
+          con manguitos que cuentan billetes y monedas, una gran caja fuerte de hierro al fondo y luz que entra
+          por ventanales altos.
+        kicker: "Banco de España · siglo XIX"
+        texto: "Un país sin moneda común"
+        sub: "Ilustración de ambiente, no retrato de nadie real"
+        fuente: 1
+      - voz: "Los datos van como rótulo o como gráfico."
+        tipo: cifra
+        valor: 166.386
+        decimales: 3
+        sufijo: " pts"
+        etiqueta: "Dato de ejemplo"
+        fuente: 1
+      - voz: "Y los gráficos siguen como siempre."
+        tipo: linea
+        titulo: "Gráfico de prueba"
+        subtitulo: "Datos de ejemplo, no reales"
+        valores: [1.4, 2.9, 4.0, 2.7, 4.0, 2.6, 3.2]
+        etiquetas: ["1998", "1999", "2000", "2001", "2002", "2003", "2004"]
+        decimales: 1
+        sufijo: " %"
+        fuente: 1
+      - voz: "Otra ilustración, para ver el dibujo entero en el Short."
+        tipo: ilustracion
+        escena: &puerto >-
+          Un puerto mercante en 1870: veleros y vapores atracados, estibadores con sacos y barriles, grúas de
+          madera y almacenes de ladrillo; al fondo, la ciudad y una torre con reloj. Luz de mañana.
+        kicker: "Comercio · 1870"
+        texto: "El comercio con Europa"
+        fuente: 1
+      - voz: "Los esquemas, igual."
+        tipo: esquema
+        modo: causas
+        titulo: "Por qué nació la peseta"
+        nodos:
+          - {etiqueta: "Problema", texto: "Monedas distintas"}
+          - {etiqueta: "Modelo", texto: "Unión Monetaria Latina"}
+        resultado: {etiqueta: "Decisión", texto: "Una moneda nueva"}
+        fuente: 1
+
+cierre:
+  - voz: "Fin de la prueba."
+    tipo: ilustracion
+    escena: *banco
+    texto: "Fin de la prueba"
