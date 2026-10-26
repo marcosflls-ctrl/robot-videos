@@ -1,0 +1,115 @@
+# Segunda tanda diaria: un vídeo por web con su ÚLTIMO ARTÍCULO publicado (lee el RSS público).
+# Te lo manda por Telegram y lo sube a YouTube EN PRIVADO. Si una web no ha publicado nada
+# nuevo, ese día no hay segundo vídeo de esa web.
+# También a mano: pestaña "Actions" -> "Vídeos de los artículos" -> "Run workflow".
+
+name: Vídeos de los artículos
+
+on:
+  # Cada día a las 16:07 UTC (17:07 en Madrid en invierno, 18:07 en verano).
+  schedule:
+    - cron: "7 16 * * *"
+  workflow_dispatch:
+    inputs:
+      voz_gemini:
+        description: "Voz de Gemini (Orus es la de siempre)"
+        type: choice
+        options: ["Orus", "Charon", "Puck", "Fenrir", "Sadaltager", "Iapetus", "Kore", "Aoede"]
+        default: "Orus"
+      webs:
+        description: "Qué webs (gta = Zona Leonida, afdm = Al Final de Mes, dec = Dinero en Claro)"
+        type: choice
+        options: ["las tres", "gta", "afdm", "dec", "afdm,dec"]
+        default: "las tres"
+      horas:
+        description: "Artículos publicados en las últimas X horas"
+        default: "26"
+      subir_youtube:
+        description: "Subir también a YouTube (siempre en privado)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Traer las imágenes (repositorio privado)
+        uses: actions/checkout@v4
+        with:
+          repository: marcosflls-ctrl/videos-cortos
+          token: ${{ secrets.DATOS_TOKEN }}
+          path: privado
+          sparse-checkout: |
+            imagenes_gta
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        timeout-minutes: 5
+        # ffmpeg ya hecho (sin apt-get, que a veces se queda colgado en GitHub)
+        run: |
+          if ! which ffmpeg; then
+            pip install --quiet imageio-ffmpeg
+            sudo ln -sf "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
+      - name: Instalar librerías básicas
+        run: pip install --quiet numpy soundfile num2words pillow
+      - name: Montar los vídeos
+        env:
+          WEBS: ${{ (github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs }}
+          VENTANA_HORAS: ${{ github.event.inputs.horas }}
+          VOZ_MOTOR: gemini
+          GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        working-directory: scripts
+        run: python video_articulos.py
+      - uses: actions/upload-artifact@v4
+        with:
+          retention-days: 3
+          name: videos-articulos
+          if-no-files-found: ignore
+          path: |
+            scripts/salida/*.mp4
+            scripts/salida/*.txt
+      - name: Mandar los vídeos por Telegram (si está configurado)
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga los vídeos en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          shopt -s nullglob
+          for v in scripts/salida/*.mp4; do
+            respuesta=$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$v" \
+              -F supports_streaming=true -F caption="$(head -c 1000 "${v%.mp4}.txt")" \
+              "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendVideo")
+            if echo "$respuesta" | grep -q '"ok":true'; then
+              echo "Enviado: $v"
+            else
+              echo "::error::Telegram no aceptó $v: $(echo "$respuesta" | cut -c1-200)"
+            fi
+          done
+      - name: Subir a YouTube en privado (si está configurado)
+        if: github.event.inputs.subir_youtube != 'false'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_GTA: ${{ secrets.YOUTUBE_REFRESH_GTA }}
+          YOUTUBE_REFRESH_AFDM: ${{ secrets.YOUTUBE_REFRESH_AFDM }}
+          YOUTUBE_REFRESH_DEC: ${{ secrets.YOUTUBE_REFRESH_DEC }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        working-directory: scripts
+        run: python subir_youtube.py
