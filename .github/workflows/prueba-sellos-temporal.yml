@@ -18,7 +18,12 @@ jobs:
       - run: pip install --quiet numpy soundfile num2words pyyaml faster-whisper
       - name: Probar el corte
         working-directory: scripts
-        run: mkdir -p salida; python prueba_tandas.py 2>&1 | tee salida/registro.txt
+        run: |
+          mkdir -p salida
+          echo "== base" | tee salida/registro.txt
+          python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
+          echo "== small" | tee -a salida/registro.txt
+          WHISPER_MODELO=small python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
       - name: Guardar el resultado en la rama de prueba
         if: always()
         run: |

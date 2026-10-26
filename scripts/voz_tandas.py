@@ -55,31 +55,42 @@ def _reconocer(wav, sr):
     return salida
 
 
-def _silencio_mas_largo(wav, sr, t0, t1):
-    """Centro (en muestras) del silencio más largo entre t0 y t1 segundos."""
+def _silencios(wav, sr, t0, t1, minimo=0.06):
+    """Silencios [(inicio, fin) en muestras] entre t0 y t1 segundos."""
     a, b = max(0, int(t0 * sr)), min(len(wav), int(t1 * sr))
     if b - a < int(0.04 * sr):
-        return (a + b) // 2
+        return []
     ventana = max(1, int(0.02 * sr))
     env = np.convolve(np.abs(wav[a:b]), np.ones(ventana) / ventana, mode="same")
     silencio = env < 0.04 * (np.abs(wav).max() or 1)
-    mejor, i = None, 0
+    salida, i = [], 0
     while i < len(silencio):
         if silencio[i]:
             j = i
             while j < len(silencio) and silencio[j]:
                 j += 1
-            if mejor is None or j - i > mejor[1] - mejor[0]:
-                mejor = (i, j)
+            if (j - i) / sr >= minimo:
+                salida.append((a + i, a + j))
             i = j
         else:
             i += 1
-    if mejor is None:
-        return (a + b) // 2
-    return a + (mejor[0] + mejor[1]) // 2
+    return salida
 
 
-def cortar_tanda(wav, sr, dichos, holgura=4):
+def _elegir_corte(wav, sr, t0, t1, estimado):
+    """El silencio entre t0 y t1 más largo y más cerca del momento estimado (todo en segundos)."""
+    huecos = _silencios(wav, sr, t0, t1)
+    if not huecos:
+        return int(((t0 + t1) / 2) * sr)
+    def nota(h):
+        largo = (h[1] - h[0]) / sr
+        centro = (h[0] + h[1]) / 2 / sr
+        return largo - 0.5 * abs(centro - estimado)
+    h = max(huecos, key=nota)
+    return (h[0] + h[1]) // 2
+
+
+def cortar_tanda(wav, sr, dichos, holgura=6):
     """Devuelve [(inicio, fin)] en muestras, uno por frase de `dichos`, o None si no es fiable."""
     n = len(dichos)
     if n <= 1:
@@ -113,12 +124,19 @@ def cortar_tanda(wav, sr, dichos, holgura=4):
         antes = [i for i in range(ultima, max(-1, ultima - holgura - 1), -1) if i in pareja]
         despues = [i for i in range(primera, min(len(esperadas), primera + holgura + 1)) if i in pareja]
         if not antes or not despues:
+            print(f"  (no se reconocen las palabras alrededor del final de la frase {k + 1})")
             return None
         t0 = oidas[pareja[antes[0]]][2]
         t1 = oidas[pareja[despues[0]]][1]
-        if t1 < t0 - 0.05:
+        if t1 < t0 - 0.15:
+            print(f"  (tiempos cruzados al final de la frase {k + 1})")
             return None
-        cortes.append(_silencio_mas_largo(wav, sr, t0 - 0.05, t1 + 0.05))
+        # Palabras sin reconocer entre las dos anclas: el corte cae en proporción a sus letras
+        letras_antes = sum(len(esperadas[i]) for i in range(antes[0] + 1, primera))
+        letras_despues = sum(len(esperadas[i]) for i in range(primera, despues[0]))
+        reparto = letras_antes / (letras_antes + letras_despues) if letras_antes + letras_despues else 0.5
+        estimado = t0 + (t1 - t0) * reparto
+        cortes.append(_elegir_corte(wav, sr, min(t0, t1) - 0.05, max(t0, t1) + 0.05, estimado))
     if any(b <= a for a, b in zip([0] + cortes, cortes + [len(wav)])):
         return None
     limites = [0] + cortes + [len(wav)]
