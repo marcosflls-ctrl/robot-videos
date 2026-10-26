@@ -33,5 +33,9 @@ for i in range(0, len(textos), 6):
     for (a, b), (h0, h1) in zip(cortes[:-1], huecos):
         ok = h0 - int(0.05 * sr) <= b <= h1 + int(0.05 * sr)
         bien += ok; mal += not ok
-        if not ok: print(i, "corte fuera", round(b / sr, 2), "hueco", round(h0 / sr, 2), round(h1 / sr, 2))
+        if not ok:
+            print(i, "corte fuera", round(b / sr, 2), "hueco", round(h0 / sr, 2), round(h1 / sr, 2))
+            print("   frases:", grupo)
+            print("   oídas:", [(p, round(x, 2), round(y, 2)) for p, x, y in voz_tandas._reconocer(wav, sr) if h0 / sr - 3 < x < h1 / sr + 2])
+            print("   silencios:", [(round(x / sr, 2), round(y / sr, 2)) for x, y in voz_tandas._silencios(wav, sr, h0 / sr - 3, h1 / sr + 2)])
 print(f"cortes bien {bien} · mal {mal} · tandas sin cortar {fallos} · {time.time() - t0:.0f} s")
