@@ -113,6 +113,21 @@ def duotono(img, tema, contraste=1.15, grano=16):
     return Image.fromarray(col.clip(0, 255).astype(np.uint8)).convert("RGBA")
 
 
+def _encajar_vertical(img, w, h, tema):
+    """Lienzo vertical w x h: la imagen entera a lo ancho, algo por encima del centro, sobre una copia difuminada."""
+    img = img.convert("RGBA")
+    fondo = recortar_a(img, w, h, (0.5, 0.5)).filter(ImageFilter.GaussianBlur(45))
+    fondo = Image.blend(fondo, Image.new("RGBA", (w, h), tuple(tema["fondo"]) + (255,)), 0.35)
+    fh = int(w * img.height / img.width)
+    frente = img.resize((w, fh), Image.LANCZOS)
+    y = int(h * 0.40 - fh / 2)
+    sombra = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(sombra).rectangle((0, y + 10, w, y + fh + 26), fill=(0, 0, 0, 90))
+    fondo.alpha_composite(sombra.filter(ImageFilter.GaussianBlur(18)))
+    fondo.alpha_composite(frente, (0, y))
+    return fondo
+
+
 def recortar_a(img, w, h, foco=(0.5, 0.4)):
     """Recorta la imagen para que llene w x h, centrando en el foco (x, y de 0 a 1)."""
     r = max(w / img.width, h / img.height)
@@ -637,6 +652,11 @@ class Foto(Pieza):
         if imagen is None:  # sin imagen: textura neutra para que el vídeo no se rompa
             imagen = Image.new("RGB", (1600, 1000), ctx.tema["fondo2"])
         tratada = duotono(imagen.convert("RGB"), ctx.tema) if d.get("color") is not True else imagen.convert("RGBA")
+        if d.get("encajar") and ctx.vertical and self.diseno == "completa":
+            # Ilustración horizontal en un vídeo vertical: se ve entera en el centro, con una copia
+            # difuminada detrás, en vez de recortarla (que se perdía más de la mitad del dibujo).
+            tratada = _encajar_vertical(tratada, int(W * 1.12), int(H * 1.12), ctx.tema)
+            foco = (0.5, 0.5)
         if self.diseno == "completa":
             self.caja = (0, 0, W, H)
         elif self.diseno == "marco":

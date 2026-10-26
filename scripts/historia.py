@@ -138,6 +138,8 @@ def preparar_imagenes(g, canal):
     for e, _ in todas_las_escenas(g):
         if e.get("tipo") == "ilustracion":
             e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
+            if canal.get("ilustracion_vertical") == "encajar":
+                e["encajar"] = True  # en los Shorts, el dibujo entero en vez de recortado
             hay += e["_img"] is not None
         elif e.get("imagen") or e.get("buscar_imagen"):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)

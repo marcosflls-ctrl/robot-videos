@@ -13,28 +13,28 @@ estilo_voz: >-
   con suspense contenido y pausas antes de los datos importantes. Natural, sin dramatizar en exceso
   y sin sonar a anuncio.
 
-# Colores (rojo, verde, azul de 0 a 255): tinta oscura y tonos de acuarela cálida
+# Colores (rojo, verde, azul de 0 a 255): aspecto de papel con tinta, distinto del canal de historia
 colores:
-  fondo: [24, 21, 19]          # tinta casi negra
-  fondo2: [43, 37, 32]         # sepia oscuro (arriba del degradado)
-  panel: [52, 45, 38]          # cajas
-  linea: [82, 71, 60]          # rejillas y bordes
-  texto: [244, 236, 220]       # papel
-  suave: [176, 162, 140]       # textos secundarios
-  acento: [196, 78, 52]        # rojo ladrillo: color principal del canal
-  acento2: [222, 168, 78]      # ocre: lo que hay que mirar
-  sombra_foto: [28, 23, 19]
-  luz_foto: [245, 232, 208]
-  sube: [126, 186, 110]
-  baja: [196, 78, 52]
+  fondo: [236, 224, 200]       # papel (abajo del degradado)
+  fondo2: [246, 238, 222]      # papel claro (arriba)
+  panel: [225, 209, 180]       # cajas de los esquemas
+  linea: [170, 148, 116]       # rejillas y bordes
+  texto: [33, 27, 23]          # tinta
+  suave: [104, 90, 74]         # textos secundarios
+  acento: [176, 62, 42]        # rojo ladrillo: color principal del canal
+  acento2: [168, 104, 22]      # ocre oscuro: lo que hay que mirar
+  sombra_foto: [33, 27, 23]
+  luz_foto: [246, 238, 222]
+  sube: [70, 130, 70]
+  baja: [176, 62, 42]
 
-# Fuentes (carpeta fuentes/, todas con licencia libre SIL OFL)
+# Fuentes rotuladas a mano (carpeta fuentes/, licencia libre SIL OFL)
 fuentes:
-  tit: "Fraunces-Black.ttf"
-  tit2: "Fraunces-SemiBold.ttf"
-  txt: "SpaceGrotesk-Medium.ttf"
-  txt_b: "SpaceGrotesk-Bold.ttf"
-  num: "Fraunces-Black.ttf"
+  tit: "GochiHand-Regular.ttf"      # titulares y rótulos
+  tit2: "PatrickHand-Regular.ttf"   # citas
+  txt: "PatrickHand-Regular.ttf"    # textos
+  txt_b: "PatrickHand-Regular.ttf"  # etiquetas
+  num: "GochiHand-Regular.ttf"      # cifras
 
 # Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
 # 1K cuesta un tercio menos que 2K y en este estilo de dibujo apenas se nota.
@@ -59,6 +59,9 @@ ilustraciones:
 
 # La miniatura se hace con la ilustración en color (no en dos tonos como en el canal de historia)
 miniatura_color: true
+
+# En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
+ilustracion_vertical: encajar
 
 subtitulos_largo: false
 subtitulos_shorts: true
