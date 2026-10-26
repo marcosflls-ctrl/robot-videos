@@ -1,4 +1,5 @@
-# TEMPORAL: el director inventa 3 vídeos y se montan con el motor Remotion. Se borra al acabar.
+# TEMPORAL: prueba del robot de GTA con el motor nuevo, sin voz. El vídeo va solo a Telegram;
+# aquí solo se guarda el registro y el guion (texto), nunca imágenes del repositorio privado.
 name: Prueba sellos (temporal)
 on:
   push:
@@ -6,74 +7,57 @@ on:
 permissions:
   contents: write
 jobs:
-  planes:
+  prueba:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
           ref: motor-remotion
           path: motor
+      - name: Fotogramas (repositorio privado)
+        uses: actions/checkout@v4
+        with:
+          repository: marcosflls-ctrl/videos-cortos
+          token: ${{ secrets.DATOS_TOKEN }}
+          path: motor/privado
+          sparse-checkout: |
+            imagenes_gta
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install --quiet numpy pillow pyyaml
-      - name: El director inventa los vídeos
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scripts/prueba_director.py 2>&1 | tee registro_director.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: planes
-          path: |
-            motor/remotion/demos/
-            motor/remotion/public/demo/
-            registro_director.txt
-  montar:
-    needs: planes
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        video: [cuenta_atras, noticia_1, noticia_2]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: motor-remotion
-          path: motor
-      - uses: actions/download-artifact@v4
-        with:
-          name: planes
-          path: planes
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Montar ${{ matrix.video }}
-        run: |
-          cp -r planes/motor/remotion/demos/* motor/remotion/demos/
-          mkdir -p motor/remotion/public/demo && cp planes/motor/remotion/public/demo/* motor/remotion/public/demo/
-          cd motor/remotion
-          npm ci --no-audit --no-fund
-          mkdir -p out
-          node render.mjs demos/${{ matrix.video }}.json out/${{ matrix.video }}.mp4
-      - uses: actions/upload-artifact@v4
-        with:
-          name: video-${{ matrix.video }}
-          path: motor/remotion/out/${{ matrix.video }}.mp4
-  guardar:
-    needs: montar
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          path: descargas
       - run: |
+          pip install --quiet numpy soundfile num2words pillow pyyaml
+          cd motor/remotion && npm ci --no-audit --no-fund
+      - name: Montar (sin voz)
+        env:
+          MODO: auto
+          SIN_VOZ: "1"
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VENTANA_HORAS: "200"
+        working-directory: motor/scripts
+        run: python video_lienzo.py 2>&1 | tee ../../registro.txt; exit ${PIPESTATUS[0]}
+      - name: Mandar por Telegram
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          for v in motor/scripts/salida/*.mp4; do
+            curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$v" -F supports_streaming=true \
+              -F caption="Prueba del motor nuevo (sin voz). $(head -c 600 "${v%.mp4}.txt")" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendVideo" | cut -c1-100
+          done
+      - name: Guardar registro y guion (solo texto)
+        if: always()
+        run: |
           mkdir -p resultado && rm -f resultado/*
-          cp descargas/video-*/*.mp4 resultado/ 2>/dev/null || true
-          cp descargas/planes/registro_director.txt resultado/ 2>/dev/null || true
-          cp descargas/planes/motor/remotion/demos/*_plan.json resultado/ 2>/dev/null || true
+          cp registro.txt resultado/ 2>/dev/null || true
+          cp motor/scripts/salida/*.json motor/scripts/salida/*.txt resultado/ 2>/dev/null || true
+          ls -la motor/scripts/salida/ > resultado/salida.txt 2>&1 || true
           git config user.name "robot" && git config user.email "robot@users.noreply.github.com"
           git add -f resultado && git commit -qm "Resultado de la prueba" && git push -q origin HEAD:prueba-sellos
