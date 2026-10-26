@@ -62,6 +62,15 @@ VERTICAL = {"W": 1080, "H": 1920, "y_sub": 1500, "ancho_sub": 940}
 #  Canal y guion
 # =====================================================================
 
+MINUSCULAS = {"de", "del", "la", "las", "el", "los", "y", "e", "o", "a", "al", "en", "con", "sin", "por", "para"}
+
+
+def nombre_propio(marca):
+    """«BITÁCORA DE LA TIERRA» → «Bitácora de la Tierra» (artículos y preposiciones en minúscula)."""
+    palabras = str(marca).lower().split()
+    return " ".join(p if (i and p in MINUSCULAS) else p[:1].upper() + p[1:] for i, p in enumerate(palabras))
+
+
 def cargar_canal(nombre="historia"):
     ruta = RAIZ / f"canal_{nombre}.yaml"
     if not ruta.exists():
@@ -263,7 +272,25 @@ def generar_voces(g, canal):
     if pendientes:
         print(f"Peticiones de voz gastadas: {peticiones}")
     print(f"Voces: {len(escenas)} escenas · {nuevas} nuevas · {len(escenas) - nuevas} de la caché")
+    acelerar_voces(escenas, sr, canal)
     return sr
+
+
+def acelerar_voces(escenas, sr, canal):
+    """Velocidad de la voz (canal: velocidad_voz). Se aplica al montar, sobre las voces ya guardadas:
+    cambiarla no gasta peticiones de Gemini ni vuelve a pedir ninguna frase. No cambia el tono."""
+    v = float(os.environ.get("VELOCIDAD_VOZ") or canal.get("velocidad_voz") or 1.0)
+    if abs(v - 1.0) < 0.01:
+        return
+    v = min(max(v, 0.8), 1.3)
+    print(f"Velocidad de la voz: x{v:.2f}")
+    with tempfile.TemporaryDirectory() as tmp:
+        ent, sal = Path(tmp) / "e.wav", Path(tmp) / "s.wav"
+        for e in escenas:
+            sf.write(ent, e["_audio"], sr)
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(ent), "-filter:a", f"atempo={v:.3f}",
+                            "-ar", str(sr), "-ac", "1", str(sal)], check=True)
+            e["_audio"], _ = sf.read(sal, dtype="float32")
 
 
 # =====================================================================
@@ -436,7 +463,7 @@ class Pantallas:
         img = base.copy()
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
-        f, lineas, tam = ctx.ajustar(self.canal["marca"].title() if not ctx.vertical else self.canal["marca"].title(),
+        f, lineas, tam = ctx.ajustar(nombre_propio(self.canal["marca"]),
                                      "tit", 150 if not ctx.vertical else 130, W - 2 * ctx.m, 3, 50)
         alto = tam * 1.05 * len(lineas)
         y0 = H / 2 - alto / 2 - 30
@@ -815,7 +842,7 @@ def miniatura(g, canal, ruta):
         fc = ctx.f("num", 110)
         yc = y0 + len(lineas) * alto_l + 10
         d.rectangle((56, yc, 56 + fc.getlength(str(mi["cifra"])) + 40, yc + 130), fill=ctx.c("acento"))
-        d.text((76, yc + 65), str(mi["cifra"]), font=fc, fill=ctx.c("texto"), anchor="lm")
+        d.text((76, yc + 65), str(mi["cifra"]), font=fc, fill=ctx.c("cifra_texto" if "cifra_texto" in ctx.tema else "texto"), anchor="lm")
     d.rectangle((56, 50, 66, 72), fill=ctx.c("acento"))
     d.text((80, 61), canal["marca"], font=ctx.f("txt_b", 22), fill=ctx.c("texto"), anchor="lm")
     img.convert("RGB").save(ruta)

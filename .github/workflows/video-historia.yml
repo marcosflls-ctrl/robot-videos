@@ -1,7 +1,7 @@
-# Canales de historia económica y de misterios: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion
+# Canales de historia económica, de misterios y de ciencias medioambientales: monta el vídeo largo (horizontal) y sus Shorts a partir de un guion
 # de la carpeta guiones/. Te lo manda todo por Telegram para revisarlo. NO publica nada.
 # Se lanza a mano: pestaña "Actions" -> "Vídeo largo (historia y misterios)" -> "Run workflow".
-# El canal lo decide el propio guion (línea «canal: misterios»).
+# El canal lo decide el propio guion (línea «canal: misterios» o «canal: medioambiente»).
 
 name: Vídeo largo (historia y misterios)
 
@@ -18,9 +18,14 @@ on:
         options: ["todo", "largo", "shorts"]
         default: "todo"
       voz:
-        description: "Voz del narrador (vacío = la del canal: Charon en historia, Orus en misterios)"
+        description: "Voz del narrador (vacío = la del canal: Charon en historia, Orus en misterios, Sulafat en medio ambiente)"
         type: choice
-        options: ["", "Charon", "Orus", "Sadaltager", "Iapetus", "Rasalgethi", "Schedar"]
+        options: ["", "Charon", "Orus", "Sulafat", "Sadaltager", "Iapetus", "Rasalgethi", "Schedar"]
+        default: ""
+      velocidad:
+        description: "Velocidad de la voz (vacío = la del canal; 1.1 = un 10 % más rápida). No gasta cupo de Gemini"
+        type: choice
+        options: ["", "1.0", "1.05", "1.1", "1.15", "1.2"]
         default: ""
       sin_voz:
         description: "Prueba rápida sin voz (solo para ver cómo queda el montaje)"
@@ -70,6 +75,7 @@ jobs:
           GUION: ${{ github.event.inputs.guion }}
           QUE: ${{ github.event.inputs.que }}
           VOZ_HISTORIA: ${{ github.event.inputs.voz }}
+          VELOCIDAD_VOZ: ${{ github.event.inputs.velocidad }}
           SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
           VOZ_MOTOR: gemini
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

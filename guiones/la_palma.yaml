@@ -1,0 +1,609 @@
+# La Palma 2021: cómo funciona un volcán, contado con la erupción de Cumbre Vieja (Tajogaite)
+# Canal de ciencias medioambientales · sección «El suceso».
+# Temario: Riesgos naturales, tema 3 (riesgo volcánico) y Geología, tema 9 (magmatismo).
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+
+canal: medioambiente
+
+titulo: "Cómo funciona un volcán: la erupción de La Palma, explicada"
+descripcion: >-
+  El 19 de septiembre de 2021 se abrió la tierra en Cumbre Vieja, en la isla de La Palma. Durante 85 días
+  el volcán que hoy se conoce como Tajogaite cubrió de lava más de 1.200 hectáreas, destruyó casi 3.000
+  construcciones y ganó tierra al mar. Con esta erupción como hilo explicamos cómo funciona un volcán:
+  de dónde sale el magma, cómo se detecta una erupción antes de que empiece, por qué unos volcanes explotan
+  y otros no, qué peligros trae cada uno y cómo se protege a la población. Todos los datos, con su fuente.
+hashtags: "#LaPalma #volcán #Tajogaite #geología #CumbreVieja #ciencia"
+
+miniatura:
+  texto: "Así funciona un volcán"
+  resaltar: "volcán"
+  cifra: "85 días"
+  escena: &cono_noche >-
+    Un cono volcánico negro en plena erupción de noche, en la cresta de una isla montañosa: varias bocas
+    alineadas lanzan fuentes de lava naranja y bombas incandescentes; dos ríos de lava bajan por la ladera
+    hacia el valle, donde se ven pequeñas casas blancas y plataneras a oscuras. Cielo negro con una columna
+    de gas y ceniza iluminada desde abajo.
+
+fuentes:
+  - id: 1
+    corta: "IGN · Infografía de la erupción (2022)"
+    cita: "Instituto Geográfico Nacional (2022). Erupción de La Palma 2021: infografía del primer aniversario (datos del comunicado del PEVOLCA del 25-12-2021)."
+    url: "https://www.ign.es/resources/erupcion-la-palma-2021/Infografia-primer-aniversario.pdf"
+  - id: 2
+    corta: "IGN · Erupción de La Palma 2021"
+    cita: "Instituto Geográfico Nacional. Erupción de La Palma 2021 (página de seguimiento)."
+    url: "https://www.ign.es/resources/erupcion-la-palma-2021/index.html"
+  - id: 3
+    corta: "IGN · Geología de La Palma"
+    cita: "Instituto Geográfico Nacional. Descripción geológica de La Palma."
+    url: "https://www.ign.es/web/resources/sismologia/tproximos/sismotectonica/pag_sismotectonicas/can_la_palma.html"
+  - id: 4
+    corta: "IGN · Geología de Canarias"
+    cita: "Instituto Geográfico Nacional. Geología y tectónica de las Islas Canarias."
+    url: "https://www.ign.es/web/resources/sismologia/tproximos/sismotectonica/pag_sismotectonicas/canarias.html"
+  - id: 5
+    corta: "IGN · Teoría de volcanología"
+    cita: "Instituto Geográfico Nacional. Volcanología: conceptos básicos y peligros volcánicos."
+    url: "https://www.ign.es/resources/docs/IGNCnig/VLC-Teoria-Volcanologia.pdf"
+  - id: 6
+    corta: "Birnbaum et al. (2023)"
+    cita: "Birnbaum, J., Lev, E., Hernández, P. A. et al. (2023). Temporal variability of explosive activity at Tajogaite volcano, Cumbre Vieja (Canary Islands), 2021 eruption from ground-based infrared photography and videography. Frontiers in Earth Science, 11, 1193436."
+    url: "https://doi.org/10.3389/feart.2023.1193436"
+  - id: 7
+    corta: "Copernicus EMS"
+    cita: "Copernicus Emergency Management Service. La Palma volcanic eruption: rapid mapping (EMSR546)."
+    url: "https://www.copernicus.eu/en/node/11414"
+  - id: 8
+    corta: "Zanon y D'Auria · Eos (2024)"
+    cita: "Zanon, V. y D'Auria, L. (2024). Volcanic anatomy mapped as it erupts. Eos, 105."
+    url: "https://eos.org/science-updates/volcanic-anatomy-mapped-as-it-erupts"
+  - id: 9
+    corta: "Gobierno de Canarias (20-09-2021)"
+    cita: "Gobierno de Canarias (20-09-2021). Los planes de evacuación del PEVOLCA evitan daños personales en la erupción volcánica de La Palma."
+    url: "https://www3.gobiernodecanarias.org/noticias/los-planes-de-evacuacion-del-pevolca-evitan-danos-personales-en-la-erupcion-volcanica-de-la-palma/"
+  - id: 10
+    corta: "Diario de Avisos (15-09-2021)"
+    cita: "Tovar, D. (15-09-2021). De la normalidad a la prevención: qué implica cada semáforo de alerta. Diario de Avisos (explica los niveles del PEVOLCA)."
+    url: "https://diariodeavisos.elespanol.com/2021/09/de-la-normalidad-a-la-prevencion-que-implica-cada-semaforo-de-alerta-por-terremotos/"
+  - id: 11
+    corta: "Reuters (29-09-2021)"
+    cita: "Reuters (29-09-2021). Nine days after eruption, lava from La Palma volcano reaches ocean."
+    url: "https://newsinfo.inquirer.net/1494465/nine-days-after-eruption-lava-from-la-palma-volcano-reaches-ocean"
+  - id: 12
+    corta: "Oregon State University · VEI"
+    cita: "Oregon State University, Volcano World. How big are eruptions? (índice de explosividad volcánica, VEI)."
+    url: "https://volcano.oregonstate.edu/how-big-are-eruptions"
+  - id: 13
+    corta: "elDiario.es (02-01-2023)"
+    cita: "elDiario.es (02-01-2023). La justicia certifica la primera muerte por el volcán de La Palma."
+    url: "https://www.eldiario.es/canariasahora/tribunales/victima-volcan-palma-muerte-hombre-muerto_1_9838044.html"
+  - id: 14
+    corta: "Gobierno de Canarias (18-09-2021)"
+    cita: "Gobierno de Canarias (18-09-2021). El Comité Científico recomienda mantener el semáforo amarillo y advierte de la probabilidad de terremotos sentidos."
+    url: "https://www3.gobiernodecanarias.org/noticias/el-comite-cientifico-recomienda-mantener-el-semaforo-amarillo-y-advierte-de-la-probabilidad-de-terremotos-sentidos/"
+
+  - id: 15
+    corta: "Diario de Avisos (09-2022)"
+    cita: "Diario de Avisos (septiembre de 2022). Los gases impiden volver a los vecinos de Puerto Naos y La Bombilla."
+    url: "https://diariodeavisos.elespanol.com/2022/09/vecinos-puerto-naos-muerte/"
+  - id: 16
+    corta: "UNDRR · Terminología"
+    cita: "Oficina de las Naciones Unidas para la Reducción del Riesgo de Desastres (UNDRR). Terminología: disaster risk."
+    url: "https://www.undrr.org/terminology/disaster-risk"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "El diecinueve de septiembre de 2021, pasadas las tres de la tarde, se abrió el suelo en una ladera de la isla de La Palma."
+    tipo: ilustracion
+    escena: &fisura >-
+      Una ladera de montaña volcánica con pinos canarios y tierra oscura, a media tarde: el suelo se abre en una
+      grieta alargada de la que salen chorros de lava naranja y una columna de gas blanco y gris; a lo lejos, en
+      la parte baja del valle, casas blancas dispersas entre plataneras. Luz de tarde algo velada por el humo.
+    kicker: "Cumbre Vieja · 19 de septiembre de 2021"
+    fuente: 2
+  - voz: "Durante ochenta y cinco días, aquel volcán sepultó casas, carreteras y plataneras, y llegó a ganarle tierra al mar."
+    tipo: ilustracion
+    escena: *cono_noche
+    kicker: "85 días de erupción"
+    fuente: 1
+  - voz: "Pero esta no es solo la historia de una erupción. Es la mejor forma de entender cómo funciona un volcán."
+    tipo: ilustracion
+    escena: &corte_isla >-
+      Lámina didáctica: corte vertical de una isla volcánica en medio del océano, como un bloque abierto. Abajo,
+      el manto con una gran bolsa de magma rojo anaranjado; desde ella sube un conducto estrecho y torcido que
+      atraviesa capas de roca hasta un cono en la cima que expulsa gas. Mar azul a los lados, cielo claro arriba.
+    texto: "Cómo funciona un volcán"
+  - voz: "De dónde sale el magma, cómo se sabe que va a salir, por qué unos volcanes explotan y otros no, y cómo se protege a la gente que vive al lado."
+    tipo: lista
+    titulo: "En este vídeo"
+    puntos: ["De dónde sale el magma", "Cómo se anuncia una erupción", "Por qué unos volcanes explotan", "Sus peligros y cómo protegerse"]
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Una isla hecha de volcanes"
+    short: false
+    escenas:
+      - voz: "Las Canarias están en el Atlántico, a unos cien kilómetros de la costa del Sáhara, y todas son volcánicas."
+        tipo: mapa
+        caja: [-18.6, -12.6, 27.2, 29.8]
+        titulo: "Las Islas Canarias"
+        grupos:
+          - paises: [España]
+            color: acento
+            leyenda: "Islas Canarias"
+        fuente: 4
+      - voz: "Nacieron desde el fondo del océano, a cuatro o cinco mil metros de profundidad. Durante millones de años, erupción tras erupción, la lava se fue apilando hasta asomar sobre el mar."
+        tipo: ilustracion
+        escena: &isla_crece >-
+          Lámina en tres viñetas unidas de izquierda a derecha, sin texto: un volcán submarino en el fondo oscuro
+          del océano; el mismo volcán, más alto, a punto de asomar entre burbujas y vapor; y una isla montañosa ya
+          emergida, con nubes en la cumbre. Corte del mar en azul profundo, cielo claro.
+        kicker: "Desde 4.000–5.000 m de profundidad"
+        fuente: 4
+      - voz: "Las islas más viejas son las del este, Fuerteventura y Lanzarote. Las más jóvenes, las del oeste: El Hierro y La Palma."
+        tipo: esquema
+        modo: cadena
+        titulo: "De las más viejas a las más jóvenes"
+        nodos:
+          - {etiqueta: "Este", texto: "Fuerteventura y Lanzarote"}
+          - {etiqueta: "Centro", texto: "Las islas centrales"}
+          - {etiqueta: "Oeste", texto: "La Palma y El Hierro", destacar: true}
+        flechas: ["Más jóvenes", "Más jóvenes"]
+        nota: "Una secuencia que recuerda a un punto caliente, aunque no del todo"
+        fuente: 4
+      - voz: "Esa secuencia de este a oeste recuerda a un punto caliente, una zona del manto que funde roca y va dejando islas a su paso. Pero el propio Instituto Geográfico Nacional avisa de que no encaja del todo, y el origen de las Canarias sigue en debate."
+        tipo: ilustracion
+        escena: &punto_caliente >-
+          Lámina didáctica en corte: una placa de corteza oceánica que se desplaza lentamente sobre el manto; debajo,
+          una pluma de roca caliente sube como una columna anaranjada y alimenta un volcán activo; a un lado quedan
+          islas más antiguas, cada vez más bajas y erosionadas. Colores de acuarela, flechas sin texto que indican
+          el movimiento.
+        kicker: "Geología · el origen de las Canarias"
+        texto: "¿Un punto caliente?"
+        sub: "La hipótesis más citada, pero no explica todo"
+        fuente: 4
+      - voz: "La Palma tiene dos mitades. El norte es la isla vieja, con la Caldera de Taburiente y el Roque de los Muchachos, a dos mil cuatrocientos veintiséis metros. Esa parte ya está dormida."
+        tipo: ilustracion
+        escena: &taburiente >-
+          Vista aérea de una gran caldera volcánica erosionada, profunda y circular, con paredes verticales cubiertas
+          de pinos y barrancos; en su borde más alto, un pico rocoso por encima de un mar de nubes. Luz clara de
+          mañana.
+        kicker: "Norte de La Palma"
+        texto: "La isla vieja, ya dormida"
+        fuente: 3
+      - voz: "El sur es otra cosa: Cumbre Vieja, una cordillera de volcanes de veintiún kilómetros y medio, que lleva unos ciento veinte mil años en actividad."
+        tipo: ilustracion
+        escena: &cumbre_vieja >-
+          Vista aérea de una cordillera volcánica larga y estrecha que recorre el sur de una isla de norte a sur:
+          decenas de conos volcánicos rojizos y negros alineados en la cresta, coladas antiguas oscuras bajando hacia
+          el mar por ambos lados, algunos pinares. Océano azul alrededor, luz de mediodía.
+        kicker: "Sur de La Palma"
+        texto: "Cumbre Vieja"
+        sub: "Una cordillera de volcanes de 21,5 km"
+        fuente: 3
+      - voz: "En los últimos quinientos años había entrado en erupción seis veces. Las dos últimas, en 1949 y en 1971."
+        tipo: fecha
+        fecha: "1949 · 1971"
+        lugar: "Las dos erupciones anteriores de Cumbre Vieja"
+        fuente: 3
+      - voz: "Así que la pregunta en La Palma nunca fue si habría otra erupción, sino cuándo."
+        tipo: ilustracion
+        escena: *cumbre_vieja
+        texto: "No era si, sino cuándo"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Ocho días de avisos"
+    titulo_short: "Así se avisa de que un volcán va a entrar en erupción"
+    short: true
+    gancho_short:
+      - voz: "Un volcán casi nunca entra en erupción sin avisar. El de La Palma avisó durante ocho días."
+        tipo: titulo
+        texto: "Un volcán que avisó ocho días antes"
+        resaltar: "ocho días"
+        kicker: "Riesgo volcánico"
+        fuente: 8
+    escenas:
+      - voz: "Antes de salir, el magma tiene que abrirse camino desde muy abajo. En La Palma, los científicos lo situaron sobre todo entre veintisiete y treinta y un kilómetros de profundidad."
+        tipo: ilustracion
+        escena: *corte_isla
+        kicker: "Zanon y D'Auria (2024)"
+        texto: "El magma esperaba a unos 30 km"
+        fuente: 8
+      - voz: "Desde 2017 ya se registraban pequeños enjambres de terremotos a esa profundidad, en el manto. Eran intrusiones de magma que no llegaban a salir."
+        tipo: ilustracion
+        escena: &sismografo >-
+          Una pequeña estación de vigilancia volcánica en una ladera de pinos: una caseta blanca con paneles solares,
+          una antena de GPS sobre un poste y un sismógrafo dentro que dibuja líneas en zigzag en un papel. Dos figuras
+          diminutas de tinta con chaleco revisan los aparatos. Luz de mañana.
+        kicker: "2017–2021"
+        texto: "Avisos desde el manto"
+        fuente: 6
+      - voz: "Pero el once de septiembre de 2021 todo se aceleró. Empezó un enjambre de terremotos poco profundos, y el suelo empezó a hincharse."
+        tipo: ilustracion
+        escena: &suelo_hincha >-
+          Lámina didáctica en corte: un dique de magma rojo que sube por una grieta estrecha dentro de la roca hacia la
+          superficie; encima, la ladera se abomba ligeramente hacia arriba, con un pequeño pinar y una caseta con una
+          antena de GPS en lo alto; pequeñas estrellas de terremoto alrededor de la punta del dique.
+        kicker: "11 de septiembre de 2021"
+        texto: "El magma sube"
+        fuente: [2, 6]
+      - voz: "Antes de la erupción se contaron unos mil cuatrocientos terremotos."
+        tipo: cifra
+        valor: 1400
+        etiqueta: "Terremotos antes de la erupción"
+        fuente: 1
+      - voz: "Y las estaciones GPS midieron que el terreno se había levantado hasta quince centímetros. Era el magma, empujando desde dentro."
+        tipo: cifra
+        valor: 15
+        sufijo: " cm"
+        etiqueta: "Lo que se levantó el suelo antes de la erupción (GPS)"
+        fuente: 1
+      - voz: "También cambiaron los gases: el radón del suelo y la proporción de helio en un manantial. Son las tres grandes pistas que se vigilan en un volcán: terremotos, deformación del suelo y gases."
+        tipo: esquema
+        modo: causas
+        titulo: "Las tres pistas de una erupción"
+        nodos:
+          - {etiqueta: "Sismicidad", texto: "Terremotos más frecuentes y menos profundos"}
+          - {etiqueta: "Deformación", texto: "El suelo se hincha"}
+          - {etiqueta: "Gases", texto: "Cambian el radón, el helio, el CO2"}
+        resultado: {etiqueta: "Señal", texto: "El magma se acerca a la superficie"}
+        fuente: 6
+      - voz: "Para traducir esos datos en decisiones, Canarias tiene un plan con un semáforo de cuatro colores."
+        tipo: esquema
+        modo: cadena
+        titulo: "El semáforo volcánico de Canarias"
+        nodos:
+          - {etiqueta: "Verde", texto: "Prealerta: vigilancia"}
+          - {etiqueta: "Amarillo", texto: "Alerta: se prepara la emergencia"}
+          - {etiqueta: "Naranja", texto: "Erupción muy próxima: evacuar"}
+          - {etiqueta: "Rojo", texto: "Erupción en marcha", destacar: true}
+        nota: "Plan PEVOLCA"
+        fuente: 10
+      - voz: "La Palma pasó a amarillo el trece de septiembre. El día dieciocho, un terremoto de magnitud tres coma dos ya se sintió en la isla, y los temblores se concentraban a pocos kilómetros de la superficie."
+        tipo: ilustracion
+        escena: *sismografo
+        kicker: "18 de septiembre"
+        texto: "Semáforo amarillo"
+        sub: "Terremotos a 0–2 y a 6–8 km de profundidad"
+        fuente: [10, 14]
+      - voz: "La mañana del diecinueve se evacuó a las personas con movilidad reducida. Y por la tarde, el volcán abrió la tierra."
+        tipo: ilustracion
+        escena: *fisura
+        kicker: "19 de septiembre · 15:10"
+        texto: "Empieza la erupción"
+        fuente: [2, 9]
+      - voz: "Se sabía que venía una erupción. Lo que nadie puede decir todavía es el día y la hora exactos. Ese es hoy el límite de la predicción volcánica."
+        tipo: ilustracion
+        escena: &cientificos_mapa >-
+          Una sala de vigilancia sencilla: varias figuras diminutas de tinta, sin rasgos, ante una mesa grande con
+          un mapa de una isla volcánica en relieve, pantallas con gráficas en zigzag y una ventana por la que se ve
+          a lo lejos una columna de humo sobre una montaña. Luz de tarde.
+        texto: "Se sabe que viene, no el minuto exacto"
+        fuente: 8
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Por qué unos volcanes explotan y otros no"
+    titulo_short: "¿Por qué unos volcanes explotan y otros no?"
+    short: true
+    gancho_short:
+      - voz: "¿Por qué unos volcanes sueltan ríos de lava y otros revientan como una bomba?"
+        tipo: titulo
+        texto: "¿Por qué unos volcanes explotan?"
+        resaltar: "explotan"
+        kicker: "Cómo funciona"
+    escenas:
+      - voz: "El magma es roca fundida con gases disueltos, como el gas de un refresco cerrado."
+        tipo: ilustracion
+        escena: &magma_gases >-
+          Lámina didáctica: a la izquierda, un trozo de roca fundida anaranjada vista de cerca, con burbujas de gas
+          dentro; a la derecha, una botella de refresco de cristal sin etiqueta, cerrada, con burbujas finas. Fondo de
+          papel claro, estilo de atlas de ciencias.
+        kicker: "Magmatismo"
+        texto: "Roca fundida con gas dentro"
+        fuente: 5
+      - voz: "Cuando sube, la presión baja y esos gases se separan. Si el magma es fluido, las burbujas escapan sin problema y la lava sale como un líquido. Es una erupción efusiva."
+        tipo: ilustracion
+        escena: &efusiva >-
+          Lámina didáctica en corte de un volcán bajo y ancho: el magma fluido sube por el conducto, las burbujas
+          escapan con facilidad por arriba y una colada de lava naranja se desliza mansa por la ladera. Cielo claro,
+          poco humo.
+        kicker: "Magma fluido"
+        texto: "Erupción efusiva"
+        fuente: 5
+      - voz: "Si el magma es espeso y viscoso, el gas se queda atrapado, la presión crece y al final revienta. Es una erupción explosiva, con columnas que pueden subir decenas de kilómetros."
+        tipo: ilustracion
+        escena: &explosiva >-
+          Lámina didáctica en corte de un volcán alto y empinado: el magma espeso, de color más oscuro, tapona el
+          conducto con burbujas atrapadas; arriba, una enorme columna de ceniza gris se eleva hasta muy alto y se abre
+          en forma de hongo. Pequeñas figuras de tinta muy lejos, en la llanura, para dar la escala.
+        kicker: "Magma viscoso"
+        texto: "Erupción explosiva"
+        fuente: 5
+      - voz: "Por eso hay estilos de erupción. De la más tranquila a la más violenta: la hawaiana, la estromboliana, la vulcaniana y la pliniana."
+        tipo: esquema
+        modo: cadena
+        titulo: "De menos a más explosiva"
+        nodos:
+          - {etiqueta: "Hawaiana", texto: "Fuentes y ríos de lava"}
+          - {etiqueta: "Estromboliana", texto: "Explosiones rítmicas"}
+          - {etiqueta: "Vulcaniana", texto: "Estallidos de ceniza"}
+          - {etiqueta: "Pliniana", texto: "Columna enorme", destacar: true}
+        fuente: 12
+      - voz: "Para comparar su tamaño se usa el índice de explosividad volcánica, que va de cero a ocho. Cada escalón supone unas diez veces más material expulsado."
+        tipo: barras
+        titulo: "Índice de explosividad volcánica (VEI)"
+        subtitulo: "Kilauea, Stromboli, La Palma 2021, St. Helens 1980 y Tambora 1815"
+        valores: [0, 1, 3, 5, 7]
+        etiquetas: ["Kilauea", "Stromboli", "La Palma", "St. Helens", "Tambora"]
+        destacar: [2]
+        fuente: [1, 12]
+      - voz: "La Palma fue una erupción fisural estromboliana, de magma basáltico bastante fluido, con fases de fuentes de lava de tipo hawaiano."
+        tipo: ilustracion
+        escena: *cono_noche
+        kicker: "Fisural estromboliana"
+        texto: "Lava fluida, explosiones rítmicas"
+        fuente: [1, 6]
+      - voz: "Aun así llegó a un índice tres, por la enorme cantidad de material que expulsó: más de doscientos millones de metros cúbicos."
+        tipo: cifra
+        valor: 200
+        prefijo: "+"
+        sufijo: " M m³"
+        etiqueta: "Material emitido por la erupción"
+        fuente: 1
+      - voz: "Hubo días con chorros de lava de más de seiscientos metros de alto, y la columna de gas y ceniza llegó a ocho mil quinientos metros."
+        tipo: comparar
+        titulo: "Hasta dónde llegó"
+        izquierda: {etiqueta: "Chorro de lava", valor: 634, texto: "634 m"}
+        derecha: {etiqueta: "Columna de ceniza", valor: 8500, texto: "8.500 m"}
+        fuente: [1, 6]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Ríos de piedra"
+    short: false
+    escenas:
+      - voz: "El peligro más visible de un volcán como este son las coladas de lava. Su camino lo decide el relieve, y su velocidad depende de lo fluida que sea."
+        tipo: ilustracion
+        escena: &colada >-
+          Una colada de lava negra y rugosa, con el frente incandescente, avanza lentamente ladera abajo entre
+          plataneras y muros de piedra; delante, una casa blanca con tejado plano todavía intacta. Humo blanco donde
+          la lava toca la vegetación. Luz de día gris por la ceniza.
+        kicker: "Peligro 1"
+        texto: "Las coladas de lava"
+        fuente: 5
+      - voz: "Lejos de la boca, una colada avanza a pocos metros por hora. Casi siempre da tiempo a apartarse, pero no a salvar lo que está en su camino."
+        tipo: ilustracion
+        escena: *colada
+        texto: "Lenta, pero imparable"
+        sub: "Lejos del cráter, a pocos metros por hora"
+        fuente: 5
+      - voz: "En La Palma salieron dos tipos de lava. Una, de superficie rota y cortante: los canarios la llaman malpaís, y los geólogos, lava a a."
+        pronunciar: "En La Palma salieron dos tipos de lava. Una, de superficie rota y cortante: los canarios la llaman malpaís, y los geólogos, lava a, a."
+        tipo: ilustracion
+        escena: &lava_aa >-
+          Primer plano de una colada de lava de tipo malpaís ya fría: bloques negros, rotos y afilados, amontonados en
+          desorden, con alguna grieta que aún brilla en naranja por dentro. Una figura diminuta de tinta con casco al
+          borde, para la escala.
+        kicker: "Lava malpaís (aa)"
+        texto: "Rota y cortante"
+        fuente: 1
+      - voz: "La otra, lisa y con pliegues, como una cuerda enrollada: la lava cordada o pajoejoe."
+        tipo: ilustracion
+        escena: &lava_cordada >-
+          Primer plano de una lava cordada ya fría: superficie negra brillante y lisa, con pliegues curvos que parecen
+          cuerdas enrolladas y ondas, como una tela arrugada; algunos líquenes claros en los bordes.
+        kicker: "Lava cordada (pahoehoe)"
+        texto: "Lisa, con pliegues"
+        fuente: 1
+      - voz: "Las coladas recorrieron hasta seis kilómetros y medio por tierra, y siguieron más de un kilómetro bajo el mar."
+        tipo: comparar
+        titulo: "Recorrido máximo de las coladas"
+        izquierda: {etiqueta: "Por tierra", valor: 6.5, texto: "6,5 km"}
+        derecha: {etiqueta: "Bajo el mar", valor: 1.1, texto: "1,1 km"}
+        fuente: 1
+      - voz: "Al final cubrieron mil doscientas diecinueve hectáreas, según el Instituto Geográfico Nacional. Son unos mil setecientos campos de fútbol."
+        tipo: cifra
+        valor: 1219
+        sufijo: " ha"
+        etiqueta: "Superficie cubierta por la lava (unos 1.700 campos de fútbol)"
+        fuente: 1
+      - voz: "Los satélites del programa Copernicus contaron casi tres mil construcciones destruidas y noventa y dos kilómetros de carreteras."
+        tipo: ilustracion
+        escena: &satelite >-
+          Vista desde el espacio de una isla volcánica: una gran mancha negra de lava en forma de abanico baja desde
+          una cordillera hasta el mar, cortando carreteras y campos verdes; en la esquina superior, un pequeño satélite
+          con paneles solares que la observa. Estilo de lámina de atlas.
+        kicker: "Copernicus"
+        texto: "Casi 3.000 construcciones destruidas"
+        sub: "Y 92 km de carreteras"
+        fuente: 7
+      - voz: "Bajo la lava quedaron barrios enteros y cerca de mil hectáreas de cultivos."
+        tipo: ilustracion
+        escena: &barrio_sepultado >-
+          Un pueblo pequeño de casas blancas y una plaza con una iglesia sencilla, medio sepultado por una colada de
+          lava negra que ha llegado hasta los tejados; al fondo, plataneras cubiertas de ceniza y un cono volcánico
+          humeante. Ninguna persona. Luz gris de atardecer.
+        kicker: "Cultivos sepultados"
+        texto: "Cerca de 1.000 ha de cultivos"
+        fuente: 6
+      - voz: "Por eso, cuando un volcán sale cerca de zonas habitadas, el primer objetivo es sacar a la gente del camino de la lava. Unas siete mil personas tuvieron que dejar sus casas."
+        tipo: cifra
+        valor: 7000
+        etiqueta: "Personas evacuadas"
+        fuente: 8
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Cuando la lava llega al mar"
+    titulo_short: "Qué pasa cuando la lava llega al mar"
+    short: true
+    gancho_short:
+      - voz: "En 2021, la isla de La Palma creció. Y lo hizo en directo."
+        tipo: titulo
+        texto: "Una isla que creció en directo"
+        resaltar: "creció"
+        kicker: "El suceso"
+        fuente: 1
+    escenas:
+      - voz: "La noche del veintiocho de septiembre, nueve días después de empezar la erupción, la primera colada llegó al océano en la zona de Playa Nueva."
+        tipo: ilustracion
+        escena: &delta >-
+          De noche, desde el mar: una colada de lava naranja cae por un acantilado negro y entra en el océano;
+          al tocar el agua levanta una enorme nube blanca de vapor iluminada en naranja desde abajo. Olas oscuras en
+          primer plano, sin barcos ni personas.
+        kicker: "28 de septiembre de 2021"
+        texto: "La lava llega al mar"
+        fuente: 11
+      - voz: "Al tocar el agua, la lava hierve el mar y levanta columnas de vapor. Ese vapor arrastra gases irritantes, y por eso se pidió a la gente que estaba en la calle que se pusiera a cubierto."
+        tipo: ilustracion
+        escena: *delta
+        texto: "Vapor y gases irritantes"
+        sub: "Aviso a la población: ponerse a cubierto"
+        fuente: 11
+      - voz: "Pero la lava no se para ahí. Se enfría, se apila sobre el fondo y va avanzando, colada tras colada, hasta formar una plataforma nueva."
+        tipo: ilustracion
+        escena: &delta_corte >-
+          Lámina didáctica en corte de una costa volcánica: el acantilado antiguo a la izquierda; delante, sobre el
+          fondo marino, capas de lava enfriada apiladas en forma de cuña que salen hacia el mar y forman una plataforma
+          plana nueva al nivel del agua; encima, una colada todavía incandescente. Mar azul en corte.
+        kicker: "Cómo nace una fajana"
+        texto: "Tierra nueva, capa a capa"
+        fuente: 1
+      - voz: "En Canarias a esa plataforma se le llama fajana. Los geólogos hablan de delta lávico."
+        tipo: ilustracion
+        escena: &fajana >-
+          Vista aérea de día de una costa volcánica: al pie de un acantilado antiguo y verde, una plataforma de lava
+          negra y llana, recién formada, entra en el mar con forma de abanico; en el borde, aún sale algo de vapor
+          blanco. Mar azul intenso, espuma blanca en la orilla.
+        kicker: "Fajana o delta lávico"
+        texto: "Tierra ganada al mar"
+        fuente: 1
+      - voz: "La erupción de La Palma dejó dos fajanas, con cuarenta y ocho hectáreas nuevas. La isla, literalmente, se hizo más grande."
+        tipo: cifra
+        valor: 48
+        sufijo: " ha"
+        etiqueta: "Tierra ganada al mar en dos fajanas"
+        fuente: 1
+      - voz: "Así se ha construido toda la isla durante millones de años: con capas de lava que se enfrían, una encima de otra. Lo que vimos en 2021 fue ese proceso a cámara rápida."
+        tipo: ilustracion
+        escena: *isla_crece
+        texto: "Así nacieron las Canarias"
+        fuente: 4
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El peligro que no se ve"
+    short: false
+    escenas:
+      - voz: "La lava es lo que sale en las fotos. Pero un volcán tiene más peligros, y algunos llegan mucho más lejos."
+        tipo: lista
+        titulo: "Los peligros de un volcán"
+        puntos: ["Coladas de lava", "Caída de ceniza y piroclastos", "Gases volcánicos", "Flujos piroclásticos y lahares", "Deslizamientos y tsunamis"]
+        fuente: 5
+      - voz: "El primero es la ceniza. Los trozos grandes, las bombas volcánicas, caen a pocos kilómetros; la ceniza fina viaja con el viento y puede cubrir miles de kilómetros cuadrados."
+        tipo: ilustracion
+        escena: &ceniza >-
+          Una calle de un pueblo canario con casas blancas de tejado plano, coches aparcados y palmeras, todo cubierto
+          por una capa espesa de ceniza negra; una figura diminuta de tinta con mascarilla barre un tejado; el cielo,
+          gris oscuro. Silencio y polvo en el aire.
+        kicker: "Peligro 2"
+        texto: "La ceniza"
+        fuente: 5
+      - voz: "La de La Palma llegó a otras cuatro islas: Tenerife, El Hierro, La Gomera y Gran Canaria. Y el aeropuerto de la isla estuvo cerrado nueve días y medio en total."
+        tipo: ilustracion
+        escena: &aeropuerto >-
+          Un pequeño aeropuerto junto al mar con la pista cubierta por una capa de ceniza negra; un avión de hélices
+          blanco y sin logotipos parado en la plataforma, y dos figuras diminutas de tinta barriendo la pista. Cielo
+          gris, al fondo una columna de humo lejana sobre la montaña.
+        kicker: "9,5 días sin vuelos"
+        texto: "Ceniza en cinco islas"
+        fuente: 1
+      - voz: "El segundo son los gases. Un volcán expulsa vapor de agua, dióxido de carbono y dióxido de azufre. En La Palma hubo días con hasta treinta y seis mil toneladas de dióxido de azufre."
+        tipo: cifra
+        valor: 36000
+        sufijo: " t"
+        etiqueta: "Dióxido de azufre en un solo día (máximo)"
+        fuente: 6
+      - voz: "El más traicionero es el dióxido de carbono. No huele, no se ve y pesa más que el aire, así que se acumula cerca del suelo, en garajes, sótanos y bajos."
+        tipo: ilustracion
+        escena: &co2_garaje >-
+          Lámina didáctica en corte de una casa canaria de dos plantas junto al mar: en el garaje y el sótano, una capa
+          de gas invisible representada con un sombreado azul grisáceo muy suave que llena la parte baja; en el piso de
+          arriba, las ventanas abiertas. Debajo de la casa, grietas en la roca por donde sube el gas.
+        kicker: "Peligro 3"
+        texto: "El CO2 se acumula abajo"
+        sub: "No huele, no se ve y pesa más que el aire"
+        fuente: 5
+      - voz: "Eso pasó en Puerto Naos y La Bombilla, dos barrios de la costa. Las emanaciones siguieron mucho después de apagarse el volcán: casi un año más tarde, los vecinos todavía no podían volver a vivir allí."
+        tipo: ilustracion
+        escena: &puerto_naos >-
+          Un pueblo costero de apartamentos blancos y una playa de arena negra, vacío y en silencio: persianas bajadas,
+          una valla de seguridad cortando la calle y un pequeño aparato medidor de gas sobre un poste. Mar tranquilo,
+          luz de tarde.
+        kicker: "Puerto Naos y La Bombilla"
+        texto: "Barrios cerrados por los gases"
+        fuente: 15
+      - voz: "Y los gases están detrás de la muerte que la justicia atribuyó a la erupción: un vecino de setenta y dos años que había entrado en la zona de exclusión a limpiar ceniza. La autopsia apuntó a una intoxicación por gases."
+        tipo: ilustracion
+        escena: &vela >-
+          Una vela encendida en una ventana de una casa canaria al anochecer, con la ladera de un volcán oscuro y
+          humeante al fondo. Composición sencilla y serena, colores apagados.
+        kicker: "Noviembre de 2021"
+        fuente: 13
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Lo que aprendimos"
+    short: false
+    escenas:
+      - voz: "El trece de diciembre de 2021, a las diez y veintiuno de la noche, el volcán dejó de expulsar lava. El día de Navidad se dio la erupción por terminada."
+        tipo: fecha
+        fecha: "13 de diciembre de 2021"
+        lugar: "Fin de la erupción: 85 días y 8 horas"
+        fuente: [1, 2]
+      - voz: "Había durado ochenta y cinco días y ocho horas. Durante ese tiempo hubo más de ocho mil seiscientos terremotos, el mayor de magnitud cinco coma uno."
+        tipo: cifra
+        valor: 8652
+        etiqueta: "Terremotos durante la erupción"
+        fuente: 1
+      - voz: "Los daños superaron los ochocientos cuarenta y dos millones de euros. Y la emergencia siguió semanas después de la última lava: el semáforo no bajó de rojo a amarillo hasta el treinta y uno de enero de 2022."
+        tipo: cifra
+        valor: 842
+        prefijo: "+"
+        sufijo: " M€"
+        etiqueta: "Daños · semáforo en rojo hasta el 31-01-2022"
+        fuente: [2, 8]
+      - voz: "Hoy los científicos lo llaman Tajogaite. Su cono se levanta unos doscientos metros sobre la ladera."
+        tipo: ilustracion
+        escena: &cono_frio >-
+          El cono de un volcán joven ya apagado, negro y rojizo, de laderas lisas de ceniza, rodeado de un mar de lava
+          negra; en primer plano, pinos canarios quemados que ya rebrotan con agujas verdes. Cielo azul limpio.
+        kicker: "Tajogaite"
+        texto: "Un volcán nuevo"
+        fuente: [1, 6]
+      - voz: "¿Qué funcionó? La vigilancia. Los terremotos, la deformación y los gases avisaron, y aunque la lava destruyó casi tres mil construcciones, nadie murió atrapado por las coladas."
+        tipo: ilustracion
+        escena: *cientificos_mapa
+        kicker: "Lo que funcionó"
+        texto: "Vigilar y evacuar a tiempo"
+        fuente: [7, 9]
+      - voz: "Frente a un volcán hay tres herramientas. Vigilar, para saber cuándo viene. Planificar, con mapas de peligro que dicen por dónde puede bajar la lava. Y proteger, evacuando a tiempo y ordenando dónde se construye."
+        tipo: esquema
+        modo: cadena
+        titulo: "Cómo se reduce el riesgo volcánico"
+        nodos:
+          - {etiqueta: "Vigilar", texto: "Sismos, suelo y gases"}
+          - {etiqueta: "Planificar", texto: "Mapas de peligro y plan de emergencia"}
+          - {etiqueta: "Proteger", texto: "Evacuar y ordenar el territorio", destacar: true}
+        nota: "Riesgo: peligro, exposición, vulnerabilidad y capacidad de respuesta"
+        fuente: [5, 16]
+      - voz: "Lo que no se puede evitar es la erupción en sí. Las Canarias seguirán creciendo como lo han hecho siempre: con volcanes."
+        tipo: ilustracion
+        escena: *cumbre_vieja
+        texto: "Habrá más erupciones"
+        sub: "La pregunta, otra vez, es cuándo"
+        fuente: [3, 4]
+
+cierre:
+  - voz: "Si te ha servido para entender cómo funciona un volcán, en el canal tienes más fenómenos del planeta explicados con datos. Todas las fuentes de este vídeo están en la descripción."
+    tipo: ilustracion
+    escena: *cono_frio
+    texto: "Bitácora de la Tierra"
+    sub: "Fuentes en la descripción"
