@@ -1,30 +1,30 @@
-# Identidad del canal de historia económica (estilo «Editorial»).
+# Identidad del canal «Cuaderno de campo» (estilo «Herbario»).
 # Todo lo que hace que el canal se reconozca está aquí: cambiar una línea cambia todos los vídeos.
 
 # Nombre provisional: se cambia aquí cuando elijas el definitivo.
-marca: "EL PRECIO DE LA HISTORIA"
-lema: "Historia económica, con datos"
+marca: "CUADERNO DE CAMPO"
+lema: "Ciencias ambientales, explicadas con fuentes"
 
 # Voz de narrador (Gemini). Otras voces posibles: Sadaltager, Iapetus, Orus, Rasalgethi, Schedar.
 voz: "Charon"
 estilo_voz: >-
-  Narrador de documental de historia económica en español de España: voz clara y serena,
+  Narrador de documental de ciencias ambientales en español de España: voz clara y serena,
   ritmo pausado, entonación natural, sin titubeos y sin sonar a anuncio.
 
 # Colores (rojo, verde, azul de 0 a 255)
 colores:
-  fondo: [21, 18, 15]          # negro cálido
-  fondo2: [36, 30, 24]         # marrón muy oscuro (arriba del degradado)
-  panel: [44, 37, 30]          # cajas y países sin resaltar
-  linea: [70, 60, 49]          # rejillas y bordes
-  texto: [242, 234, 219]       # crema
-  suave: [168, 156, 138]       # textos secundarios
-  acento: [228, 87, 46]        # rojo anaranjado: color principal del canal
-  acento2: [242, 177, 52]      # dorado: lo que hay que mirar
-  sombra_foto: [24, 19, 15]    # fotos de época en dos tonos: sombras...
-  luz_foto: [245, 230, 205]    # ...y luces
-  sube: [126, 186, 110]
-  baja: [228, 87, 46]
+  fondo: [17, 26, 20]          # verde casi negro
+  fondo2: [28, 42, 32]         # verde bosque oscuro (arriba del degradado)
+  panel: [36, 52, 41]          # cajas y países sin resaltar
+  linea: [62, 84, 66]          # rejillas y bordes
+  texto: [240, 234, 214]       # crema
+  suave: [150, 165, 145]       # textos secundarios
+  acento: [217, 119, 66]       # terracota: color principal del canal
+  acento2: [233, 196, 106]     # ocre dorado: lo que hay que mirar
+  sombra_foto: [18, 28, 21]    # fotos de época en dos tonos: sombras...
+  luz_foto: [238, 229, 203]    # ...y luces
+  sube: [134, 190, 120]
+  baja: [217, 119, 66]
 
 # Fuentes (carpeta fuentes/, todas con licencia libre SIL OFL)
 fuentes:
@@ -41,11 +41,12 @@ ilustraciones:
   tamano: "2K"
   credito: "Ilustración"
   estilo: >-
-    Ilustración editorial plana y elegante, estilo vectorial con sombras suaves y textura de grano fino,
-    como un cartel de museo moderno. Paleta limitada y cálida: negro tostado, crema, arena, terracota
-    y algún toque dorado apagado. Figuras humanas estilizadas, sin rasgos faciales detallados,
-    vistas a media distancia. Arquitectura y objetos fieles a la época indicada. Composición amplia y
-    cinematográfica, con profundidad y luz suave. Sin texto, sin letras, sin números, sin logotipos,
+    Ilustración editorial plana y elegante, estilo vectorial con textura de grano fino,
+    como una lámina de cuaderno de naturalista. Paleta limitada: verde bosque oscuro, crema,
+    terracota y algún toque de ocre dorado. Plantas, animales y paisajes dibujados con formas
+    simples y limpias; figuras humanas estilizadas, sin rasgos faciales detallados, vistas a media
+    distancia. Paisajes, especies y objetos fieles al lugar y la época indicados. Composición amplia
+    y cinematográfica, con profundidad y luz suave. Sin texto, sin letras, sin números, sin logotipos,
     sin marcas de agua.
 
 # Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
