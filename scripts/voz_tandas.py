@@ -94,7 +94,7 @@ def _elegir_corte(huecos, sr, t0, t1, estimado):
     return (h[0] + h[1]) // 2
 
 
-def cortar_tanda(wav, sr, dichos, holgura=6):
+def cortar_tanda(wav, sr, dichos, holgura=3):
     """Devuelve [(inicio, fin)] en muestras, uno por frase de `dichos`, o None si no es fiable."""
     n = len(dichos)
     if n <= 1:
@@ -116,6 +116,8 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
     emparejar = difflib.SequenceMatcher(None, esperadas, [p for p, _, _ in oidas], autojunk=False)
     pareja = {}  # índice de palabra esperada -> índice de palabra oída
     for bloque in emparejar.get_matching_blocks():
+        if bloque.size < 2:  # una palabra suelta («y», «a», «el») casa por casualidad: no sirve de ancla
+            continue
         for d in range(bloque.size):
             pareja[bloque.a + d] = bloque.b + d
     if len(pareja) < 0.6 * len(esperadas):
