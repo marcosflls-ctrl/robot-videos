@@ -1,0 +1,499 @@
+{
+ "duracion": 34.09,
+ "palabras": [
+  {
+   "t": "24",
+   "ini": 0.35,
+   "fin": 0.62
+  },
+  {
+   "t": "días.",
+   "ini": 0.67,
+   "fin": 1.1
+  },
+  {
+   "t": "Es",
+   "ini": 1.16,
+   "fin": 1.43
+  },
+  {
+   "t": "lo",
+   "ini": 1.48,
+   "fin": 1.75
+  },
+  {
+   "t": "que",
+   "ini": 1.8,
+   "fin": 2.12
+  },
+  {
+   "t": "queda",
+   "ini": 2.17,
+   "fin": 2.6
+  },
+  {
+   "t": "para",
+   "ini": 2.65,
+   "fin": 3.03
+  },
+  {
+   "t": "GTA",
+   "ini": 3.08,
+   "fin": 3.41
+  },
+  {
+   "t": "6.",
+   "ini": 3.46,
+   "fin": 3.73
+  },
+  {
+   "t": "Todo",
+   "ini": 4.13,
+   "fin": 4.51
+  },
+  {
+   "t": "empezó",
+   "ini": 4.56,
+   "fin": 5.05
+  },
+  {
+   "t": "en",
+   "ini": 5.1,
+   "fin": 5.37
+  },
+  {
+   "t": "diciembre",
+   "ini": 5.42,
+   "fin": 6.08
+  },
+  {
+   "t": "de",
+   "ini": 6.12,
+   "fin": 6.39
+  },
+  {
+   "t": "2023",
+   "ini": 6.45,
+   "fin": 6.83
+  },
+  {
+   "t": "con",
+   "ini": 6.88,
+   "fin": 7.2
+  },
+  {
+   "t": "el",
+   "ini": 7.25,
+   "fin": 7.52
+  },
+  {
+   "t": "primer",
+   "ini": 7.57,
+   "fin": 8.06
+  },
+  {
+   "t": "tráiler.",
+   "ini": 8.11,
+   "fin": 8.71
+  },
+  {
+   "t": "El",
+   "ini": 8.76,
+   "fin": 9.03
+  },
+  {
+   "t": "segundo",
+   "ini": 9.08,
+   "fin": 9.62
+  },
+  {
+   "t": "llegó",
+   "ini": 9.68,
+   "fin": 10.11
+  },
+  {
+   "t": "en",
+   "ini": 10.16,
+   "fin": 10.43
+  },
+  {
+   "t": "mayo",
+   "ini": 10.48,
+   "fin": 10.86
+  },
+  {
+   "t": "de",
+   "ini": 10.91,
+   "fin": 11.18
+  },
+  {
+   "t": "2025.",
+   "ini": 11.23,
+   "fin": 11.67
+  },
+  {
+   "t": "Y",
+   "ini": 12.06,
+   "fin": 12.28
+  },
+  {
+   "t": "la",
+   "ini": 12.33,
+   "fin": 12.6
+  },
+  {
+   "t": "fecha",
+   "ini": 12.65,
+   "fin": 13.09
+  },
+  {
+   "t": "final:",
+   "ini": 13.13,
+   "fin": 13.62
+  },
+  {
+   "t": "19",
+   "ini": 13.68,
+   "fin": 13.95
+  },
+  {
+   "t": "de",
+   "ini": 14.0,
+   "fin": 14.27
+  },
+  {
+   "t": "noviembre",
+   "ini": 14.32,
+   "fin": 14.97
+  },
+  {
+   "t": "de",
+   "ini": 15.02,
+   "fin": 15.29
+  },
+  {
+   "t": "2026.",
+   "ini": 15.34,
+   "fin": 15.78
+  },
+  {
+   "t": "Saldrá",
+   "ini": 16.18,
+   "fin": 16.66
+  },
+  {
+   "t": "en",
+   "ini": 16.71,
+   "fin": 16.98
+  },
+  {
+   "t": "PlayStation",
+   "ini": 17.04,
+   "fin": 17.8
+  },
+  {
+   "t": "5",
+   "ini": 17.85,
+   "fin": 18.07
+  },
+  {
+   "t": "y",
+   "ini": 18.12,
+   "fin": 18.33
+  },
+  {
+   "t": "Xbox",
+   "ini": 18.38,
+   "fin": 18.76
+  },
+  {
+   "t": "Series,",
+   "ini": 18.81,
+   "fin": 19.36
+  },
+  {
+   "t": "y",
+   "ini": 19.41,
+   "fin": 19.62
+  },
+  {
+   "t": "de",
+   "ini": 19.67,
+   "fin": 19.94
+  },
+  {
+   "t": "momento",
+   "ini": 19.99,
+   "fin": 20.54
+  },
+  {
+   "t": "no",
+   "ini": 20.59,
+   "fin": 20.86
+  },
+  {
+   "t": "en",
+   "ini": 20.91,
+   "fin": 21.18
+  },
+  {
+   "t": "PC.",
+   "ini": 21.23,
+   "fin": 21.55
+  },
+  {
+   "t": "Lo",
+   "ini": 21.95,
+   "fin": 22.22
+  },
+  {
+   "t": "que",
+   "ini": 22.27,
+   "fin": 22.6
+  },
+  {
+   "t": "sabemos:",
+   "ini": 22.65,
+   "fin": 23.25
+  },
+  {
+   "t": "Vice",
+   "ini": 23.3,
+   "fin": 23.68
+  },
+  {
+   "t": "City,",
+   "ini": 23.73,
+   "fin": 24.16
+  },
+  {
+   "t": "el",
+   "ini": 24.21,
+   "fin": 24.48
+  },
+  {
+   "t": "estado",
+   "ini": 24.53,
+   "fin": 25.02
+  },
+  {
+   "t": "de",
+   "ini": 25.07,
+   "fin": 25.34
+  },
+  {
+   "t": "Leonida",
+   "ini": 25.39,
+   "fin": 25.94
+  },
+  {
+   "t": "y",
+   "ini": 25.98,
+   "fin": 26.2
+  },
+  {
+   "t": "dos",
+   "ini": 26.25,
+   "fin": 26.57
+  },
+  {
+   "t": "protagonistas,",
+   "ini": 26.62,
+   "fin": 27.55
+  },
+  {
+   "t": "Lucía",
+   "ini": 27.61,
+   "fin": 28.04
+  },
+  {
+   "t": "y",
+   "ini": 28.09,
+   "fin": 28.3
+  },
+  {
+   "t": "Jason.",
+   "ini": 28.36,
+   "fin": 28.84
+  },
+  {
+   "t": "¿Lo",
+   "ini": 29.25,
+   "fin": 29.57
+  },
+  {
+   "t": "jugarás",
+   "ini": 29.62,
+   "fin": 30.17
+  },
+  {
+   "t": "el",
+   "ini": 30.21,
+   "fin": 30.48
+  },
+  {
+   "t": "primer",
+   "ini": 30.54,
+   "fin": 31.02
+  },
+  {
+   "t": "día?",
+   "ini": 31.07,
+   "fin": 31.45
+  },
+  {
+   "t": "Te",
+   "ini": 31.5,
+   "fin": 31.77
+  },
+  {
+   "t": "leo",
+   "ini": 31.82,
+   "fin": 32.15
+  },
+  {
+   "t": "abajo.",
+   "ini": 32.2,
+   "fin": 32.69
+  }
+ ],
+ "claves": [
+  "24",
+  "días",
+  "2023",
+  "2025",
+  "19",
+  "noviembre",
+  "PC",
+  "Vice",
+  "City",
+  "Lucía",
+  "Jason",
+  "primer"
+ ],
+ "paleta": {
+  "fondo1": "#0e0816",
+  "fondo2": "#2a1636",
+  "texto": "#faf4fa",
+  "suave": "#bcaec4",
+  "acento": "#ffc446",
+  "acento2": "#ff5caa",
+  "acento3": "#5adcff",
+  "peligro": "#ff4658"
+ },
+ "fondo": "humo",
+ "subtitulos": "caja",
+ "marca": "ZONA LEONIDA",
+ "escenas": [
+  {
+   "ini": 0,
+   "fin": 4.03,
+   "tipo": "titular",
+   "datos": {
+    "texto": "24 días",
+    "resaltar": "24",
+    "variante": "gigante"
+   },
+   "camara": "acercar",
+   "transicion": "zoom"
+  },
+  {
+   "ini": 4.03,
+   "fin": 11.96,
+   "tipo": "cronologia",
+   "datos": {
+    "orientacion": "horizontal",
+    "hitos": [
+     {
+      "arriba": "Tráiler 1",
+      "fecha": "DIC 2023",
+      "texto": "Primer tráiler"
+     },
+     {
+      "arriba": "Tráiler 2",
+      "fecha": "MAY 2025",
+      "texto": "Segundo tráiler"
+     },
+     {
+      "arriba": "Lanzamiento",
+      "fecha": "19 NOV",
+      "texto": "Llega GTA 6",
+      "estado": "futuro",
+      "pastilla": "2026"
+     }
+    ]
+   },
+   "camara": "quieta",
+   "transicion": "barrido"
+  },
+  {
+   "ini": 11.96,
+   "fin": 16.07,
+   "tipo": "prensa",
+   "datos": {
+    "medio": "Zona Leonida",
+    "fecha": "26 oct 2026",
+    "titular": "GTA 6 llega el 19 de noviembre de 2026",
+    "resaltar": "19 de noviembre",
+    "pastilla": "Confirmado"
+   },
+   "camara": "inclinar",
+   "transicion": "giro"
+  },
+  {
+   "ini": 16.07,
+   "fin": 21.85,
+   "tipo": "comparar",
+   "datos": {
+    "modo": "vs",
+    "a": {
+     "src": "objeto:ps5",
+     "etiqueta": "Sí"
+    },
+    "b": {
+     "src": "objeto:pc",
+     "etiqueta": "De momento no",
+     "estado": "mal"
+    }
+   },
+   "camara": "paneo_der",
+   "transicion": "glitch"
+  },
+  {
+   "ini": 21.85,
+   "fin": 29.14,
+   "tipo": "pila",
+   "datos": {
+    "titulo": "Lo que sabemos",
+    "tarjetas": [
+     {
+      "arriba": "Ciudad",
+      "titulo": "Vice City",
+      "src": "demo/atardecer.jpg"
+     },
+     {
+      "arriba": "Mapa",
+      "titulo": "Estado de Leonida"
+     },
+     {
+      "arriba": "Protagonistas",
+      "titulo": "Lucía y Jason"
+     }
+    ]
+   },
+   "camara": "subir",
+   "transicion": "empuje",
+   "fondo": "demo/atardecer.jpg"
+  },
+  {
+   "ini": 29.14,
+   "fin": 34.09,
+   "tipo": "pregunta",
+   "datos": {
+    "pregunta": "¿Lo jugarás el primer día?",
+    "comentario": "Te leemos en los comentarios"
+   },
+   "transicion": "flash"
+  }
+ ]
+}

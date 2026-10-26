@@ -1,0 +1,425 @@
+{
+ "duracion": 29.61,
+ "palabras": [
+  {
+   "t": "Faltan",
+   "ini": 0.35,
+   "fin": 0.84
+  },
+  {
+   "t": "24",
+   "ini": 0.89,
+   "fin": 1.16
+  },
+  {
+   "t": "días",
+   "ini": 1.21,
+   "fin": 1.59
+  },
+  {
+   "t": "para",
+   "ini": 1.64,
+   "fin": 2.02
+  },
+  {
+   "t": "GTA",
+   "ini": 2.07,
+   "fin": 2.4
+  },
+  {
+   "t": "6.",
+   "ini": 2.44,
+   "fin": 2.71
+  },
+  {
+   "t": "El",
+   "ini": 3.11,
+   "fin": 3.38
+  },
+  {
+   "t": "19",
+   "ini": 3.43,
+   "fin": 3.7
+  },
+  {
+   "t": "de",
+   "ini": 3.75,
+   "fin": 4.02
+  },
+  {
+   "t": "noviembre",
+   "ini": 4.07,
+   "fin": 4.73
+  },
+  {
+   "t": "llega",
+   "ini": 4.78,
+   "fin": 5.21
+  },
+  {
+   "t": "a",
+   "ini": 5.26,
+   "fin": 5.48
+  },
+  {
+   "t": "PlayStation",
+   "ini": 5.53,
+   "fin": 6.29
+  },
+  {
+   "t": "5",
+   "ini": 6.34,
+   "fin": 6.56
+  },
+  {
+   "t": "y",
+   "ini": 6.61,
+   "fin": 6.82
+  },
+  {
+   "t": "Xbox",
+   "ini": 6.87,
+   "fin": 7.25
+  },
+  {
+   "t": "Series.",
+   "ini": 7.3,
+   "fin": 7.85
+  },
+  {
+   "t": "¿Y",
+   "ini": 8.25,
+   "fin": 8.52
+  },
+  {
+   "t": "en",
+   "ini": 8.57,
+   "fin": 8.84
+  },
+  {
+   "t": "PC?",
+   "ini": 8.89,
+   "fin": 9.21
+  },
+  {
+   "t": "Rockstar",
+   "ini": 9.26,
+   "fin": 9.86
+  },
+  {
+   "t": "todavía",
+   "ini": 9.91,
+   "fin": 10.46
+  },
+  {
+   "t": "no",
+   "ini": 10.51,
+   "fin": 10.78
+  },
+  {
+   "t": "ha",
+   "ini": 10.83,
+   "fin": 11.1
+  },
+  {
+   "t": "dado",
+   "ini": 11.15,
+   "fin": 11.53
+  },
+  {
+   "t": "fecha.",
+   "ini": 11.58,
+   "fin": 12.07
+  },
+  {
+   "t": "Volvemos",
+   "ini": 12.47,
+   "fin": 13.07
+  },
+  {
+   "t": "a",
+   "ini": 13.12,
+   "fin": 13.34
+  },
+  {
+   "t": "Vice",
+   "ini": 13.39,
+   "fin": 13.77
+  },
+  {
+   "t": "City,",
+   "ini": 13.82,
+   "fin": 14.25
+  },
+  {
+   "t": "en",
+   "ini": 14.3,
+   "fin": 14.57
+  },
+  {
+   "t": "el",
+   "ini": 14.62,
+   "fin": 14.89
+  },
+  {
+   "t": "estado",
+   "ini": 14.94,
+   "fin": 15.43
+  },
+  {
+   "t": "de",
+   "ini": 15.48,
+   "fin": 15.75
+  },
+  {
+   "t": "Leonida.",
+   "ini": 15.8,
+   "fin": 16.4
+  },
+  {
+   "t": "Con",
+   "ini": 16.8,
+   "fin": 17.12
+  },
+  {
+   "t": "dos",
+   "ini": 17.18,
+   "fin": 17.5
+  },
+  {
+   "t": "protagonistas:",
+   "ini": 17.55,
+   "fin": 18.48
+  },
+  {
+   "t": "Lucía",
+   "ini": 18.53,
+   "fin": 18.96
+  },
+  {
+   "t": "y",
+   "ini": 19.02,
+   "fin": 19.23
+  },
+  {
+   "t": "Jason.",
+   "ini": 19.28,
+   "fin": 19.77
+  },
+  {
+   "t": "Si",
+   "ini": 20.17,
+   "fin": 20.44
+  },
+  {
+   "t": "lo",
+   "ini": 20.49,
+   "fin": 20.76
+  },
+  {
+   "t": "cuentas",
+   "ini": 20.81,
+   "fin": 21.36
+  },
+  {
+   "t": "en",
+   "ini": 21.41,
+   "fin": 21.68
+  },
+  {
+   "t": "horas,",
+   "ini": 21.73,
+   "fin": 22.21
+  },
+  {
+   "t": "son",
+   "ini": 22.27,
+   "fin": 22.59
+  },
+  {
+   "t": "576",
+   "ini": 22.64,
+   "fin": 22.96
+  },
+  {
+   "t": "horas",
+   "ini": 23.02,
+   "fin": 23.45
+  },
+  {
+   "t": "de",
+   "ini": 23.5,
+   "fin": 23.77
+  },
+  {
+   "t": "espera.",
+   "ini": 23.82,
+   "fin": 24.37
+  },
+  {
+   "t": "¿Lo",
+   "ini": 24.77,
+   "fin": 25.09
+  },
+  {
+   "t": "jugarás",
+   "ini": 25.14,
+   "fin": 25.69
+  },
+  {
+   "t": "el",
+   "ini": 25.73,
+   "fin": 26.0
+  },
+  {
+   "t": "primer",
+   "ini": 26.05,
+   "fin": 26.54
+  },
+  {
+   "t": "día?",
+   "ini": 26.59,
+   "fin": 26.97
+  },
+  {
+   "t": "Te",
+   "ini": 27.02,
+   "fin": 27.29
+  },
+  {
+   "t": "leo",
+   "ini": 27.34,
+   "fin": 27.67
+  },
+  {
+   "t": "abajo.",
+   "ini": 27.72,
+   "fin": 28.21
+  }
+ ],
+ "claves": [
+  "24",
+  "días",
+  "19",
+  "noviembre",
+  "PC",
+  "fecha",
+  "Vice",
+  "City",
+  "Lucía",
+  "Jason",
+  "576",
+  "horas",
+  "primer"
+ ],
+ "paleta": {
+  "fondo1": "#0e0816",
+  "fondo2": "#2a1636",
+  "texto": "#faf4fa",
+  "suave": "#bcaec4",
+  "acento": "#ffc446",
+  "acento2": "#ff5caa",
+  "acento3": "#5adcff",
+  "peligro": "#ff4658"
+ },
+ "fondo": "rejilla",
+ "subtitulos": "volteo",
+ "marca": "ZONA LEONIDA",
+ "escenas": [
+  {
+   "ini": 0,
+   "fin": 3.01,
+   "tipo": "cifra",
+   "datos": {
+    "valor": 24,
+    "etiqueta": "días para GTA 6",
+    "pastilla": "Hoy · 26 oct"
+   },
+   "camara": "acercar",
+   "transicion": "flash"
+  },
+  {
+   "ini": 3.01,
+   "fin": 8.15,
+   "tipo": "comparar",
+   "datos": {
+    "modo": "bifurcacion",
+    "arriba": "19 nov 2026",
+    "a": {
+     "src": "objeto:ps5",
+     "etiqueta": "PlayStation 5"
+    },
+    "b": {
+     "src": "objeto:xbox",
+     "etiqueta": "Xbox Series"
+    }
+   },
+   "camara": "subir",
+   "transicion": "barrido"
+  },
+  {
+   "ini": 8.15,
+   "fin": 12.37,
+   "tipo": "alerta",
+   "datos": {
+    "icono": "candado",
+    "texto": "PC",
+    "pastilla": "Todavía no"
+   },
+   "camara": "quieta",
+   "transicion": "glitch"
+  },
+  {
+   "ini": 12.37,
+   "fin": 16.7,
+   "tipo": "titular",
+   "datos": {
+    "texto": "Vice City",
+    "resaltar": "City",
+    "variante": "letras3d",
+    "sub": "Estado de Leonida"
+   },
+   "camara": "orbita",
+   "transicion": "flash",
+   "fondo": "demo/atardecer.jpg"
+  },
+  {
+   "ini": 16.7,
+   "fin": 20.07,
+   "tipo": "orbita",
+   "datos": {
+    "centro": "Leonida",
+    "satelites": [
+     "Lucía",
+     "Jason",
+     "Vice City",
+     "Cayos"
+    ]
+   },
+   "camara": "inclinar",
+   "transicion": "zoom"
+  },
+  {
+   "ini": 20.07,
+   "fin": 24.66,
+   "tipo": "cifra",
+   "datos": {
+    "valor": 576,
+    "etiqueta": "horas de espera",
+    "variante": "tarjeta"
+   },
+   "camara": "alejar",
+   "transicion": "giro"
+  },
+  {
+   "ini": 24.66,
+   "fin": 29.61,
+   "tipo": "pregunta",
+   "datos": {
+    "pregunta": "¿Lo jugarás el primer día?",
+    "comentario": "Te leemos en los comentarios"
+   },
+   "transicion": "empuje"
+  }
+ ]
+}
