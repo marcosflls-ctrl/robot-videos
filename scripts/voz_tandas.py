@@ -142,6 +142,13 @@ def cortar_tanda(wav, sr, dichos, holgura=6):
         reparto = letras_antes / (letras_antes + letras_despues) if letras_antes + letras_despues else 0.5
         estimado = t0 + (t1 - t0) * reparto
         cortes.append(_elegir_corte(huecos, sr, min(t0, t1) - 0.1, max(t0, t1) + 0.1, estimado))
+    # Comprobación final: ningún corte puede caer en mitad de una palabra oída
+    for c in cortes:
+        t = c / sr
+        for _, ini, fin in oidas:
+            if ini + 0.1 < t < fin - 0.1:
+                print(f"  (un corte cae en mitad de una palabra, en el segundo {t:.1f})")
+                return None
     if any(b <= a for a, b in zip([0] + cortes, cortes + [len(wav)])):
         return None
     limites = [0] + cortes + [len(wav)]
