@@ -68,6 +68,9 @@ REGLAS:
 3. Variedad: nunca el mismo tipo dos veces seguidas; al menos 5 tipos distintos; al menos 3 transiciones distintas; cámaras variadas.
 4. No repitas lo de los últimos vídeos: empieza con un tipo de escena distinto de los últimos 3 vídeos y usa un "fondo" y unos "subtitulos" distintos de los del vídeo anterior.
 5. Pon imagen de fondo ("fondo": "img:ID") en al menos 6 de cada 10 escenas, eligiendo la más relacionada.
+   En escenas "imagen", "galeria" o dentro de "comparar", usa una imagen SOLO si su descripción encaja con lo que se dice;
+   nunca pongas el nombre de una persona, juego o lugar sobre una imagen que no lo muestra (eso engaña). Si no hay imagen
+   adecuada, elige otro tipo de escena.
 6. Respeta los límites de letras de cada campo (si no cabe, acórtalo). Los textos en pantalla, en español y sin inventar datos: solo lo que dice el tema.
 7. Si la última frase es una pregunta o invita a comentar, la última escena es "pregunta".
 8. "claves": 6–12 palabras de las frases que deben ir en color en los subtítulos (cifras, nombres, palabras fuertes).
