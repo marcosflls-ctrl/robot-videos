@@ -71,6 +71,8 @@ REGLAS:
    En escenas "imagen", "galeria" o dentro de "comparar", usa una imagen SOLO si su descripción encaja con lo que se dice;
    nunca pongas el nombre de una persona, juego o lugar sobre una imagen que no lo muestra (eso engaña). Si no hay imagen
    adecuada, elige otro tipo de escena.
+   Si hay 6 o más imágenes disponibles, al menos 2 escenas deben tener la imagen como protagonista ("imagen",
+   "galeria", o "comparar"/"pila"/"orbita" con imágenes), no solo de fondo.
 6. Respeta los límites de letras de cada campo (si no cabe, acórtalo). Los textos en pantalla, en español y sin inventar datos: solo lo que dice el tema.
 7. Si la última frase es una pregunta o invita a comentar, la última escena es "pregunta".
 8. "claves": 6–12 palabras de las frases que deben ir en color en los subtítulos (cifras, nombres, palabras fuertes).
