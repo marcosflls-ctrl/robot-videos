@@ -71,6 +71,11 @@ class MotorVozGemini:
                     return json.loads(r.read().decode("utf-8"))
             except urllib.error.HTTPError as e:
                 detalle = e.read().decode("utf-8", "replace")[:500]
+                if e.code == 429 and "per day" in detalle:
+                    # Cupo del día gastado: reintentar no sirve. Lo ya hecho queda en la caché.
+                    raise SystemExit("::error::Se ha gastado el cupo diario de voz de Gemini. Las frases ya leídas "
+                                     "quedan guardadas: vuelve a lanzarlo mañana y seguirá donde lo dejó. "
+                                     f"Detalle: {detalle}")
                 if e.code in (429, 500, 503) and intento < 5:
                     espera = 10 * (intento + 1)
                     print(f"    (Gemini ocupado o límite gratuito: espero {espera} s)")
@@ -121,7 +126,16 @@ class MotorVozGemini:
 
     # ---------- varias frases en UNA sola petición (ahorra cupo: 1 petición por vídeo) ----------
 
-    def decir_varias(self, frases):
+    def decir_seguido(self, frases, separador="\n\n"):
+        """Lee varias frases en UNA petición y devuelve (audio entero, textos tal como se dijeron).
+
+        El corte por frases lo hace voz_tandas.py escuchando el audio."""
+        dichos = [a_voz(f, GLOSARIO_GEMINI) for f in frases]
+        for d in dichos:
+            print("  ·", d)
+        return self._audio(self._pedir(separador.join(dichos))), dichos
+
+    def decir_varias(self, frases, separador=" "):
         """Devuelve [(audio, piezas)] por frase, pidiendo todo el guion de una vez.
 
         Gemini lee el texto seguido; luego se corta el audio en los silencios que caen más
@@ -129,7 +143,7 @@ class MotorVozGemini:
         """
         dichos = [a_voz(f, GLOSARIO_GEMINI) for f in frases]
         print("  · (una sola petición) " + " | ".join(dichos))
-        wav = self._audio(self._pedir(" ".join(dichos)))
+        wav = self._audio(self._pedir(separador.join(dichos)))
         cortes = _cortar_en_silencios(wav, self.sr, [len(d) for d in dichos])
         salida = []
         for (a, b), frase in zip(cortes, frases):
