@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { conAlfa, F, Humo, PaletaCtx, Particulas, prog, Rejilla, salida, suave, useFuentes, usePaleta } from "./comun";
+import { ajustar, conAlfa, F, FN, Humo, PaletaCtx, Particulas, prog, Rejilla, salida, suave, useFuentes, usePaleta } from "./comun";
 import { Alerta, Cifra, Pregunta, PropsEscena, Titular } from "./escenas/basicas";
 import { Comparar, Cronologia, Pila, Prensa } from "./escenas/estructura";
 import { fuenteImg, Galeria, Imagen, Objeto, Orbita } from "./escenas/visuales";
@@ -57,8 +57,8 @@ const BloqueEscena: React.FC<{ esc: Escena; durCore: number }> = ({ esc, durCore
     <AbsoluteFill style={transicion(esc.transicion, e, s)}>
       {esc.fondo && (
         <AbsoluteFill>
-          <Img src={fuenteImg(esc.fondo)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.15 + 0.08 * (f / durCore)})`, filter: "blur(10px) brightness(0.38) saturate(1.2)" }} />
-          <AbsoluteFill style={{ background: `linear-gradient(${conAlfa(pal.fondo1, 0.35)}, ${conAlfa(pal.fondo1, 0.7)})` }} />
+          <Img src={fuenteImg(esc.fondo)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${1.15 + 0.08 * (f / durCore)})`, filter: "blur(5px) brightness(0.5) saturate(1.25)" }} />
+          <AbsoluteFill style={{ background: `linear-gradient(${conAlfa(pal.fondo1, 0.25)}, ${conAlfa(pal.fondo1, 0.35)} 45%, ${conAlfa(pal.fondo1, 0.75)})` }} />
         </AbsoluteFill>
       )}
       <AbsoluteFill style={{ transform: camara(esc.camara, Math.max(0, f) / durCore, f) }}>
@@ -95,6 +95,7 @@ const Subtitulos: React.FC<{ g: Guion }> = ({ g }) => {
   const tr = lista.find((x) => x[0].ini - 0.05 <= t && t <= x[x.length - 1].fin + 0.15);
   if (!tr) return null;
   const ent = prog(t - tr[0].ini + 0.05, 0, 0.18, salida);
+  const tamSub = ajustar(tr.map((w) => w.t).join(" "), FN.impacto, 960, 82, 1, 0, true);
   const estilo = g.subtitulos;
   const base: React.CSSProperties =
     estilo === "volteo" ? { transform: `perspective(800px) rotateX(${(1 - ent) * -85}deg)`, opacity: ent }
@@ -109,7 +110,7 @@ const Subtitulos: React.FC<{ g: Guion }> = ({ g }) => {
         const caja = estilo === "caja" && sonando;
         return (
           <span key={i} style={{
-            fontFamily: F.impacto, fontSize: 82, lineHeight: 1.1, textTransform: "uppercase", display: "inline-block",
+            fontFamily: F.impacto, fontSize: tamSub, lineHeight: 1.1, textTransform: "uppercase", display: "inline-block",
             color: caja ? p.fondo1 : clave ? p.acento : p.texto, padding: caja ? "0 14px" : 0,
             background: caja ? p.acento : "transparent", borderRadius: 10,
             transform: `scale(${sonando && !caja ? 1.08 : 1})`,
@@ -124,7 +125,7 @@ const Subtitulos: React.FC<{ g: Guion }> = ({ g }) => {
 
 // ---------------------------------------------------------------- VÍDEO
 export const Short: React.FC<Guion> = (g) => {
-  useFuentes();
+  const listas = useFuentes();
   const { fps } = useVideoConfig();
   const f = useCurrentFrame();
   const p = g.paleta;
@@ -132,6 +133,7 @@ export const Short: React.FC<Guion> = (g) => {
   // fogonazos blancos al empezar las escenas con transición «flash»
   const flash = escenas.map((e) => f - Math.round(e.ini * fps)).filter((d, i) => escenas[i].transicion === "flash" && d >= -2 && d < 10);
   const fogonazo = flash.length ? 1 - (flash[0] + 2) / 12 : 0;
+  if (!listas) return null;
   return (
     <PaletaCtx.Provider value={p}>
       <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 38%, ${p.fondo2}, ${p.fondo1} 70%)`, overflow: "hidden" }}>
@@ -143,7 +145,7 @@ export const Short: React.FC<Guion> = (g) => {
           const durCore = Math.max(1, hasta - desde);
           return (
             <Sequence key={i} from={desde - T} durationInFrames={durCore + 2 * T} layout="none">
-              <BloqueEscena esc={esc} durCore={durCore} />
+              <BloqueEscena esc={esc.fondo || !g.fondos?.length ? esc : { ...esc, fondo: g.fondos[i % g.fondos.length] }} durCore={durCore} />
             </Sequence>
           );
         })}

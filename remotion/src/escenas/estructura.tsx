@@ -1,6 +1,6 @@
 import React from "react";
 import { Img } from "remotion";
-import { conAlfa, Cristal, F, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
+import { ajustar, conAlfa, Cristal, F, FN, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
 import { Grieta, PropsEscena } from "./basicas";
 import { fuenteImg } from "./visuales";
 
@@ -21,8 +21,8 @@ const Lado: React.FC<{ it: any; f: number; ini: number; fps: number; ancho: numb
     cuerpo = (
       <Cristal ancho={ancho} alto={360} color={mal ? p.peligro : undefined}>
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
-          <div style={{ fontFamily: F.cifra, fontSize: Math.min(120, 900 / Math.max(3, String(it.texto || "").length)), color }}>{it.texto}</div>
-          {it.sub && <div style={{ fontFamily: F.etiqueta, fontSize: 30, color: p.suave, letterSpacing: 3, marginTop: 10, textTransform: "uppercase" }}>{it.sub}</div>}
+          <div style={{ fontFamily: F.cifra, fontSize: ajustar(String(it.texto || ""), FN.cifra, ancho - 60, 120, 2), color, textAlign: "center", lineHeight: 1.05 }}>{it.texto}</div>
+          {it.sub && <div style={{ fontFamily: F.etiqueta, fontSize: ajustar(it.sub, FN.etiqueta, ancho - 60, 30, 1, 3, true), color: p.suave, letterSpacing: 3, marginTop: 10, textTransform: "uppercase" }}>{it.sub}</div>}
         </div>
         {mal && <Grieta f={f} ini={ini + 14} ancho={ancho} alto={360} semilla={String(it.texto)} />}
       </Cristal>
@@ -121,8 +121,8 @@ export const Cronologia: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
           <div key={i} style={{ position: "absolute", left: x - 230, top: y - 190, width: 460, height: 380, zIndex: 2, opacity: Math.min(1, m * 1.4) * (activo ? 1 : 0.55), transform: `perspective(1400px) rotateY(${(1 - m) * 70}deg) scale(${(activo ? 1 : 0.82) * (0.8 + 0.2 * m)})` }}>
             <Cristal ancho={460} alto={380} color={mal ? p.peligro : futuro ? p.acento3 : undefined} style={futuro ? { borderStyle: "dashed" } : {}}>
               <div style={{ position: "absolute", top: 34, left: 36, fontFamily: F.etiqueta, fontSize: 24, letterSpacing: 4, color: p.suave }}>{(h.arriba || "").toUpperCase()}</div>
-              <div style={{ position: "absolute", top: 70, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: Math.min(120, 700 / Math.max(3, String(h.fecha).length)), color }}>{h.fecha}</div>
-              <div style={{ position: "absolute", top: 230, left: 30, right: 30, textAlign: "center", fontFamily: F.etiqueta, fontSize: 32, color: p.texto, lineHeight: 1.2 }}>{h.texto}</div>
+              <div style={{ position: "absolute", top: 70, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: ajustar(String(h.fecha), FN.cifra, 400, 110), color }}>{h.fecha}</div>
+              <div style={{ position: "absolute", top: 230, left: 30, right: 30, textAlign: "center", fontFamily: F.etiqueta, fontSize: ajustar(String(h.texto || ""), FN.etiqueta, 400, 34, 2), color: p.texto, lineHeight: 1.2 }}>{h.texto}</div>
               <div style={{ position: "absolute", bottom: 34, left: 50, right: 50, height: 6, borderRadius: 3, background: conAlfa("#fff", 0.15) }}>
                 <div style={{ width: `${prog(f, ini + 6, 20) * 100}%`, height: "100%", borderRadius: 3, background: color }} />
               </div>
@@ -145,7 +145,7 @@ export const Pila: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
   const actual = Math.min(tarjetas.length - 1, Math.floor(f / tramo));
   return (
     <div style={{ position: "absolute", inset: 0 }}>
-      {d.titulo && <div style={{ position: "absolute", top: 200, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: 70, color: p.texto, letterSpacing: 8 }}>{String(d.titulo).toUpperCase()}</div>}
+      {d.titulo && <div style={{ position: "absolute", top: 200, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: ajustar(String(d.titulo), FN.cifra, 960, 70, 1, 8, true), color: p.texto, letterSpacing: 8 }}>{String(d.titulo).toUpperCase()}</div>}
       {tarjetas.map((t, i) => {
         if (i > actual) return null;
         const m = muelle(f, i * tramo, fps, 0.9);
@@ -159,8 +159,8 @@ export const Pila: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
               {t.src && <Img src={fuenteImg(t.src)} style={{ position: "absolute", left: 0, top: 0, width: 300, height: "100%", objectFit: "cover" }} />}
               <div style={{ position: "absolute", left: t.src ? 330 : 50, right: 40, top: 0, bottom: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 {t.arriba && <div style={{ fontFamily: F.etiqueta, fontSize: 26, letterSpacing: 4, color: p.suave }}>{t.arriba.toUpperCase()}</div>}
-                <div style={{ fontFamily: F.cifra, fontSize: 64, color: t.color === "peligro" ? p.peligro : p.texto, lineHeight: 1.05 }}>{t.titulo}</div>
-                {t.sub && <div style={{ fontFamily: F.texto, fontSize: 32, color: p.suave, marginTop: 10 }}>{t.sub}</div>}
+                <div style={{ fontFamily: F.cifra, fontSize: ajustar(String(t.titulo || ""), FN.cifra, t.src ? 420 : 700, 64, 2), color: t.color === "peligro" ? p.peligro : p.texto, lineHeight: 1.05 }}>{t.titulo}</div>
+                {t.sub && <div style={{ fontFamily: F.texto, fontSize: ajustar(String(t.sub), FN.texto, t.src ? 420 : 700, 32, 2), color: p.suave, marginTop: 10 }}>{t.sub}</div>}
               </div>
             </Cristal>
           </div>
@@ -191,7 +191,7 @@ export const Prensa: React.FC<PropsEscena> = ({ d, f, fps }) => {
           <span style={{ fontFamily: F.prensa, fontSize: 40, color: "#111" }}>{d.medio || "Noticias"}</span>
           <span style={{ fontFamily: F.etiqueta, fontSize: 26, color: "#555", alignSelf: "flex-end" }}>{d.fecha || ""}</span>
         </div>
-        <div style={{ fontFamily: F.prensa, fontSize: 74, lineHeight: 1.08, color: "#111" }}>
+        <div style={{ fontFamily: F.prensa, fontSize: ajustar(titular, FN.prensa, 780, 74, 4), lineHeight: 1.08, color: "#111" }}>
           {i >= 0 ? (<>
             {titular.slice(0, i)}
             <span style={{ position: "relative", whiteSpace: "pre-wrap" }}>
@@ -201,7 +201,7 @@ export const Prensa: React.FC<PropsEscena> = ({ d, f, fps }) => {
             {titular.slice(i + clave.length)}
           </>) : titular}
         </div>
-        {d.entradilla && <div style={{ fontFamily: F.texto, fontSize: 34, color: "#444", marginTop: 24, lineHeight: 1.3 }}>{d.entradilla}</div>}
+        {d.entradilla && <div style={{ fontFamily: F.texto, fontSize: ajustar(d.entradilla, FN.texto, 780, 34, 3), color: "#444", marginTop: 24, lineHeight: 1.3 }}>{d.entradilla}</div>}
       </div>
       {d.pastilla && <div style={{ position: "absolute", top: 220, left: 90 }}><Pastilla texto={d.pastilla} f={f} ini={8} /></div>}
     </div>

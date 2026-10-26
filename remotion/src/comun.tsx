@@ -1,5 +1,6 @@
 import React from "react";
 import { continueRender, delayRender, Easing, interpolate, random, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { fitText, fitTextOnNLines } from "@remotion/layout-utils";
 import { Paleta } from "./tipos";
 
 export const W = 1080;
@@ -17,6 +18,24 @@ export const F = {
   prensa: "Fraunces, serif",
 };
 
+/** Nombres de familia sin alternativas (para medir texto) */
+export const FN = { impacto: "Anton", cifra: "InterXB", negrita: "InterB", etiqueta: "GroteskB", texto: "GroteskM", prensa: "Fraunces" };
+
+/** Tamaño de letra para que `texto` quepa en `ancho` px (en `lineas` líneas), sin pasar de `max` */
+export const ajustar = (texto: string, familia: string, ancho: number, max: number, lineas = 1, espaciado = 0, mayus = false): number => {
+  const t = String(texto || "").trim();
+  if (!t) return max;
+  try {
+    const extra: any = { letterSpacing: espaciado ? `${espaciado}px` : undefined, textTransform: mayus ? "uppercase" : undefined };
+    const r = lineas > 1
+      ? fitTextOnNLines({ text: t, maxLines: lineas, maxBoxWidth: ancho, fontFamily: familia, maxFontSize: max, ...extra })
+      : fitText({ text: t, withinWidth: ancho, fontFamily: familia, ...extra });
+    return Math.max(10, Math.min(max, Math.floor(r.fontSize * 0.97)));
+  } catch (e) {
+    return Math.min(max, (ancho / Math.max(1, t.length)) * 1.6 * lineas);
+  }
+};
+
 const FUENTES: [string, string][] = [
   ["Anton", "fuentes/Anton.ttf"],
   ["InterXB", "fuentes/Inter-ExtraBold.ttf"],
@@ -27,10 +46,12 @@ const FUENTES: [string, string][] = [
 ];
 
 let cargadas = false;
+/** Carga las fuentes; devuelve true cuando están listas (hasta entonces no se dibuja nada, para medir bien) */
 export const useFuentes = () => {
   const [handle] = React.useState(() => (cargadas ? null : delayRender("fuentes")));
+  const [listas, setListas] = React.useState(cargadas);
   React.useEffect(() => {
-    if (cargadas || handle === null) return;
+    if (cargadas || handle === null) { setListas(true); return; }
     Promise.all(
       FUENTES.map(([n, f]) => {
         const ff = new FontFace(n, `url(${staticFile(f)})`);
@@ -38,9 +59,11 @@ export const useFuentes = () => {
       })
     ).then(() => {
       cargadas = true;
+      setListas(true);
       continueRender(handle);
     });
   }, [handle]);
+  return listas;
 };
 
 export const clamp = (x: number) => Math.max(0, Math.min(1, x));
@@ -68,6 +91,7 @@ export const Pastilla: React.FC<{ texto: string; color?: string; f: number; ini?
   const p = usePaleta();
   const c = color || p.acento2;
   const a = prog(f, ini, 9, salida);
+  tam = Math.min(tam, ajustar(texto, FN.etiqueta, 820, tam, 1, 2, true));
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: tam * 0.45, padding: `${tam * 0.35}px ${tam * 0.8}px`,

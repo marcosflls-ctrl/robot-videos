@@ -40,5 +40,6 @@ export type Guion = {
   fondo: "particulas" | "rejilla" | "humo";
   subtitulos: "volteo" | "pop" | "caja" | "deslizar";
   marca?: string;
+  fondos?: string[]; // imágenes que se turnan de fondo en las escenas que no traen el suyo
   escenas: Escena[];
 };

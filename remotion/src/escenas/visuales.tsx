@@ -1,6 +1,6 @@
 import React from "react";
 import { Img, random, staticFile } from "remotion";
-import { conAlfa, Cristal, F, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
+import { ajustar, conAlfa, Cristal, F, FN, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
 import { PropsEscena } from "./basicas";
 
 /** «objeto:ps5» -> biblioteca de recortes; «http...» tal cual; si no, un archivo de public/ */
@@ -44,8 +44,8 @@ export const Objeto: React.FC<PropsEscena> = ({ d, f, fps }) => {
       {aura === "escudo" && pa > 0 && <Escudo f={f - ta} p={pa} cx={540} cy={640} rx={420} ry={alto / 2 + 90} />}
       {d.etiqueta && (
         <div style={{
-          position: "absolute", top: 640 + alto / 2 + 70, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: 104,
-          color: p.texto, letterSpacing: 16 + 26 * (1 - prog(f, 10, 18, salida)), opacity: prog(f, 10, 10),
+          position: "absolute", top: 640 + alto / 2 + 70, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: ajustar(String(d.etiqueta), FN.cifra, 960, 104, 1, 16, true),
+          color: p.texto, letterSpacing: 16 + 8 * (1 - prog(f, 10, 18, salida)), opacity: prog(f, 10, 10),
           textShadow: `0 0 40px ${conAlfa(p.acento2, 0.6)}`,
         }}>{String(d.etiqueta).toUpperCase()}</div>
       )}
@@ -122,7 +122,7 @@ export const Imagen: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
         {marco === "polaroid" ? (
           <div style={{ width: "100%", height: "100%", background: "#f4efe6", padding: "34px 34px 140px", boxSizing: "border-box", boxShadow: "0 40px 80px rgba(0,0,0,0.6)" }}>
             <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            {d.etiqueta && <div style={{ fontFamily: F.impacto, fontSize: 64, color: "#222", textAlign: "center", marginTop: 26 }}>{d.etiqueta}</div>}
+            {d.etiqueta && <div style={{ fontFamily: F.impacto, fontSize: ajustar(d.etiqueta, FN.impacto, ancho - 80, 64), color: "#222", textAlign: "center", marginTop: 26 }}>{d.etiqueta}</div>}
           </div>
         ) : (
           <div style={{ width: "100%", height: "100%", borderRadius: 34, overflow: "hidden", border: `3px solid ${conAlfa("#fff", 0.8)}`, boxShadow: `0 0 60px ${conAlfa(p.acento2, 0.45)}, 0 40px 80px rgba(0,0,0,0.6)`, position: "relative" }}>
@@ -141,8 +141,8 @@ export const Imagen: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
 const EtiquetaGrande: React.FC<{ texto: string; f: number; top: number }> = ({ texto, f, top }) => {
   const p = usePaleta();
   return <div style={{
-    position: "absolute", top, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: 96, color: p.texto,
-    letterSpacing: 14 + 24 * (1 - prog(f, 8, 16, salida)), opacity: prog(f, 8, 10), textShadow: `0 0 40px ${conAlfa(p.acento2, 0.6)}, 0 4px 0 rgba(0,0,0,0.4)`,
+    position: "absolute", top, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: ajustar(texto, FN.cifra, 960, 96, 1, 14, true), color: p.texto,
+    letterSpacing: 14 + 8 * (1 - prog(f, 8, 16, salida)), opacity: prog(f, 8, 10), textShadow: `0 0 40px ${conAlfa(p.acento2, 0.6)}, 0 4px 0 rgba(0,0,0,0.4)`,
   }}>{texto.toUpperCase()}</div>;
 };
 
@@ -219,7 +219,7 @@ export const Orbita: React.FC<PropsEscena> = ({ d, f, fps }) => {
       <div style={{ position: "absolute", left: 0, right: 0, top: cy - 230, height: 460, display: "flex", justifyContent: "center", alignItems: "center", zIndex: 2, transform: `scale(${0.6 + 0.4 * m})` }}>
         {d.centro && String(d.centro).match(/\.(png|jpe?g|webp)$|^objeto:/)
           ? <Img src={fuenteImg(d.centro)} style={{ height: 460, objectFit: "contain", filter: `drop-shadow(0 0 30px ${conAlfa(p.acento2, 0.6)})` }} />
-          : <div style={{ fontFamily: F.cifra, fontSize: 120, color: p.texto, textShadow: `0 0 40px ${p.acento2}` }}>{String(d.centro || "").toUpperCase()}</div>}
+          : <div style={{ fontFamily: F.cifra, fontSize: ajustar(String(d.centro || ""), FN.cifra, 560, 120, 1, 0, true), color: p.texto, textShadow: `0 0 40px ${p.acento2}` }}>{String(d.centro || "").toUpperCase()}</div>}
       </div>
       {items.filter((it) => it.z > 0).map(sat)}
       {d.etiqueta && <EtiquetaGrande texto={d.etiqueta} f={f} top={1000} />}

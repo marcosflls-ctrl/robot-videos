@@ -1,6 +1,6 @@
 import React from "react";
 import { random } from "remotion";
-import { conAlfa, Cristal, F, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
+import { ajustar, conAlfa, Cristal, F, FN, muelle, Pastilla, prog, salida, usePaleta } from "../comun";
 
 export type PropsEscena = { d: any; f: number; dur: number; fps: number };
 
@@ -17,7 +17,9 @@ export const Cifra: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
   const anillo = prog(f, 2, fps * 1.1, salida);
   const color = d.color === "peligro" ? p.peligro : d.color === "acento2" ? p.acento2 : p.texto;
   const variante = d.variante || "anillo";
-  const tam = Math.min(330, 1500 / Math.max(2.4, String(texto).length + (d.sufijo || "").length * 0.5));
+  const final = d.texto ?? valor.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  const tam = ajustar(`${d.prefijo || ""}${final}${d.sufijo || ""}`, FN.cifra, variante === "tarjeta" ? 640 : 900, 330);
+  const tamEt = ajustar(String(d.etiqueta || ""), FN.etiqueta, variante === "tarjeta" ? 640 : 960, 40, 1, 8, true);
   const nucleo = (
     <div style={{ textAlign: "center" }}>
       {d.arriba && <div style={{ fontFamily: F.etiqueta, fontSize: 34, letterSpacing: 8, color: p.suave, textTransform: "uppercase", marginBottom: 10 }}>{d.arriba}</div>}
@@ -25,7 +27,7 @@ export const Cifra: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
         <span style={{ fontSize: tam * 0.55 }}>{d.prefijo || ""}</span>{texto}<span style={{ fontSize: tam * 0.45 }}>{d.sufijo || ""}</span>
       </div>
       {d.etiqueta && <div style={{
-        fontFamily: F.etiqueta, fontSize: 40, letterSpacing: 6 + 10 * (1 - prog(f, 6, 18, salida)), color: p.texto,
+        fontFamily: F.etiqueta, fontSize: tamEt, letterSpacing: 6 + 2 * (1 - prog(f, 6, 18, salida)), color: p.texto,
         textTransform: "uppercase", marginTop: 26, opacity: prog(f, 6, 12),
       }}>{d.etiqueta}</div>}
     </div>
@@ -62,7 +64,8 @@ export const Titular: React.FC<PropsEscena> = ({ d, f, fps }) => {
   const clave = new Set(String(d.resaltar || "").toUpperCase().split(/\s+/).filter(Boolean));
   const variante = d.variante || "letras3d";
   const palabras = texto.split(/\s+/);
-  const tam = d.tam || Math.min(190, 2100 / Math.max(6, Math.max(...palabras.map((w) => w.length)) * 1.9));
+  const larga = palabras.reduce((a, b) => (b.length > a.length ? b : a), "");
+  const tam = d.tam || ajustar(larga, variante === "letras3d" ? FN.cifra : FN.impacto, 900, 190, 1, variante === "letras3d" ? 12 : 0, true) / (variante === "letras3d" ? 1 : variante === "bloques" ? 1.15 : 1.3);
   if (variante === "letras3d") {
     let k = 0;
     return (
@@ -80,7 +83,7 @@ export const Titular: React.FC<PropsEscena> = ({ d, f, fps }) => {
             })}
           </div>
         ))}
-        {d.sub && <div style={{ width: "100%", textAlign: "center", fontFamily: F.etiqueta, fontSize: 40, letterSpacing: 6, color: p.suave, marginTop: 30, opacity: prog(f, 18, 12) }}>{d.sub.toUpperCase()}</div>}
+        {d.sub && <div style={{ width: "100%", textAlign: "center", fontFamily: F.etiqueta, fontSize: ajustar(d.sub, FN.etiqueta, 940, 40, 1, 6, true), letterSpacing: 6, color: p.suave, marginTop: 30, opacity: prog(f, 18, 12) }}>{d.sub.toUpperCase()}</div>}
       </div>
     );
   }
@@ -157,7 +160,7 @@ export const Alerta: React.FC<PropsEscena> = ({ d, f, fps }) => {
         </svg>
       </div>
       {d.texto && <div style={{
-        position: "absolute", top: 930, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: 110, color: c,
+        position: "absolute", top: 930, left: 0, right: 0, textAlign: "center", fontFamily: F.cifra, fontSize: ajustar(String(d.texto || ""), FN.cifra, 900, 110, 1, 12, true), color: c,
         letterSpacing: 12 + 20 * (1 - prog(f, golpe, 14, salida)), opacity: prog(f, golpe, 8), textShadow: `0 0 40px ${conAlfa(c, 0.6)}`,
       }}>{String(d.texto).toUpperCase()}</div>}
       {d.pastilla && <div style={{ position: "absolute", top: 1100, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
@@ -171,6 +174,7 @@ export const Alerta: React.FC<PropsEscena> = ({ d, f, fps }) => {
 export const Pregunta: React.FC<PropsEscena> = ({ d, f, fps }) => {
   const p = usePaleta();
   const palabras = String(d.pregunta || "").split(/\s+/);
+  const tamP = ajustar(String(d.pregunta || ""), FN.impacto, 900, 130, 3);
   const c = prog(f, fps * 0.7, 14, salida);
   const comentario = String(d.comentario || "");
   const escrito = comentario.slice(0, Math.floor(comentario.length * prog(f, fps * 1.0, fps * 0.9, (x) => x)));
@@ -179,14 +183,14 @@ export const Pregunta: React.FC<PropsEscena> = ({ d, f, fps }) => {
       <div style={{ position: "absolute", top: 520, left: 60, right: 60, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 26px" }}>
         {palabras.map((w, i) => {
           const m = muelle(f, i * 3, fps, 1.2);
-          return <span key={i} style={{ fontFamily: F.impacto, fontSize: 130, lineHeight: 1.05, color: i === palabras.length - 1 ? p.acento : p.texto, display: "inline-block", transform: `scale(${Math.max(0, m)})`, textShadow: `0 6px 0 ${conAlfa("#000", 0.35)}` }}>{w}</span>;
+          return <span key={i} style={{ fontFamily: F.impacto, fontSize: tamP, lineHeight: 1.05, color: i === palabras.length - 1 ? p.acento : p.texto, display: "inline-block", transform: `scale(${Math.max(0, m)})`, textShadow: `0 6px 0 ${conAlfa("#000", 0.35)}` }}>{w}</span>;
         })}
       </div>
       <div style={{ position: "absolute", top: 1020, left: 90, right: 90, transform: `translateY(${(1 - c) * 120}px)`, opacity: c }}>
         <Cristal ancho={900} alto={250} color={p.acento2}>
           <div style={{ position: "absolute", left: 36, top: 36, width: 76, height: 76, borderRadius: 99, background: `linear-gradient(135deg, ${p.acento2}, ${p.acento3})`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.impacto, fontSize: 34, color: "#fff" }}>{d.iniciales || "ZL"}</div>
           <div style={{ position: "absolute", left: 136, top: 38, fontFamily: F.etiqueta, fontSize: 30, color: p.acento }}>{d.marca || "Zona Leonida"} · fijado</div>
-          <div style={{ position: "absolute", left: 136, top: 84, right: 30, fontFamily: F.negrita, fontSize: 40, color: p.texto }}>{escrito}<span style={{ opacity: Math.floor(f / 8) % 2 }}>|</span></div>
+          <div style={{ position: "absolute", left: 136, top: 84, right: 30, fontFamily: F.negrita, fontSize: ajustar(comentario, FN.negrita, 700, 40, 1), color: p.texto }}>{escrito}<span style={{ opacity: Math.floor(f / 8) % 2 }}>|</span></div>
           <div style={{ position: "absolute", right: 36, bottom: 30, padding: "12px 34px", borderRadius: 99, background: p.peligro, fontFamily: F.etiqueta, fontSize: 30, color: "#fff", transform: `scale(${1 + 0.05 * Math.sin(f / 5)})` }}>COMENTAR</div>
         </Cristal>
       </div>
