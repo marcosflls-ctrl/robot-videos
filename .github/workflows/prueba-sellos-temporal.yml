@@ -1,4 +1,4 @@
-# TEMPORAL: prueba del corte por frases de la voz (se borra al acabar).
+# TEMPORAL: demo del estilo lienzo v2 con fotos libres de Commons (se borra al acabar).
 name: Prueba sellos (temporal)
 on:
   push:
@@ -8,29 +8,29 @@ permissions:
 jobs:
   prueba:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: sudo apt-get install -y -qq espeak-ng >/dev/null
-      - run: pip install --quiet numpy soundfile num2words pyyaml faster-whisper
-      - name: Probar el corte
-        working-directory: scripts
+      - name: ffmpeg
         run: |
-          mkdir -p salida
-          echo "== base" | tee salida/registro.txt
-          python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
-          echo "== otra semilla" | tee -a salida/registro.txt
-          SEMILLA=7 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
-          echo "== semilla 3" | tee -a salida/registro.txt
-          SEMILLA=3 python prueba_tandas.py 2>&1 | grep -v Warning | tee -a salida/registro.txt
-
+          pip install --quiet imageio-ffmpeg
+          sudo ln -sf "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+      - run: pip install --quiet numpy pillow soundfile pyyaml "rembg[cpu]"
+      - name: Montar la demo
+        working-directory: scripts
+        run: mkdir -p salida; python demo_lienzo2.py 2>&1 | tee salida/registro.txt
       - name: Guardar el resultado en la rama de prueba
         if: always()
         run: |
           mkdir -p resultado
-          cp scripts/salida/registro.txt resultado/ 2>/dev/null || true
+          rm -f resultado/*
+          cp scripts/salida/registro.txt scripts/salida/recorte_*.png resultado/ 2>/dev/null || true
+          if [ -f scripts/salida/demo_lienzo2.mp4 ]; then
+            cp scripts/salida/demo_lienzo2.mp4 resultado/
+            ffmpeg -v error -y -i scripts/salida/demo_lienzo2.mp4 -vf "fps=1.2,scale=270:-1,tile=8x5" -frames:v 1 resultado/hoja.png
+          fi
           git config user.name "robot" && git config user.email "robot@users.noreply.github.com"
           git add -f resultado && git commit -qm "Resultado de la prueba" && git push -q origin HEAD:prueba-sellos
