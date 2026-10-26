@@ -1,50 +1,16 @@
-== base
-  (no se reconocen las palabras alrededor del final de la frase 1)
-0 NONE
-  (no se reconocen las palabras alrededor del final de la frase 2)
-6 NONE
-  (solo se reconoció el 55 % de las palabras)
-12 NONE
-  (no se reconocen las palabras alrededor del final de la frase 3)
-30 NONE
-  (solo se reconoció el 54 % de las palabras)
-48 NONE
-cortes bien 34 · mal 0 · tandas sin cortar 5 · 39 s
-== otra semilla
-0 corte fuera 6.23 hueco 6.75 7.2
-   frases: ['En mayo de dos mil seis, unos trescientos cincuenta mil españoles descubrieron que habían metido sus ahorros en sellos.', 'Millones de sellos guardados en almacenes. Sellos que, según los jueces, valían solo una pequeña parte del dinero que habían entregado.', 'Les habían prometido un interés fijo, mejor que el del banco, y que siempre podrían recuperar su dinero.', 'Esta es la historia de Fórum Filatélico y Afinsa: la mayor estafa piramidal de la historia de España.', 'Para entender esta historia hay que volver a finales de los años setenta. En mil novecientos setenta y nueve nace en Madrid Fórum Filatélico.', 'Un año después, un empresario portugués afincado en España, Albertino de Figueiredo, funda Afinsa.']
-   oídas: [('les', 3.82, 4.08), ('cubieron', 4.08, 4.52), ('que', 4.52, 4.74), ('habian', 4.74, 5.04), ('metido', 5.04, 5.4), ('sus', 5.4, 5.66), ('aores', 5.66, 5.98), ('ensenos', 5.98, 6.68), ('millones', 7.12, 7.62), ('ensenos', 7.62, 8.3), ('guardados', 8.3, 9.0), ('en', 9.0, 9.24)]
-   silencios: [(3.82, 3.98), (4.03, 4.17), (4.23, 4.33), (4.55, 4.71), (5.02, 5.14), (5.19, 5.26), (5.34, 5.41), (5.46, 5.57), (5.63, 5.73), (5.88, 5.96), (6.0, 6.1), (6.15, 6.31), (6.48, 6.58), (6.64, 7.26), (7.65, 7.81), (7.88, 7.99), (8.13, 8.22), (8.28, 8.51), (8.6, 8.77), (8.87, 8.95), (9.01, 9.12)]
-  (no se reconocen las palabras alrededor del final de la frase 2)
-6 NONE
-  (solo se reconoció el 47 % de las palabras)
-12 NONE
-  (solo se reconoció el 59 % de las palabras)
-30 NONE
-  (solo se reconoció el 58 % de las palabras)
-36 NONE
-  (solo se reconoció el 53 % de las palabras)
-48 NONE
-  (solo se reconoció el 59 % de las palabras)
-54 NONE
-  (no se reconocen las palabras alrededor del final de la frase 4)
-60 NONE
-cortes bien 23 · mal 1 · tandas sin cortar 7 · 33 s
-== semilla 3
-  (no se reconocen las palabras alrededor del final de la frase 1)
-0 NONE
-  (no se reconocen las palabras alrededor del final de la frase 2)
-6 NONE
-  (solo se reconoció el 53 % de las palabras)
-12 NONE
-  (solo se reconoció el 58 % de las palabras)
-30 NONE
-  (no se reconocen las palabras alrededor del final de la frase 2)
-42 NONE
-48 corte fuera 16.87 hueco 17.94 18.33
-   frases: ['¿Y los sellos? En dos mil ocho, el juez rebajó el valor de los sellos de Fórum de mil trescientos ochenta millones de euros a doscientos ochenta y tres.', 'Solo en los almacenes de Afinsa había ciento cincuenta millones de sellos.', 'Para muchas familias, aquello era el dinero de toda una vida.', 'La justicia fue lenta. El sumario de Afinsa ocupó casi sesenta mil folios.', 'El caso se juzgó en la Audiencia Nacional, en Madrid.', 'En julio de dos mil dieciséis llegó la sentencia de Afinsa. Once directivos condenados por estafa agravada, insolvencia punible, falseamiento de cuentas, blanqueo y delito fiscal.']
-   oídas: [('aquello', 15.64, 16.06), ('era', 16.06, 16.3), ('el', 16.3, 16.46), ('dinero', 16.46, 16.76), ('de', 16.76, 16.98), ('tona', 16.98, 17.34), ('de', 17.34, 17.44), ('mina', 17.44, 17.88), ('la', 18.32, 18.44), ('justicia', 18.44, 18.94), ('fue', 18.94, 19.2), ('lenta', 19.2, 19.6), ('el', 19.94, 20.1), ('sumario', 20.1, 20.5)]
-   silencios: [(15.14, 15.23), (15.28, 15.63), (15.69, 15.8), (15.94, 16.02), (16.36, 16.53), (16.82, 16.92), (16.98, 17.08), (17.18, 17.25), (17.52, 17.61), (17.76, 17.85), (17.92, 18.38), (18.43, 18.55), (18.6, 18.74), (18.82, 18.95), (19.0, 19.13), (19.45, 19.56), (19.62, 19.95), (20.0, 20.18)]
-  (no se reconocen las palabras alrededor del final de la frase 5)
-60 NONE
-cortes bien 28 · mal 1 · tandas sin cortar 6 · 36 s
+[0;93m2026-10-26 18:48:11.895107319 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+Downloading data from 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx' to file '/home/runner/.rembg/models/isnet-general-use/isnet-general-use.onnx'.
+  0%|                                               | 0.00/179M [00:00<?, ?B/s]  4%|█▍                                    | 6.68M/179M [00:00<00:02, 66.8MB/s] 11%|████▍                                  | 20.4M/179M [00:00<00:01, 108MB/s] 19%|███████▍                               | 34.2M/179M [00:00<00:01, 122MB/s] 27%|██████████▍                            | 48.0M/179M [00:00<00:01, 128MB/s] 35%|█████████████▍                         | 61.8M/179M [00:00<00:00, 132MB/s] 42%|████████████████▌                      | 75.6M/179M [00:00<00:00, 134MB/s] 50%|███████████████████▌                   | 89.4M/179M [00:00<00:00, 135MB/s] 58%|███████████████████████                 | 103M/179M [00:00<00:00, 136MB/s] 66%|██████████████████████████▏             | 117M/179M [00:00<00:00, 137MB/s] 73%|█████████████████████████████▎          | 131M/179M [00:01<00:00, 137MB/s] 81%|████████████████████████████████▍       | 145M/179M [00:01<00:00, 138MB/s] 89%|███████████████████████████████████▌    | 159M/179M [00:01<00:00, 138MB/s] 97%|██████████████████████████████████████▋ | 173M/179M [00:01<00:00, 138MB/s]  0%|                                               | 0.00/179M [00:00<?, ?B/s]100%|███████████████████████████████████████| 179M/179M [00:00<00:00, 1.11TB/s]
+  Commons: «Ocean Drive Miami Beach night neon» -> File:Boulevard Hotel (Neon sign), Miami Beach.jpg (Public domain, Photograph: Radomianin)
+foto: Ocean Drive Miami Beach night neon -> Photograph: Radomianin · Public domain · Wikimedia Commons
+  Commons: «Miami Beach aerial view» -> File:Miami Beach - Aerial view of Miami Beach.jpg (Public domain, Curt Teich & Co., Chicago (publisher))
+foto: Miami Beach aerial view -> Curt Teich & Co., Chicago (publisher) · Public domain · Wikimedia Commons
+  Commons: «Miami palm trees sunset» -> File:The sunset from Key Biscayne off the causeway with the shore and water in the foreground with coconut trees and the Miami, FL skyline and storm clouds to the west lit up by the setting sun 2014-04-25.jpg (CC BY-SA 3.0, Barry haynes)
+foto: Miami palm trees sunset -> Barry haynes · CC BY-SA 3.0 · Wikimedia Commons
+::warning::No hay imagen libre en Commons para «Miami Beach classic car Ocean Drive»
+foto: Miami Beach classic car Ocean Drive -> 
+  Commons: «PlayStation 5 console» -> File:Sony-PlayStation-3-2001A-wController-L.jpg (Public domain, Evan-Amos)
+recorte: PlayStation 5 console -> Evan-Amos · Public domain · Wikimedia Commons
+  Commons: «Xbox Series X console» -> File:Xbox Series X 2.jpg (CC BY-SA 4.0, Der. Bellemer)
+recorte: Xbox Series X console -> Der. Bellemer · CC BY-SA 4.0 · Wikimedia Commons
+ok 29.9
