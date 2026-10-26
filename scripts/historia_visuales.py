@@ -711,7 +711,7 @@ class Foto(Pieza):
             partes.append(("kicker", str(d["kicker"]).upper(), ctx.f("txt_b", 28), 28))
         arriba = bool(d.get("encajar") and ctx.vertical and self.diseno == "completa")
         if d.get("texto"):
-            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 84 if arriba else (92 if self.diseno != "completa" else 96),
+            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 72 if arriba else (92 if self.diseno != "completa" else 96),
                                      ancho, 3 if arriba else 4, 40)
             partes.append(("tit", ls, f, tam))
         if d.get("sub"):
@@ -723,7 +723,8 @@ class Foto(Pieza):
         if y is None and arriba:
             # Short con el dibujo entero: el título va arriba, por encima del dibujo, bien lejos
             # de los subtítulos de la narración, que van abajo
-            y = max(150, 470 - alto)
+            # (y por debajo del título del capítulo, que el Short pone arriba del todo)
+            y = max(250, 545 - alto)
         if y is None:
             if self.diseno == "completa":  # abajo, pero por encima de los subtítulos en los Shorts
                 y = (ctx.abajo - 40 - alto) if ctx.vertical else (self.H * 0.82 - alto)

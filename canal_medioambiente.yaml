@@ -1,0 +1,72 @@
+# Identidad del canal de ciencias medioambientales (estilo «cuaderno de expedición»).
+# Un guion usa este canal si lleva la línea:  canal: medioambiente
+# Cambiar una línea aquí cambia todos los vídeos del canal.
+
+# Nombre provisional: se cambia aquí cuando elijas el definitivo.
+marca: "BITÁCORA DE LA TIERRA"
+lema: "Ciencia del planeta, con datos y sin ruido"
+
+# Voz de narrador (Gemini). Distinta de Charon (historia) y Orus (misterios).
+voz: "Sulafat"
+estilo_voz: >-
+  Narradora de documental de ciencia en español de España: voz cálida, clara y segura, ritmo tranquilo,
+  con curiosidad sincera y pausas breves antes de los datos importantes. Explica como una buena profesora,
+  sin dramatizar, sin alarmismo y sin sonar a anuncio.
+
+# Velocidad de la voz: 1 = la de Gemini; 1.1 = un 10 % más rápida (entre 0.8 y 1.3).
+# Se aplica al montar sobre las voces guardadas: cambiarla no gasta cupo de Gemini.
+velocidad_voz: 1.1
+
+# Colores (rojo, verde, azul de 0 a 255): papel frío de cuaderno, tinta azul-verde y acento ámbar
+colores:
+  fondo: [226, 233, 228]       # papel verdoso (abajo del degradado)
+  fondo2: [243, 246, 241]      # papel claro (arriba)
+  panel: [208, 222, 214]       # cajas de los esquemas
+  linea: [146, 170, 160]       # rejillas y bordes
+  texto: [19, 41, 45]          # tinta azul-verde muy oscura
+  suave: [79, 101, 101]        # textos secundarios
+  acento: [16, 120, 112]       # verde azulado: color principal del canal
+  acento2: [205, 120, 24]      # ámbar: lo que hay que mirar
+  sombra_foto: [19, 41, 45]
+  luz_foto: [243, 246, 241]
+  sube: [46, 132, 82]
+  baja: [194, 74, 46]
+  cifra_texto: [243, 246, 241]  # número de la miniatura (sobre el verde azulado)
+
+# Fuentes (carpeta fuentes/, licencia libre SIL OFL): una sola familia, Bricolage Grotesque, de aire técnico
+fuentes:
+  tit: "BricolageGrotesque-ExtraBold.ttf"   # titulares y rótulos
+  tit2: "BricolageGrotesque-Bold.ttf"       # citas
+  txt: "BricolageGrotesque-Regular.ttf"     # textos
+  txt_b: "BricolageGrotesque-Bold.ttf"     # etiquetas
+  num: "BricolageGrotesque-ExtraBold.ttf"   # cifras
+
+# Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
+# Si dos escenas llevan exactamente la misma «escena», la imagen se paga una sola vez.
+ilustraciones:
+  modelo: "gemini-nano-banana-2.1"
+  tamano: "1K"
+  credito: "Ilustración"
+  estilo: >-
+    Lámina de cuaderno de expedición científica, como la de un naturalista: dibujo a plumilla con tinta
+    azul oscura de línea fina y precisa, sombreado con tramas de líneas, coloreado con acuarela fría y
+    luminosa (verde bosque, verde musgo, azul glaciar, azul marino, turquesa, gris piedra y algún toque
+    ámbar), sobre papel blanco roto con textura y bordes de la acuarela visibles. Paisajes, cielos, nubes,
+    hielo, ríos, volcanes, plantas y animales dibujados con el rigor de un atlas de ciencias, claros y fáciles
+    de entender de un vistazo. Si conviene, la escena se muestra en corte, como un bloque de terreno abierto
+    que deja ver el interior. Las personas, cuando aparecen, son figuras pequeñas de tinta sin rasgos, de
+    una sola mancha de color, que sirven para dar la escala; nunca se parecen a nadie real. Composición
+    horizontal amplia, con aire y un único elemento principal. Sin texto, sin letras, sin números, sin
+    flechas rotuladas, sin logotipos, sin banderas, sin marcas de agua.
+
+# La miniatura se hace con la ilustración en color
+miniatura_color: true
+
+# En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
+ilustracion_vertical: encajar
+
+subtitulos_largo: false
+subtitulos_shorts: true
+
+# Segundos de pantalla final del vídeo largo (YouTube pide entre 5 y 20 para poner otros vídeos)
+pantalla_final: 12

@@ -1,8 +1,28 @@
 # Guiones de los vídeos largos (historia económica y misterios)
 
-Esta carpeta sirve para los dos canales. Lo que cambia de uno a otro (nombre, voz, colores y estilo
-de las ilustraciones) está en `canal_historia.yaml` y `canal_misterios.yaml`. Un guion del canal de
-misterios lleva al principio la línea `canal: misterios`; sin esa línea, el robot usa el de historia.
+Esta carpeta sirve para los tres canales. Lo que cambia de uno a otro (nombre, voz, velocidad de la voz,
+colores, fuentes y estilo de las ilustraciones) está en su archivo `canal_<nombre>.yaml`:
+
+| Canal | Archivo | Línea en el guion | Aspecto |
+|---|---|---|---|
+| Historia económica | `canal_historia.yaml` | (ninguna) | fondo oscuro, Fraunces y Space Grotesk, voz Charon |
+| Misterios (Casos a trazos) | `canal_misterios.yaml` | `canal: misterios` | papel sepia, letra rotulada a mano, muñecos de palo, voz Orus |
+| Ciencias medioambientales (Bitácora de la Tierra) | `canal_medioambiente.yaml` | `canal: medioambiente` | papel frío de cuaderno, Bricolage Grotesque, láminas de naturalista, voz Sulafat |
+
+Sin la línea `canal:`, el robot usa el de historia. `prueba_medioambiente.yaml` es una prueba del aspecto
+del canal de medio ambiente: no es para publicar.
+
+### Canal de ciencias medioambientales
+
+- Cada vídeo explica un **fenómeno** a fondo usando un **caso real** como hilo (temario: Geología, Riesgos
+  naturales, Residuos sólidos y Economía del medio ambiente). Secciones que se turnan: *El suceso*,
+  *Cómo funciona* y *El debate, con datos*.
+- Fuentes de primera mano (IGN, AEMET, Copernicus, IPCC, NASA, NOAA, artículos revisados). La prensa solo
+  para hechos que no publica ningún organismo, y siempre citada.
+- Los debates se cuentan con sus dos posturas, sin alarmismo y sin consignas.
+- Las fuentes del canal no tienen subíndices: escribe `CO2`, no `CO₂` (saldría un cuadrado).
+- Las ilustraciones son láminas de naturalista: cortes del terreno, paisajes y figuras humanas diminutas
+  sin rasgos, solo para dar la escala.
 
 En el canal de misterios casi todas las imágenes son `ilustracion` (muñecos de palo con fondos de
 acuarela). Para gastar menos, repite fondos: si dos escenas tienen exactamente la misma `escena`,
@@ -85,6 +105,12 @@ Cuanto más concreta sea la `escena` (época, ropa, edificios, luz), mejor sale.
 y se guardan: si no cambias la descripción, no se vuelven a pagar. El estilo común está en `canal_historia.yaml`.
 
 Colores que se pueden usar: `acento` (rojo anaranjado), `acento2` (dorado), `texto`, `suave`, `sube`, `baja`.
+
+### Velocidad de la voz
+
+En el archivo del canal, `velocidad_voz: 1.1` hace la voz un 10 % más rápida (de 0.8 a 1.3). Se aplica al
+montar, sobre las voces ya guardadas: cambiarla no gasta cupo de Gemini ni cambia el tono. Para probar otra
+velocidad sin tocar el archivo, elige «Velocidad de la voz» al lanzar el robot.
 
 ## Reglas del canal
 

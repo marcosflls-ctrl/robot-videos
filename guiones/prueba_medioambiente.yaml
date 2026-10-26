@@ -1,0 +1,122 @@
+# Prueba del aspecto del canal de ciencias medioambientales. NO es para publicar.
+# Sirve para ver cada tipo de escena con los colores, fuentes y estilo de dibujo del canal,
+# y para oír la voz. Gasta 4 ilustraciones (unos céntimos) y unas pocas peticiones de voz.
+
+canal: medioambiente
+
+titulo: "Prueba del canal de ciencias medioambientales"
+descripcion: "Vídeo de prueba del aspecto del canal. No es para publicar."
+hashtags: "#prueba"
+
+miniatura:
+  texto: "El verano que no llegó"
+  resaltar: "no llegó"
+  cifra: "1816"
+  escena: &volcan >-
+    Un gran volcán tropical en plena erupción en 1815, visto desde el mar al atardecer: una columna de
+    ceniza altísima que sube hasta la estratosfera y se abre en forma de paraguas; abajo, una costa con
+    palmeras y un pequeño velero de madera que da la escala.
+
+fuentes:
+  - id: 1
+    corta: "AEMET (2024)"
+    cita: "AEMET (2024). Informe sobre el episodio de DANA del 29 de octubre de 2024."
+    url: "https://repositorio.aemet.es/bitstream/20.500.11765/16360/1/informe_episodio_dana_29_oct_2024_.pdf"
+  - id: 2
+    corta: "WMO/UNEP (2022)"
+    cita: "WMO/UNEP (2022). Scientific Assessment of Ozone Depletion: 2022. Executive Summary."
+    url: "https://csl.noaa.gov/assessments/ozone/2022/executivesummary/"
+  - id: 3
+    corta: "Raible et al. (2016)"
+    cita: "Raible, C. C. et al. (2016). Tambora 1815 as a test case for high impact volcanic eruptions: Earth system effects. WIREs Climate Change."
+    url: "https://doi.org/10.1002/wcc.407"
+
+gancho:
+  - voz: "En abril de 1815 estalló un volcán en Indonesia. Un año después, en Europa, no llegó el verano."
+    tipo: ilustracion
+    escena: *volcan
+    kicker: "Tambora · abril de 1815"
+    fuente: 3
+
+capitulos:
+  - titulo: "Prueba de escenas"
+    short: true
+    gancho_short:
+      - voz: "¿Puede un volcán quitarle el verano a medio mundo?"
+        tipo: titulo
+        texto: "Un volcán que apagó el verano"
+        resaltar: "apagó"
+        kicker: "El suceso"
+    escenas:
+      - voz: "La ceniza y el azufre subieron tan alto que dieron la vuelta al planeta."
+        tipo: ilustracion
+        escena: >-
+          Corte de la atmósfera en forma de bloque: abajo el océano y un volcán humeante, encima una capa fina
+          y brillante de aerosoles en la estratosfera que se extiende de lado a lado y refleja los rayos del sol
+          hacia el espacio. Pequeñas nubes bajas. Vista didáctica, como una lámina de un atlas.
+        kicker: "Cómo funciona"
+        texto: "Un velo en la estratosfera"
+        sub: "Los aerosoles de azufre reflejan parte de la luz del sol"
+        fuente: 3
+      - voz: "En Turís, en Valencia, cayeron seiscientos veintiún litros por metro cuadrado en seis horas."
+        tipo: cifra
+        valor: 621
+        sufijo: " l/m²"
+        etiqueta: "En seis horas en Turís (Valencia), el 29 de octubre de 2024"
+        fuente: 1
+      - voz: "Y en la hora de más lluvia, ciento ochenta y cinco."
+        tipo: comparar
+        titulo: "Lluvia en Turís el 29-10-2024"
+        izquierda: {etiqueta: "En 1 hora", valor: 185, texto: "185 l/m²"}
+        derecha: {etiqueta: "En 6 horas", valor: 621, texto: "621 l/m²"}
+        fuente: 1
+      - voz: "El agujero de ozono de la Antártida volverá a los niveles de 1980 hacia 2066."
+        tipo: fecha
+        fecha: "Hacia 2066"
+        lugar: "El ozono antártico vuelve a los niveles de 1980"
+        fuente: 2
+      - voz: "Este gráfico es de prueba, con datos inventados, solo para ver cómo queda."
+        tipo: linea
+        titulo: "Gráfico de prueba"
+        subtitulo: "Datos de ejemplo, no reales"
+        valores: [3.1, 3.4, 3.0, 3.8, 4.2, 4.0, 4.6]
+        etiquetas: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"]
+        decimales: 1
+        sufijo: " °C"
+        marcas:
+          - {indice: 4, texto: "Ejemplo de marca"}
+      - voz: "Los esquemas explican el mecanismo paso a paso."
+        tipo: esquema
+        modo: cadena
+        titulo: "Del volcán a la cosecha perdida"
+        nodos:
+          - {etiqueta: "1815", texto: "Erupción del Tambora"}
+          - {etiqueta: "Estratosfera", texto: "Velo de aerosoles"}
+          - {etiqueta: "1816", texto: "Verano frío y cosechas perdidas", destacar: true}
+        flechas: ["Azufre", "Menos sol"]
+        fuente: 3
+      - voz: "Y los mapas sitúan cada caso."
+        tipo: mapa
+        region: espana
+        titulo: "Mapa de prueba"
+        grupos:
+          - paises: [España]
+            color: acento
+            leyenda: "España"
+      - voz: "Las listas, solo cuando hacen falta."
+        tipo: lista
+        titulo: "Las tres secciones del canal"
+        puntos: ["El suceso", "Cómo funciona", "El debate, con datos"]
+      - voz: "Y esta es la última ilustración de prueba: un glaciar visto en corte."
+        tipo: ilustracion
+        escena: >-
+          Un glaciar de montaña visto en corte, como un bloque de terreno abierto: arriba la nieve, debajo las
+          capas de hielo azul con burbujas de aire atrapadas, y la roca del valle; a un lado, dos figuras
+          diminutas de tinta con mochila dan la escala. Cielo despejado de mañana.
+        kicker: "Cómo lo sabemos"
+        texto: "El aire de hace miles de años, atrapado en el hielo"
+
+cierre:
+  - voz: "Fin de la prueba."
+    tipo: titulo
+    texto: "Fin de la prueba"
