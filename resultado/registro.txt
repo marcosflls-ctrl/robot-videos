@@ -1,50 +1,18 @@
-
-## PlayStation 5
-1. File:PlayStation 5 and DualSense with transparent background.png — Soberian (this retouched file)Osh33m (original photograph) (CC BY-SA 4.0)
-2. File:PlayStation 5 and DualSense.jpg — Osh33m (CC BY-SA 4.0)
-3. File:Black and white Playstation 5 base edition with controller.png — Howardcorn33 (CC0)
-4. File:PlayStation 5 and DualSense (2).jpg — Osh33m (CC BY-SA 4.0)
-5. File:All PlayStations (1-5, PSP, & Vita).jpg — JDC808 (CC BY-SA 4.0)
-6. File:Immagine Playstation 5.jpg — Gianlupisa1 (CC BY-SA 4.0)
-7. File:Playstation 5 base edition with controller (original).jpg — Howardcorn33 (CC0)
-8. File:Playstation 5.jpg — Ryan Bennett (CC BY-SA 4.0)
-
-## PS5 console Sony 2020
-1. File:PlayStation 5 and DualSense with transparent background.png — Soberian (this retouched file)Osh33m (original photograph) (CC BY-SA 4.0)
-2. File:Immagine Playstation 5.jpg — Gianlupisa1 (CC BY-SA 4.0)
-3. File:Black and white Playstation 5 base edition with controller.png — Howardcorn33 (CC0)
-4. File:InclusiveGameLab Person-with-PS5-Controller 05 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
-5. File:InclusiveGameLab Current Console Generation CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
-6. File:InclusiveGameLab Person-with-PS5-Controller 04 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
-7. File:InclusiveGameLab Person-with-PS5-Controller 6 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
-8. File:PlayStation 5 and DualSense.jpg — Osh33m (CC BY-SA 4.0)
-
-## Xbox Series X
-1. File:Xbox-console.jpg — Evan-Amos (Public domain)
-2. File:Xbox Series XとSeries S.jpg — Kyu3a (CC BY-SA 4.0)
-3. File:Xbox Series X.png — Emrekozan00 (CC BY-SA 4.0)
-4. File:X Xbox Series X S black.png — Microsoft (Public domain)
-5. File:Optimized for xbox series x branding.png — Microsoft/Xbox (Public domain)
-6. File:Xbox series X (50648118708).jpg — Ian Hughes (CC BY 2.0)
-7. File:Xbox Series X Digital.jpg — Kyu3a (CC BY-SA 4.0)
-8. File:Series X logo.png — Emrekozan00 (CC BY-SA 4.0)
-
-## Xbox Series S
-1. File:Xbox Series S with controller.jpg — AsmodeanUnderscore (CC BY-SA 4.0)
-2. File:Xbox Series XとSeries S.jpg — Kyu3a (CC BY-SA 4.0)
-3. File:Xbox Series X.png — Emrekozan00 (CC BY-SA 4.0)
-4. File:X Xbox Series X S black.png — Microsoft (Public domain)
-5. File:Series S logo.png — Emrekozan00 (CC BY-SA 4.0)
-6. File:Xbox Series S with controller and box.jpg — AsmodeanUnderscore (CC BY-SA 4.0)
-7. File:Optimized for xbox series x branding.png — Microsoft/Xbox (Public domain)
-8. File:Xbox Series S.png — Emrekozan00 (CC BY-SA 4.0)
-
-## gaming PC tower RGB
-1. File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-2. File:Gaming-PC 20240426 HOF2505-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-3. File:Gaming-PC 20240426 HOF2493-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-4. File:Gaming-PC 20240426 HOF2511-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-5. File:Gaming-PC 20240426 HOF2508-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-6. File:Gaming-PC 20240426 HOF2514-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-7. File:Gaming-PC 20240426 HOF2517-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
-8. File:Gaming-PC 20240426 HOF2496-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+[0;93m2026-10-26 19:01:58.638515884 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+Downloading data from 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx' to file '/home/runner/.rembg/models/isnet-general-use/isnet-general-use.onnx'.
+  0%|                                               | 0.00/179M [00:00<?, ?B/s]  4%|█▍                                    | 6.88M/179M [00:00<00:02, 68.8MB/s]  8%|███                                   | 14.4M/179M [00:00<00:02, 72.8MB/s] 12%|████▋                                 | 22.0M/179M [00:00<00:02, 74.0MB/s] 17%|██████▍                               | 30.5M/179M [00:00<00:01, 78.4MB/s] 21%|████████▏                             | 38.3M/179M [00:00<00:01, 70.9MB/s] 26%|█████████▉                            | 46.9M/179M [00:00<00:01, 75.5MB/s] 31%|███████████▋                          | 55.2M/179M [00:00<00:01, 77.8MB/s] 35%|█████████████▍                        | 63.0M/179M [00:00<00:01, 77.4MB/s] 40%|███████████████▎                      | 71.8M/179M [00:00<00:01, 80.6MB/s] 45%|█████████████████                     | 79.9M/179M [00:01<00:01, 80.5MB/s] 49%|██████████████████▊                   | 88.2M/179M [00:01<00:01, 81.1MB/s] 54%|████████████████████▍                 | 96.3M/179M [00:01<00:01, 76.6MB/s] 59%|██████████████████████▉                | 105M/179M [00:01<00:00, 79.5MB/s] 64%|████████████████████████▊              | 114M/179M [00:01<00:00, 82.0MB/s] 68%|██████████████████████████▋            | 122M/179M [00:01<00:00, 82.5MB/s] 73%|████████████████████████████▍          | 130M/179M [00:01<00:00, 81.4MB/s] 78%|██████████████████████████████▎        | 139M/179M [00:01<00:00, 80.7MB/s] 82%|████████████████████████████████▏      | 147M/179M [00:01<00:00, 82.1MB/s] 87%|█████████████████████████████████▉     | 156M/179M [00:01<00:00, 83.1MB/s] 92%|███████████████████████████████████▊   | 164M/179M [00:02<00:00, 83.9MB/s] 97%|█████████████████████████████████████▋ | 173M/179M [00:02<00:00, 83.3MB/s]  0%|                                               | 0.00/179M [00:00<?, ?B/s]100%|████████████████████████████████████████| 179M/179M [00:00<00:00, 921GB/s]
+  Commons: «Miami skyline night» -> File:Downtown Miami skyline 20100305.jpg (CC BY-SA 3.0, Dori)
+foto: Miami skyline night -> Dori · CC BY-SA 3.0 · Wikimedia Commons
+  Commons: «Miami Beach aerial view» -> File:Miami Beach - Aerial view of Miami Beach.jpg (Public domain, Curt Teich & Co., Chicago (publisher))
+foto: Miami Beach aerial view -> Curt Teich & Co., Chicago (publisher) · Public domain · Wikimedia Commons
+  Commons: «Miami palm trees sunset» -> File:The sunset from Key Biscayne off the causeway with the shore and water in the foreground with coconut trees and the Miami, FL skyline and storm clouds to the west lit up by the setting sun 2014-04-25.jpg (CC BY-SA 3.0, Barry haynes)
+foto: Miami palm trees sunset -> Barry haynes · CC BY-SA 3.0 · Wikimedia Commons
+::warning::No hay imagen libre en Commons para «Miami Beach classic car Ocean Drive»
+foto: Miami Beach classic car Ocean Drive -> 
+  Commons: «File:PlayStation 5 and DualSense with transparent background.png» -> File:PlayStation 5 and DualSense with transparent background.png (CC BY-SA 4.0, Soberian (this retouched file)Osh33m (original photograph))
+recorte: File:PlayStation 5 and DualSense with transparent background.png -> Soberian (this retouched file)Osh33m (original photograph) · CC BY-SA 4.0 · Wikimedia Commons
+  Commons: «File:Xbox series X (50648118708).jpg» -> File:Xbox series X (50648118708).jpg (CC BY 2.0, Ian Hughes)
+recorte: File:Xbox series X (50648118708).jpg -> Ian Hughes · CC BY 2.0 · Wikimedia Commons
+  Commons: «File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png» -> File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png (CC BY 4.0, PantheraLeo1359531)
+recorte: File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png -> PantheraLeo1359531 · CC BY 4.0 · Wikimedia Commons
+ok 29.9
