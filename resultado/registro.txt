@@ -1,14 +1,122 @@
 == base
+   frase 1: ancla «en»→6.96 «en»→9.46 estimado 7.44 ventana 6.81-8.24 corte 7.74
+   frase 2: ancla «habian»→14.78 «les»→15.66 estimado 15.66 ventana 14.86-16.26 corte 15.55
+   frase 3: ancla «dinero»→22.26 «esta»→22.68 estimado 22.47 ventana 22.11-23.27 corte 22.53
+   frase 4: ancla «espana»→28.30 «para»→28.62 estimado 28.46 ventana 28.15-29.22 corte 28.51
+   frase 5: ancla «madrid»→36.04 «un»→37.62 estimado 37.62 ventana 36.82-38.22 corte 37.55
+   frase 1: ancla «album»→7.68 «y»→8.02 estimado 7.85 ventana 7.53-8.62 corte 7.82
+   frase 2: ancla «coleccionista»→16.62 «aficion»→18.56 estimado 16.62 ventana 16.47-17.42 corte 16.90
+   frase 3: ancla «inversion»→25.18 «la»→25.56 estimado 25.37 ventana 25.03-26.16 corte 25.42
+   frase 4: ancla «caro»→34.26 «el»→34.46 estimado 34.36 ventana 34.11-35.06 corte 34.33
+   frase 5: ancla «tres»→40.96 «y»→41.32 estimado 41.14 ventana 40.81-41.92 corte 41.15
+   frase 1: ancla «de»→6.04 «las»→6.90 estimado 6.90 ventana 6.10-7.50 corte 6.67
+   frase 2: ancla «mil»→16.96 «espana»→18.62 estimado 16.96 ventana 16.81-17.76 corte 17.25
+   frase 3: ancla «tener»→20.64 «incluso»→23.36 estimado 22.99 ventana 22.19-23.79 corte 22.94
+   frase 4: ancla «tres»→29.04 «y»→29.04 estimado 29.04 ventana 28.89-29.64 corte 29.58
+   frase 5: ancla «y»→36.26 «como»→37.26 estimado 37.26 ventana 36.46-37.86 corte 37.09
+   frase 1: ancla «misma»→11.32 «y»→11.60 estimado 11.46 ventana 11.17-12.20 corte 11.48
+   frase 2: ancla «ingresos»→16.10 «asi»→16.46 estimado 16.28 ventana 15.95-17.06 corte 16.29
+   frase 3: ancla «constantes»→26.20 «este»→26.50 estimado 26.35 ventana 26.05-27.10 corte 26.29
+   frase 4: ancla «postal»→38.32 «y»→38.68 estimado 38.50 ventana 38.17-39.28 corte 38.55
+   frase 5: ancla «empresas»→44.36 «la»→44.96 estimado 44.66 ventana 44.21-45.46 corte 44.79
+   frase 1: ancla «elevados»→7.06 «segun»→7.56 estimado 7.31 ventana 6.91-8.11 corte 7.31
+   frase 2: ancla «veces»→17.50 «ademas»→17.78 estimado 17.64 ventana 17.35-18.38 corte 17.62
+   frase 3: ancla «manipulados»→24.52 «el»→24.94 estimado 24.73 ventana 24.37-25.53 corte 24.75
+   frase 4: ancla «frase»→27.08 «lo»→27.08 estimado 27.08 ventana 26.93-27.68 corte 27.43
+   frase 5: ancla «muchos»→30.78 «la»→31.32 estimado 31.05 ventana 30.63-31.85 corte 31.12
+   frase 1: ancla «bolsa»→8.28 «tampoco»→8.56 estimado 8.42 ventana 8.13-9.16 corte 8.49
+   frase 2: ancla «banco»→15.76 «en»→16.20 estimado 15.98 ventana 15.61-16.78 corte 15.99
+   frase 3: ancla «supervisarlas»→26.42 «mil»→27.84 estimado 26.42 ventana 26.27-27.22 corte 26.60
+   frase 4: ancla «auditorias»→35.64 «en»→36.06 estimado 35.85 ventana 35.49-36.65 corte 35.80
+   frase 5: ancla «veces»→44.72 «ese»→45.24 estimado 44.98 ventana 44.57-45.78 corte 45.01
+   frase 1: ancla «el»→14.00 «mientras»→14.96 estimado 14.96 ventana 14.16-15.56 corte 14.76
+   frase 2: ancla «de»→21.86 «y»→22.62 estimado 22.62 ventana 21.82-23.22 corte 22.46
+   frase 3: ancla «banco»→32.20 «sus»→32.80 estimado 32.50 ventana 32.05-33.30 corte 32.56
+   frase 4: ancla «camara»→39.50 «el»→40.02 estimado 39.76 ventana 39.35-40.56 corte 39.79
+   frase 5: ancla «y»→44.84 «por»→46.32 estimado 45.52 ventana 44.72-46.32 corte 45.57
+   frase 1: ancla «carlos»→7.14 «se»→7.56 estimado 7.35 ventana 6.99-8.15 corte 7.41
+   frase 2: ancla «administracion»→14.02 «en»→14.92 estimado 14.92 ventana 14.12-15.52 corte 14.78
+   frase 3: ancla «dinero»→21.40 «la»→21.80 estimado 21.60 ventana 21.25-22.40 corte 21.67
+   frase 4: ancla «horas»→25.30 «en»→25.56 estimado 25.43 ventana 25.15-26.16 corte 25.40
+   frase 5: ancla «siguientes»→32.34 «pronto»→32.68 estimado 32.51 ventana 32.19-33.28 corte 32.55
+   frase 1: ancla «tres»→7.70 «solo»→8.14 estimado 7.92 ventana 7.55-8.72 corte 7.99
+   frase 2: ancla «de»→11.44 «para»→12.30 estimado 12.30 ventana 11.50-12.90 corte 12.08
+   frase 3: ancla «vida»→15.24 «la»→15.80 estimado 15.52 ventana 15.09-16.32 corte 15.60
+   frase 4: ancla «folios»→20.04 «el»→20.52 estimado 20.28 ventana 19.89-21.08 corte 20.29
+   frase 5: ancla «madrid»→23.66 «en»→29.46 estimado 26.56 ventana 25.76-27.36 corte 26.59
 48 corte fuera 26.59 hueco 23.79 24.16
    frases: ['¿Y los sellos? En dos mil ocho, el juez rebajó el valor de los sellos de Fórum de mil trescientos ochenta millones de euros a doscientos ochenta y tres.', 'Solo en los almacenes de Afinsa había ciento cincuenta millones de sellos.', 'Para muchas familias, aquello era el dinero de toda una vida.', 'La justicia fue lenta. El sumario de Afinsa ocupó casi sesenta mil folios.', 'El caso se juzgó en la Audiencia Nacional, en Madrid.', 'En julio de dos mil dieciséis llegó la sentencia de Afinsa. Once directivos condenados por estafa agravada, insolvencia punible, falseamiento de cuentas, blanqueo y delito fiscal.']
-   oídas: [('se', 20.92, 21.18), ('juzlo', 21.18, 21.54), ('en', 21.54, 21.72), ('la', 21.72, 21.86), ('union', 21.86, 22.1), ('nacional', 22.1, 22.68), ('en', 22.68, 23.32), ('madrid', 23.32, 23.66)]
+   oídas: [('se', 20.92, 21.18), ('juzlo', 21.18, 21.54), ('en', 21.54, 21.72), ('la', 21.72, 21.86), ('union', 21.86, 22.1), ('nacional', 22.1, 22.66), ('en', 22.66, 23.32), ('madrid', 23.32, 23.66)]
    silencios: [(20.89, 20.98), (21.02, 21.13), (21.18, 21.3), (21.36, 21.52), (21.68, 21.78), (21.95, 22.07), (22.22, 22.37), (22.41, 22.49), (22.53, 22.66), (23.01, 23.24), (23.29, 23.4), (23.45, 23.58), (23.69, 24.16), (24.21, 24.36), (24.61, 24.7), (24.75, 24.83), (24.91, 24.99), (25.14, 25.3), (25.36, 25.45), (25.5, 25.58), (25.72, 25.87), (25.91, 25.98), (26.05, 26.11)]
-cortes bien 58 · mal 1 · tandas sin cortar 0 · 39 s
+   frase 1: ancla «anos»→7.68 «entre»→8.00 estimado 7.84 ventana 7.53-8.60 corte 7.80
+   frase 2: ancla «seis»→17.28 «la»→18.10 estimado 17.69 ventana 17.13-18.49 corte 17.83
+   frase 3: ancla «informacion»→23.66 «los»→24.28 estimado 23.97 ventana 23.51-24.77 corte 24.10
+   frase 4: ancla «clientes»→30.84 «en»→31.22 estimado 31.03 ventana 30.69-31.82 corte 31.00
+   frase 5: ancla «meses»→42.12 «el»→42.70 estimado 42.41 ventana 41.97-43.21 corte 42.46
+   frase 1: ancla «pruebas»→8.90 «la»→9.46 estimado 8.90 ventana 8.75-9.70 corte 9.07
+   frase 2: ancla «dinero»→13.32 «las»→13.86 estimado 13.59 ventana 13.17-14.39 corte 13.70
+   frase 3: ancla «arte»→21.50 «quince»→21.78 estimado 21.64 ventana 21.35-22.38 corte 21.69
+   frase 4: ancla «ciento»→33.88 «dicho»→34.22 estimado 34.05 ventana 33.73-34.82 corte 34.08
+   frase 5: ancla «dieciseis»→39.08 «el»→39.76 estimado 39.42 ventana 38.93-40.22 corte 39.58
+   frase 1: ancla «renta»→9.82 «algunos»→9.92 estimado 9.87 ventana 9.67-10.52 corte 9.77
+   frase 2: ancla «sus»→14.10 «y»→14.94 estimado 14.94 ventana 14.14-15.54 corte 14.73
+   frase 3: ancla «reclama»→29.50 «que»→29.96 estimado 29.73 ventana 29.35-30.53 corte 29.80
+   frase 4: ancla «preguntas»→35.58 «porque»→36.12 estimado 35.85 ventana 35.43-36.65 corte 35.95
+cortes bien 58 · mal 1 · tandas sin cortar 0 · 53 s
 == otra semilla
-cortes bien 59 · mal 0 · tandas sin cortar 0 · 32 s
+cortes bien 59 · mal 0 · tandas sin cortar 0 · 33 s
 == semilla 3
-12 corte fuera 27.85 hueco 28.21 28.64
-   frases: ['Muchos clientes eran jubilados y familias de clase media que buscaban algo mejor que la libreta de ahorros.', 'Las dos empresas no paraban de crecer. En dos mil seis, Afinsa tenía unos ciento setenta y cinco mil clientes, y Fórum, unos doscientos mil.', 'Tenían oficinas en toda España. Solo Afinsa llegó a tener setecientos dieciséis delegaciones.', 'Fórum incluso daba nombre a un equipo de baloncesto, el de Valladolid, que patrocinaba desde mil novecientos ochenta y tres.', "Y Afinsa llegó a ser la tercera empresa de coleccionismo del mundo, solo por detrás de Sotheby's y Christie's.", '¿Cómo podía una empresa de sellos pagar más que un banco, año tras año? Esa era la pregunta que casi nadie se hacía.']
-   oídas: [('ese', 25.78, 26.12), ('mil', 26.12, 26.4), ('novecientos', 26.4, 27.48), ('ochenta', 26.4, 27.48), ('y', 26.4, 27.48), ('tres', 26.4, 27.48), ('y', 27.48, 27.78), ('a', 27.78, 28.78), ('fin', 28.78, 28.92), ('sai', 28.92, 29.2), ('no', 29.2, 29.4), ('hacer', 29.4, 29.6), ('la', 29.6, 29.82), ('tercera', 29.82, 30.12), ('empresa', 30.12, 30.52), ('de', 30.52, 30.74)]
-   silencios: [(25.23, 25.35), (25.39, 25.5), (25.84, 25.93), (26.0, 26.16), (26.43, 26.53), (26.71, 26.83), (26.99, 27.09), (27.14, 27.24), (27.3, 27.38), (27.55, 27.64), (27.78, 27.93), (28.07, 28.65), (28.77, 28.86), (28.99, 29.08), (29.12, 29.23), (29.28, 29.34), (29.47, 29.56), (29.65, 29.75), (29.8, 29.88), (29.92, 30.08), (30.26, 30.42), (30.48, 30.57)]
-cortes bien 58 · mal 1 · tandas sin cortar 0 · 34 s
+  (no se reconocen las palabras alrededor del final de la frase 1)
+0 NONE
+   frase 1: ancla «album»→6.96 «y»→7.28 estimado 7.12 ventana 6.81-7.88 corte 7.13
+   frase 2: ancla «a»→15.50 «convirtieron»→18.34 estimado 17.31 ventana 16.51-18.11 corte 17.30
+   frase 3: ancla «inversion»→27.54 «la»→27.98 estimado 27.76 ventana 27.39-28.56 corte 27.80
+   frase 4: ancla «mas»→34.56 «el»→35.12 estimado 35.12 ventana 34.41-35.72 corte 34.99
+   frase 5: ancla «tres»→42.42 «y»→42.76 estimado 42.59 ventana 42.27-43.36 corte 42.55
+   frase 1: ancla «de»→4.86 «las»→5.48 estimado 5.48 ventana 4.71-6.08 corte 5.32
+   frase 2: ancla «mil»→14.32 «en»→15.60 estimado 14.32 ventana 14.17-15.12 corte 14.60
+   frase 3: ancla «dieciseis»→19.06 «incluso»→20.60 estimado 20.15 ventana 19.35-20.95 corte 20.19
+   frase 4: ancla «tres»→27.58 «y»→27.58 estimado 27.58 ventana 27.43-28.18 corte 28.36
+   frase 5: ancla «de»→33.40 «como»→34.68 estimado 34.68 ventana 33.88-35.28 corte 34.53
+   frase 1: ancla «misma»→11.32 «y»→11.74 estimado 11.53 ventana 11.17-12.33 corte 11.57
+   frase 2: ancla «ingresos»→16.76 «asi»→17.14 estimado 16.95 ventana 16.61-17.74 corte 16.95
+   frase 3: ancla «constantes»→24.92 «este»→25.32 estimado 25.12 ventana 24.77-25.92 corte 25.06
+   frase 4: ancla «postal»→35.88 «y»→35.88 estimado 35.88 ventana 35.73-36.48 corte 36.12
+   frase 5: ancla «empresas»→41.34 «la»→41.98 estimado 41.66 ventana 41.19-42.46 corte 41.75
+   frase 1: ancla «elevados»→8.92 «segun»→9.34 estimado 9.13 ventana 8.77-9.93 corte 9.11
+   frase 2: ancla «veces»→20.28 «ademas»→20.84 estimado 20.56 ventana 20.13-21.36 corte 20.55
+   frase 3: ancla «o»→26.88 «el»→28.04 estimado 28.04 ventana 27.24-28.64 corte 27.83
+   frase 4: ancla «frase»→30.22 «lo»→30.64 estimado 30.43 ventana 30.07-31.23 corte 30.51
+   frase 5: ancla «muchos»→34.84 «la»→35.16 estimado 35.00 ventana 34.69-35.76 corte 34.99
+  (solo se reconoció el 59 % de las palabras)
+30 NONE
+   frase 1: ancla «el»→12.38 «mientras»→13.24 estimado 13.24 ventana 12.44-13.84 corte 13.10
+   frase 2: ancla «de»→19.58 «y»→20.38 estimado 20.38 ventana 19.58-20.98 corte 20.20
+   frase 3: ancla «banco»→28.10 «sus»→28.10 estimado 28.10 ventana 27.95-28.70 corte 28.41
+   frase 4: ancla «camara»→35.34 «el»→35.82 estimado 35.58 ventana 35.19-36.38 corte 35.61
+   frase 5: ancla «afinsa»→41.88 «por»→42.78 estimado 41.88 ventana 41.73-42.68 corte 42.09
+   frase 1: ancla «carlos»→7.12 «se»→7.50 estimado 7.31 ventana 6.97-8.10 corte 7.34
+   frase 2: ancla «administracion»→13.26 «en»→14.22 estimado 14.22 ventana 13.42-14.82 corte 14.00
+   frase 3: ancla «dinero»→20.68 «la»→21.24 estimado 20.96 ventana 20.53-21.76 corte 21.03
+   frase 4: ancla «horas»→25.06 «en»→25.38 estimado 25.22 ventana 24.91-25.98 corte 25.22
+   frase 5: ancla «siguientes»→31.44 «pronto»→31.98 estimado 31.71 ventana 31.29-32.51 corte 31.74
+   frase 1: ancla «tres»→8.50 «solo»→9.12 estimado 8.81 ventana 8.35-9.61 corte 8.94
+   frase 2: ancla «sellos»→13.84 «para»→13.84 estimado 13.84 ventana 13.69-14.44 corte 13.90
+   frase 3: ancla «vida»→17.82 «la»→18.32 estimado 18.07 ventana 17.67-18.87 corte 18.15
+   frase 4: ancla «folios»→23.02 «el»→23.36 estimado 23.19 ventana 22.87-23.96 corte 23.19
+   frase 5: ancla «madrid»→26.46 «en»→26.98 estimado 26.72 ventana 26.31-27.52 corte 26.75
+   frase 1: ancla «anos»→8.58 «entre»→8.90 estimado 8.74 ventana 8.43-9.50 corte 8.69
+   frase 2: ancla «seis»→16.30 «la»→16.84 estimado 16.57 ventana 16.15-17.37 corte 16.68
+   frase 3: ancla «informacion»→22.40 «los»→22.98 estimado 22.69 ventana 22.25-23.49 corte 22.82
+   frase 4: ancla «clientes»→29.54 «en»→29.54 estimado 29.54 ventana 29.39-30.14 corte 29.62
+   frase 5: ancla «meses»→41.96 «el»→42.46 estimado 42.21 ventana 41.81-43.01 corte 42.25
+   frase 1: ancla «pruebas»→8.90 «la»→9.42 estimado 8.90 ventana 8.75-9.70 corte 9.04
+   frase 2: ancla «dinero»→13.72 «las»→14.22 estimado 13.97 ventana 13.57-14.77 corte 14.06
+   frase 3: ancla «arte»→21.84 «quince»→22.12 estimado 21.98 ventana 21.69-22.72 corte 22.02
+   frase 4: ancla «ciento»→32.78 «dicho»→33.26 estimado 33.02 ventana 32.63-33.82 corte 33.10
+   frase 5: ancla «unos»→38.94 «el»→40.08 estimado 40.08 ventana 39.28-40.68 corte 40.04
+   frase 1: ancla «renta»→10.84 «algunos»→11.00 estimado 10.92 ventana 10.69-11.60 corte 10.80
+   frase 2: ancla «ahorros»→15.68 «y»→16.04 estimado 15.86 ventana 15.53-16.64 corte 15.81
+   frase 3: ancla «reclama»→30.60 «que»→30.98 estimado 30.79 ventana 30.45-31.58 corte 30.88
+   frase 4: ancla «preguntas»→36.10 «porque»→36.60 estimado 36.35 ventana 35.95-37.15 corte 36.45
+cortes bien 49 · mal 0 · tandas sin cortar 2 · 38 s
