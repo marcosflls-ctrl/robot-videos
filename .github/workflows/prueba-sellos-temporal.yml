@@ -1,4 +1,4 @@
-# TEMPORAL: monta las dos demos del motor Remotion (rama motor-remotion). Se borra al acabar.
+# TEMPORAL: el director inventa 3 vídeos y se montan con el motor Remotion. Se borra al acabar.
 name: Prueba sellos (temporal)
 on:
   push:
@@ -6,32 +6,64 @@ on:
 permissions:
   contents: write
 jobs:
-  prueba:
+  planes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: motor-remotion
+          path: motor
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install --quiet numpy pillow pyyaml
+      - name: El director inventa los vídeos
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/prueba_director.py 2>&1 | tee registro_director.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: planes
+          path: |
+            motor/remotion/demos/
+            motor/remotion/public/demo/
+            registro_director.txt
+  montar:
+    needs: planes
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
+      fail-fast: false
       matrix:
-        demo: [demo_a, demo_b]
+        video: [cuenta_atras, noticia_1, noticia_2]
     steps:
       - uses: actions/checkout@v4
         with:
           ref: motor-remotion
           path: motor
+      - uses: actions/download-artifact@v4
+        with:
+          name: planes
+          path: planes
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Montar ${{ matrix.demo }}
-        working-directory: motor/remotion
+      - name: Montar ${{ matrix.video }}
         run: |
+          cp -r planes/motor/remotion/demos/* motor/remotion/demos/
+          mkdir -p motor/remotion/public/demo && cp planes/motor/remotion/public/demo/* motor/remotion/public/demo/
+          cd motor/remotion
           npm ci --no-audit --no-fund
           mkdir -p out
-          node render.mjs demos/${{ matrix.demo }}.json out/${{ matrix.demo }}.mp4
+          node render.mjs demos/${{ matrix.video }}.json out/${{ matrix.video }}.mp4
       - uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.demo }}
-          path: motor/remotion/out/${{ matrix.demo }}.mp4
+          name: video-${{ matrix.video }}
+          path: motor/remotion/out/${{ matrix.video }}.mp4
   guardar:
-    needs: prueba
+    needs: montar
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,6 +72,8 @@ jobs:
           path: descargas
       - run: |
           mkdir -p resultado && rm -f resultado/*
-          cp descargas/*/*.mp4 resultado/
+          cp descargas/video-*/*.mp4 resultado/ 2>/dev/null || true
+          cp descargas/planes/registro_director.txt resultado/ 2>/dev/null || true
+          cp descargas/planes/motor/remotion/demos/*_plan.json resultado/ 2>/dev/null || true
           git config user.name "robot" && git config user.email "robot@users.noreply.github.com"
           git add -f resultado && git commit -qm "Resultado de la prueba" && git push -q origin HEAD:prueba-sellos
