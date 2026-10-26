@@ -1,16 +1,50 @@
-[0;93m2026-10-26 18:48:11.895107319 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-Downloading data from 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/isnet-general-use.onnx' to file '/home/runner/.rembg/models/isnet-general-use/isnet-general-use.onnx'.
-  0%|                                               | 0.00/179M [00:00<?, ?B/s]  4%|█▍                                    | 6.68M/179M [00:00<00:02, 66.8MB/s] 11%|████▍                                  | 20.4M/179M [00:00<00:01, 108MB/s] 19%|███████▍                               | 34.2M/179M [00:00<00:01, 122MB/s] 27%|██████████▍                            | 48.0M/179M [00:00<00:01, 128MB/s] 35%|█████████████▍                         | 61.8M/179M [00:00<00:00, 132MB/s] 42%|████████████████▌                      | 75.6M/179M [00:00<00:00, 134MB/s] 50%|███████████████████▌                   | 89.4M/179M [00:00<00:00, 135MB/s] 58%|███████████████████████                 | 103M/179M [00:00<00:00, 136MB/s] 66%|██████████████████████████▏             | 117M/179M [00:00<00:00, 137MB/s] 73%|█████████████████████████████▎          | 131M/179M [00:01<00:00, 137MB/s] 81%|████████████████████████████████▍       | 145M/179M [00:01<00:00, 138MB/s] 89%|███████████████████████████████████▌    | 159M/179M [00:01<00:00, 138MB/s] 97%|██████████████████████████████████████▋ | 173M/179M [00:01<00:00, 138MB/s]  0%|                                               | 0.00/179M [00:00<?, ?B/s]100%|███████████████████████████████████████| 179M/179M [00:00<00:00, 1.11TB/s]
-  Commons: «Ocean Drive Miami Beach night neon» -> File:Boulevard Hotel (Neon sign), Miami Beach.jpg (Public domain, Photograph: Radomianin)
-foto: Ocean Drive Miami Beach night neon -> Photograph: Radomianin · Public domain · Wikimedia Commons
-  Commons: «Miami Beach aerial view» -> File:Miami Beach - Aerial view of Miami Beach.jpg (Public domain, Curt Teich & Co., Chicago (publisher))
-foto: Miami Beach aerial view -> Curt Teich & Co., Chicago (publisher) · Public domain · Wikimedia Commons
-  Commons: «Miami palm trees sunset» -> File:The sunset from Key Biscayne off the causeway with the shore and water in the foreground with coconut trees and the Miami, FL skyline and storm clouds to the west lit up by the setting sun 2014-04-25.jpg (CC BY-SA 3.0, Barry haynes)
-foto: Miami palm trees sunset -> Barry haynes · CC BY-SA 3.0 · Wikimedia Commons
-::warning::No hay imagen libre en Commons para «Miami Beach classic car Ocean Drive»
-foto: Miami Beach classic car Ocean Drive -> 
-  Commons: «PlayStation 5 console» -> File:Sony-PlayStation-3-2001A-wController-L.jpg (Public domain, Evan-Amos)
-recorte: PlayStation 5 console -> Evan-Amos · Public domain · Wikimedia Commons
-  Commons: «Xbox Series X console» -> File:Xbox Series X 2.jpg (CC BY-SA 4.0, Der. Bellemer)
-recorte: Xbox Series X console -> Der. Bellemer · CC BY-SA 4.0 · Wikimedia Commons
-ok 29.9
+
+## PlayStation 5
+1. File:PlayStation 5 and DualSense with transparent background.png — Soberian (this retouched file)Osh33m (original photograph) (CC BY-SA 4.0)
+2. File:PlayStation 5 and DualSense.jpg — Osh33m (CC BY-SA 4.0)
+3. File:Black and white Playstation 5 base edition with controller.png — Howardcorn33 (CC0)
+4. File:PlayStation 5 and DualSense (2).jpg — Osh33m (CC BY-SA 4.0)
+5. File:All PlayStations (1-5, PSP, & Vita).jpg — JDC808 (CC BY-SA 4.0)
+6. File:Immagine Playstation 5.jpg — Gianlupisa1 (CC BY-SA 4.0)
+7. File:Playstation 5 base edition with controller (original).jpg — Howardcorn33 (CC0)
+8. File:Playstation 5.jpg — Ryan Bennett (CC BY-SA 4.0)
+
+## PS5 console Sony 2020
+1. File:PlayStation 5 and DualSense with transparent background.png — Soberian (this retouched file)Osh33m (original photograph) (CC BY-SA 4.0)
+2. File:Immagine Playstation 5.jpg — Gianlupisa1 (CC BY-SA 4.0)
+3. File:Black and white Playstation 5 base edition with controller.png — Howardcorn33 (CC0)
+4. File:InclusiveGameLab Person-with-PS5-Controller 05 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
+5. File:InclusiveGameLab Current Console Generation CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
+6. File:InclusiveGameLab Person-with-PS5-Controller 04 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
+7. File:InclusiveGameLab Person-with-PS5-Controller 6 CC-BY-SA.jpg — InclusiveGameLab (CC BY-SA 4.0)
+8. File:PlayStation 5 and DualSense.jpg — Osh33m (CC BY-SA 4.0)
+
+## Xbox Series X
+1. File:Xbox-console.jpg — Evan-Amos (Public domain)
+2. File:Xbox Series XとSeries S.jpg — Kyu3a (CC BY-SA 4.0)
+3. File:Xbox Series X.png — Emrekozan00 (CC BY-SA 4.0)
+4. File:X Xbox Series X S black.png — Microsoft (Public domain)
+5. File:Optimized for xbox series x branding.png — Microsoft/Xbox (Public domain)
+6. File:Xbox series X (50648118708).jpg — Ian Hughes (CC BY 2.0)
+7. File:Xbox Series X Digital.jpg — Kyu3a (CC BY-SA 4.0)
+8. File:Series X logo.png — Emrekozan00 (CC BY-SA 4.0)
+
+## Xbox Series S
+1. File:Xbox Series S with controller.jpg — AsmodeanUnderscore (CC BY-SA 4.0)
+2. File:Xbox Series XとSeries S.jpg — Kyu3a (CC BY-SA 4.0)
+3. File:Xbox Series X.png — Emrekozan00 (CC BY-SA 4.0)
+4. File:X Xbox Series X S black.png — Microsoft (Public domain)
+5. File:Series S logo.png — Emrekozan00 (CC BY-SA 4.0)
+6. File:Xbox Series S with controller and box.jpg — AsmodeanUnderscore (CC BY-SA 4.0)
+7. File:Optimized for xbox series x branding.png — Microsoft/Xbox (Public domain)
+8. File:Xbox Series S.png — Emrekozan00 (CC BY-SA 4.0)
+
+## gaming PC tower RGB
+1. File:Gaming-PC 20240426 HOF2520-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+2. File:Gaming-PC 20240426 HOF2505-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+3. File:Gaming-PC 20240426 HOF2493-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+4. File:Gaming-PC 20240426 HOF2511-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+5. File:Gaming-PC 20240426 HOF2508-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+6. File:Gaming-PC 20240426 HOF2514-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+7. File:Gaming-PC 20240426 HOF2517-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
+8. File:Gaming-PC 20240426 HOF2496-HDR RAW-Export.png — PantheraLeo1359531 (CC BY 4.0)
