@@ -207,7 +207,7 @@ export const Orbita: React.FC<PropsEscena> = ({ d, f, fps }) => {
     <div key={it.i} style={{ position: "absolute", left: it.x, top: it.y, transform: `translate(-50%,-50%) scale(${it.esc})`, opacity: (0.45 + 0.55 * (it.z + 1) / 2) * Math.min(1, m * 1.4), zIndex: it.z > 0 ? 3 : 1 }}>
       {typeof it.s === "string" && it.s.match(/\.(png|jpe?g|webp)$|^objeto:/) ? (
         <div style={{ width: 260, height: 190, borderRadius: 22, overflow: "hidden", border: `2px solid ${conAlfa("#fff", 0.7)}` }}><Img src={fuenteImg(it.s)} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
-      ) : <Pastilla texto={String(it.s)} f={99} tam={34} />}
+      ) : <Pastilla texto={String(it.s)} f={99} tam={46} />}
     </div>
   );
   return (

@@ -102,7 +102,7 @@ const Subtitulos: React.FC<{ g: Guion }> = ({ g }) => {
         : estilo === "deslizar" ? { transform: `translateY(${(1 - ent) * 40}px)`, opacity: ent, clipPath: `inset(0 0 ${(1 - ent) * 100}% 0)` }
           : { opacity: ent };
   return (
-    <div style={{ position: "absolute", left: 40, right: 40, top: 1370, display: "flex", justifyContent: "center", gap: 22, flexWrap: "wrap", ...base }}>
+    <div style={{ position: "absolute", left: 40, right: 40, top: 1370, display: "flex", justifyContent: "center", gap: "0 32px", flexWrap: "wrap", ...base }}>
       {tr.map((w, i) => {
         const clave = claves.has(norm(w.t));
         const sonando = w.ini - 0.04 <= t && t <= w.fin + 0.04;

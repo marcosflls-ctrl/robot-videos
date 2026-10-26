@@ -14,7 +14,7 @@ const Lado: React.FC<{ it: any; f: number; ini: number; fps: number; ancho: numb
   const color = mal ? p.peligro : bien ? p.acento3 : p.texto;
   let cuerpo: React.ReactNode;
   if (esImagen(it.src) && String(it.src).startsWith("objeto:")) {
-    cuerpo = <Img src={fuenteImg(it.src)} style={{ height: 420, maxWidth: ancho, objectFit: "contain", filter: `drop-shadow(0 20px 30px rgba(0,0,0,0.6)) ${mal ? "grayscale(0.6)" : ""}` }} />;
+    cuerpo = <Img src={fuenteImg(it.src)} style={{ height: it.alto || 600, maxWidth: ancho, objectFit: "contain", filter: `drop-shadow(0 20px 30px rgba(0,0,0,0.6)) ${mal ? "grayscale(0.6)" : ""}` }} />;
   } else if (esImagen(it.src)) {
     cuerpo = <div style={{ width: ancho, height: 420, borderRadius: 28, overflow: "hidden", border: `3px solid ${conAlfa(color, 0.8)}` }}><Img src={fuenteImg(it.src)} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>;
   } else {
@@ -54,7 +54,7 @@ export const Comparar: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
               strokeDasharray={600} strokeDashoffset={600 * (1 - tr)} style={{ filter: `drop-shadow(0 0 10px ${p.acento2})` }} />
           ))}
         </svg>
-        <div style={{ position: "absolute", top: 520, left: 0, right: 0, display: "flex", justifyContent: "space-around", alignItems: "flex-start", padding: "0 30px" }}>
+        <div style={{ position: "absolute", top: 500, left: 0, right: 0, display: "flex", justifyContent: "space-around", alignItems: "flex-end", padding: "0 30px" }}>
           <Lado it={a} f={f} ini={8} fps={fps} ancho={440} />
           <Lado it={b} f={f} ini={18} fps={fps} ancho={440} />
         </div>

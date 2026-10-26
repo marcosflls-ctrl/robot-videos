@@ -31,6 +31,8 @@ export const Cifra: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
     </div>
   );
   return (
+    <>
+    {d.pastilla && <div style={{ position: "absolute", top: 150, left: 0, right: 0, display: "flex", justifyContent: "center" }}><Pastilla texto={d.pastilla} f={f} ini={14} /></div>}
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", top: -220 }}>
       {variante === "anillo" && (
         <svg width={860} height={860} style={{ position: "absolute", transform: `rotate(${-90 + f * 0.4}deg)` }}>
@@ -46,8 +48,8 @@ export const Cifra: React.FC<PropsEscena> = ({ d, f, dur, fps }) => {
           </Cristal>
         ) : nucleo}
       </div>
-      {d.pastilla && <div style={{ position: "absolute", top: 1240 }}><Pastilla texto={d.pastilla} f={f} ini={14} /></div>}
     </div>
+    </>
   );
 };
 
