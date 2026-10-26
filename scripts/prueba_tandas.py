@@ -7,7 +7,7 @@ import voz_tandas
 sr = 24000
 g = yaml.safe_load(open("../guiones/sellos.yaml"))
 textos = [e["voz"] for e in g["gancho"] + sum([c["escenas"] for c in g["capitulos"]], [])]
-random.seed(1)
+import os; random.seed(int(os.environ.get('SEMILLA') or 1))
 
 def decir(t, velocidad):
     out = subprocess.run(["espeak-ng", "-v", "es", "-s", str(velocidad), "--stdout", t], capture_output=True, check=True).stdout
