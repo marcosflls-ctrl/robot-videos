@@ -876,6 +876,11 @@ def main():
     nombre = (os.environ.get("GUION") or "ejemplo").strip()
     que = (os.environ.get("QUE") or "todo").strip()
     g = cargar_guion(nombre)
+    if g.get("publicado") and (os.environ.get("REMONTAR") or "").strip() != "1":
+        raise SystemExit(
+            f"::error::El guion «{nombre}» tiene «publicado: true»: ese vídeo ya está en YouTube y no se vuelve a montar "
+            "(evita gastar en imágenes y voz por error). Si de verdad quieres rehacerlo, lanza el robot otra vez "
+            "marcando «Volver a montar un vídeo ya publicado».")
     canal = cargar_canal(str(g.get("canal") or "historia").strip())
     print(f"Canal: {canal['marca']}")
     SALIDA.mkdir(exist_ok=True)
