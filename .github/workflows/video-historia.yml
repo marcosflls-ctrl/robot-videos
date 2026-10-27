@@ -31,6 +31,10 @@ on:
         description: "Prueba rápida sin voz (solo para ver cómo queda el montaje)"
         type: boolean
         default: false
+      remontar:
+        description: "Volver a montar un vídeo ya publicado (gasta imágenes y voz otra vez)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -77,6 +81,7 @@ jobs:
           VOZ_HISTORIA: ${{ github.event.inputs.voz }}
           VELOCIDAD_VOZ: ${{ github.event.inputs.velocidad }}
           SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
+          REMONTAR: ${{ github.event.inputs.remontar == 'true' && '1' || '' }}
           VOZ_MOTOR: gemini
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
