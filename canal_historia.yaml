@@ -38,15 +38,28 @@ fuentes:
 # parezcan de la misma mano. Cada imagen cuesta unos céntimos y se guarda para no repetirla.
 ilustraciones:
   modelo: "gemini-nano-banana-2.1"
-  tamano: "2K"
+  # 1K cuesta un tercio menos que 2K y en este estilo de dibujo apenas se nota.
+  # (Los vídeos ya hechos a 2K, si se relanzan, volverían a pedir sus ilustraciones.)
+  tamano: "1K"
   credito: "Ilustración"
   estilo: >-
-    Ilustración editorial plana y elegante, estilo vectorial con sombras suaves y textura de grano fino,
-    como un cartel de museo moderno. Paleta limitada y cálida: negro tostado, crema, arena, terracota
-    y algún toque dorado apagado. Figuras humanas estilizadas, sin rasgos faciales detallados,
-    vistas a media distancia. Arquitectura y objetos fieles a la época indicada. Composición amplia y
-    cinematográfica, con profundidad y luz suave. Sin texto, sin letras, sin números, sin logotipos,
-    sin marcas de agua.
+    Ilustración editorial que mezcla dos técnicas. Los fondos (edificios, calles, interiores, máquinas,
+    barcos y objetos) son planos y elegantes, estilo vectorial con sombras suaves y textura de grano fino,
+    como un cartel de museo moderno, y fieles a la época indicada. Las personas, en cambio, están dibujadas
+    a trazo: figuras de línea de tinta negra, algo suelta y viva, como un boceto a pluma, rellenas de un
+    único color plano crema o arena; cabeza ovalada sin rasgos faciales y cuerpo con proporciones
+    naturales, que se expresan con la postura y los gestos. Cada figura lleva un detalle de ropa de su época
+    dibujado con pocas líneas (una chistera, un delantal, un mandil de obrero, un sombrero de ala), sin
+    parecerse a ninguna persona real. Paleta limitada y cálida: negro tostado, crema, arena, terracota y
+    algún toque dorado apagado. Composición amplia y cinematográfica, con profundidad, luz suave y las
+    figuras fáciles de ver de un vistazo. Sin texto, sin letras, sin números, sin logotipos, sin marcas de
+    agua.
+
+# La miniatura se hace con la ilustración en color (antes, en dos tonos)
+miniatura_color: true
+
+# En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
+ilustracion_vertical: encajar
 
 # Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
 # porque de todas formas se genera el archivo .srt para subirlo a YouTube)
