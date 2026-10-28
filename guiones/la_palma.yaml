@@ -6,7 +6,6 @@
 
 canal: medioambiente
 
-titulo: "Cómo funciona un volcán: la erupción de La Palma, explicada"
 descripcion: >-
   El 19 de septiembre de 2021 se abrió la tierra en Cumbre Vieja, en la isla de La Palma. Durante 85 días
   el volcán que hoy se conoce como Tajogaite cubrió de lava más de 1.200 hectáreas, destruyó casi 3.000
@@ -15,15 +14,35 @@ descripcion: >-
   y otros no, qué peligros trae cada uno y cómo se protege a la población. Todos los datos, con su fuente.
 hashtags: "#LaPalma #volcán #Tajogaite #geología #CumbreVieja #ciencia"
 
-miniatura:
-  texto: "Así funciona un volcán"
-  resaltar: "volcán"
-  cifra: "85 días"
-  escena: &cono_noche >-
-    Un cono volcánico negro en plena erupción de noche, en la cresta de una isla montañosa: varias bocas
-    alineadas lanzan fuentes de lava naranja y bombas incandescentes; dos ríos de lava bajan por la ladera
-    hacia el valle, donde se ven pequeñas casas blancas y plataneras a oscuras. Cielo negro con una columna
-    de gas y ceniza iluminada desde abajo.
+titulos:
+  - "Cómo funciona un volcán: la erupción de La Palma, explicada"
+  - "El volcán de La Palma avisó durante 8 días: así se detecta una erupción"
+  - "85 días de lava: lo que La Palma nos enseñó sobre los volcanes"
+
+miniaturas:
+  - texto: "Así funciona un volcán"
+    resaltar: "volcán"
+    cifra: "85 días"
+    escena: &cono_noche >-
+      Un cono volcánico negro en plena erupción de noche, en la cresta de una isla montañosa: varias bocas
+      alineadas lanzan fuentes de lava naranja y bombas incandescentes; dos ríos de lava bajan por la ladera
+      hacia el valle, donde se ven pequeñas casas blancas y plataneras a oscuras. Cielo negro con una columna
+      de gas y ceniza iluminada desde abajo.
+  - texto: "El volcán avisó"
+    resaltar: "avisó"
+    cifra: "8 días"
+    lado: izquierda
+    escena: >-
+      Lámina de naturalista: un sismógrafo de tambor dibuja una línea que se vuelve cada vez más agitada;
+      detrás, por una ventana, una montaña volcánica tranquila con el suelo ligeramente abombado y
+      columnas finas de vapor. Tonos fríos de cuaderno de campo.
+  - texto: "Bajo la lava"
+    resaltar: "lava"
+    cifra: "1.219 ha"
+    escena: >-
+      Vista aérea de una colada de lava negra y humeante que baja por una ladera hasta el mar, cubriendo
+      plataneras y tejados de pequeñas casas blancas; en la costa, una plataforma nueva de lava gana
+      terreno al agua y levanta nubes de vapor.
 
 fuentes:
   - id: 1

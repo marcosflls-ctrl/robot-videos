@@ -12,14 +12,15 @@ Genera en salida/:
     <guion>_largo_movil.mp4    copia ligera para revisarlo en el móvil (Telegram)
     <guion>_largo.srt          subtítulos para subir a YouTube
     <guion>_descripcion.txt    título, descripción con capítulos (minutos), fuentes y créditos
-    <guion>_miniatura.png      miniatura 1280x720
+    <guion>_miniatura_N.png    miniaturas 1280x720 (hasta 3, para la prueba A/B de YouTube)
+    <guion>_titulos.txt        títulos a probar (hasta 3) y cómo poner la prueba en YouTube Studio
     <guion>_short_NN.mp4/.txt  un Short vertical por cada capítulo marcado con «short: true»
 
 No publica nada.
 
 Variables:
     GUION         nombre del guion (sin .yaml)
-    QUE           todo | largo | shorts
+    QUE           todo | largo | shorts | miniaturas (solo miniaturas y títulos, sin voz)
     SIN_VOZ=1     prueba rápida sin voz (tiempos calculados a ojo)
     VOZ_HISTORIA  voz de Gemini (vacío = la del archivo del canal)
 """
@@ -94,8 +95,18 @@ def cargar_guion(nombre):
         raise SystemExit(f"::error::No existe guiones/{nombre}.yaml. Hay: {hay}")
     g = yaml.safe_load(ruta.read_text(encoding="utf-8"))
     errores = []
+    titulos = [str(t).strip() for t in _lista(g.get("titulos")) if str(t).strip()]
+    if titulos and not g.get("titulo"):
+        g["titulo"] = titulos[0]
     if not g.get("titulo"):
-        errores.append("falta «titulo»")
+        errores.append("falta «titulo» (o «titulos»)")
+    if len(titulos) > 3:
+        errores.append("«titulos»: YouTube solo deja probar 3")
+    for t in titulos or [str(g.get("titulo") or "")]:
+        if len(t) > 100:
+            errores.append(f"el título «{t[:40]}…» pasa de 100 letras (el máximo de YouTube)")
+    if len(_lista(g.get("miniaturas"))) > 3:
+        errores.append("«miniaturas»: YouTube solo deja probar 3")
     if not g.get("capitulos"):
         errores.append("faltan «capitulos»")
     fuentes = {str(f["id"]): f for f in g.get("fuentes") or []}
@@ -142,6 +153,38 @@ def todas_las_escenas(g):
 #  Imágenes (Wikimedia Commons o carpeta propia)
 # =====================================================================
 
+def titulos(g):
+    """Los títulos a probar (hasta 3). Sin «titulos», solo el «titulo» de siempre."""
+    t = [str(x).strip() for x in _lista(g.get("titulos")) if str(x).strip()]
+    return t[:3] or [str(g["titulo"])]
+
+
+def variantes_miniatura(g):
+    """Las miniaturas a probar (hasta 3). Sin «miniaturas», solo la «miniatura» de siempre."""
+    return [m or {} for m in _lista(g.get("miniaturas"))][:3] or [g.get("miniatura") or {}]
+
+
+def preparar_miniaturas(g, canal):
+    for m in variantes_miniatura(g):
+        if m.get("escena"):  # ilustración propia para la miniatura, con el estilo del canal
+            m["_img"], _ = ilustraciones.generar(m, canal)
+        elif m.get("imagen") or m.get("buscar_imagen"):
+            m["_img"], _ = imagenes.conseguir(m, GUIONES)
+
+
+def preparar_primera_imagen(g, canal):
+    """Solo la primera imagen del vídeo (para las miniaturas que no traen la suya)."""
+    for e, _ in todas_las_escenas(g):
+        if e.get("tipo") == "ilustracion":
+            e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
+        elif e.get("imagen") or e.get("buscar_imagen"):
+            e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
+        else:
+            continue
+        if e.get("_img") is not None:
+            return
+
+
 def preparar_imagenes(g, canal):
     hay = 0
     for e, _ in todas_las_escenas(g):
@@ -153,11 +196,7 @@ def preparar_imagenes(g, canal):
         elif e.get("imagen") or e.get("buscar_imagen"):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
             hay += e["_img"] is not None
-    m = g.get("miniatura") or {}
-    if m.get("escena"):  # ilustración propia para la miniatura, con el estilo del canal
-        m["_img"], _ = ilustraciones.generar(m, canal)
-    elif m.get("imagen") or m.get("buscar_imagen"):
-        m["_img"], _ = imagenes.conseguir(m, GUIONES)
+    preparar_miniaturas(g, canal)
     print(f"Imágenes: {hay} listas")
 
 
@@ -803,8 +842,7 @@ def descripcion(g, bloques, clips):
     return "\n".join(lineas)
 
 
-def _primera_imagen(g):
-    m = g.get("miniatura") or {}
+def _primera_imagen(g, m):
     if m.get("_img") is not None:
         return m["_img"]
     for e, _ in todas_las_escenas(g):
@@ -813,27 +851,33 @@ def _primera_imagen(g):
     return None
 
 
-def miniatura(g, canal, ruta):
+def miniatura(g, canal, ruta, mi=None):
+    """Una miniatura 1280x720. «mi» es una de las variantes (texto, resaltar, cifra, imagen, lado)."""
+    mi = mi if mi is not None else variantes_miniatura(g)[0]
     ctx = Contexto(1280, 720, canal["tema"], canal["fuentes"])
     img = fondo_base(ctx, semilla=3)
-    foto = _primera_imagen(g)
+    foto = _primera_imagen(g, mi)
+    izquierda = str(mi.get("lado") or "").lower().startswith("izq")  # foto a la izquierda y texto a la derecha
+    x_txt = 560 if (izquierda and foto is not None) else 56
     if foto is not None:
         tratada = foto.convert("RGBA") if canal.get("miniatura_color") else duotono(foto, canal["tema"], contraste=1.3, grano=10)
         f = recortar_a(tratada, 760, 720, (0.5, 0.3))
         m = np.ones((720, 760), np.float32)
         r = np.linspace(0, 1, 340) ** 1.4
-        m[:, :340] *= r[None, :]
+        if izquierda:
+            m[:, -340:] *= r[::-1][None, :]
+        else:
+            m[:, :340] *= r[None, :]
         f.putalpha(Image.fromarray((m * 255).astype(np.uint8)))
-        img.alpha_composite(f, (520, 0))
+        img.alpha_composite(f, (0 if izquierda else 520, 0))
     d = ImageDraw.Draw(img)
-    mi = g.get("miniatura") or {}
     texto = str(mi.get("texto") or g["titulo"])
     resaltar = {p.strip(".,:;¿?¡!").lower() for p in str(mi.get("resaltar") or "").split()}
     f, lineas, tam = ctx.ajustar(texto, "tit", 120, 700 if foto is not None else 1100, 3, 50)
     alto_l = tam * 1.02
     y0 = 360 - alto_l * len(lineas) / 2 - (30 if mi.get("cifra") else 0)
     for k, l in enumerate(lineas):
-        x = 56
+        x = x_txt
         for p in l.split():
             col = ctx.c("acento2") if p.strip(".,:;¿?¡!").lower() in resaltar else ctx.c("texto")
             d.text((x, y0 + k * alto_l), p, font=f, fill=col, stroke_width=3, stroke_fill=ctx.c("fondo"))
@@ -841,11 +885,34 @@ def miniatura(g, canal, ruta):
     if mi.get("cifra"):
         fc = ctx.f("num", 110)
         yc = y0 + len(lineas) * alto_l + 10
-        d.rectangle((56, yc, 56 + fc.getlength(str(mi["cifra"])) + 40, yc + 130), fill=ctx.c("acento"))
-        d.text((76, yc + 65), str(mi["cifra"]), font=fc, fill=ctx.c("cifra_texto" if "cifra_texto" in ctx.tema else "texto"), anchor="lm")
-    d.rectangle((56, 50, 66, 72), fill=ctx.c("acento"))
-    d.text((80, 61), canal["marca"], font=ctx.f("txt_b", 22), fill=ctx.c("texto"), anchor="lm")
+        d.rectangle((x_txt, yc, x_txt + fc.getlength(str(mi["cifra"])) + 40, yc + 130), fill=ctx.c("acento"))
+        d.text((x_txt + 20, yc + 65), str(mi["cifra"]), font=fc, fill=ctx.c("cifra_texto" if "cifra_texto" in ctx.tema else "texto"), anchor="lm")
+    d.rectangle((x_txt, 50, x_txt + 10, 72), fill=ctx.c("acento"))
+    d.text((x_txt + 24, 61), canal["marca"], font=ctx.f("txt_b", 22), fill=ctx.c("texto"), anchor="lm")
     img.convert("RGB").save(ruta)
+
+
+def miniaturas_y_titulos(g, canal, nombre):
+    """Las miniaturas (1, 2 o 3) y el archivo con los títulos para la prueba A/B de YouTube."""
+    variantes = variantes_miniatura(g)
+    for k, mi in enumerate(variantes, 1):
+        miniatura(g, canal, SALIDA / f"{nombre}_miniatura_{k}.png", mi)
+    ts = titulos(g)
+    lineas = ["TÍTULOS PARA PROBAR", ""]
+    lineas += [f"{k}. {t}   ({len(t)} letras)" for k, t in enumerate(ts, 1)]
+    lineas += ["", f"Miniaturas: {len(variantes)} (los archivos _miniatura_1, _2 y _3)", ""]
+    if len(ts) > 1 or len(variantes) > 1:
+        lineas += [
+            "CÓMO PONER LA PRUEBA EN YOUTUBE (desde el ordenador):",
+            "1. Sube el vídeo con el título 1 y la miniatura 1, y hazlo público.",
+            "2. YouTube Studio → Contenido → el vídeo → Detalles.",
+            "3. Junto al título o a la miniatura, pulsa «Prueba A/B» (Probar y comparar).",
+            "4. Añade los otros títulos y miniaturas, y guarda.",
+            "YouTube los enseña por igual durante hasta 2 semanas y deja el que más tiempo de visualización consigue.",
+            "Necesita tener activadas las funciones avanzadas del canal (verificación con el teléfono).",
+            "No funciona en Shorts ni en vídeos privados o para mayores de 18.",
+        ]
+    (SALIDA / f"{nombre}_titulos.txt").write_text("\n".join(lineas) + "\n", encoding="utf-8")
 
 
 def copia_ligera(entrada, salida, duracion, max_mb=45, escala="1280:720"):
@@ -880,6 +947,13 @@ def main():
     print(f"Canal: {canal['marca']}")
     SALIDA.mkdir(exist_ok=True)
     inicio = time.time()
+    if que == "miniaturas":  # solo miniaturas y títulos: sin voz y sin montar vídeo (casi gratis)
+        preparar_miniaturas(g, canal)
+        if any(m.get("_img") is None for m in variantes_miniatura(g)):
+            preparar_primera_imagen(g, canal)
+        miniaturas_y_titulos(g, canal, nombre)
+        print(f"Miniaturas y títulos listos en {(time.time() - inicio) / 60:.1f} minutos")
+        return
     preparar_imagenes(g, canal)
     sr = generar_voces(g, canal)
 
@@ -890,7 +964,7 @@ def main():
                    subtitulos=bool(canal.get("subtitulos_largo")))
         escribir_srt(r["trozos"], SALIDA / f"{nombre}_largo.srt")
         (SALIDA / f"{nombre}_descripcion.txt").write_text(descripcion(g, bloques, r["clips"]), encoding="utf-8")
-        miniatura(g, canal, SALIDA / f"{nombre}_miniatura.png")
+        miniaturas_y_titulos(g, canal, nombre)
         copia_ligera(SALIDA / f"{nombre}_largo.mp4", SALIDA / f"{nombre}_largo_movil.mp4", r["duracion"])
 
     if que in ("todo", "shorts"):
@@ -909,6 +983,7 @@ def main():
                      "✅ Vale para YouTube Shorts (hasta 3 minutos)" if dur <= 180
                      else "⚠️ Pasa de 3 minutos: YouTube no lo trataría como Short"]
             titulo = str(cap.get("titulo_short") or cap["titulo"])
+            notas.append("👉 Al subirlo a YouTube, en «Vídeo relacionado» elige el vídeo largo: así el Short le manda visitas")
             texto = f"{titulo}\n\nLa historia completa, en el canal.\n\n{g.get('hashtags', '')}\n\n— Dura {dur:.0f} s\n" + "\n".join(notas)
             base.with_suffix(".txt").write_text(texto, encoding="utf-8")
     print(f"Todo listo en {(time.time() - inicio) / 60:.1f} minutos")

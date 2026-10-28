@@ -13,9 +13,9 @@ on:
         type: string
         default: "ejemplo"
       que:
-        description: "Qué montar: todo (largo + Shorts), solo el largo o solo los Shorts"
+        description: "Qué montar: todo (largo + Shorts), solo el largo, solo los Shorts o solo las miniaturas y títulos (sin voz, casi gratis)"
         type: choice
-        options: ["todo", "largo", "shorts"]
+        options: ["todo", "largo", "shorts", "miniaturas"]
         default: "todo"
       voz:
         description: "Voz del narrador (vacío = la del canal: Charon en historia, Orus en misterios, Sulafat en medio ambiente)"
@@ -83,7 +83,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         working-directory: scripts
         run: |
-          if [ -z "$SIN_VOZ" ] && [ -z "$GEMINI_API_KEY" ]; then
+          if [ -z "$SIN_VOZ" ] && [ "$QUE" != "miniaturas" ] && [ -z "$GEMINI_API_KEY" ]; then
             echo "::error::Falta la clave GEMINI_API_KEY para la voz. Mira el README."
             exit 1
           fi
@@ -122,8 +122,12 @@ jobs:
             if echo "$1" | grep -q '"ok":true'; then echo "Enviado: $2"; else echo "::warning::Telegram no aceptó $2: $(echo "$1" | cut -c1-200)"; fi
           }
           shopt -s nullglob
-          for f in "${GUION}"_miniatura.png; do
-            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F photo=@"$f" -F caption="Miniatura · $GUION" "$API/sendPhoto")" "$f"
+          for f in "${GUION}"_miniatura_[0-9].png; do
+            n="${f%.png}"; n="${n##*_}"
+            comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F photo=@"$f" -F caption="Miniatura $n · $GUION" "$API/sendPhoto")" "$f"
+          done
+          for f in "${GUION}"_titulos.txt; do
+            comprobar "$(curl -s --data-urlencode chat_id="$TELEGRAM_CHAT_ID" --data-urlencode text@"$f" "$API/sendMessage")" "$f"
           done
           for f in "${GUION}"_largo_movil.mp4; do
             comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$f" -F supports_streaming=true \

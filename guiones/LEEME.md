@@ -39,13 +39,34 @@ Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia
 
 `ejemplo.yaml` enseña todos los tipos de escena. Es solo una prueba: no es para publicar.
 
+## Tres títulos y tres miniaturas (prueba A/B)
+
+YouTube deja probar hasta **3 títulos y 3 miniaturas** en cada vídeo largo («Prueba A/B», en YouTube Studio)
+y se queda con el que más tiempo de visualización consigue. Por eso cada guion lleva `titulos` y `miniaturas`:
+
+- **Que sean de verdad distintos**, no la misma frase cambiando una palabra: si se parecen mucho, la prueba
+  tarda más y no aclara nada. Un enfoque por título: la cifra, el misterio, la pregunta.
+- **Una idea por miniatura**, 3–5 palabras, con su propia imagen (`escena`, `imagen` o `buscar_imagen`).
+  Si no trae imagen, usa la primera del vídeo. Con `lado: izquierda`, la imagen va a la izquierda y el texto
+  a la derecha, para que se distinga más.
+- Los títulos, como mucho 100 letras (el robot avisa si alguno pasa).
+- **Solo miniaturas y títulos:** al lanzar el robot, en «Qué montar» elige `miniaturas`. No gasta voz ni
+  monta vídeo: solo las ilustraciones nuevas de las miniaturas (unos céntimos). Sirve para vídeos ya subidos.
+
+Siguen valiendo `titulo` y `miniatura` (una sola) en los guiones antiguos.
+
 ## Estructura
 
 ```yaml
-titulo: "Título del vídeo"
+titulos:                      # hasta 3, para la prueba A/B de YouTube (el 1.º es el que se sube)
+  - "Título principal"
+  - "Otro enfoque"
+  - "Otro más"
 descripcion: "Texto para la descripción de YouTube"
 hashtags: "#historia #economía"
-miniatura: {texto: "Adiós a la peseta", resaltar: "peseta", cifra: "166,386", buscar_imagen: "peseta 1869"}
+miniaturas:                   # hasta 3; cada una con su texto, cifra e imagen
+  - {texto: "Adiós a la peseta", resaltar: "peseta", cifra: "166,386", buscar_imagen: "peseta 1869"}
+  - {texto: "Otra idea", resaltar: "idea", cifra: "2002", lado: izquierda}
 
 fuentes:                      # cada dato del guion apunta a una de estas
   - id: 1
