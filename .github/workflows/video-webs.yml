@@ -6,10 +6,12 @@
 name: Vídeos de las tres webs
 
 on:
-  # Cada día a las 5:47 UTC (6:47 en Madrid en horario de invierno, 7:47 en verano).
+  # Cada día a las 3:13 UTC (4:13 en Madrid en horario de invierno, 5:13 en verano).
+  # GitHub suele retrasar las tareas programadas varias horas cuando va cargado: por eso se programa
+  # de madrugada, para que los vídeos lleguen igualmente por la mañana.
   # Las ejecuciones programadas usan las opciones por defecto: las tres webs, Gemini, tu voz clonada.
   schedule:
-    - cron: "47 5 * * *"
+    - cron: "13 3 * * *"
   workflow_dispatch:
     inputs:
       motor_voz:
