@@ -1,7 +1,6 @@
 # Terra: la burbuja de internet que arruinó a medio país
 # Guion para revisar. Cada dato lleva su fuente (lista de «fuentes» al final de este bloque).
 
-titulo: "Terra: la acción que pasó de 157 euros a 3 (la burbuja puntocom española)"
 descripcion: >-
   En febrero del año 2000, una empresa de internet que casi no ganaba dinero llegó a ser una de las más
   valiosas de la Bolsa española. Cinco años después, su acción valía un 98 % menos. Esta es la historia de
@@ -9,10 +8,22 @@ descripcion: >-
   caída que se llevó por delante los ahorros de cientos de miles de familias.
 hashtags: "#historia #economía #bolsa #Terra #burbuja #puntocom #Telefónica"
 
-miniatura:
-  texto: "De 157 € a 3 €"
-  resaltar: "3"
-  cifra: "−98 %"
+titulos:
+  - "Terra: la acción que pasó de 157 euros a 3 (la burbuja puntocom española)"
+  - "Si hubieras metido 1.000 € en Terra en el año 2000…"
+  - "Terra valía más que los grandes bancos y casi no tenía ingresos"
+
+miniaturas:
+  - texto: "De 157 euros a 3"
+    resaltar: "3"
+    cifra: "−98 %"
+  - texto: "Tus 1.000 € en Terra"
+    resaltar: "Terra"
+    cifra: "×13"
+    lado: izquierda
+  - texto: "Valía más que los bancos"
+    resaltar: "bancos"
+    cifra: "40.000 M€"
 
 fuentes:
   - id: 1

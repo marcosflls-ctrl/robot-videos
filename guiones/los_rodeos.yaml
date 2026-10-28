@@ -5,7 +5,6 @@
 
 canal: misterios
 
-titulo: "El peor accidente de avión de la historia ocurrió en España (Los Rodeos, 1977)"
 descripcion: >-
   El 27 de marzo de 1977, dos Boeing 747 chocaron en la pista del aeropuerto de Los Rodeos, en Tenerife.
   Murieron 583 personas: sigue siendo el peor accidente de la historia de la aviación. Ninguno de los dos
@@ -14,14 +13,34 @@ descripcion: >-
   minuto a minuto, y lo que cambió en la aviación desde entonces.
 hashtags: "#LosRodeos #Tenerife #aviación #historia #desastres #1977"
 
-miniatura:
-  texto: "Dos aviones en la misma pista"
-  resaltar: "misma"
-  cifra: "1977"
-  escena: >-
-    Dos grandes aviones de pasajeros de cuatro motores, de frente el uno al otro en la misma pista,
-    envueltos en niebla espesa; sus faros encendidos atraviesan la bruma. En primer plano, un muñeco de
-    palo con los ojos muy abiertos y cara de alarma mira hacia ellos. Atardecer gris, mucho contraste.
+titulos:
+  - "El peor accidente de avión de la historia ocurrió en España (Los Rodeos, 1977)"
+  - "Una frase por radio que nadie entendió: el desastre de Tenerife (1977)"
+  - "583 muertos y ninguno de los dos aviones tenía que estar allí"
+
+miniaturas:
+  - texto: "Dos aviones en la misma pista"
+    resaltar: "misma"
+    cifra: "1977"
+    escena: >-
+      Dos grandes aviones de pasajeros de cuatro motores, de frente el uno al otro en la misma pista,
+      envueltos en niebla espesa; sus faros encendidos atraviesan la bruma. En primer plano, un muñeco de
+      palo con los ojos muy abiertos y cara de alarma mira hacia ellos. Atardecer gris, mucho contraste.
+  - texto: "Una frase por radio"
+    resaltar: "radio"
+    cifra: "OK"
+    lado: izquierda
+    escena: >-
+      Interior de una pequeña torre de control de los años setenta con los cristales empañados de niebla:
+      un muñeco de palo con auriculares y micrófono habla por radio, con cara de duda; fuera solo se ve
+      bruma gris. Luz fría de atardecer, mucho contraste.
+  - texto: "No tenían que estar allí"
+    resaltar: "allí"
+    cifra: "583"
+    escena: >-
+      Un pequeño aeropuerto de montaña desbordado: muchos aviones grandes aparcados en fila sobre la pista
+      de rodaje, bajo nubes bajas que empiezan a cubrirlo todo. En primer plano, un muñeco de palo con gorra
+      de piloto mira su reloj con impaciencia.
 
 fuentes:
   - id: 1

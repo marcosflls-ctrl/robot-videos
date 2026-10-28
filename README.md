@@ -114,9 +114,10 @@ rojo anaranjado y dorado, titulares con serifa y grano de película.
 - **Voz:** Gemini (clave `GEMINI_API_KEY`), con una voz de narrador distinta de la de los Shorts de las webs.
   Las frases ya leídas y las imágenes se guardan entre ejecuciones.
 - **Clips de archivo:** Pixabay o Pexels, si están sus claves.
-- **Qué te llega por Telegram:** miniatura, copia ligera del vídeo largo, descripción con capítulos, fuentes y créditos,
+- **Qué te llega por Telegram:** las miniaturas (hasta 3) y los títulos (hasta 3) para la prueba A/B de YouTube, copia ligera del vídeo largo, descripción con capítulos, fuentes y créditos,
   subtítulos `.srt` y los Shorts con su texto. El largo en calidad completa está en **Artifacts** (7 días).
 - Cómo lanzarlo: **Actions** → **Vídeo de historia** → **Run workflow**, escribe el nombre del guion.
   Con **Prueba rápida sin voz** se ve el montaje sin gastar la API.
+  Con **Qué montar → miniaturas** solo hace las miniaturas y los títulos (sin voz ni vídeo), también para vídeos ya subidos.
 
 **No publica nada.**
