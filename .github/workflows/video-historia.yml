@@ -17,6 +17,10 @@ on:
         type: choice
         options: ["todo", "largo", "shorts", "miniaturas"]
         default: "todo"
+      shorts:
+        description: "Solo estos Shorts: números de capítulo separados por comas, p. ej. 1,4,6 (vacío = todos)"
+        type: string
+        default: ""
       voz:
         description: "Voz del narrador (vacío = la del canal: Charon en historia, Orus en misterios, Sulafat en medio ambiente)"
         type: choice
@@ -74,6 +78,7 @@ jobs:
         env:
           GUION: ${{ github.event.inputs.guion }}
           QUE: ${{ github.event.inputs.que }}
+          SHORTS: ${{ github.event.inputs.shorts }}
           VOZ_HISTORIA: ${{ github.event.inputs.voz }}
           VELOCIDAD_VOZ: ${{ github.event.inputs.velocidad }}
           SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
