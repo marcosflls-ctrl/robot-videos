@@ -141,7 +141,15 @@ gancho:
 capitulos:
 # ---------------------------------------------------------------------------------------------
   - titulo: "Una isla hecha de volcanes"
-    short: false
+    titulo_short: "Cómo nacieron las islas Canarias"
+    short: true
+    gancho_short:
+      - voz: "Las Canarias salieron del fondo del océano, erupción tras erupción. Y siguen creciendo."
+        tipo: titulo
+        texto: "Islas que nacieron del fondo del mar"
+        resaltar: "fondo del mar"
+        kicker: "Geología"
+        fuente: 4
     escenas:
       - voz: "Las Canarias están en el Atlántico, a unos cien kilómetros de la costa del Sáhara, y todas son volcánicas."
         tipo: mapa
@@ -379,7 +387,15 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Ríos de piedra"
-    short: false
+    titulo_short: "Cómo avanza un río de lava"
+    short: true
+    gancho_short:
+      - voz: "La lava de La Palma avanzaba a pocos metros por hora. Y aun así arrasó casi tres mil construcciones."
+        tipo: titulo
+        texto: "Lenta, pero lo arrasó todo"
+        resaltar: "arrasó"
+        kicker: "Riesgo volcánico"
+        fuente: [5, 7]
     escenas:
       - voz: "El peligro más visible de un volcán como este son las coladas de lava. Su camino lo decide el relieve, y su velocidad depende de lo fluida que sea."
         tipo: ilustracion
@@ -510,7 +526,14 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "El peligro que no se ve"
-    short: false
+    titulo_short: "El peligro de un volcán que no se ve"
+    short: true
+    gancho_short:
+      - voz: "Lo más peligroso de un volcán no siempre es la lava."
+        tipo: titulo
+        texto: "El peligro que no se ve"
+        resaltar: "no se ve"
+        kicker: "Riesgo volcánico"
     escenas:
       - voz: "La lava es lo que sale en las fotos. Pero un volcán tiene más peligros, y algunos llegan mucho más lejos."
         tipo: lista
@@ -570,7 +593,15 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Lo que aprendimos"
-    short: false
+    titulo_short: "Cómo se protege a la gente de un volcán"
+    short: true
+    gancho_short:
+      - voz: "La lava de La Palma destruyó casi tres mil construcciones, pero nadie murió atrapado por ella. ¿Cómo se consiguió?"
+        tipo: titulo
+        texto: "Cómo se protege a la gente de un volcán"
+        resaltar: "protege"
+        kicker: "Riesgo volcánico"
+        fuente: [7, 9]
     escenas:
       - voz: "El trece de diciembre de 2021, a las diez y veintiuno de la noche, el volcán dejó de expulsar lava. El día de Navidad se dio la erupción por terminada."
         tipo: fecha

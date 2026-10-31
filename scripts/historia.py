@@ -22,6 +22,7 @@ Variables:
     GUION         nombre del guion (sin .yaml)
     QUE           todo | largo | shorts | miniaturas (solo miniaturas y títulos, sin voz)
     SIN_VOZ=1     prueba rápida sin voz (tiempos calculados a ojo)
+    SHORTS        capítulos cuyos Shorts se montan, p. ej. «1,4» (vacío = todos los marcados)
     VOZ_HISTORIA  voz de Gemini (vacío = la del archivo del canal)
 """
 import hashlib
@@ -968,8 +969,10 @@ def main():
         copia_ligera(SALIDA / f"{nombre}_largo.mp4", SALIDA / f"{nombre}_largo_movil.mp4", r["duracion"])
 
     if que in ("todo", "shorts"):
+        # SHORTS="1,4": montar solo los Shorts de esos capítulos (vacío = todos los marcados con short: true)
+        elegidos = {int(x) for x in (os.environ.get("SHORTS") or "").replace(" ", "").split(",") if x.isdigit()}
         for c, cap in enumerate(g["capitulos"]):
-            if not cap.get("short", True):
+            if not cap.get("short", True) or (elegidos and c + 1 not in elegidos):
                 continue
             bloques = bloques_short(g, sr, c)
             base = SALIDA / f"{nombre}_short_{c + 1:02d}"
