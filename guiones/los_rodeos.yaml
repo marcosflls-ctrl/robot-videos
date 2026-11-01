@@ -92,7 +92,15 @@ gancho:
 capitulos:
 # ---------------------------------------------------------------------------------------------
   - titulo: "Un domingo que empezó con una bomba"
-    short: false
+    titulo_short: "Por qué dos aviones gigantes acabaron en Los Rodeos"
+    short: true
+    gancho_short:
+      - voz: "Una bomba en otro aeropuerto mandó a dos de los aviones más grandes del mundo a una pista donde no cabían."
+        tipo: titulo
+        texto: "Una bomba los desvió a Tenerife"
+        resaltar: "bomba"
+        kicker: "Los Rodeos · 1977"
+        fuente: 2
     escenas:
       - voz: "Era domingo. Dos Boeing 747, los aviones de pasajeros más grandes de la época, volaban hacia Gran Canaria."
         tipo: ilustracion
@@ -183,7 +191,16 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "La espera"
-    short: false
+    titulo_short: "Las horas antes del peor accidente de la aviación"
+    short: true
+    gancho_short:
+      - voz: "Para ganar tiempo, el KLM llenó sus depósitos en Tenerife. Y una pasajera decidió no volver a subir al avión."
+        pronunciar: "Para ganar tiempo, el ka ele eme llenó sus depósitos en Tenerife. Y una pasajera decidió no volver a subir al avión."
+        tipo: titulo
+        texto: "Depósitos llenos y horas de espera"
+        resaltar: "Depósitos llenos"
+        kicker: "Los Rodeos · 1977"
+        fuente: [1, 2]
     escenas:
       - voz: "Pasaron las horas. Los pasajeros de KLM bajaron a la terminal a estirar las piernas."
         pronunciar: "Pasaron las horas. Los pasajeros de ka ele eme bajaron a la terminal a estirar las piernas."
@@ -259,7 +276,15 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "La niebla"
-    short: false
+    titulo_short: "La niebla que cegó Los Rodeos"
+    short: true
+    gancho_short:
+      - voz: "En doce minutos, la pista de Los Rodeos pasó de verse a dos o tres kilómetros a solo trescientos metros."
+        tipo: titulo
+        texto: "De 3 km a 300 metros de visibilidad"
+        resaltar: "300 metros"
+        kicker: "Los Rodeos · 1977"
+        fuente: 1
     escenas:
       - voz: "Mientras repostaban, entraron nubes bajas en el aeropuerto. Y la visibilidad empezó a cambiar de un minuto a otro."
         tipo: ilustracion
@@ -507,7 +532,15 @@ capitulos:
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Después del choque"
-    short: false
+    titulo_short: "Qué pasó después del choque de Los Rodeos"
+    short: true
+    gancho_short:
+      - voz: "Desde la torre solo se oyeron explosiones dentro de la niebla. Tardaron en saber que eran dos aviones."
+        tipo: titulo
+        texto: "Explosiones dentro de la niebla"
+        resaltar: "niebla"
+        kicker: "Los Rodeos · 1977"
+        fuente: 2
     escenas:
       - voz: "El KLM cayó a unos ciento cincuenta metros y se deslizó por la pista. Con los depósitos llenos, ardió de inmediato. De las doscientas cuarenta y ocho personas a bordo, no sobrevivió nadie."
         pronunciar: "El ka ele eme cayó a unos ciento cincuenta metros y se deslizó por la pista. Con los depósitos llenos, ardió de inmediato. De las doscientas cuarenta y ocho personas a bordo, no sobrevivió nadie."

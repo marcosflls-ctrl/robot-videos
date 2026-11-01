@@ -127,6 +127,11 @@ y se guardan: si no cambias la descripción, no se vuelven a pagar. El estilo co
 
 Colores que se pueden usar: `acento` (rojo anaranjado), `acento2` (dorado), `texto`, `suave`, `sube`, `baja`.
 
+### Montar solo algunos Shorts
+
+Al lanzar el robot, en «Solo estos Shorts» escribe los números de capítulo separados por comas (por
+ejemplo `1,4,6`) para montar solo esos. Vacío = todos los capítulos marcados con `short: true`.
+
 ### Velocidad de la voz
 
 En el archivo del canal, `velocidad_voz: 1.1` hace la voz un 10 % más rápida (de 0.8 a 1.3). Se aplica al
