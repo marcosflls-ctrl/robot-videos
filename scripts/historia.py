@@ -196,7 +196,8 @@ def _monigote_miniatura(g, canal, m):
 REFUERZO_CARTEL = (
     "Es la miniatura de YouTube del vídeo: mismo estilo de dibujo y misma paleta que el resto de ilustraciones, "
     "sin colores chillones ni saturados de más; solo un poco más de contraste, la línea de tinta algo más gruesa "
-    "y el monigote muy expresivo, para que se entienda de un vistazo en pequeño. Fondo sencillo. Sin texto, "
+    "y el monigote muy expresivo, para que se entienda de un vistazo en pequeño. Si lleva algo en la mano, la mano "
+    "lo agarra de verdad: ningún objeto flota en el aire. Fondo sencillo. Sin texto, "
     "sin letras, sin números, sin logotipos, sin marcas de agua.")
 
 

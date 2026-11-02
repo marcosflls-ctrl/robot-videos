@@ -24,7 +24,7 @@ MAGENTA = (255, 0, 255)
 FONDO_RECORTE = ("Fondo totalmente liso de color magenta puro (#FF00FF), uniforme, sin degradados, sin suelo, "
                  "sin sombras, sin otros objetos ni decorado. El personaje entero, de cuerpo completo, centrado y "
                  "sin tocar los bordes, con un margen amplio alrededor. Un solo personaje. Ningún tono magenta o "
-                 "rosa intenso en el personaje.")
+                 "rosa intenso en el personaje. Si lleva algo en la mano, la mano lo agarra de verdad: ningún objeto flota en el aire.")
 
 # Gestos del presentador cuando el guion no dice ninguno (momentos clave automáticos)
 GESTOS = {
