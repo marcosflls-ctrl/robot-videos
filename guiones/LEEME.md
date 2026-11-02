@@ -55,6 +55,13 @@ y se queda con el que más tiempo de visualización consigue. Por eso cada guion
 
 Siguen valiendo `titulo` y `miniatura` (una sola) en los guiones antiguos.
 
+## Vídeos ya publicados
+
+Cuando un vídeo se sube a YouTube, se añade al principio de su guion la línea `publicado: true`.
+Así el robot se niega a montarlo otra vez por error (se volverían a pagar imágenes y voz). Rehacer solo
+las miniaturas y títulos sí se puede. Si de verdad hay que rehacer el vídeo, se lanza el robot marcando
+«Volver a montar un vídeo ya publicado».
+
 ## Estructura
 
 ```yaml
