@@ -1,0 +1,28 @@
+categoria: ciencia
+titulo: "Si aciertas la última, eres un crack 🧪 3 preguntas de ciencia #quiz"
+gancho: "Tres preguntas de ciencia. Si aciertas la última, eres un crack."
+preguntas:
+  - pregunta: "¿Cuál es el planeta más grande del sistema solar?"
+    opciones: ["Saturno", "Júpiter", "Neptuno", "Urano"]
+    correcta: B
+    dato: "Dentro de él cabrían más de mil trescientas Tierras."
+    dato_pantalla: "Dentro de él cabrían más de 1.300 Tierras."
+    escena: "Un planeta gigante gaseoso con bandas de colores y una gran tormenta ovalada, visto desde el espacio con estrellas al fondo"
+  - tipo: vf
+    pregunta: "El sonido viaja más rápido por el agua que por el aire."
+    correcta: verdadero
+    dato: "En el agua va unas cuatro veces más rápido: casi mil quinientos metros por segundo."
+    dato_pantalla: "En el agua va unas cuatro veces más rápido: casi 1.500 metros por segundo."
+    escena: "Ondas de sonido de colores propagándose bajo el agua del océano, con una ballena a lo lejos"
+  - pregunta: "¿Qué elemento químico tiene el símbolo K?"
+    decir: "¿Qué elemento químico tiene el símbolo «ka»?"
+    opciones: ["Potasio", "Calcio", "Kriptón", "Carbono"]
+    correcta: A
+    dato: "Viene de su nombre en latín, kalium. El kriptón es Kr y el carbono, C."
+    escena: "Una tabla periódica luminosa flotando en un laboratorio oscuro, con un frasco de cristal que brilla en primer plano, sin letras legibles"
+extra: "¿Cuántos huesos tiene el cuerpo de una persona adulta?"
+fuentes:
+  - "https://science.nasa.gov/jupiter/facts/"
+  - "https://es.wikipedia.org/wiki/Velocidad_del_sonido"
+  - "https://es.wikipedia.org/wiki/Potasio"
+publicado: false

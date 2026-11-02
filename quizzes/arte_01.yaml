@@ -1,0 +1,26 @@
+categoria: arte
+titulo: "¿Sabes tanto de arte como crees? 🎨 3 preguntas #quiz"
+gancho: "Tres preguntas de arte y literatura. ¿Sabes tanto como crees?"
+preguntas:
+  - pregunta: "¿Quién escribió «Don Quijote de la Mancha»?"
+    opciones: ["Lope de Vega", "Miguel de Cervantes", "Francisco de Quevedo", "Calderón de la Barca"]
+    correcta: B
+    dato: "La primera parte se publicó en 1605."
+    escena: "Un libro antiguo abierto sobre una mesa de madera, y al fondo, por la ventana, molinos de viento en una llanura de La Mancha"
+  - pregunta: "¿En qué museo está «Las meninas» de Velázquez?"
+    opciones: ["El Prado", "Reina Sofía", "Thyssen", "Louvre"]
+    correcta: A
+    decir_respuesta: "¡La A: el Museo del Prado!"
+    dato: "La pintó en 1656, y el propio Velázquez aparece en el cuadro, pincel en mano."
+    escena: "Una gran sala de museo clásico con suelos de mármol y cuadros enmarcados en oro, vista desde la entrada, sin personas"
+  - tipo: vf
+    pregunta: "El «Guernica» de Picasso está pintado solo en blanco, negro y grises."
+    correcta: verdadero
+    dato: "Lo pintó en 1937, y hoy se puede ver en el Museo Reina Sofía, en Madrid."
+    escena: "El estudio de un pintor en París en los años treinta, con un lienzo gigantesco todavía en blanco y botes de pintura negra y gris"
+extra: "¿Qué arquitecto diseñó la Sagrada Familia de Barcelona?"
+fuentes:
+  - "https://es.wikipedia.org/wiki/Don_Quijote_de_la_Mancha"
+  - "https://www.museodelprado.es/coleccion/obra-de-arte/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
+  - "https://www.museoreinasofia.es/coleccion/obra/guernica"
+publicado: false

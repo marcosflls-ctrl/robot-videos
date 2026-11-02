@@ -121,3 +121,16 @@ rojo anaranjado y dorado, titulares con serifa y grano de película.
   Con **Qué montar → miniaturas** solo hace las miniaturas y los títulos (sin voz ni vídeo), también para vídeos ya subidos.
 
 **No publica nada.**
+
+## Canal de quiz: Dale al Coco (antes TrivialXpress)
+
+El robot **Vídeo de quiz** monta un Short vertical de unos 50 s a partir de un quiz de la carpeta `quizzes/`:
+gancho, 3 preguntas con cuenta atrás, respuesta y dato curioso, y un final con una pregunta extra para los
+comentarios. Cada categoría tiene su color, su patrón de fondo y su música, y cada vídeo elige su forma de
+entrar en pantalla, para que no salgan todos iguales.
+
+- **Identidad del canal** (nombre, voz Puck, colores, categorías y plan de la semana): `canal_quiz.yaml`.
+- **Cómo se escriben los quizzes:** `quizzes/LEEME.md`. Ya hay 7, uno por categoría.
+- **Logo, banner y mascota** (el cerebro «Coco», dibujado con código): `python scripts/marca_quiz.py`.
+- Cómo lanzarlo: **Actions** → **Vídeo de quiz** → **Run workflow**. Vacío = el quiz que toca hoy.
+- Te llega por Telegram (y a Drive) con el título, la descripción y las respuestas. **No publica nada.**

@@ -1,0 +1,28 @@
+categoria: historia
+titulo: "3 preguntas de historia de España ¿Llegas a la última? #quiz"
+gancho: "Tres preguntas de historia de España. ¿Llegas a la tercera?"
+preguntas:
+  - pregunta: "¿En qué año llegó Colón a América?"
+    opciones: ["1492", "1453", "1519", "1588"]
+    correcta: A
+    dato: "Llegó el 12 de octubre a una isla de las Bahamas a la que llamó San Salvador."
+    escena: "Tres carabelas del siglo XV navegando hacia una playa tropical al amanecer"
+  - pregunta: "¿Qué ciudad fue la capital del reino visigodo en Hispania?"
+    opciones: ["Toledo", "Córdoba", "Mérida", "Barcelona"]
+    correcta: A
+    dato: "Lo fue desde el reinado de Leovigildo, en el siglo sexto."
+    dato_pantalla: "Lo fue desde el reinado de Leovigildo, en el siglo VI."
+    escena: "Una ciudad medieval amurallada sobre una colina rodeada por un río, con una corona visigoda de oro y piedras preciosas en primer plano"
+  - pregunta: "¿Quién fue el primer rey Borbón de España?"
+    opciones: ["Carlos III", "Felipe IV", "Felipe V", "Fernando VII"]
+    correcta: C
+    decir_respuesta: "¡La C: Felipe Quinto!"
+    dato: "Llegó al trono en el año 1700 y su reinado, de unos cuarenta y cinco años, se considera el más largo de la monarquía española."
+    dato_pantalla: "Llegó al trono en 1700, y su reinado, de unos 45 años, se considera el más largo de la monarquía española."
+    escena: "Un trono real dorado vacío en un salón de palacio del siglo XVIII con flores de lis bordadas en las cortinas"
+extra: "¿En qué ciudad se aprobó la primera Constitución española, en 1812?"
+fuentes:
+  - "https://es.wikipedia.org/wiki/Primer_viaje_de_Colón"
+  - "https://es.wikipedia.org/wiki/Reino_visigodo_de_Toledo"
+  - "https://es.wikipedia.org/wiki/Felipe_V_de_España"
+publicado: false

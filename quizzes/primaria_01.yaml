@@ -1,0 +1,26 @@
+categoria: primaria
+titulo: "¿Sabes más que un niño de 6º de Primaria? 🧠 #quiz"
+gancho: "¿Sabes más que un niño de 6º de Primaria? Tres preguntas del cole."
+decir_gancho: "¿Sabes más que un niño de sexto de Primaria? Tres preguntas del cole."
+preguntas:
+  - pregunta: "¿Cuántos lados tiene un hexágono?"
+    opciones: ["5", "6", "7", "8"]
+    correcta: B
+    decir_respuesta: "¡La B: seis!"
+    dato: "Las celdas de los panales de las abejas tienen esa forma."
+    escena: "Primer plano de un panal de abejas dorado con celdas perfectas llenas de miel y una abeja simpática"
+  - tipo: vf
+    pregunta: "La Luna tiene luz propia."
+    correcta: falso
+    dato: "Brilla porque refleja la luz del Sol."
+    escena: "Una gran luna llena sobre un pueblo dormido de noche, con el Sol asomando por el borde de la imagen"
+  - pregunta: "¿Cuál es el sujeto de la frase «Ayer llovió mucho»?"
+    opciones: ["Ayer", "Mucho", "No tiene sujeto", "Llovió"]
+    correcta: C
+    decir_respuesta: "¡La C: no tiene sujeto!"
+    dato: "Los verbos como llover o nevar son impersonales: no tienen sujeto."
+    escena: "Una pizarra de colegio con dibujos de nubes y gotas de lluvia, junto a una ventana por la que se ve llover, sin letras legibles"
+extra: "¿Cuánto es siete por ocho? Sin calculadora."
+fuentes:
+  - "https://www.rae.es/gtg/oraciones-impersonales"
+publicado: false

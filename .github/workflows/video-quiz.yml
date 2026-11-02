@@ -1,0 +1,129 @@
+# Canal de quiz (Dale al Coco, antes TrivialXpress): monta un Short vertical a partir de un quiz de la carpeta quizzes/.
+# Te lo manda por Telegram (y a Google Drive, si está configurado) para que lo subas tú. NO publica nada.
+# Se lanza a mano: pestaña "Actions" -> "Vídeo de quiz" -> "Run workflow".
+
+name: Vídeo de quiz
+
+on:
+  workflow_dispatch:
+    inputs:
+      quiz:
+        description: "Nombre del quiz (archivo de quizzes/, sin .yaml). Vacío = el que toca hoy según el plan de la semana"
+        type: string
+        default: ""
+      voz:
+        description: "Voz (vacío = la del canal: Puck)"
+        type: choice
+        options: ["", "Puck", "Orus", "Charon", "Sulafat", "Achird", "Zephyr", "Fenrir"]
+        default: ""
+      velocidad:
+        description: "Velocidad de la voz (vacío = la del canal). No gasta cupo de Gemini"
+        type: choice
+        options: ["", "1.0", "1.05", "1.1", "1.15", "1.2"]
+        default: ""
+      sin_voz:
+        description: "Prueba rápida sin voz ni imágenes (gratis): solo para ver el montaje"
+        type: boolean
+        default: false
+      remontar:
+        description: "Volver a montar un quiz ya publicado (gasta voz e imágenes otra vez)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        timeout-minutes: 5
+        run: |
+          if ! which ffmpeg; then
+            pip install --quiet imageio-ffmpeg
+            sudo ln -sf "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
+      - name: Instalar librerías
+        run: pip install --quiet numpy soundfile num2words pillow pyyaml faster-whisper
+      - name: Recuperar las voces e imágenes ya hechas
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            cache_voz
+            cache_imagenes
+          key: voz-quiz-${{ github.run_id }}
+          restore-keys: voz-quiz-
+      - name: Recuperar el reconocedor de voz
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-base
+      - name: Montar el vídeo
+        id: montar
+        env:
+          QUIZ: ${{ github.event.inputs.quiz }}
+          VOZ_QUIZ: ${{ github.event.inputs.voz }}
+          VELOCIDAD_VOZ: ${{ github.event.inputs.velocidad }}
+          SIN_VOZ: ${{ github.event.inputs.sin_voz == 'true' && '1' || '' }}
+          REMONTAR: ${{ github.event.inputs.remontar == 'true' && '1' || '' }}
+          VOZ_MOTOR: gemini
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TZ: Europe/Madrid
+        working-directory: scripts
+        run: |
+          if [ -z "$SIN_VOZ" ] && [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Falta la clave GEMINI_API_KEY para la voz. Mira el README."
+            exit 1
+          fi
+          python quiz.py
+      - name: Guardar las voces e imágenes para la próxima vez
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            cache_voz
+            cache_imagenes
+          key: voz-quiz-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          retention-days: 7
+          name: video-quiz
+          path: |
+            scripts/salida/*.mp4
+            scripts/salida/*.txt
+      - name: Copiarlo a Google Drive (si está configurado)
+        if: success()
+        continue-on-error: true
+        env:
+          QUIZ: ${{ steps.montar.outputs.quiz }}
+          GDRIVE_REFRESH: ${{ secrets.GDRIVE_REFRESH }}
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+        working-directory: scripts
+        run: python quiz.py --drive
+      - name: Mandarlo por Telegram (si está configurado)
+        if: success()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          QUIZ: ${{ steps.montar.outputs.quiz }}
+        working-directory: scripts/salida
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga el vídeo en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          API="https://api.telegram.org/bot${TELEGRAM_TOKEN}"
+          r=$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"${QUIZ}.mp4" -F supports_streaming=true \
+            -F caption="$(head -c 1000 "${QUIZ}.txt")" "$API/sendVideo")
+          if echo "$r" | grep -q '"ok":true'; then echo "Enviado: ${QUIZ}.mp4"; else echo "::warning::Telegram no aceptó el vídeo: $(echo "$r" | cut -c1-200)"; fi
