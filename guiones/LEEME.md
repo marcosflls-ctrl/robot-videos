@@ -55,9 +55,12 @@ y se queda con el que más tiempo de visualización consigue. Por eso cada guion
 
 Siguen valiendo `titulo` y `miniatura` (una sola) en los guiones antiguos.
 
-**Monigote en la miniatura:** todas las miniaturas llevan al presentador del canal, grande y con cara de
-asombro, en la esquina del lado de la imagen. Para poner a un personaje del guion (el sospechoso, por ejemplo):
-`monigote: sospechoso`; para otro gesto: `gesto: "señala la imagen con cara de miedo"`; para quitarlo: `monigote: no`.
+**Cómo son las miniaturas:** un dibujo a toda la imagen, de colores vivos, con un monigote grande en primer
+plano y cara exagerada, la escena detrás y el título enorme arriba, en amarillo con borde negro (las palabras de
+`resaltar`, en blanco; la `cifra`, en una etiqueta roja abajo). El monigote es el presentador del canal; para poner
+a un personaje del guion: `monigote: sospechoso`. Su cara o postura: `gesto: "se tapa la boca con cara de miedo"`.
+Para ponerlo a la derecha: `lado: derecha`. Si la miniatura no trae `escena`, se usa la del primer dibujo del vídeo.
+Cada miniatura es una imagen nueva (unos 3 céntimos). Con `imagen` o `buscar_imagen` (una foto real) se hace como antes.
 
 ## Vídeos ya publicados
 

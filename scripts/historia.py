@@ -37,7 +37,7 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 import yaml
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import ilustraciones
 import personajes
@@ -188,13 +188,48 @@ def _monigote_miniatura(g, canal, m):
         nombre, rasgos = str(p.get("nombre") or quien), str(p.get("rasgos") or "")
     if not rasgos:
         return None
-    ref = personajes.ficha(nombre, rasgos, canal)
-    return personajes.pose(nombre, rasgos, gesto, canal, ref)
+    return nombre, rasgos, personajes.ficha(nombre, rasgos, canal), gesto
+
+
+ESTILO_CARTEL = (
+    "Miniatura de YouTube muy llamativa, estilo dibujo animado: contornos negros gruesos y limpios, colores planos "
+    "vivos y saturados (cielo azul intenso, amarillos, verdes y rojos con mucha fuerza), luz clara y mucho contraste. "
+    "Las personas son monigotes: cabeza grande, redonda y blanca, con ojos, cejas y boca muy expresivos; cuerpo de "
+    "líneas negras. Fondo con sitio y profundidad, sencillo y fácil de leer a tamaño pequeño. Sin texto, sin letras, "
+    "sin números, sin logotipos, sin marcas de agua.")
+
+
+def _cartel(g, canal, m):
+    """La miniatura entera dibujada: el monigote grande en primer plano y la escena detrás, con hueco arriba para el título."""
+    escena = str(m.get("escena") or "").strip()
+    if not escena:
+        escena = next((str(e["escena"]) for e, _ in todas_las_escenas(g) if e.get("tipo") == "ilustracion" and e.get("escena")),
+                      str(g.get("titulo") or ""))
+    quien = _monigote_miniatura(g, canal, m)
+    lado = "derecho" if str(m.get("lado") or "").lower().startswith("der") else "izquierdo"
+    otro = "derecho" if lado == "izquierdo" else "izquierdo"
+    if quien:
+        nombre, rasgos, ref, gesto = quien
+        prota = (f"En primer plano, muy grande y ocupando el lado {lado} (casi la mitad de la imagen, de la cintura "
+                 f"para arriba o de cuerpo entero muy cerca de la cámara), el personaje de la imagen de referencia, "
+                 f"«{nombre}», exactamente igual (mismos rasgos: {rasgos}): {gesto}. Expresión exagerada, que se "
+                 f"entienda de un vistazo. ")
+    else:
+        ref, prota = None, (f"En primer plano, muy grande y en el lado {lado}, un monigote protagonista con una expresión "
+                            f"exagerada que encaje con la escena. ")
+    texto = (f"{prota}Detrás, hacia el lado {otro}: {escena}\n\nComposición horizontal 16:9. Deja la franja de arriba "
+             f"(la cuarta parte superior de la imagen) despejada, con cielo o fondo liso, para poner encima un título "
+             f"grande.\n\nEstilo: {' '.join(str(canal.get('miniatura_estilo') or ESTILO_CARTEL).split())}")
+    return ilustraciones.generar_imagen(texto, canal, [ref] if ref is not None else [], con_estilo=False,
+                                        aviso=f"miniatura «{m.get('texto') or g.get('titulo')}»")
 
 
 def preparar_miniaturas(g, canal):
     for m in variantes_miniatura(g):
-        m["_monigote"] = _monigote_miniatura(g, canal, m)
+        if not (m.get("imagen") or m.get("buscar_imagen")) and canal.get("miniatura_estilo") != "clasica":
+            m["_cartel"] = _cartel(g, canal, m)
+            if m["_cartel"] is not None:
+                continue
         if m.get("escena"):  # ilustración propia para la miniatura, con el estilo del canal
             m["_img"], _ = ilustraciones.generar(m, canal)
         elif m.get("imagen") or m.get("buscar_imagen"):
@@ -1112,9 +1147,45 @@ def _primera_imagen(g, m):
     return None
 
 
+def miniatura_cartel(g, canal, ruta, mi):
+    """Miniatura a toda imagen (el dibujo entero) con el título enorme arriba: amarillo con borde negro."""
+    img = recortar_a(mi["_cartel"].convert("RGBA"), 1280, 720, (0.5, 0.5))
+    d = ImageDraw.Draw(img)
+    texto = str(mi.get("texto") or g["titulo"]).upper()
+    resaltar = {p.strip(".,:;¿?¡!«»").lower() for p in str(mi.get("resaltar") or "").upper().split()}
+    color = tuple(canal.get("miniatura_texto") or (255, 222, 0)) + (255,)
+    ruta_f = str(RAIZ / "fuentes" / str(canal.get("fuente_miniatura") or "Anton.ttf"))
+    # La letra más grande que quepa: en una línea si se puede, si no en dos
+    for lineas_max, tam in [(1, t) for t in range(150, 104, -6)] + [(2, t) for t in range(132, 60, -6)]:
+        f = ImageFont.truetype(ruta_f, tam)
+        lineas = envolver(texto, f, 1180)
+        if len(lineas) <= lineas_max and all(f.getlength(l) <= 1180 for l in lineas):
+            break
+    borde = max(6, int(tam * 0.085))
+    y = 24
+    for l in lineas:
+        x = (1280 - f.getlength(l)) / 2
+        for p in l.split():
+            col = (255, 255, 255, 255) if p.strip(".,:;¿?¡!«»").lower() in resaltar else color
+            d.text((x + 6, y + 8), p, font=f, fill=(0, 0, 0, 160), stroke_width=borde, stroke_fill=(0, 0, 0, 160))
+            d.text((x, y), p, font=f, fill=col, stroke_width=borde, stroke_fill=(0, 0, 0, 255))
+            x += f.getlength(p + " ")
+        y += tam * 1.06
+    if mi.get("cifra"):  # cifra en una etiqueta roja, abajo, en el lado contrario al monigote
+        fc = ImageFont.truetype(ruta_f, 84)
+        c = str(mi["cifra"])
+        w = fc.getlength(c) + 44
+        x0 = 40 if str(mi.get("lado") or "").lower().startswith("der") else 1280 - 150 - w  # deja libre la duración
+        d.rectangle((x0, 560, x0 + w, 680), fill=(206, 32, 41, 255), outline=(0, 0, 0, 255), width=6)
+        d.text((x0 + w / 2, 620), c, font=fc, fill=(255, 255, 255, 255), anchor="mm")
+    img.convert("RGB").save(ruta)
+
+
 def miniatura(g, canal, ruta, mi=None):
     """Una miniatura 1280x720. «mi» es una de las variantes (texto, resaltar, cifra, imagen, lado)."""
     mi = mi if mi is not None else variantes_miniatura(g)[0]
+    if mi.get("_cartel") is not None:
+        return miniatura_cartel(g, canal, ruta, mi)
     ctx = Contexto(1280, 720, canal["tema"], canal["fuentes"])
     img = fondo_base(ctx, semilla=3)
     foto = _primera_imagen(g, mi)
@@ -1131,20 +1202,6 @@ def miniatura(g, canal, ruta, mi=None):
             m[:, :340] *= r[None, :]
         f.putalpha(Image.fromarray((m * 255).astype(np.uint8)))
         img.alpha_composite(f, (0 if izquierda else 520, 0))
-    mono = mi.get("_monigote")
-    if mono is not None:
-        # El monigote grande, de pie en la esquina del lado de la imagen, con una sombra suave
-        alto = 600
-        r = alto / mono.height
-        if mono.width * r > 420:
-            r = 420 / mono.width
-        mono = mono.resize((max(1, int(mono.width * r)), max(1, int(mono.height * r))), Image.LANCZOS)
-        x = 18 if (izquierda and foto is not None) else 1280 - mono.width - 18
-        y = 720 - mono.height + 12
-        sombra = Image.new("RGBA", mono.size, (0, 0, 0, 0))
-        sombra.putalpha(mono.getchannel("A").point(lambda a: a * 0.45).filter(ImageFilter.GaussianBlur(12)))
-        personajes._poner(img, sombra, x + 10, y + 8)
-        personajes._poner(img, mono, x, y)
     d = ImageDraw.Draw(img)
     texto = str(mi.get("texto") or g["titulo"])
     resaltar = {p.strip(".,:;¿?¡!").lower() for p in str(mi.get("resaltar") or "").split()}
@@ -1229,7 +1286,7 @@ def main():
     inicio = time.time()
     if que == "miniaturas":  # solo miniaturas y títulos: sin voz y sin montar vídeo (casi gratis)
         preparar_miniaturas(g, canal)
-        if any(m.get("_img") is None for m in variantes_miniatura(g)):
+        if any(m.get("_img") is None and m.get("_cartel") is None for m in variantes_miniatura(g)):
             preparar_primera_imagen(g, canal)
         miniaturas_y_titulos(g, canal, nombre)
         print(f"Miniaturas y títulos listos en {(time.time() - inicio) / 60:.1f} minutos")
