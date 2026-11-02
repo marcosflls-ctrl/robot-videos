@@ -1,0 +1,29 @@
+categoria: deporte
+titulo: "La última la falla casi todo el mundo 🏀 3 preguntas de deporte #quiz"
+gancho: "Tres preguntas de deporte. La última la falla casi todo el mundo."
+preguntas:
+  - pregunta: "¿Cuántos jugadores tiene en el campo un equipo de fútbol?"
+    opciones: ["10", "11", "9", "12"]
+    correcta: B
+    decir_respuesta: "¡La B: once!"
+    dato: "Y si un equipo se queda con menos de siete, el partido no puede seguir."
+    dato_pantalla: "Y si un equipo se queda con menos de 7, el partido no puede seguir."
+    escena: "Un campo de fútbol iluminado de noche visto desde lo alto, con el balón en el punto central y las gradas llenas de luces"
+  - pregunta: "¿Cada cuántos años se celebran los Juegos Olímpicos de verano?"
+    opciones: ["Cada 2", "Cada 4", "Cada 5", "Cada 3"]
+    correcta: B
+    decir_respuesta: "¡La B: cada cuatro años!"
+    dato: "Y desde 1994, los de invierno van dos años después de los de verano."
+    escena: "Un pebetero con una gran llama encendida en lo alto de un estadio al anochecer, con fuegos artificiales"
+  - pregunta: "¿En qué país se inventó el baloncesto?"
+    opciones: ["Canadá", "Estados Unidos", "Reino Unido", "Francia"]
+    correcta: B
+    dato: "Lo inventó en 1891 un profesor canadiense, James Naismith, en Massachusetts. ¡Las primeras canastas eran cestas de melocotones!"
+    dato_pantalla: "Lo inventó en 1891 un profesor canadiense, James Naismith, en Massachusetts. ¡Las primeras canastas eran cestas de melocotones!"
+    escena: "Un gimnasio antiguo de madera del siglo XIX con una cesta de mimbre colgada en la pared y un balón de cuero en el suelo"
+extra: "¿Cuántos sets hay que ganar para llevarse una final masculina de Grand Slam?"
+fuentes:
+  - "https://www.theifab.com/laws/latest/the-players/"
+  - "https://es.wikipedia.org/wiki/Juegos_Olímpicos"
+  - "https://es.wikipedia.org/wiki/James_Naismith"
+publicado: false

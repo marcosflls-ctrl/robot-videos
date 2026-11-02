@@ -1,0 +1,27 @@
+categoria: geografia
+titulo: "La tercera engaña a casi todos 🌍 3 preguntas de geografía #quiz"
+gancho: "Tres preguntas de geografía. La tercera engaña a casi todos."
+preguntas:
+  - pregunta: "¿Cuál es la capital de Australia?"
+    opciones: ["Sídney", "Canberra", "Melbourne", "Perth"]
+    correcta: B
+    dato: "Se construyó para ser la capital, porque Sídney y Melbourne no se ponían de acuerdo."
+    escena: "Vista aérea de una ciudad moderna rodeada de lagos y bosques de eucaliptos en Australia"
+  - tipo: vf
+    pregunta: "Rusia es el país con más husos horarios del mundo."
+    correcta: falso
+    dato: "Gana Francia, con doce, gracias a sus territorios de ultramar. Rusia tiene once."
+    dato_pantalla: "Gana Francia, con 12, gracias a sus territorios de ultramar. Rusia tiene 11."
+    escena: "Un globo terráqueo antiguo con muchos relojes flotando a su alrededor, cada uno marcando una hora distinta"
+  - pregunta: "¿Cuál es el río más largo de la península ibérica?"
+    opciones: ["Ebro", "Duero", "Tajo", "Guadalquivir"]
+    correcta: C
+    dato: "Mide unos mil kilómetros y desemboca en Lisboa. Pero el más largo que va entero por España es el Ebro."
+    dato_pantalla: "Mide unos 1.000 km y desemboca en Lisboa. Pero el más largo que va entero por España es el Ebro."
+    escena: "Un gran río serpenteando entre cañones y campos dorados de la península ibérica, visto desde lo alto al atardecer"
+extra: "¿Cuál es el único país del mundo cuya bandera no es rectangular?"
+fuentes:
+  - "https://es.wikipedia.org/wiki/Canberra"
+  - "https://www.guinnessworldrecords.com/world-records/584626-country-with-the-most-time-zones"
+  - "https://es.wikipedia.org/wiki/Tajo"
+publicado: false

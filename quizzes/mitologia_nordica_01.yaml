@@ -1,0 +1,27 @@
+categoria: mitologia
+titulo: "¿Cuánto sabes de mitología nórdica? 3 preguntas #quiz"
+gancho: "Tres preguntas de mitología nórdica. La última casi nadie la acierta."
+preguntas:
+  - pregunta: "¿Cómo se llama el martillo de Thor?"
+    opciones: ["Gungnir", "Mjölnir", "Draupnir", "Gram"]
+    correcta: B
+    decir_respuesta: "¡La B: Mjölnir!"
+    dato: "Gungnir, en cambio, era la lanza de Odín."
+    escena: "Un enorme martillo de guerra nórdico de piedra y metal clavado en una roca, rodeado de rayos, en lo alto de una montaña nevada"
+  - tipo: vf
+    pregunta: "Odín dio uno de sus ojos a cambio de beber del pozo de la sabiduría."
+    correcta: verdadero
+    dato: "Lo entregó en el pozo de Mímir, junto a las raíces del árbol del mundo."
+    escena: "Un pozo de piedra antiguo entre raíces gigantes de un árbol, con agua que brilla con luz azul en la oscuridad"
+  - pregunta: "¿Cómo se llama el caballo de ocho patas de Odín?"
+    opciones: ["Sleipnir", "Fenrir", "Huginn", "Ratatösk"]
+    correcta: A
+    dato: "Fenrir es el lobo gigante, Huginn uno de los cuervos de Odín y Ratatösk la ardilla del árbol Yggdrasil."
+    dato_pantalla: "Fenrir es el lobo gigante, Huginn uno de los cuervos de Odín y Ratatösk, la ardilla de Yggdrasil."
+    escena: "Un caballo gris plateado de ocho patas galopando entre nubes de tormenta sobre un paisaje nórdico de fiordos"
+extra: "¿Cómo se llama la serpiente gigante que rodea el mundo y lucha contra Thor?"
+fuentes:
+  - "https://es.wikipedia.org/wiki/Mjölnir"
+  - "https://es.wikipedia.org/wiki/Mímir"
+  - "https://es.wikipedia.org/wiki/Sleipnir"
+publicado: false

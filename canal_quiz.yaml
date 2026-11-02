@@ -1,0 +1,120 @@
+# Identidad del canal de quiz (Shorts verticales). Lo usa scripts/quiz.py.
+# Los quizzes están en la carpeta quizzes/. Cambiar una línea aquí cambia todos los vídeos del canal.
+
+# Nombre propuesto para el cambio de imagen de TrivialXpress. Si eliges otro, cámbialo aquí
+# y vuelve a lanzar «marca_quiz.py» para rehacer el logo y el banner.
+marca: "DALE AL COCO"
+marca_corta: "DALE AL COCO"
+lema: "Quizzes rápidos para poner a prueba tu cabeza"
+mascota: "Coco"   # el cerebro con cara que sale en el gancho y al final
+
+# Voz (Gemini): con energía, de presentador de concurso, pero natural.
+voz: "Puck"
+estilo_voz: >-
+  Presentador de concurso de televisión en español de España: cercano, con energía y chispa,
+  ritmo ágil y sonrisa en la voz. Lee las preguntas con intriga y celebra la respuesta correcta.
+  Natural, sin gritar y sin sonar a anuncio.
+velocidad_voz: 1.05
+
+# Colores (rojo, verde, azul de 0 a 255)
+colores:
+  fondo: [28, 22, 58]          # índigo oscuro
+  fondo2: [46, 37, 96]         # índigo claro (degradado y patrones)
+  panel: [255, 255, 255]       # cajas de las respuestas
+  texto: [250, 247, 255]
+  suave: [190, 180, 224]
+  tinta: [32, 22, 50]          # texto sobre las cajas claras y contornos de la mascota
+  acento: [255, 201, 60]       # amarillo: color principal de la marca
+  acento2: [64, 214, 208]      # turquesa
+  cerebro: [255, 138, 170]     # la mascota
+  cerebro_sombra: [226, 92, 134]
+  correcto: [56, 196, 112]
+  incorrecto: [232, 78, 92]
+
+# Fuentes (carpeta fuentes/, licencia libre SIL OFL)
+fuentes:
+  tit: "Fredoka-SemiBold.ttf"    # marca, preguntas, cifras
+  tit2: "Fredoka-Medium.ttf"
+  txt: "Nunito-Regular.ttf"
+  txt_b: "Nunito-ExtraBold.ttf"  # respuestas y etiquetas
+
+# Categorías: cada una con su color, su música y su patrón de fondo, para que no todos los vídeos
+# parezcan iguales. «estilo» se añade a las ilustraciones de esa categoría.
+categorias:
+  mitologia:
+    nombre: "Mitología"
+    color: [176, 132, 255]
+    patron: runas
+    musica: {estilo: misterio, bpm: 92}
+    estilo: >-
+      escena épica y misteriosa de mitología, iluminación dramática con luz azulada y dorada, niebla
+  historia:
+    nombre: "Historia"
+    color: [255, 170, 80]
+    patron: lineas
+    musica: {estilo: datos, bpm: 104}
+    estilo: >-
+      escena histórica fiel a la época, luz cálida de atardecer, tono de cuadro de historia
+  geografia:
+    nombre: "Geografía"
+    color: [92, 210, 120]
+    patron: curvas
+    musica: {estilo: naturaleza, bpm: 108}
+    estilo: >-
+      paisaje real y reconocible visto desde lo alto, luz clara y colores vivos
+  ciencia:
+    nombre: "Ciencia"
+    color: [64, 200, 240]
+    patron: rejilla
+    musica: {estilo: naturaleza, bpm: 112}
+    estilo: >-
+      ilustración científica luminosa, fondo oscuro con brillos de laboratorio o de espacio
+  arte:
+    nombre: "Arte y letras"
+    color: [255, 110, 160]
+    patron: puntos
+    musica: {estilo: datos, bpm: 96}
+    estilo: >-
+      escena de taller de artista o de biblioteca antigua, sin reproducir ninguna obra concreta
+  deporte:
+    nombre: "Deporte"
+    color: [255, 128, 64]
+    patron: diagonales
+    musica: {estilo: gta, bpm: 118}
+    estilo: >-
+      escena deportiva dinámica con movimiento, estadio genérico sin logotipos ni marcas, sin deportistas reales
+  primaria:
+    nombre: "Nivel Primaria"
+    color: [255, 214, 70]
+    patron: estrellas
+    musica: {estilo: naturaleza, bpm: 116}
+    estilo: >-
+      ilustración alegre y luminosa, como la de un libro de texto infantil de calidad
+
+# Ilustraciones con IA (una por pregunta). 1K basta para el tamaño de la tarjeta.
+# Si dos preguntas llevan exactamente la misma «escena», la imagen se paga una sola vez.
+ilustraciones:
+  modelo: "gemini-nano-banana-2.1"
+  tamano: "1K"
+  credito: "Ilustración"
+  estilo: >-
+    Ilustración digital de póster, muy cuidada y con mucho detalle, colores saturados y contraste alto,
+    composición horizontal con un único elemento principal muy claro en el centro, fácil de reconocer
+    en una pantalla de móvil. Sin texto, sin letras, sin números, sin logotipos, sin marcas de agua.
+    Sin personas reales reconocibles ni personajes de películas, series o videojuegos.
+
+# Segundos de la cuenta atrás de cada pregunta
+cuenta_atras: 3
+
+# Frases que se turnan al final para pedir comentarios (la pregunta extra se pone en cada quiz)
+cierre: "¿Cuántas has acertado? Dímelo en los comentarios"
+
+# Qué categoría toca cada día cuando el robot se lanza sin elegir quiz (coge el primero sin publicar)
+plan_semana:
+  lunes: mitologia
+  martes: historia
+  miercoles: geografia
+  jueves: ciencia
+  viernes: arte
+  sabado: deporte
+  domingo: primaria
