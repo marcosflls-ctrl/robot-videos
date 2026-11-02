@@ -65,6 +65,22 @@ miniatura_color: true
 # En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
 ilustracion_vertical: encajar
 
+# Presentador del canal: sale en los momentos clave (gancho, inicio de cada capítulo, cierre y final
+# de los Shorts) y en las escenas «presentador». Se dibuja una vez y se reutiliza en todos los vídeos.
+presentador:
+  nombre: "La geóloga"
+  rasgos: >-
+    figura sencilla dibujada a plumilla con tinta azul oscura; cabeza redonda con dos ojos de punto y una
+    sonrisa pequeña; casco de geóloga color ocre; chaleco de campo verde musgo con bolsillos sobre camiseta
+    blanca; pantalón gris y botas marrones; lleva siempre un martillo de geóloga en una mano
+  auto: true
+
+# Música de fondo (generada por código, sin derechos): luminosa, de paisaje
+musica: {estilo: naturaleza, bpm: 72}
+
+# Frase de la pantalla final de los Shorts (cada capítulo puede tener la suya con «cierre_short»)
+cierre_short: "¿Quieres entenderlo del todo? El vídeo completo, en el canal"
+
 subtitulos_largo: false
 subtitulos_shorts: true
 

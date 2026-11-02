@@ -1502,7 +1502,50 @@ class Archivo(Pieza):
             self.proc = None
 
 
-TIPOS = {"titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea, "barras": Barras,
+class Presentador(Pieza):
+    """El presentador habla a cámara: él grande a un lado (lo dibuja historia.py) y su frase al otro."""
+    entrada = 1.0
+
+    def __init__(self, *a):
+        super().__init__(*a)
+        ctx, d = self.ctx, self.d
+        p = d.get("presentador")
+        lado = str(p.get("lado") or "derecha") if isinstance(p, dict) else "derecha"
+        resaltar = {normalizar(x.strip(".,:;¿?¡!«»")) for x in str(d.get("resaltar") or "").split()}
+        if ctx.vertical:  # frase arriba; el presentador, debajo
+            x0, ancho, y_cen = ctx.m, self.W - 2 * ctx.m, ctx.arriba + 110
+        else:
+            ancho = int(self.W * 0.50)
+            x0 = ctx.m if lado == "derecha" else self.W - ctx.m - ancho
+            y_cen = (ctx.arriba + ctx.abajo) / 2
+        self.f, lineas, self.tam = ctx.ajustar(str(d["texto"]), "tit", 96, ancho, 3 if ctx.vertical else 4, 44)
+        self.kicker = str(d["kicker"]).upper() if d.get("kicker") else None
+        alto = self.tam * 1.1 * len(lineas) + (70 if self.kicker else 0)
+        self.y0 = y_cen - alto / 2 + (70 if self.kicker else 0)
+        self.x0 = x0
+        esp = self.f.getlength(" ")
+        self.palabras = []
+        for i, l in enumerate(lineas):
+            x = x0
+            for w in l.split():
+                self.palabras.append((w, x, self.y0 + i * self.tam * 1.1, normalizar(w.strip(".,:;¿?¡!«»")) in resaltar))
+                x += self.f.getlength(w) + esp
+
+    def dibujar(self, t):
+        ctx = self.ctx
+        img = self.lienzo()
+        d = ImageDraw.Draw(img)
+        if self.kicker:
+            q = suave(t / 0.35)
+            d.text((self.x0, self.y0 - 70), self.kicker, font=ctx.f("txt_b", 30), fill=ctx.c("acento", int(255 * q)))
+        for k, (w, x, y, res) in enumerate(self.palabras):
+            q = suave((t - 0.15 - 0.05 * k) / 0.3)
+            if q > 0:
+                d.text((x, y + 18 * (1 - q)), w, font=self.f, fill=ctx.c("acento" if res else "texto", int(255 * q)))
+        return img
+
+
+TIPOS = {"presentador": Presentador, "titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea, "barras": Barras,
          "fecha": Fecha, "cita": Cita, "lista": Lista, "foto": Foto, "boceto": Boceto, "mapa": Mapa,
          "esquema": Esquema, "archivo": Archivo}
 

@@ -63,6 +63,22 @@ ilustracion_vertical: encajar
 
 # Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
 # porque de todas formas se genera el archivo .srt para subirlo a YouTube)
+# Presentador del canal: sale en los momentos clave (gancho, inicio de cada capítulo, cierre y final
+# de los Shorts) y en las escenas «presentador». Se dibuja una vez y se reutiliza en todos los vídeos.
+presentador:
+  nombre: "El Cronista"
+  rasgos: >-
+    figura dibujada a trazo de tinta negra suelta, rellena de un único color crema; cabeza ovalada sin rasgos
+    faciales salvo unas gafas redondas doradas; chaleco terracota sobre camisa crema con las mangas remangadas;
+    lleva siempre una libreta abierta en una mano y una pluma en la otra
+  auto: true
+
+# Música de fondo (generada por código, sin derechos)
+musica: {estilo: datos, bpm: 80}
+
+# Frase de la pantalla final de los Shorts (cada capítulo puede tener la suya con «cierre_short»)
+cierre_short: "¿Y qué pasó después? La historia completa, en el canal"
+
 subtitulos_largo: false
 subtitulos_shorts: true
 

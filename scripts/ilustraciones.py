@@ -105,3 +105,97 @@ def generar(escena, canal):
             _sin_acceso = True
         print(f"::warning::No se pudo generar la ilustración «{descripcion[:60]}»: {str(e)[:300]}")
         return None, ""
+
+
+# =====================================================================
+#  Imágenes con referencias (personajes que salen siempre iguales)
+# =====================================================================
+
+URL_MODELO = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent"
+
+
+def _png_b64(img, lado=768):
+    img = img.convert("RGB")
+    img.thumbnail((lado, lado))
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return base64.b64encode(buf.getvalue()).decode()
+
+
+def _imagen_de_respuesta(datos):
+    for cand in datos.get("candidates") or []:
+        for parte in (cand.get("content") or {}).get("parts") or []:
+            dato = parte.get("inlineData") or parte.get("inline_data")
+            if dato and dato.get("data"):
+                return Image.open(io.BytesIO(base64.b64decode(dato["data"]))).convert("RGB")
+    raise RuntimeError("Gemini no devolvió imagen: " + json.dumps(datos)[:300])
+
+
+def _pedir_con_referencias(clave, modelo, texto, referencias, aspecto, tam):
+    partes = [{"text": texto}]
+    for img in referencias:
+        partes.append({"inline_data": {"mime_type": "image/png", "data": _png_b64(img)}})
+    cuerpo = json.dumps({"contents": [{"role": "user", "parts": partes}],
+                         "generationConfig": {"responseModalities": ["IMAGE"],
+                                              "imageConfig": {"aspectRatio": aspecto, "imageSize": tam}}}).encode()
+    ultimo = None
+    for intento in range(5):
+        req = urllib.request.Request(URL_MODELO.format(modelo), data=cuerpo, method="POST",
+                                     headers={"x-goog-api-key": clave, "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return _imagen_de_respuesta(json.loads(r.read().decode("utf-8")))
+        except urllib.error.HTTPError as e:
+            ultimo = f"{e.code}: {e.read().decode('utf-8', 'replace')[:300]}"
+            if e.code in (429, 500, 503) and intento < 4:
+                time.sleep(15 * (intento + 1))
+                continue
+            break
+        except urllib.error.URLError as e:
+            ultimo = str(e)
+            if intento < 4:
+                time.sleep(5)
+                continue
+    raise RuntimeError(f"Gemini respondió {ultimo}")
+
+
+def generar_imagen(texto, canal, referencias=(), aspecto="16:9", con_estilo=True, aviso=""):
+    """Imagen a partir de un texto y, si las hay, de imágenes de referencia (fichas de personajes).
+
+    Se guarda en la caché: con el mismo texto, estilo y referencias no se vuelve a pagar.
+    Devuelve una Image o None (sin clave o si falla; nunca rompe el vídeo).
+    """
+    cfg = canal.get("ilustraciones") or {}
+    estilo = " ".join(str(cfg.get("estilo", "")).split())
+    modelo = str(cfg.get("modelo") or "gemini-nano-banana-2.1")
+    tam = str(cfg.get("tamano") or "1K")
+    prompt = f"{texto}\n\nEstilo: {estilo}" if con_estilo else texto
+    huellas = "|".join(hashlib.sha1(r.tobytes()).hexdigest()[:12] for r in referencias)
+    CACHE.mkdir(exist_ok=True)
+    clave_cache = hashlib.sha1(f"ref|{modelo}|{tam}|{aspecto}|{prompt}|{huellas}".encode("utf-8")).hexdigest()[:16]
+    ruta = CACHE / f"ref_{clave_cache}.png"
+    if ruta.exists():
+        return Image.open(ruta).convert("RGB")
+    global _sin_acceso
+    clave = (os.environ.get("GEMINI_API_KEY") or "").strip()
+    if _sin_acceso or not clave:
+        if not clave:
+            print(f"::warning::Sin GEMINI_API_KEY no se puede generar «{(aviso or texto)[:60]}»")
+        return None
+    try:
+        inicio = time.time()
+        if referencias:
+            img = _pedir_con_referencias(clave, modelo, prompt, list(referencias), aspecto, tam)
+        else:
+            cuerpo = {"model": modelo, "input": prompt,
+                      "response_format": {"type": "image", "mime_type": "image/jpeg", "aspect_ratio": aspecto,
+                                          "image_size": tam}}
+            img = _imagen(_pedir(clave, cuerpo))
+        img.save(ruta)
+        print(f"  Imagen ({modelo}, {len(referencias)} ref., {time.time() - inicio:.0f} s): «{(aviso or texto)[:70]}»")
+        return img
+    except Exception as e:
+        if "plan gratuito" in str(e):
+            _sin_acceso = True
+        print(f"::warning::No se pudo generar «{(aviso or texto)[:60]}»: {str(e)[:300]}")
+        return None

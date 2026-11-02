@@ -90,6 +90,46 @@ capitulos:
 cierre: [escenas]             # opcional: despedida
 ```
 
+## Presentador del canal
+
+Cada canal tiene un presentador fijo (`presentador:` en su `canal_*.yaml`): Inspector Trazos en Casos a trazos,
+La geóloga en Bitácora de la Tierra y El Cronista en El Precio de la Historia. Se dibuja una vez y sale igual en
+todos los vídeos, recortado y animado encima de la escena (entra rebotando y se mueve al hablar la voz).
+
+- **Solo**, sin tocar nada: aparece en el gancho, al empezar cada capítulo, en el cierre y en el final de los Shorts.
+  Para quitarlo en un guion: `presentador_auto: false`.
+- **En una escena concreta**: `presentador: "señala el mapa con cara de sorpresa"` (o
+  `presentador: {gesto: "...", lado: izquierda}`). Cada gesto nuevo es una imagen (unos céntimos, una sola vez).
+- **Hablando a cámara**: `tipo: presentador` con `texto` (y `kicker`, `resaltar`): él grande a un lado y su frase al otro.
+
+## Personajes que salen siempre iguales
+
+Para casos con protagonistas (el sospechoso, la testigo, el piloto…) se describen una vez al principio del guion:
+
+```yaml
+personajes:
+  sospechoso:
+    nombre: "El hombre del sombrero negro"
+    rasgos: "bigote negro poblado, sombrero negro de ala ancha, bufanda roja larga, abrigo gris oscuro"
+```
+
+y en cada ilustración donde salen: `personajes: [sospechoso]` (o varios: `[testigo, sospechoso]`). El robot dibuja
+su ficha una vez y la manda como referencia en cada escena, para que sea siempre el mismo. Los rasgos tienen que ser
+muy visibles (ropa, sombrero, gafas, colores), porque los muñecos no tienen cara detallada. Nunca se dibuja a una
+persona real reconocible: el personaje se distingue por sus rasgos, no por parecerse a nadie.
+
+## Sonido
+
+Cada canal tiene su música (`musica:` en el `canal_*.yaml`: misterio, naturaleza o datos). En una escena se puede
+pedir un efecto con `sonido: viento`, `latido`, `golpe`, `pop` o `whoosh`.
+
+## Shorts
+
+- La primera frase arranca al instante y la escena sale ya montada: el gancho está en los 2 primeros segundos.
+- Subtítulos palabra a palabra, con la palabra que suena resaltada.
+- Pantalla final con una frase que invita a ver el vídeo completo: la del canal (`cierre_short`) o la de cada
+  capítulo (`cierre_short:` dentro del capítulo).
+
 ## Escenas
 
 Todas llevan `voz` (lo que dice el narrador) y pueden llevar `fuente: 1` (o `[1, 2]`).
@@ -111,6 +151,7 @@ Con `pausa: 2` la imagen se queda 2 segundos más en pantalla.
 | `mapa` | mapa con zoom y países que se colorean | `region` (`europa`, `espana`, `latinoamerica`, `america_sur`, `centroamerica`, `mundo`…) o `caja: [lon_min, lon_max, lat_min, lat_max]`, `titulo`, `grupos: [{paises, color, leyenda}]`, `etiquetas: [{pais, texto}]` |
 | `esquema` | cajas y flechas | `modo` (`cadena` o `causas`), `titulo`, `nodos: [{etiqueta, texto, destacar}]`, `flechas` (textos), `resultado` (en `causas`), `nota` |
 | `ilustracion` | ilustración generada con IA, con el estilo del canal y zoom lento | `escena` (qué se ve: lugar, época, gente, luz), `diseno` (`completa`, `sangre`, `marco`), `kicker`, `texto`, `sub` |
+| `presentador` | el presentador habla a cámara | `texto`, `kicker`, `resaltar`, `presentador: {gesto, lado}` |
 | `archivo` | clip de vídeo de archivo | `buscar` (en inglés funciona mejor), `texto`, `sub` |
 
 ### Imágenes (para `foto`, `boceto` y la miniatura)
