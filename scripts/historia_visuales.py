@@ -128,6 +128,96 @@ def _encajar_vertical(img, w, h, tema):
     return fondo
 
 
+def _con_hueco(img, w, h, tema, lado_libre, vertical):
+    """Lienzo w x h con la imagen entera, más pequeña y apartada, dejando libre un lado para el presentador.
+
+    Detrás va una copia difuminada de la propia imagen, como en _encajar_vertical.
+    """
+    img = img.convert("RGBA")
+    fondo = recortar_a(img, w, h, (0.5, 0.5)).filter(ImageFilter.GaussianBlur(45))
+    fondo = Image.blend(fondo, Image.new("RGBA", (w, h), tuple(tema["fondo"]) + (255,)), 0.35)
+    ancho = int(w * (0.74 if vertical else 0.70))
+    alto = int(ancho * img.height / img.width)
+    frente = img.resize((ancho, alto), Image.LANCZOS)
+    margen = int(w * 0.035)
+    x = (w - margen - ancho) if lado_libre == "izquierda" else margen
+    y = int(h * (0.45 if vertical else 0.47) - alto / 2)
+    sombra = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(sombra).rectangle((x + 8, y + 12, x + ancho + 8, y + alto + 22), fill=(0, 0, 0, 90))
+    fondo.alpha_composite(sombra.filter(ImageFilter.GaussianBlur(18)))
+    fondo.alpha_composite(frente, (x, y))
+    return fondo
+
+
+# Movimientos de cámara sobre las imágenes: se van alternando para que no todas hagan lo mismo
+MOVIMIENTOS = ("acercar", "alejar", "barrido", "deriva", "golpe", "vertical")
+CENTRADOS = ("acercar", "alejar", "deriva", "golpe")  # para imágenes encajadas (con márgenes difuminados)
+
+
+def _suave_io(x):
+    x = max(0.0, min(1.0, x))
+    return x * x * (3 - 2 * x)
+
+
+def _rebote_suave(x):
+    x = max(0.0, min(1.0, x))
+    c = 1.4
+    return 1 + (c + 1) * (x - 1) ** 3 + c * (x - 1) ** 2
+
+
+class Ambiente:
+    """Partículas de ambiente dibujadas por código: niebla, lluvia, nieve, polvo, ceniza, chispas."""
+
+    def __init__(self, tipo, W, H, semilla=0):
+        self.tipo, self.W, self.H = tipo, W, H
+        rnd = random.Random(semilla)
+        n = {"lluvia": 140, "nieve": 110, "polvo": 70, "ceniza": 90, "chispas": 45}.get(tipo, 0)
+        self.p = [(rnd.random(), rnd.random(), 0.4 + rnd.random() * 0.6, rnd.random() * 6.28) for _ in range(n)]
+        self.niebla = None
+        if tipo == "niebla":
+            r = np.random.default_rng(semilla)
+            base = r.random((max(2, H // 90), max(2, W // 90))).astype(np.float32)
+            capa = Image.fromarray((base * 255).astype(np.uint8)).resize((W * 2, H), Image.BICUBIC)
+            capa = capa.filter(ImageFilter.GaussianBlur(40))
+            a = np.asarray(capa, np.float32) / 255
+            y = np.linspace(0, 1, H)[:, None]
+            a = (a * (0.25 + 0.55 * y)).clip(0, 1)
+            self.niebla = Image.new("RGBA", (W * 2, H), (235, 232, 226, 0))
+            self.niebla.putalpha(Image.fromarray((a * 150).astype(np.uint8)))
+
+    def dibujar(self, img, t):
+        W, H = self.W, self.H
+        if self.niebla is not None:
+            x = int((t * 22) % W)
+            img.alpha_composite(self.niebla.crop((x, 0, x + W, H)))
+            return
+        capa = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(capa)
+        for x0, y0, v, f in self.p:
+            if self.tipo == "lluvia":
+                y = (y0 + t * 1.6 * v) % 1.0 * (H + 80) - 40
+                x = (x0 * (W + 200) - 200 + (y + 40) * 0.25) % (W + 200) - 100
+                d.line((x, y, x - 10 * v, y - 42 * v), fill=(210, 220, 230, int(110 * v)), width=2)
+            elif self.tipo in ("nieve", "ceniza"):
+                caida = 0.10 if self.tipo == "nieve" else 0.06
+                y = (y0 + t * caida * v) % 1.0 * H
+                x = x0 * W + math.sin(t * 0.9 + f) * 18
+                r = (2 + 4 * v) * (1 if self.tipo == "nieve" else 0.8)
+                col = (250, 250, 250, int(200 * v)) if self.tipo == "nieve" else (90, 88, 85, int(170 * v))
+                d.ellipse((x - r, y - r, x + r, y + r), fill=col)
+            elif self.tipo == "polvo":
+                x = (x0 + t * 0.012 * v) % 1.0 * W
+                y = y0 * H + math.sin(t * 0.6 + f) * 14
+                a = int(120 * (0.5 + 0.5 * math.sin(t * 1.3 + f)) * v)
+                d.ellipse((x - 2, y - 2, x + 2, y + 2), fill=(255, 245, 220, a))
+            elif self.tipo == "chispas":
+                y = H - (y0 + t * 0.22 * v) % 1.0 * H
+                x = x0 * W + math.sin(t * 2 + f) * 20
+                a = int(230 * v * (0.6 + 0.4 * math.sin(t * 8 + f)))
+                d.ellipse((x - 3, y - 3, x + 3, y + 3), fill=(255, 170, 60, a))
+        img.alpha_composite(capa)
+
+
 def recortar_a(img, w, h, foco=(0.5, 0.4)):
     """Recorta la imagen para que llene w x h, centrando en el foco (x, y de 0 a 1)."""
     r = max(w / img.width, h / img.height)
@@ -652,11 +742,18 @@ class Foto(Pieza):
         if imagen is None:  # sin imagen: textura neutra para que el vídeo no se rompa
             imagen = Image.new("RGB", (1600, 1000), ctx.tema["fondo2"])
         tratada = duotono(imagen.convert("RGB"), ctx.tema) if d.get("color") is not True else imagen.convert("RGBA")
-        if d.get("encajar") and ctx.vertical and self.diseno == "completa":
+        self.encajada = False
+        if d.get("_hueco") and self.diseno == "completa":
+            # Sale el presentador: el dibujo se aparta al otro lado para que él no tape nada
+            tratada = _con_hueco(tratada, int(W * 1.06), int(H * 1.06), ctx.tema, d["_hueco"], ctx.vertical)
+            foco = (0.5, 0.5)
+            self.encajada = True
+        elif d.get("encajar") and ctx.vertical and self.diseno == "completa":
             # Ilustración horizontal en un vídeo vertical: se ve entera en el centro, con una copia
             # difuminada detrás, en vez de recortarla (que se perdía más de la mitad del dibujo).
             tratada = _encajar_vertical(tratada, int(W * 1.12), int(H * 1.12), ctx.tema)
             foco = (0.5, 0.5)
+            self.encajada = True
         if self.diseno == "completa":
             self.caja = (0, 0, W, H)
         elif self.diseno == "marco":
@@ -667,9 +764,20 @@ class Foto(Pieza):
         else:  # sangre
             self.caja = (0, 0, W, int(H * 0.56)) if ctx.vertical else (int(W * 0.36), 0, W, H)
         bw, bh = self.caja[2] - self.caja[0], self.caja[3] - self.caja[1]
-        self.zoom = 1.12
+        self.zoom = 1.06 if d.get("_hueco") else 1.18
         self.foto = recortar_a(tratada, int(bw * self.zoom), int(bh * self.zoom), foco)
-        self.dir = self.rnd.choice([(-1, 0), (1, 0), (0, -1), (0.6, 0.6), (-0.6, 0.4)])
+        # Movimiento de cámara: el que pida el guion («camara: barrido») o uno distinto en cada escena
+        opciones = CENTRADOS if (self.encajada or self.diseno == "marco") else MOVIMIENTOS
+        pedido = str(d.get("camara") or "").strip()
+        self.mov = pedido if pedido in MOVIMIENTOS else self.rnd.choice(opciones)
+        if self.encajada and self.mov not in CENTRADOS:
+            self.mov = "acercar"
+        if d.get("_hueco"):  # con el presentador al lado, el dibujo apenas se mueve para no meterse en su hueco
+            self.mov = "suave"
+        self.sentido = self.rnd.choice((-1, 1))
+        self.foco_mov = (0.5 + self.rnd.uniform(-0.15, 0.15), 0.45 + self.rnd.uniform(-0.1, 0.1))
+        self.ambiente = Ambiente(str(d["ambiente"]), self.W, self.H, semilla=self.rnd.randint(0, 9999)) \
+            if d.get("ambiente") else None
         # Máscara de fundido con el fondo (sangre) y velo para que se lea el rótulo (completa)
         self.mascara = None
         if self.diseno == "sangre":
@@ -691,6 +799,48 @@ class Foto(Pieza):
 
     def movil(self):
         return True
+
+    def _camara(self, t, bw, bh):
+        """Recorte de la imagen según el movimiento de cámara de la escena."""
+        av = min(1.0, t / max(self.dur, 0.1))
+        e = _suave_io(av)
+        fx, fy, rot = 0.5, 0.5, 0.0
+        m = self.mov
+        if m == "acercar":      # se acerca a un punto de la imagen
+            s = 1 - 0.16 * e
+            fx = 0.5 + (self.foco_mov[0] - 0.5) * e
+            fy = 0.5 + (self.foco_mov[1] - 0.5) * e
+        elif m == "alejar":     # empieza cerca y se abre para descubrir la escena
+            s = 0.84 + 0.16 * e
+            fx = self.foco_mov[0] + (0.5 - self.foco_mov[0]) * e
+            fy = self.foco_mov[1] + (0.5 - self.foco_mov[1]) * e
+        elif m == "barrido":    # recorre la imagen de lado a lado
+            s = 0.86
+            fx = 0.5 + 0.42 * self.sentido * (e - 0.5)
+        elif m == "vertical":   # recorre la imagen de arriba abajo (o al revés)
+            s = 0.86
+            fy = 0.5 + 0.40 * self.sentido * (e - 0.5)
+        elif m == "golpe":      # acercamiento rápido al empezar y luego casi quieta
+            s = 1 - 0.09 * _rebote_suave(t / 0.5) - 0.04 * e
+            fx, fy = self.foco_mov
+        elif m == "suave":      # casi quieta: un acercamiento mínimo
+            s = 1 - 0.05 * e
+            fx = 0.5 + 0.02 * math.sin(t * 0.5)
+        else:                   # deriva: cámara en mano, se mece despacio
+            s = 0.9 - 0.04 * e
+            fx = 0.5 + 0.08 * math.sin(t * 0.55)
+            fy = 0.5 + 0.06 * math.sin(t * 0.43 + 1.1)
+            rot = 0.5 * math.sin(t * 0.35)
+        W0, H0 = self.foto.width, self.foto.height
+        w, h = max(8, int(W0 * s)), max(8, int(H0 * s))
+        x = max(0, min(W0 - w, int(fx * (W0 - w))))
+        y = max(0, min(H0 - h, int(fy * (H0 - h))))
+        foto = self.foto.crop((x, y, x + w, y + h)).resize((bw, bh), Image.BILINEAR)
+        if abs(rot) > 0.01:
+            foto = foto.rotate(rot, resample=Image.BILINEAR).resize((int(bw * 1.02), int(bh * 1.02)), Image.BILINEAR)
+            dx, dy = (foto.width - bw) // 2, (foto.height - bh) // 2
+            foto = foto.crop((dx, dy, dx + bw, dy + bh))
+        return foto
 
     def _preparar_textos(self):
         ctx, d = self.ctx, self.d
@@ -747,14 +897,7 @@ class Foto(Pieza):
         img = self.lienzo()
         x0, y0, x1, y1 = self.caja
         bw, bh = x1 - x0, y1 - y0
-        # Zoom lento y desplazamiento (Ken Burns)
-        av = min(1.0, t / max(self.dur, 0.1))
-        z = self.zoom - (self.zoom - 1.0) * 0.75 * av
-        w, h = int(bw * z), int(bh * z)
-        mx, my = (self.foto.width - w) / 2, (self.foto.height - h) / 2
-        cx = mx + mx * self.dir[0] * (av - 0.5) * 0.9
-        cy = my + my * self.dir[1] * (av - 0.5) * 0.9
-        foto = self.foto.crop((int(cx), int(cy), int(cx) + w, int(cy) + h)).resize((bw, bh), Image.BILINEAR)
+        foto = self._camara(t, bw, bh)
         entra = suave(t / 0.8)
         if self.diseno == "marco":
             borde = 14
@@ -770,6 +913,8 @@ class Foto(Pieza):
             if self.mascara is not None:
                 foto.putalpha(self.mascara)
             img.alpha_composite(alfa_capa(foto, entra), (x0, y0))
+            if self.ambiente is not None:
+                self.ambiente.dibujar(img, t)
             if self.velo is not None:
                 img.alpha_composite(self.velo)
         d = ImageDraw.Draw(img)
@@ -1502,7 +1647,50 @@ class Archivo(Pieza):
             self.proc = None
 
 
-TIPOS = {"titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea, "barras": Barras,
+class Presentador(Pieza):
+    """El presentador habla a cámara: él grande a un lado (lo dibuja historia.py) y su frase al otro."""
+    entrada = 1.0
+
+    def __init__(self, *a):
+        super().__init__(*a)
+        ctx, d = self.ctx, self.d
+        p = d.get("presentador")
+        lado = str(p.get("lado") or "derecha") if isinstance(p, dict) else "derecha"
+        resaltar = {normalizar(x.strip(".,:;¿?¡!«»")) for x in str(d.get("resaltar") or "").split()}
+        if ctx.vertical:  # frase arriba; el presentador, debajo
+            x0, ancho, y_cen = ctx.m, self.W - 2 * ctx.m, ctx.arriba + 110
+        else:
+            ancho = int(self.W * 0.50)
+            x0 = ctx.m if lado == "derecha" else self.W - ctx.m - ancho
+            y_cen = (ctx.arriba + ctx.abajo) / 2
+        self.f, lineas, self.tam = ctx.ajustar(str(d["texto"]), "tit", 96, ancho, 3 if ctx.vertical else 4, 44)
+        self.kicker = str(d["kicker"]).upper() if d.get("kicker") else None
+        alto = self.tam * 1.1 * len(lineas) + (70 if self.kicker else 0)
+        self.y0 = y_cen - alto / 2 + (70 if self.kicker else 0)
+        self.x0 = x0
+        esp = self.f.getlength(" ")
+        self.palabras = []
+        for i, l in enumerate(lineas):
+            x = x0
+            for w in l.split():
+                self.palabras.append((w, x, self.y0 + i * self.tam * 1.1, normalizar(w.strip(".,:;¿?¡!«»")) in resaltar))
+                x += self.f.getlength(w) + esp
+
+    def dibujar(self, t):
+        ctx = self.ctx
+        img = self.lienzo()
+        d = ImageDraw.Draw(img)
+        if self.kicker:
+            q = suave(t / 0.35)
+            d.text((self.x0, self.y0 - 70), self.kicker, font=ctx.f("txt_b", 30), fill=ctx.c("acento", int(255 * q)))
+        for k, (w, x, y, res) in enumerate(self.palabras):
+            q = suave((t - 0.15 - 0.05 * k) / 0.3)
+            if q > 0:
+                d.text((x, y + 18 * (1 - q)), w, font=self.f, fill=ctx.c("acento" if res else "texto", int(255 * q)))
+        return img
+
+
+TIPOS = {"presentador": Presentador, "titulo": Titulo, "cifra": Cifra, "comparar": Comparar, "linea": Linea, "barras": Barras,
          "fecha": Fecha, "cita": Cita, "lista": Lista, "foto": Foto, "boceto": Boceto, "mapa": Mapa,
          "esquema": Esquema, "archivo": Archivo}
 

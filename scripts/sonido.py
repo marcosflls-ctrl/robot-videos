@@ -3,6 +3,8 @@
 - whoosh(): golpe de aire para las transiciones.
 - pop(): «toc» corto cuando aparece una cifra.
 - musica(): base suave de acordes, con un pulso ligero; baja sola cuando habla la voz.
+  Estilos: datos (historia económica), gta, misterio (grave y tenso), naturaleza (luminoso, con campanas).
+- viento(), latido(): efectos de ambiente que el guion puede pedir en una escena con «sonido: viento».
 """
 import numpy as np
 
@@ -58,7 +60,34 @@ ACORDES = {
     # Notas MIDI. Progresión i–VI–III–VII (suena a «noticia», sin ser triste)
     "gta": [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]],
     "datos": [[50, 57, 62, 65], [46, 53, 58, 62], [48, 55, 60, 64], [45, 52, 57, 60]],
+    # Re menor grave y abierto: tensión sin agobiar
+    "misterio": [[38, 45, 50, 53], [34, 41, 46, 50], [36, 43, 48, 51], [33, 40, 45, 49]],
+    # Mayor y aireado: paisaje, ciencia, curiosidad
+    "naturaleza": [[48, 55, 60, 64, 67], [45, 52, 57, 60, 64], [41, 48, 53, 57, 60], [43, 50, 55, 59, 62]],
 }
+
+
+def viento(dur=2.2, semilla=3):
+    """Ráfaga de viento: ruido filtrado que crece y se apaga."""
+    rnd = np.random.default_rng(semilla)
+    n = int(dur * SR)
+    ruido = rnd.standard_normal(n).astype(np.float32)
+    t = np.linspace(0, 1, n, dtype=np.float32)
+    corte = (0.01 + 0.05 * np.sin(np.pi * t) ** 2).astype(np.float32)
+    s = _paso_bajo(ruido, corte)
+    s *= np.clip(np.sin(np.pi * t), 0, 1) ** 1.5
+    return (s / (np.abs(s).max() + 1e-9) * 0.4).astype(np.float32)
+
+
+def latido(dur=1.2):
+    """Dos golpes graves, como un corazón: para momentos de tensión."""
+    n = int(dur * SR)
+    s = np.zeros(n, np.float32)
+    k = golpe(0.3) * 0.9
+    for seg in (0.0, 0.28):
+        a = int(seg * SR)
+        s[a:a + len(k)] += k[: n - a]
+    return s
 
 
 def musica(dur, estilo="datos", bpm=100):
@@ -79,9 +108,12 @@ def musica(dur, estilo="datos", bpm=100):
             for det in (-0.12, 0.12):
                 s[ini:fin] += (np.sin(2 * np.pi * f * (1 + det / 100) * tt) * 0.5
                                + 0.15 * np.sin(2 * np.pi * 2 * f * tt)) * env * 0.05
-    # Pulso suave en cada tiempo (bombo muy bajo) para dar ritmo
-    tiempo = 60 / bpm
-    k = golpe(0.25) * 0.35
+    if estilo == "misterio":  # dron grave continuo debajo de los acordes
+        raiz = 440 * 2 ** ((acordes[0][0] - 12 - 69) / 12)
+        s += (np.sin(2 * np.pi * raiz * t) * (0.6 + 0.4 * np.sin(2 * np.pi * t / 7))).astype(np.float32) * 0.035
+    # Pulso suave en cada tiempo (bombo muy bajo) para dar ritmo; en misterio y naturaleza, más espaciado
+    tiempo = 60 / bpm * (2 if estilo in ("misterio", "naturaleza") else 1)
+    k = golpe(0.25) * (0.25 if estilo in ("misterio", "naturaleza") else 0.35)
     for i in range(int(dur / tiempo)):
         a = int(i * tiempo * SR)
         b = min(n, a + len(k))
@@ -98,6 +130,20 @@ def musica(dur, estilo="datos", bpm=100):
                 break
             tt = np.arange(m) / SR
             s[a:a + m] += np.sign(np.sin(2 * np.pi * f * tt)) * np.exp(-tt * 9) * 0.025
+    if estilo == "naturaleza":  # campanitas suaves, una por tiempo, de las notas del acorde
+        paso = 60 / bpm
+        for i in range(int(dur / paso)):
+            if i % 3 == 2:
+                continue
+            acorde = acordes[int(i * paso / compas) % len(acordes)]
+            nota = acorde[(i * 2) % len(acorde)] + 24
+            f = 440 * 2 ** ((nota - 69) / 12)
+            a = int(i * paso * SR)
+            m = min(n - a, int(1.4 * SR))
+            if m <= 0:
+                break
+            tt = np.arange(m) / SR
+            s[a:a + m] += (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2.01 * f * tt)) * np.exp(-tt * 3.5) * 0.02
     fade = int(1.0 * SR)
     s[:fade] *= np.linspace(0, 1, fade)
     s[-fade:] *= np.linspace(1, 0, fade)

@@ -40,6 +40,7 @@ import yaml
 from PIL import Image, ImageDraw, ImageFilter
 
 import ilustraciones
+import personajes
 import imagenes
 import sonido
 from historia_visuales import FPS, Contexto, _grano, alfa_capa, crear_pieza, duotono, envolver, pegar, recortar_a, rebote, suave
@@ -123,6 +124,11 @@ def cargar_guion(nombre):
                 errores.append(f"{donde}, escena {i}: una escena «{e.get('tipo')}» necesita «imagen» o «buscar_imagen»")
             if e.get("tipo") == "ilustracion" and not e.get("escena"):
                 errores.append(f"{donde}, escena {i}: una «ilustracion» necesita «escena» (qué se ve)")
+            for n in _lista(e.get("personajes")):
+                if str(n) != "presentador" and str(n) not in (g.get("personajes") or {}):
+                    errores.append(f"{donde}, escena {i}: el personaje «{n}» no está en «personajes»")
+            if e.get("tipo") == "presentador" and not e.get("texto"):
+                errores.append(f"{donde}, escena {i}: una escena «presentador» necesita «texto»")
 
     revisar(g.get("gancho"), "gancho")
     for c, cap in enumerate(g.get("capitulos") or [], 1):
@@ -186,10 +192,74 @@ def preparar_primera_imagen(g, canal):
             return
 
 
+def _gesto(valor, defecto):
+    if isinstance(valor, dict):
+        return str(valor.get("gesto") or defecto), str(valor.get("lado") or "derecha")
+    if isinstance(valor, str) and valor.strip():
+        return valor.strip(), "derecha"
+    return defecto, "derecha"
+
+
+def preparar_personajes(g, canal):
+    """Fichas del presentador del canal y de los personajes del guion; poses del presentador."""
+    g["_fichas"] = {}
+    pres = canal.get("presentador") or {}
+    if pres.get("rasgos"):
+        ref = personajes.ficha(pres.get("nombre", "Presentador"), pres["rasgos"], canal)
+        if ref is not None:
+            g["_fichas"]["presentador"] = {"nombre": pres.get("nombre", "Presentador"), "rasgos": pres["rasgos"],
+                                          "img": ref}
+    for clave, p in (g.get("personajes") or {}).items():
+        nombre, rasgos = str(p.get("nombre") or clave), str(p.get("rasgos") or "")
+        ref = personajes.ficha(nombre, rasgos, canal)
+        if ref is not None:
+            g["_fichas"][str(clave)] = {"nombre": nombre, "rasgos": rasgos, "img": ref}
+    print(f"Personajes con ficha: {', '.join(g['_fichas']) or 'ninguno'}")
+
+    # Momentos clave del presentador: los que marque el guion y, si el canal lo pide, los automáticos
+    if "presentador" not in g["_fichas"]:
+        return
+    if pres.get("auto", True) and g.get("presentador_auto", True):
+        gancho = g.get("gancho") or []
+        if gancho and "presentador" not in gancho[-1]:
+            gancho[-1]["presentador"] = {"gesto": personajes.GESTOS["gancho"]}
+        for c, cap in enumerate(g["capitulos"]):
+            if cap["escenas"] and "presentador" not in cap["escenas"][0] and cap["escenas"][0].get("tipo") != "presentador":
+                cap["escenas"][0]["presentador"] = {"gesto": personajes.GESTOS["capitulo"],
+                                                    "lado": "izquierda" if c % 2 else "derecha"}
+        for e in g.get("cierre") or []:
+            if "presentador" not in e:
+                e["presentador"] = {"gesto": personajes.GESTOS["cierre"]}
+    f = g["_fichas"]["presentador"]
+    for e, _ in todas_las_escenas(g):
+        valor = e.get("presentador")
+        if e.get("tipo") == "presentador":
+            gesto, lado = _gesto(valor, "habla al espectador con un brazo abierto, cercano y expresivo")
+        elif valor:
+            gesto, lado = _gesto(valor, personajes.GESTOS["capitulo"])
+        else:
+            continue
+        rec = personajes.pose(f["nombre"], f["rasgos"], gesto, canal, f["img"])
+        if rec is not None:
+            e["_presentador"] = (rec, lado)
+    g["_presentador_final"] = personajes.pose(f["nombre"], f["rasgos"], personajes.GESTOS["final_short"], canal, f["img"])
+
+
 def preparar_imagenes(g, canal):
     hay = 0
+    preparar_personajes(g, canal)
     for e, _ in todas_las_escenas(g):
-        if e.get("tipo") == "ilustracion":
+        quienes = [str(n) for n in _lista(e.get("personajes")) if str(n) in g["_fichas"]]
+        if e.get("tipo") == "ilustracion" and quienes:
+            # Personajes que tienen que salir iguales: se manda su ficha como referencia
+            texto = personajes.texto_con_personajes(str(e["escena"]), quienes, g["_fichas"])
+            e["_img"] = ilustraciones.generar_imagen(texto, canal, [g["_fichas"][n]["img"] for n in quienes],
+                                                     aviso=str(e["escena"]))
+            e["_credito"] = str((canal.get("ilustraciones") or {}).get("credito") or "Ilustración")
+            if canal.get("ilustracion_vertical") == "encajar":
+                e["encajar"] = True
+            hay += e["_img"] is not None
+        elif e.get("tipo") == "ilustracion":
             e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
             if canal.get("ilustracion_vertical") == "encajar":
                 e["encajar"] = True  # en los Shorts, el dibujo entero en vez de recortado
@@ -345,11 +415,11 @@ def _fuente_corta(g, e):
                                    for i in ids)
 
 
-def _bloque_escena(g, e, cap, sr, t):
+def _bloque_escena(g, e, cap, sr, t, antes=ANTES_VOZ):
     dur_voz = len(e["_audio"]) / sr
     extra = float(e.get("pausa", 0) or 0)  # segundos de más para que la imagen respire
-    return {"tipo": "escena", "escena": e, "cap": cap, "ini": t, "fin": t + ANTES_VOZ + dur_voz + DESPUES_VOZ + extra,
-            "voz_ini": t + ANTES_VOZ, "dur_voz": dur_voz, "fuente": _fuente_corta(g, e)}
+    return {"tipo": "escena", "escena": e, "cap": cap, "ini": t, "fin": t + antes + dur_voz + DESPUES_VOZ + extra,
+            "voz_ini": t + antes, "dur_voz": dur_voz, "fuente": _fuente_corta(g, e)}
 
 
 def bloques_largo(g, sr, canal):
@@ -379,8 +449,9 @@ def bloques_short(g, sr, c):
     """Short de un capítulo: su gancho propio (si lo tiene) + sus escenas + pantalla final."""
     bloques, t = [], 0.0
     cap = g["capitulos"][c]
-    for e in _lista(cap.get("gancho_short")) + cap["escenas"]:
-        b = _bloque_escena(g, e, c, sr, t)
+    for k, e in enumerate(_lista(cap.get("gancho_short")) + cap["escenas"]):
+        # La primera frase del Short arranca casi al instante: el gancho tiene que estar en los 2 primeros segundos
+        b = _bloque_escena(g, e, c, sr, t, antes=0.05 if k == 0 else ANTES_VOZ)
         bloques.append(b)
         t = b["fin"]
     bloques.append({"tipo": "final_short", "ini": t, "fin": t + FINAL_SHORT, "cap": c})
@@ -419,12 +490,44 @@ def trozos_subtitulos(bloques, max_palabras, max_letras):
     return trozos
 
 
+def trozos_palabras(bloques, sr, max_palabras=4, max_letras=24):
+    """[(inicio, fin, texto, [(palabra, ini, fin)])]: grupos cortos con el momento de cada palabra."""
+    import tiempos_palabras
+    trozos = []
+    for b in bloques:
+        if b["tipo"] != "escena" or b["dur_voz"] <= 0:
+            continue
+        e = b["escena"]
+        if "_palabras" not in e:
+            e["_palabras"] = tiempos_palabras.de_frase(e["_audio"], sr, str(e["voz"]))
+        palabras = [(w, b["voz_ini"] + a, b["voz_ini"] + z) for w, a, z in e["_palabras"]]
+        grupo = []
+        for w in palabras:
+            if grupo and (len(grupo) >= max_palabras or len(" ".join(x[0] for x in grupo + [w])) > max_letras):
+                trozos.append(grupo)
+                grupo = []
+            grupo.append(w)
+            if w[0][-1] in ".:;?!":
+                trozos.append(grupo)
+                grupo = []
+        if grupo:
+            trozos.append(grupo)
+    salida = []
+    for i, grupo in enumerate(trozos):
+        ini = grupo[0][1]
+        fin = grupo[-1][2] + 0.25
+        if i + 1 < len(trozos):
+            fin = min(fin, trozos[i + 1][0][1])
+        salida.append((ini, max(fin, ini + 0.2), " ".join(w for w, _, _ in grupo), grupo))
+    return salida
+
+
 def escribir_srt(trozos, ruta):
     def hora(s):
         ms = int(round(s * 1000))
         return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
     lineas = []
-    for i, (a, b, txt) in enumerate(trozos, 1):
+    for i, (a, b, txt, *_) in enumerate(trozos, 1):
         lineas += [str(i), f"{hora(a)} --> {hora(b)}", txt, ""]
     Path(ruta).write_text("\n".join(lineas), encoding="utf-8")
 
@@ -435,6 +538,34 @@ class Subtitulos:
         self.f = ctx.f("txt_b", 60 if ctx.vertical else 42)
         self.cache = {}
         self.i = 0
+
+    def capa_palabras(self, grupo, activa):
+        """Grupo de palabras con la que está sonando resaltada (estilo karaoke)."""
+        clave = (tuple(w for w, _, _ in grupo), activa)
+        if clave not in self.cache:
+            f = self.f
+            esp = f.getlength(" ")
+            texto = " ".join(w for w, _, _ in grupo)
+            lineas = envolver(texto, f, self.geo["ancho_sub"] - 60)
+            alto_l = int(f.size * 1.25)
+            w = int(max(f.getlength(l) for l in lineas)) + 56
+            h = alto_l * len(lineas) + 26
+            capa = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+            d = ImageDraw.Draw(capa)
+            d.rectangle((0, 0, w - 1, h - 1), fill=self.ctx.c("fondo", 215))
+            k = 0
+            for n, l in enumerate(lineas):
+                x = (w - f.getlength(l)) / 2
+                for palabra in l.split():
+                    if k == activa:
+                        pw = f.getlength(palabra)
+                        d.rectangle((x - 8, 8 + n * alto_l, x + pw + 8, 8 + n * alto_l + alto_l + 2),
+                                    fill=self.ctx.c("acento"))
+                    d.text((x, 10 + n * alto_l), palabra, font=f, fill=self.ctx.c("texto"))
+                    x += f.getlength(palabra) + esp
+                    k += 1
+            self.cache[clave] = capa
+        return self.cache[clave]
 
     def capa(self, texto):
         if texto not in self.cache:
@@ -454,9 +585,14 @@ class Subtitulos:
         while self.i < len(self.trozos) and self.trozos[self.i][1] <= t:
             self.i += 1
         if self.i < len(self.trozos):
-            a, b, txt = self.trozos[self.i]
+            a, b, txt, *resto = self.trozos[self.i]
             if a <= t < b:
-                pegar(lienzo, self.capa(txt), self.geo["W"] / 2, self.geo["y_sub"])
+                if resto:
+                    grupo = resto[0]
+                    activa = max([k for k, (_, ini, _) in enumerate(grupo) if ini <= t] or [0])
+                    pegar(lienzo, self.capa_palabras(grupo, activa), self.geo["W"] / 2, self.geo["y_sub"])
+                else:
+                    pegar(lienzo, self.capa(txt), self.geo["W"] / 2, self.geo["y_sub"])
 
 
 # =====================================================================
@@ -579,8 +715,10 @@ class Pantallas:
         d = ImageDraw.Draw(img)
         W, H = self.W, self.H
         a = rebote(min(1, t / 0.5))
-        f, lineas, tam = ctx.ajustar("La historia completa, en el canal", "tit", 110, W - 2 * ctx.m, 4, 50)
-        y0 = H * 0.34
+        cap = self.g["capitulos"][self.c_final] if getattr(self, "c_final", None) is not None else {}
+        frase = str(cap.get("cierre_short") or self.canal.get("cierre_short") or "¿Y qué pasó después? La historia completa, en el canal")
+        f, lineas, tam = ctx.ajustar(frase, "tit", 104, W - 2 * ctx.m, 4, 50)
+        y0 = H * 0.22
         for k, l in enumerate(lineas):
             d.text((W / 2, y0 + k * tam * 1.08), l, font=f, fill=ctx.c("texto", int(255 * min(1, a))), anchor="ma")
         yb = y0 + len(lineas) * tam * 1.08 + 50
@@ -600,7 +738,7 @@ def _a_48k(x, sr):
     return np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype(np.float32)
 
 
-def mezclar_audio(bloques, sr, duracion, carpeta):
+def mezclar_audio(bloques, sr, duracion, carpeta, canal=None):
     n = int(duracion * sonido.SR) + sonido.SR
     voz = np.zeros(n, np.float32)
     fx = np.zeros(n, np.float32)
@@ -617,11 +755,21 @@ def mezclar_audio(bloques, sr, duracion, carpeta):
             poner(voz, b["voz_ini"], _a_48k(b["escena"]["_audio"], sr))
             if b["escena"].get("tipo") == "cifra":
                 poner(fx, b["ini"] + 0.1, sonido.pop() * 0.5)
+            if b["escena"].get("_presentador"):
+                poner(fx, b["ini"] + 0.15, sonido.pop(frec=620, dur=0.1) * 0.35)
+            efecto = str(b["escena"].get("sonido") or "").strip()
+            if efecto and hasattr(sonido, efecto):
+                poner(fx, b["ini"] + float(b["escena"].get("sonido_seg", 0.1) or 0.1), getattr(sonido, efecto)() * 0.7)
         if b["tipo"] in ("sting", "capitulo"):
             poner(fx, b["ini"], sonido.golpe() * 0.7)
         if i > 0:
             poner(fx, max(0, b["ini"] - 0.2), woosh[i % 4])
-    musica = sonido.musica(n / sonido.SR, "datos", bpm=80)[:n]
+    if bloques and bloques[-1]["tipo"] == "final_short":
+        poner(fx, 0.0, sonido.golpe() * 0.6)  # golpe al arrancar el Short: llama la atención desde el primer instante
+    m = (canal or {}).get("musica") or {}
+    musica = sonido.musica(n / sonido.SR, str(m.get("estilo") or "datos"), bpm=int(m.get("bpm") or 80))[:n]
+    if len(musica) < n:  # por redondeo puede quedarse una muestra corta
+        musica = np.pad(musica, (0, n - len(musica)))
     v = np.abs(voz)
     ventana = int(0.4 * sonido.SR)
     cs = np.cumsum(np.concatenate([[0.0], v]))
@@ -654,13 +802,20 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
     vertical = ctx.vertical
     duracion = bloques[-1]["fin"]
     n_frames = int(math.ceil(duracion * FPS))
-    audio = mezclar_audio(bloques, sr, duracion, carpeta)
+    audio = mezclar_audio(bloques, sr, duracion, carpeta, canal)
+    es_short = bloques[-1]["tipo"] == "final_short"
 
     base = fondo_base(ctx, semilla=len(g["titulo"]))
     grano = Grano(W, H)
     pantallas = Pantallas(ctx, canal, g)
     trozos = trozos_subtitulos(bloques, 5 if vertical else 9, 30 if vertical else 60)
+    if subtitulos and es_short and canal.get("subtitulos_palabra", True):
+        try:
+            trozos = trozos_palabras(bloques, sr)
+        except Exception as e:  # sin reconocedor de voz: subtítulos por frases, como antes
+            print(f"::warning::Subtítulos palabra a palabra no disponibles ({type(e).__name__}): van por frases")
     subs = Subtitulos(trozos, geo, ctx) if subtitulos else None
+    pantallas.c_final = bloques[-1]["cap"] if es_short else None
 
     marca_f = ctx.f("txt_b", 28 if vertical else 24)
     caps_cache, fuente_cache = {}, {}
@@ -706,7 +861,7 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         stdin=subprocess.PIPE,
     )
 
-    bi, pieza, anterior, ultimo = -1, None, None, None
+    bi, pieza, anterior, ultimo, capa_pres, apartar = -1, None, None, None, None, None
     clips_usados = []
     inicio = time.time()
     for nf in range(n_frames):
@@ -727,7 +882,29 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
                     if clip:
                         clips_usados.append(clip)
                 ctx.semilla = f"{g['_nombre']}-{bi}"
+                # Si sale el presentador en una ilustración, el dibujo se aparta para dejarle sitio
+                junto = bool(e.get("_presentador") and e.get("tipo") == "ilustracion"
+                             and e.get("diseno", "completa") == "completa")
+                e["_hueco"] = e["_presentador"][1] if junto else None
                 pieza = crear_pieza(e, ctx, b["fin"] - b["ini"], imagen=e.get("_img"), credito=e.get("_credito", ""), clip=clip)
+                capa_pres = None
+                apartar = None
+                if e.get("_presentador"):
+                    rec, lado = e["_presentador"]
+                    capa_pres = personajes.CapaPresentador(rec, W, H, vertical, lado=lado,
+                                                           grande=e.get("tipo") == "presentador", audio=e.get("_audio"),
+                                                           sr=sr, fps=FPS, voz_ini=b["voz_ini"] - b["ini"],
+                                                           junto_al_dibujo=junto)
+                    # En el vídeo horizontal, los gráficos (titulares, cifras, mapas…) se encogen y se apartan
+                    if not junto and not vertical and e.get("tipo") not in ("presentador", "foto", "ilustracion"):
+                        apartar = lado
+            elif b["tipo"] == "final_short" and g.get("_presentador_final") is not None:
+                apartar = None
+                capa_pres = personajes.CapaPresentador(g["_presentador_final"], W, H, vertical, grande=False)
+                capa_pres.x = (W - capa_pres.img.width) // 2
+                capa_pres.base_y = int(H * 0.93)
+            else:
+                capa_pres, apartar = None, None
         b = bloques[bi]
         tl, dur = t - b["ini"], b["fin"] - b["ini"]
 
@@ -740,8 +917,13 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         elif b["tipo"] == "final_short":
             lienzo = pantallas.final_short(base, tl, dur)
         else:
-            capa = pieza.cuadro(tl)
-            if pieza.opaca:
+            # En el Short, la primera escena sale ya montada: nada de esperar a que entre el texto
+            capa = pieza.cuadro(tl + (pieza.fin_animacion() if es_short and bi == 0 else 0))
+            if apartar:
+                peque = capa.resize((int(W * 0.76), int(H * 0.76)), Image.BILINEAR)
+                capa = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                capa.alpha_composite(peque, (int(W * 0.03) if apartar == "derecha" else int(W * 0.21), int(H * 0.12)))
+            if pieza.opaca and not apartar:
                 lienzo = capa.copy()
             else:
                 lienzo = base.copy()
@@ -749,6 +931,9 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
             if b["fuente"]:
                 capa_f = etiqueta_fuente(b["fuente"])
                 lienzo.alpha_composite(capa_f, (0, int((H - 120 if vertical else H - 46) - capa_f.height / 2)))
+
+        if capa_pres is not None:
+            capa_pres.dibujar(lienzo, tl)
 
         # Cabecera fija: marca y capítulo
         d = ImageDraw.Draw(lienzo)

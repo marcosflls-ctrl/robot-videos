@@ -63,6 +63,22 @@ miniatura_color: true
 # En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
 ilustracion_vertical: encajar
 
+# Presentador del canal: sale en los momentos clave (gancho, inicio de cada capítulo, cierre y final
+# de los Shorts) y en las escenas «presentador». Se dibuja una vez y se reutiliza en todos los vídeos.
+presentador:
+  nombre: "Inspector Trazos"
+  rasgos: >-
+    muñeco de palo de tinta negra; cabeza grande, redonda y blanca con contorno negro; dos ojos de punto y
+    cejas negras muy expresivas; sombrero marrón de ala corta con una cinta roja; cuerpo, brazos y piernas de
+    una sola línea negra, sin manos ni pies detallados; lleva siempre una lupa redonda de mango marrón
+  auto: true
+
+# Música de fondo (generada por código, sin derechos): grave y con tensión
+musica: {estilo: misterio, bpm: 64}
+
+# Frase de la pantalla final de los Shorts (cada capítulo puede tener la suya con «cierre_short»)
+cierre_short: "¿Y cómo acabó? El caso completo, en el canal"
+
 subtitulos_largo: false
 subtitulos_shorts: true
 

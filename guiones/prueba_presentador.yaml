@@ -1,0 +1,81 @@
+# PRUEBA DEL ROBOT — presentador y personajes que salen siempre iguales. No es para publicar:
+# el caso es inventado. Sirve para ver cómo quedan el presentador, las fichas de personajes,
+# los subtítulos palabra a palabra, la música del canal y el cierre de los Shorts.
+
+canal: misterios
+
+titulo: "Prueba: el presentador y los personajes de Casos a trazos"
+descripcion: "Vídeo de prueba del robot. Caso inventado, no es para publicar."
+hashtags: "#prueba"
+
+miniatura:
+  texto: "Prueba del presentador"
+  resaltar: "presentador"
+
+# Personajes del guion: se dibujan una vez (su «ficha») y salen iguales en todas las escenas donde se citan.
+personajes:
+  sospechoso:
+    nombre: "El hombre del sombrero negro"
+    rasgos: >-
+      muñeco de palo con cabeza grande redonda y blanca; bigote negro poblado; sombrero negro de ala ancha;
+      bufanda roja larga; abrigo largo gris oscuro
+  testigo:
+    nombre: "La vecina de las gafas"
+    rasgos: >-
+      muñeca de palo con cabeza grande redonda y blanca; gafas redondas grandes; moño gris; abrigo verde
+      botella; bolso marrón pequeño
+
+fuentes: []
+
+gancho:
+  - voz: "Una noche de niebla, en un pueblo cualquiera, alguien vio algo que no debía ver."
+    tipo: ilustracion
+    escena: &calle >-
+      Una calle estrecha de pueblo de noche, con niebla, una farola antigua encendida y fachadas de piedra con
+      ventanas a oscuras.
+    kicker: "Caso inventado · prueba"
+    ambiente: niebla
+
+capitulos:
+  - titulo: "La testigo"
+    short: true
+    gancho_short:
+      - voz: "Esta mujer vio a alguien salir de la casa a las tres de la madrugada. Y nadie la creyó."
+        tipo: ilustracion
+        escena: >-
+          De noche, una mujer asomada a la ventana de su casa mira hacia la calle con los ojos muy abiertos,
+          sujetando la cortina.
+        personajes: [testigo]
+        texto: "Lo vio todo"
+    escenas:
+      - voz: "La vecina de las gafas no podía dormir. Desde su ventana vio una silueta con una bufanda roja."
+        tipo: ilustracion
+        escena: >-
+          Una calle con niebla vista desde una ventana: abajo, junto a una farola, un hombre camina deprisa
+          mirando hacia atrás.
+        personajes: [sospechoso]
+        sonido: viento
+        ambiente: lluvia
+      - voz: "A la mañana siguiente, el inspector fue a hablar con ella."
+        tipo: presentador
+        texto: "¿Qué vio exactamente?"
+        resaltar: "exactamente?"
+        presentador: {gesto: "toma notas en una libreta con cara de concentración, mirando al espectador", lado: derecha}
+      - voz: "Ella lo describió con todo detalle: sombrero negro, bigote y una bufanda roja larguísima."
+        tipo: ilustracion
+        escena: >-
+          Una cocina de pueblo de día: la mujer, sentada a la mesa con una taza, habla con las manos describiendo
+          a alguien; enfrente, un hombre de pie junto a la puerta con el sombrero en la mano.
+        personajes: [testigo, sospechoso]
+        sonido: latido
+      - voz: "Pero ese hombre tenía una coartada perfecta. O eso parecía."
+        tipo: titulo
+        texto: "Una coartada perfecta"
+        resaltar: "perfecta"
+    cierre_short: "¿Mentía la vecina? El caso completo, en el canal"
+
+cierre:
+  - voz: "¿Tú la habrías creído? Cuéntanoslo en los comentarios."
+    tipo: titulo
+    texto: "¿Tú la habrías creído?"
+    resaltar: "creído?"

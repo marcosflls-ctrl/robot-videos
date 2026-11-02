@@ -52,8 +52,11 @@ def subir(ruta_mp4, token, titulo, descripcion, categoria):
     metadatos = {
         "snippet": {"title": titulo, "description": descripcion, "categoryId": categoria,
                     "defaultLanguage": "es", "defaultAudioLanguage": "es-ES"},
-        # Privado siempre. Voz hecha con IA: se declara como contenido sintético, como pide YouTube.
-        "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True},
+        # Privado siempre. No se marca como «contenido alterado o sintético»: YouTube solo lo exige para
+        # contenido realista (personas reales que dicen o hacen algo que no hicieron, hechos que parecen grabados).
+        # Una voz de IA sobre gráficos, datos o dibujos no lo necesita, y la etiqueta visible resta clics.
+        # Si algún vídeo sí lo necesitara, se marca a mano en YouTube Studio.
+        "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False, "containsSyntheticMedia": False},
     }
     tam = os.path.getsize(ruta_mp4)
     inicio = urllib.request.Request(
