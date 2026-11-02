@@ -344,8 +344,10 @@ class Titulo(Pieza):
             d.text((x, y + dy), p, font=self.f, fill=ctx.c("acento" if res else "texto", a))
             if res:  # subrayado que se dibuja
                 g = suave((t - 0.45 - 0.06 * k) / 0.4)
-                yb = y + self.tam * 1.02
-                w = self.f.getlength(p.rstrip(".,:;?!»"))
+                # por debajo del final real de las letras (cada letra tiene su altura), nunca encima
+                limpia = p.rstrip(".,:;?!»")
+                yb = y + self.f.getbbox(limpia or p)[3] + max(8, self.tam * 0.08)
+                w = self.f.getlength(limpia)
                 d.rectangle((x, yb, x + w * g, yb + max(5, self.tam * 0.06)), fill=ctx.c("acento2", a))
         return img
 
@@ -385,7 +387,7 @@ class Cifra(Pieza):
         a = suave(t / 0.3)
         d.text((self.W / 2, self.y + self.tam / 2 + 24 * (1 - a)), txt, font=self.fn,
                fill=ctx.c(self.col, int(255 * a)), anchor="mm")
-        yb = self.y + self.tam + 22
+        yb = max(self.y + self.tam, d.textbbox((self.W / 2, self.y + self.tam / 2), txt, font=self.fn, anchor="mm")[3]) + 22
         r = suave((t - 0.35) / 0.7)
         d.rectangle((self.W / 2 - 110 * r, yb, self.W / 2 + 110 * r, yb + 5), fill=ctx.c("texto", 200))
         if self.eti:

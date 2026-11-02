@@ -191,12 +191,21 @@ def _monigote_miniatura(g, canal, m):
     return nombre, rasgos, personajes.ficha(nombre, rasgos, canal), gesto
 
 
-ESTILO_CARTEL = (
-    "Miniatura de YouTube muy llamativa, estilo dibujo animado: contornos negros gruesos y limpios, colores planos "
-    "vivos y saturados (cielo azul intenso, amarillos, verdes y rojos con mucha fuerza), luz clara y mucho contraste. "
-    "Las personas son monigotes: cabeza grande, redonda y blanca, con ojos, cejas y boca muy expresivos; cuerpo de "
-    "líneas negras. Fondo con sitio y profundidad, sencillo y fácil de leer a tamaño pequeño. Sin texto, sin letras, "
-    "sin números, sin logotipos, sin marcas de agua.")
+# La miniatura se dibuja con el mismo estilo que los dibujos del vídeo (para que no desentone),
+# solo con un poco más de contraste y la línea algo más marcada para que se lea en pequeño.
+REFUERZO_CARTEL = (
+    "Es la miniatura de YouTube del vídeo: mismo estilo de dibujo y misma paleta que el resto de ilustraciones, "
+    "sin colores chillones ni saturados de más; solo un poco más de contraste, la línea de tinta algo más gruesa "
+    "y el monigote muy expresivo, para que se entienda de un vistazo en pequeño. Fondo sencillo. Sin texto, "
+    "sin letras, sin números, sin logotipos, sin marcas de agua.")
+
+
+def _estilo_cartel(canal):
+    propio = canal.get("miniatura_estilo")
+    if propio and propio != "clasica":
+        return " ".join(str(propio).split())
+    estilo = " ".join(str((canal.get("ilustraciones") or {}).get("estilo", "")).split())
+    return f"{estilo} {REFUERZO_CARTEL}"
 
 
 def _cartel(g, canal, m):
@@ -219,7 +228,7 @@ def _cartel(g, canal, m):
                             f"exagerada que encaje con la escena. ")
     texto = (f"{prota}Detrás, hacia el lado {otro}: {escena}\n\nComposición horizontal 16:9. Deja la franja de arriba "
              f"(la cuarta parte superior de la imagen) despejada, con cielo o fondo liso, para poner encima un título "
-             f"grande.\n\nEstilo: {' '.join(str(canal.get('miniatura_estilo') or ESTILO_CARTEL).split())}")
+             f"grande.\n\nEstilo: {_estilo_cartel(canal)}")
     return ilustraciones.generar_imagen(texto, canal, [ref] if ref is not None else [], con_estilo=False,
                                         aviso=f"miniatura «{m.get('texto') or g.get('titulo')}»")
 
@@ -729,7 +738,7 @@ class Pantallas:
             a = suave((t - 0.15 - 0.15 * k) / 0.6)
             d.text((W / 2, y0 + k * tam * 1.05 + 30 * (1 - a)), l, font=f, fill=ctx.c("texto", int(255 * a)), anchor="ma")
         r = suave((t - 0.6) / 0.8)
-        yb = y0 + alto + 36
+        yb = d.textbbox((W / 2, y0 + (len(lineas) - 1) * tam * 1.05), lineas[-1], font=f, anchor="ma")[3] + 40
         d.rectangle((W / 2 - 160 * r, yb, W / 2 + 160 * r, yb + 6), fill=ctx.c("acento"))
         b = suave((t - 1.0) / 0.5)
         d.text((W / 2, yb + 40), str(self.canal.get("lema", "")).upper(), font=ctx.f("txt_b", 30),
@@ -803,7 +812,7 @@ class Pantallas:
         y0 = H * 0.22
         for k, l in enumerate(lineas):
             d.text((W / 2, y0 + k * tam * 1.08), l, font=f, fill=ctx.c("texto", int(255 * min(1, a))), anchor="ma")
-        yb = y0 + len(lineas) * tam * 1.08 + 50
+        yb = d.textbbox((W / 2, y0 + (len(lineas) - 1) * tam * 1.08), lineas[-1], font=f, anchor="ma")[3] + 46
         d.rectangle((W / 2 - 120, yb, W / 2 + 120, yb + 6), fill=ctx.c("acento"))
         d.text((W / 2, yb + 50), self.canal["marca"], font=ctx.f("txt_b", 36), fill=ctx.c("acento2", int(255 * min(1, a))), anchor="ma")
         return img

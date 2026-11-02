@@ -55,7 +55,7 @@ y se queda con el que más tiempo de visualización consigue. Por eso cada guion
 
 Siguen valiendo `titulo` y `miniatura` (una sola) en los guiones antiguos.
 
-**Cómo son las miniaturas:** un dibujo a toda la imagen, de colores vivos, con un monigote grande en primer
+**Cómo son las miniaturas:** un dibujo a toda la imagen, con el mismo estilo que los del vídeo, con un monigote grande en primer
 plano y cara exagerada, la escena detrás y el título enorme arriba, en amarillo con borde negro (las palabras de
 `resaltar`, en blanco; la `cifra`, en una etiqueta roja abajo). El monigote es el presentador del canal; para poner
 a un personaje del guion: `monigote: sospechoso`. Su cara o postura: `gesto: "se tapa la boca con cara de miedo"`.
