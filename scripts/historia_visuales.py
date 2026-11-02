@@ -120,32 +120,11 @@ def _encajar_vertical(img, w, h, tema):
     fondo = Image.blend(fondo, Image.new("RGBA", (w, h), tuple(tema["fondo"]) + (255,)), 0.35)
     fh = int(w * img.height / img.width)
     frente = img.resize((w, fh), Image.LANCZOS)
-    y = int(h * 0.45 - fh / 2)  # un poco por debajo del centro: deja sitio arriba para el título
+    y = int(h * 0.5 - fh / 2)  # en el centro: deja sitio arriba para el título y abajo para los subtítulos
     sombra = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     ImageDraw.Draw(sombra).rectangle((0, y + 10, w, y + fh + 26), fill=(0, 0, 0, 90))
     fondo.alpha_composite(sombra.filter(ImageFilter.GaussianBlur(18)))
     fondo.alpha_composite(frente, (0, y))
-    return fondo
-
-
-def _con_hueco(img, w, h, tema, lado_libre, vertical):
-    """Lienzo w x h con la imagen entera, más pequeña y apartada, dejando libre un lado para el presentador.
-
-    Detrás va una copia difuminada de la propia imagen, como en _encajar_vertical.
-    """
-    img = img.convert("RGBA")
-    fondo = recortar_a(img, w, h, (0.5, 0.5)).filter(ImageFilter.GaussianBlur(45))
-    fondo = Image.blend(fondo, Image.new("RGBA", (w, h), tuple(tema["fondo"]) + (255,)), 0.35)
-    ancho = int(w * (0.74 if vertical else 0.70))
-    alto = int(ancho * img.height / img.width)
-    frente = img.resize((ancho, alto), Image.LANCZOS)
-    margen = int(w * 0.035)
-    x = (w - margen - ancho) if lado_libre == "izquierda" else margen
-    y = int(h * (0.45 if vertical else 0.47) - alto / 2)
-    sombra = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    ImageDraw.Draw(sombra).rectangle((x + 8, y + 12, x + ancho + 8, y + alto + 22), fill=(0, 0, 0, 90))
-    fondo.alpha_composite(sombra.filter(ImageFilter.GaussianBlur(18)))
-    fondo.alpha_composite(frente, (x, y))
     return fondo
 
 
@@ -349,13 +328,13 @@ class Titulo(Pieza):
         img = self.lienzo()
         d = ImageDraw.Draw(img)
         if self.kicker:
-            fk = ctx.f("txt_b", 30)
+            fk = ctx.f("txt_b", 38)
             q = suave(t / 0.35)
             w = fk.getlength(self.kicker)
             x = self.W / 2 - w / 2
-            d.text((x, self.y0 - 80), self.kicker, font=fk, fill=ctx.c("acento", int(255 * q)))
-            d.rectangle((x - 30, self.y0 - 66, x - 14, self.y0 - 62 + 0), fill=ctx.c("acento", int(255 * q)))
-            d.rectangle((x + w + 14, self.y0 - 66, x + w + 30, self.y0 - 62), fill=ctx.c("acento", int(255 * q)))
+            d.text((x, self.y0 - 96), self.kicker, font=fk, fill=ctx.c("acento", int(255 * q)))
+            d.rectangle((x - 36, self.y0 - 78, x - 16, self.y0 - 74), fill=ctx.c("acento", int(255 * q)))
+            d.rectangle((x + w + 16, self.y0 - 78, x + w + 36, self.y0 - 74), fill=ctx.c("acento", int(255 * q)))
         for k, (p, x, y, res) in enumerate(self.palabras):
             q = suave((t - 0.1 - 0.06 * k) / 0.35)
             if q <= 0:
@@ -743,12 +722,7 @@ class Foto(Pieza):
             imagen = Image.new("RGB", (1600, 1000), ctx.tema["fondo2"])
         tratada = duotono(imagen.convert("RGB"), ctx.tema) if d.get("color") is not True else imagen.convert("RGBA")
         self.encajada = False
-        if d.get("_hueco") and self.diseno == "completa":
-            # Sale el presentador: el dibujo se aparta al otro lado para que él no tape nada
-            tratada = _con_hueco(tratada, int(W * 1.06), int(H * 1.06), ctx.tema, d["_hueco"], ctx.vertical)
-            foco = (0.5, 0.5)
-            self.encajada = True
-        elif d.get("encajar") and ctx.vertical and self.diseno == "completa":
+        if d.get("encajar") and ctx.vertical and self.diseno == "completa":
             # Ilustración horizontal en un vídeo vertical: se ve entera en el centro, con una copia
             # difuminada detrás, en vez de recortarla (que se perdía más de la mitad del dibujo).
             tratada = _encajar_vertical(tratada, int(W * 1.12), int(H * 1.12), ctx.tema)
@@ -772,7 +746,7 @@ class Foto(Pieza):
         self.mov = pedido if pedido in MOVIMIENTOS else self.rnd.choice(opciones)
         if self.encajada and self.mov not in CENTRADOS:
             self.mov = "acercar"
-        if d.get("_hueco"):  # con el presentador al lado, el dibujo apenas se mueve para no meterse en su hueco
+        if d.get("_hueco"):  # con el presentador encima del hueco del dibujo, el dibujo apenas se mueve
             self.mov = "suave"
         self.sentido = self.rnd.choice((-1, 1))
         self.foco_mov = (0.5 + self.rnd.uniform(-0.15, 0.15), 0.45 + self.rnd.uniform(-0.1, 0.1))
@@ -831,6 +805,9 @@ class Foto(Pieza):
             fx = 0.5 + 0.08 * math.sin(t * 0.55)
             fy = 0.5 + 0.06 * math.sin(t * 0.43 + 1.1)
             rot = 0.5 * math.sin(t * 0.35)
+        if self.encajada:  # dibujo entero con texto encima: se mueve poco para no pisar el título
+            s = 1 - (1 - s) * 0.45
+            fx, fy = 0.5 + (fx - 0.5) * 0.45, 0.5 + (fy - 0.5) * 0.45
         W0, H0 = self.foto.width, self.foto.height
         w, h = max(8, int(W0 * s)), max(8, int(H0 * s))
         x = max(0, min(W0 - w, int(fx * (W0 - w))))
@@ -856,12 +833,14 @@ class Foto(Pieza):
             x, y, ancho = (ctx.m, self.caja[3] + 110, self.W - 2 * ctx.m) if ctx.vertical else (ctx.m, None, self.caja[0] - ctx.m - 80)
         else:
             x, y, ancho = ctx.m, None, int(self.W * (0.86 if ctx.vertical else 0.62))
+            if d.get("_hueco") == "izquierda" and not ctx.vertical:  # el presentador está abajo a la izquierda
+                x, ancho = int(self.W * 0.30), int(self.W * 0.62)
         partes = []
         if d.get("kicker"):
-            partes.append(("kicker", str(d["kicker"]).upper(), ctx.f("txt_b", 28), 28))
+            partes.append(("kicker", str(d["kicker"]).upper(), ctx.f("txt_b", 32), 32))
         arriba = bool(d.get("encajar") and ctx.vertical and self.diseno == "completa")
         if d.get("texto"):
-            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 72 if arriba else (92 if self.diseno != "completa" else 96),
+            f, ls, tam = ctx.ajustar(str(d["texto"]), "tit", 92 if arriba else (92 if self.diseno != "completa" else 96),
                                      ancho, 3 if arriba else 4, 40)
             partes.append(("tit", ls, f, tam))
         if d.get("sub"):
@@ -874,7 +853,8 @@ class Foto(Pieza):
             # Short con el dibujo entero: el título va arriba, por encima del dibujo, bien lejos
             # de los subtítulos de la narración, que van abajo
             # (y por debajo del título del capítulo, que el Short pone arriba del todo)
-            y = max(250, 545 - alto)
+            # (el dibujo va centrado y ocupa el ancho: su borde de arriba queda hacia 0,5·H − 0,29·W)
+            y = max(300, int(self.H * 0.5 - self.W * 0.29) - 70 - alto)
         if y is None:
             if self.diseno == "completa":  # abajo, pero por encima de los subtítulos en los Shorts
                 y = (ctx.abajo - 40 - alto) if ctx.vertical else (self.H * 0.82 - alto)
