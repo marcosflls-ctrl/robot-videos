@@ -37,7 +37,7 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 import yaml
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import ilustraciones
 import personajes
@@ -171,8 +171,75 @@ def variantes_miniatura(g):
     return [m or {} for m in _lista(g.get("miniaturas"))][:3] or [g.get("miniatura") or {}]
 
 
+def _monigote_miniatura(g, canal, m):
+    """El monigote de la miniatura: el presentador del canal o, con «monigote: <personaje>», uno del guion.
+
+    Con «monigote: no» no sale ninguno. La pose se paga una vez y se guarda en la caché.
+    """
+    quien = m.get("monigote", True)
+    if quien is False or str(quien).strip().lower() in ("no", "false", "ninguno"):
+        return None
+    gesto = str(m.get("gesto") or personajes.GESTOS["miniatura"])
+    if quien is True or str(quien).strip().lower() in ("", "presentador", "si", "sí", "true"):
+        p = canal.get("presentador") or {}
+        nombre, rasgos = str(p.get("nombre") or "Presentador"), str(p.get("rasgos") or "")
+    else:
+        p = (g.get("personajes") or {}).get(str(quien)) or {}
+        nombre, rasgos = str(p.get("nombre") or quien), str(p.get("rasgos") or "")
+    if not rasgos:
+        return None
+    return nombre, rasgos, personajes.ficha(nombre, rasgos, canal), gesto
+
+
+# La miniatura se dibuja con el mismo estilo que los dibujos del vídeo (para que no desentone),
+# solo con un poco más de contraste y la línea algo más marcada para que se lea en pequeño.
+REFUERZO_CARTEL = (
+    "Es la miniatura de YouTube del vídeo: mismo estilo de dibujo y misma paleta que el resto de ilustraciones, "
+    "sin colores chillones ni saturados de más; solo un poco más de contraste, la línea de tinta algo más gruesa "
+    "y el monigote muy expresivo, para que se entienda de un vistazo en pequeño. Si lleva algo en la mano, la mano "
+    "lo agarra de verdad: ningún objeto flota en el aire. Fondo sencillo. Sin texto, "
+    "sin letras, sin números, sin logotipos, sin marcas de agua.")
+
+
+def _estilo_cartel(canal):
+    propio = canal.get("miniatura_estilo")
+    if propio and propio != "clasica":
+        return " ".join(str(propio).split())
+    estilo = " ".join(str((canal.get("ilustraciones") or {}).get("estilo", "")).split())
+    return f"{estilo} {REFUERZO_CARTEL}"
+
+
+def _cartel(g, canal, m):
+    """La miniatura entera dibujada: el monigote grande en primer plano y la escena detrás, con hueco arriba para el título."""
+    escena = str(m.get("escena") or "").strip()
+    if not escena:
+        escena = next((str(e["escena"]) for e, _ in todas_las_escenas(g) if e.get("tipo") == "ilustracion" and e.get("escena")),
+                      str(g.get("titulo") or ""))
+    quien = _monigote_miniatura(g, canal, m)
+    lado = "derecho" if str(m.get("lado") or "").lower().startswith("der") else "izquierdo"
+    otro = "derecho" if lado == "izquierdo" else "izquierdo"
+    if quien:
+        nombre, rasgos, ref, gesto = quien
+        prota = (f"En primer plano, muy grande y ocupando el lado {lado} (casi la mitad de la imagen, de la cintura "
+                 f"para arriba o de cuerpo entero muy cerca de la cámara), el personaje de la imagen de referencia, "
+                 f"«{nombre}», exactamente igual (mismos rasgos: {rasgos}): {gesto}. Expresión exagerada, que se "
+                 f"entienda de un vistazo. ")
+    else:
+        ref, prota = None, (f"En primer plano, muy grande y en el lado {lado}, un monigote protagonista con una expresión "
+                            f"exagerada que encaje con la escena. ")
+    texto = (f"{prota}Detrás, hacia el lado {otro}: {escena}\n\nComposición horizontal 16:9. Deja la franja de arriba "
+             f"(la cuarta parte superior de la imagen) despejada, con cielo o fondo liso, para poner encima un título "
+             f"grande.\n\nEstilo: {_estilo_cartel(canal)}")
+    return ilustraciones.generar_imagen(texto, canal, [ref] if ref is not None else [], con_estilo=False,
+                                        aviso=f"miniatura «{m.get('texto') or g.get('titulo')}»")
+
+
 def preparar_miniaturas(g, canal):
     for m in variantes_miniatura(g):
+        if not (m.get("imagen") or m.get("buscar_imagen")) and canal.get("miniatura_estilo") != "clasica":
+            m["_cartel"] = _cartel(g, canal, m)
+            if m["_cartel"] is not None:
+                continue
         if m.get("escena"):  # ilustración propia para la miniatura, con el estilo del canal
             m["_img"], _ = ilustraciones.generar(m, canal)
         elif m.get("imagen") or m.get("buscar_imagen"):
@@ -181,9 +248,12 @@ def preparar_miniaturas(g, canal):
 
 def preparar_primera_imagen(g, canal):
     """Solo la primera imagen del vídeo (para las miniaturas que no traen la suya)."""
+    asignar_presentador(g, canal)
     for e, _ in todas_las_escenas(g):
+        if e.get("tipo") == "ilustracion" and e.get("personajes"):
+            continue  # esta se dibuja con las fichas de los personajes como referencia: no se pide suelta
         if e.get("tipo") == "ilustracion":
-            e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
+            e["_img"], e["_credito"] = ilustraciones.generar({**e, "escena": _escena_para_pedir(e)}, canal)
         elif e.get("imagen") or e.get("buscar_imagen"):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
         else:
@@ -200,25 +270,16 @@ def _gesto(valor, defecto):
     return defecto, "derecha"
 
 
-def preparar_personajes(g, canal):
-    """Fichas del presentador del canal y de los personajes del guion; poses del presentador."""
-    g["_fichas"] = {}
-    pres = canal.get("presentador") or {}
-    if pres.get("rasgos"):
-        ref = personajes.ficha(pres.get("nombre", "Presentador"), pres["rasgos"], canal)
-        if ref is not None:
-            g["_fichas"]["presentador"] = {"nombre": pres.get("nombre", "Presentador"), "rasgos": pres["rasgos"],
-                                          "img": ref}
-    for clave, p in (g.get("personajes") or {}).items():
-        nombre, rasgos = str(p.get("nombre") or clave), str(p.get("rasgos") or "")
-        ref = personajes.ficha(nombre, rasgos, canal)
-        if ref is not None:
-            g["_fichas"][str(clave)] = {"nombre": nombre, "rasgos": rasgos, "img": ref}
-    print(f"Personajes con ficha: {', '.join(g['_fichas']) or 'ninguno'}")
+def asignar_presentador(g, canal):
+    """Momentos clave del presentador: los que marque el guion y, si el canal lo pide, los automáticos.
 
-    # Momentos clave del presentador: los que marque el guion y, si el canal lo pide, los automáticos
-    if "presentador" not in g["_fichas"]:
+    No gasta nada: solo marca las escenas. Se hace antes de pedir las ilustraciones, porque en las que
+    sale el presentador se pide a Gemini que deje libre su lado del dibujo.
+    """
+    pres = canal.get("presentador") or {}
+    if g.get("_asignado") or not pres.get("rasgos"):
         return
+    g["_asignado"] = True
     if pres.get("auto", True) and g.get("presentador_auto", True):
         gancho = g.get("gancho") or []
         if gancho and "presentador" not in gancho[-1]:
@@ -230,6 +291,37 @@ def preparar_personajes(g, canal):
         for e in g.get("cierre") or []:
             if "presentador" not in e:
                 e["presentador"] = {"gesto": personajes.GESTOS["cierre"]}
+
+
+def _escena_para_pedir(e):
+    """La descripción que se manda a Gemini. Si en esa ilustración sale el presentador, se pide un lado despejado."""
+    texto = str(e.get("escena") or "")
+    if e.get("tipo") == "ilustracion" and e.get("presentador") and e.get("diseno", "completa") == "completa":
+        _, lado = _gesto(e["presentador"], "")
+        texto += ("\n\nComposición: deja el tercio " + lado + " de la imagen despejado y tranquilo (cielo, pared lisa, "
+                  "suelo, agua o niebla), sin personas, sin objetos importantes y sin detalles en ese tercio; "
+                  "todo lo importante de la escena va en los otros dos tercios.")
+    return texto
+
+
+def preparar_personajes(g, canal):
+    """Fichas del presentador del canal y de los personajes del guion; poses del presentador."""
+    g["_fichas"] = {}
+    pres = canal.get("presentador") or {}
+    asignar_presentador(g, canal)
+    if pres.get("rasgos"):
+        ref = personajes.ficha(pres.get("nombre", "Presentador"), pres["rasgos"], canal)
+        if ref is not None:
+            g["_fichas"]["presentador"] = {"nombre": pres.get("nombre", "Presentador"), "rasgos": pres["rasgos"],
+                                          "img": ref}
+    for clave, p in (g.get("personajes") or {}).items():
+        nombre, rasgos = str(p.get("nombre") or clave), str(p.get("rasgos") or "")
+        ref = personajes.ficha(nombre, rasgos, canal)
+        if ref is not None:
+            g["_fichas"][str(clave)] = {"nombre": nombre, "rasgos": rasgos, "img": ref}
+    print(f"Personajes con ficha: {', '.join(g['_fichas']) or 'ninguno'}")
+    if "presentador" not in g["_fichas"]:
+        return
     f = g["_fichas"]["presentador"]
     for e, _ in todas_las_escenas(g):
         valor = e.get("presentador")
@@ -252,7 +344,7 @@ def preparar_imagenes(g, canal):
         quienes = [str(n) for n in _lista(e.get("personajes")) if str(n) in g["_fichas"]]
         if e.get("tipo") == "ilustracion" and quienes:
             # Personajes que tienen que salir iguales: se manda su ficha como referencia
-            texto = personajes.texto_con_personajes(str(e["escena"]), quienes, g["_fichas"])
+            texto = personajes.texto_con_personajes(_escena_para_pedir(e), quienes, g["_fichas"])
             e["_img"] = ilustraciones.generar_imagen(texto, canal, [g["_fichas"][n]["img"] for n in quienes],
                                                      aviso=str(e["escena"]))
             e["_credito"] = str((canal.get("ilustraciones") or {}).get("credito") or "Ilustración")
@@ -260,7 +352,7 @@ def preparar_imagenes(g, canal):
                 e["encajar"] = True
             hay += e["_img"] is not None
         elif e.get("tipo") == "ilustracion":
-            e["_img"], e["_credito"] = ilustraciones.generar(e, canal)
+            e["_img"], e["_credito"] = ilustraciones.generar({**e, "escena": _escena_para_pedir(e)}, canal)
             if canal.get("ilustracion_vertical") == "encajar":
                 e["encajar"] = True  # en los Shorts, el dibujo entero en vez de recortado
             hay += e["_img"] is not None
@@ -647,7 +739,7 @@ class Pantallas:
             a = suave((t - 0.15 - 0.15 * k) / 0.6)
             d.text((W / 2, y0 + k * tam * 1.05 + 30 * (1 - a)), l, font=f, fill=ctx.c("texto", int(255 * a)), anchor="ma")
         r = suave((t - 0.6) / 0.8)
-        yb = y0 + alto + 36
+        yb = d.textbbox((W / 2, y0 + (len(lineas) - 1) * tam * 1.05), lineas[-1], font=f, anchor="ma")[3] + 40
         d.rectangle((W / 2 - 160 * r, yb, W / 2 + 160 * r, yb + 6), fill=ctx.c("acento"))
         b = suave((t - 1.0) / 0.5)
         d.text((W / 2, yb + 40), str(self.canal.get("lema", "")).upper(), font=ctx.f("txt_b", 30),
@@ -721,7 +813,7 @@ class Pantallas:
         y0 = H * 0.22
         for k, l in enumerate(lineas):
             d.text((W / 2, y0 + k * tam * 1.08), l, font=f, fill=ctx.c("texto", int(255 * min(1, a))), anchor="ma")
-        yb = y0 + len(lineas) * tam * 1.08 + 50
+        yb = d.textbbox((W / 2, y0 + (len(lineas) - 1) * tam * 1.08), lineas[-1], font=f, anchor="ma")[3] + 46
         d.rectangle((W / 2 - 120, yb, W / 2 + 120, yb + 6), fill=ctx.c("acento"))
         d.text((W / 2, yb + 50), self.canal["marca"], font=ctx.f("txt_b", 36), fill=ctx.c("acento2", int(255 * min(1, a))), anchor="ma")
         return img
@@ -736,6 +828,35 @@ def _a_48k(x, sr):
         return x.astype(np.float32)
     n = int(len(x) * sonido.SR / sr)
     return np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype(np.float32)
+
+
+def colocar_presentador(bloques):
+    """Decide en qué bloques sale el presentador: b["pres"] = ((recorte, lado), junto_al_dibujo).
+
+    Encima de un dibujo solo sale si ese lado del dibujo está despejado; si no, espera al siguiente
+    gráfico (titular, cifra, mapa…) del mismo capítulo, donde nunca tapa nada.
+    """
+    pendiente = None
+    for b in bloques:
+        if b["tipo"] != "escena":
+            if b["tipo"] == "capitulo":
+                pendiente = None
+            continue
+        e = b["escena"]
+        quien = e.get("_presentador")
+        es_dibujo = e.get("tipo") in ("ilustracion", "foto") or bool(e.get("imagen") or e.get("buscar_imagen"))
+        junto = False
+        if quien and es_dibujo:
+            junto = (e.get("tipo") == "ilustracion" and e.get("diseno", "completa") == "completa"
+                     and e.get("_img") is not None and personajes.lado_despejado(e["_img"], quien[1]))
+            if not junto:
+                print(f"   El presentador no cabe en «{str(e.get('voz'))[:45]}…»: sale en el siguiente gráfico")
+                pendiente, quien = quien, None
+        elif not quien and pendiente and not es_dibujo and e.get("tipo") != "presentador":
+            quien = pendiente
+        if quien:
+            pendiente = None
+        b["pres"] = (quien, junto) if quien else None
 
 
 def mezclar_audio(bloques, sr, duracion, carpeta, canal=None):
@@ -755,7 +876,7 @@ def mezclar_audio(bloques, sr, duracion, carpeta, canal=None):
             poner(voz, b["voz_ini"], _a_48k(b["escena"]["_audio"], sr))
             if b["escena"].get("tipo") == "cifra":
                 poner(fx, b["ini"] + 0.1, sonido.pop() * 0.5)
-            if b["escena"].get("_presentador"):
+            if b.get("pres"):
                 poner(fx, b["ini"] + 0.15, sonido.pop(frec=620, dur=0.1) * 0.35)
             efecto = str(b["escena"].get("sonido") or "").strip()
             if efecto and hasattr(sonido, efecto):
@@ -802,6 +923,7 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
     vertical = ctx.vertical
     duracion = bloques[-1]["fin"]
     n_frames = int(math.ceil(duracion * FPS))
+    colocar_presentador(bloques)
     audio = mezclar_audio(bloques, sr, duracion, carpeta, canal)
     es_short = bloques[-1]["tipo"] == "final_short"
 
@@ -817,22 +939,22 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
     subs = Subtitulos(trozos, geo, ctx) if subtitulos else None
     pantallas.c_final = bloques[-1]["cap"] if es_short else None
 
-    marca_f = ctx.f("txt_b", 28 if vertical else 24)
+    marca_f = ctx.f("txt_b", 34 if vertical else 30)
     caps_cache, fuente_cache = {}, {}
     f_fuente = ctx.f("txt", 24 if vertical else 21)
 
     def etiqueta_cap(c):
         if c not in caps_cache:
             if vertical:
-                f, lineas, tam = ctx.ajustar(str(g["capitulos"][c]["titulo"]), "tit", 50, W - 2 * ctx.m, 2, 30)
+                f, lineas, tam = ctx.ajustar(str(g["capitulos"][c]["titulo"]), "tit", 58, W - 2 * ctx.m, 2, 34)
                 capa = Image.new("RGBA", (W, int(tam * 1.15 * len(lineas)) + 20), (0, 0, 0, 0))
                 dd = ImageDraw.Draw(capa)
                 for k, l in enumerate(lineas):
                     dd.text((W / 2, k * tam * 1.15), l, font=f, fill=ctx.c("acento2"), anchor="ma")
             else:
                 texto = f"{c + 1:02d} · {str(g['capitulos'][c]['titulo']).upper()}"
-                f = ctx.f("txt", 21)
-                capa = Image.new("RGBA", (int(f.getlength(texto)) + 4, 34), (0, 0, 0, 0))
+                f = ctx.f("txt", 26)
+                capa = Image.new("RGBA", (int(f.getlength(texto)) + 4, 42), (0, 0, 0, 0))
                 ImageDraw.Draw(capa).text((0, 4), texto, font=f, fill=ctx.c("suave"))
             caps_cache[c] = capa
         return caps_cache[c]
@@ -882,15 +1004,13 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
                     if clip:
                         clips_usados.append(clip)
                 ctx.semilla = f"{g['_nombre']}-{bi}"
-                # Si sale el presentador en una ilustración, el dibujo se aparta para dejarle sitio
-                junto = bool(e.get("_presentador") and e.get("tipo") == "ilustracion"
-                             and e.get("diseno", "completa") == "completa")
-                e["_hueco"] = e["_presentador"][1] if junto else None
+                quien, junto = b.get("pres") or (None, False)
+                e["_hueco"] = quien[1] if junto else None
                 pieza = crear_pieza(e, ctx, b["fin"] - b["ini"], imagen=e.get("_img"), credito=e.get("_credito", ""), clip=clip)
                 capa_pres = None
                 apartar = None
-                if e.get("_presentador"):
-                    rec, lado = e["_presentador"]
+                if quien:
+                    rec, lado = quien
                     capa_pres = personajes.CapaPresentador(rec, W, H, vertical, lado=lado,
                                                            grande=e.get("tipo") == "presentador", audio=e.get("_audio"),
                                                            sr=sr, fps=FPS, voz_ini=b["voz_ini"] - b["ini"],
@@ -940,16 +1060,16 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         if b["tipo"] not in ("sting", "final", "final_short"):
             if vertical:
                 tw = marca_f.getlength(canal["marca"])
-                d.rectangle((W / 2 - tw / 2 - 26, 98, W / 2 - tw / 2 - 14, 122), fill=ctx.c("acento"))
-                d.text((W / 2 + 0, 110), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="mm")
+                d.rectangle((W / 2 - tw / 2 - 28, 104, W / 2 - tw / 2 - 14, 136), fill=ctx.c("acento"))
+                d.text((W / 2 + 0, 120), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="mm")
                 if b.get("cap") is not None and b["tipo"] != "capitulo":
-                    lienzo.alpha_composite(etiqueta_cap(b["cap"]), (0, 165))
+                    lienzo.alpha_composite(etiqueta_cap(b["cap"]), (0, 186))
             else:
-                d.rectangle((72, 58, 84, 82), fill=ctx.c("acento"))
-                d.text((100, 70), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="lm")
+                d.rectangle((72, 56, 86, 88), fill=ctx.c("acento"))
+                d.text((104, 72), canal["marca"], font=marca_f, fill=ctx.c("texto"), anchor="lm")
                 if b.get("cap") is not None and b["tipo"] != "capitulo":
                     capa_c = etiqueta_cap(b["cap"])
-                    lienzo.alpha_composite(capa_c, (W - 72 - capa_c.width, 54))
+                    lienzo.alpha_composite(capa_c, (W - 72 - capa_c.width, 52))
         if subs:
             subs.dibujar(lienzo, t)
 
@@ -1037,9 +1157,45 @@ def _primera_imagen(g, m):
     return None
 
 
+def miniatura_cartel(g, canal, ruta, mi):
+    """Miniatura a toda imagen (el dibujo entero) con el título enorme arriba: amarillo con borde negro."""
+    img = recortar_a(mi["_cartel"].convert("RGBA"), 1280, 720, (0.5, 0.5))
+    d = ImageDraw.Draw(img)
+    texto = str(mi.get("texto") or g["titulo"]).upper()
+    resaltar = {p.strip(".,:;¿?¡!«»").lower() for p in str(mi.get("resaltar") or "").upper().split()}
+    color = tuple(canal.get("miniatura_texto") or (255, 222, 0)) + (255,)
+    ruta_f = str(RAIZ / "fuentes" / str(canal.get("fuente_miniatura") or "Anton.ttf"))
+    # La letra más grande que quepa: en una línea si se puede, si no en dos
+    for lineas_max, tam in [(1, t) for t in range(150, 104, -6)] + [(2, t) for t in range(132, 60, -6)]:
+        f = ImageFont.truetype(ruta_f, tam)
+        lineas = envolver(texto, f, 1180)
+        if len(lineas) <= lineas_max and all(f.getlength(l) <= 1180 for l in lineas):
+            break
+    borde = max(6, int(tam * 0.085))
+    y = 24
+    for l in lineas:
+        x = (1280 - f.getlength(l)) / 2
+        for p in l.split():
+            col = (255, 255, 255, 255) if p.strip(".,:;¿?¡!«»").lower() in resaltar else color
+            d.text((x + 6, y + 8), p, font=f, fill=(0, 0, 0, 160), stroke_width=borde, stroke_fill=(0, 0, 0, 160))
+            d.text((x, y), p, font=f, fill=col, stroke_width=borde, stroke_fill=(0, 0, 0, 255))
+            x += f.getlength(p + " ")
+        y += tam * 1.06
+    if mi.get("cifra"):  # cifra en una etiqueta roja, abajo, en el lado contrario al monigote
+        fc = ImageFont.truetype(ruta_f, 84)
+        c = str(mi["cifra"])
+        w = fc.getlength(c) + 44
+        x0 = 40 if str(mi.get("lado") or "").lower().startswith("der") else 1280 - 150 - w  # deja libre la duración
+        d.rectangle((x0, 560, x0 + w, 680), fill=(206, 32, 41, 255), outline=(0, 0, 0, 255), width=6)
+        d.text((x0 + w / 2, 620), c, font=fc, fill=(255, 255, 255, 255), anchor="mm")
+    img.convert("RGB").save(ruta)
+
+
 def miniatura(g, canal, ruta, mi=None):
     """Una miniatura 1280x720. «mi» es una de las variantes (texto, resaltar, cifra, imagen, lado)."""
     mi = mi if mi is not None else variantes_miniatura(g)[0]
+    if mi.get("_cartel") is not None:
+        return miniatura_cartel(g, canal, ruta, mi)
     ctx = Contexto(1280, 720, canal["tema"], canal["fuentes"])
     img = fondo_base(ctx, semilla=3)
     foto = _primera_imagen(g, mi)
@@ -1140,7 +1296,7 @@ def main():
     inicio = time.time()
     if que == "miniaturas":  # solo miniaturas y títulos: sin voz y sin montar vídeo (casi gratis)
         preparar_miniaturas(g, canal)
-        if any(m.get("_img") is None for m in variantes_miniatura(g)):
+        if any(m.get("_img") is None and m.get("_cartel") is None for m in variantes_miniatura(g)):
             preparar_primera_imagen(g, canal)
         miniaturas_y_titulos(g, canal, nombre)
         print(f"Miniaturas y títulos listos en {(time.time() - inicio) / 60:.1f} minutos")

@@ -24,7 +24,7 @@ MAGENTA = (255, 0, 255)
 FONDO_RECORTE = ("Fondo totalmente liso de color magenta puro (#FF00FF), uniforme, sin degradados, sin suelo, "
                  "sin sombras, sin otros objetos ni decorado. El personaje entero, de cuerpo completo, centrado y "
                  "sin tocar los bordes, con un margen amplio alrededor. Un solo personaje. Ningún tono magenta o "
-                 "rosa intenso en el personaje.")
+                 "rosa intenso en el personaje. Si lleva algo en la mano, la mano lo agarra de verdad: ningún objeto flota en el aire.")
 
 # Gestos del presentador cuando el guion no dice ninguno (momentos clave automáticos)
 GESTOS = {
@@ -32,6 +32,7 @@ GESTOS = {
     "capitulo": "abre un brazo hacia un lado presentando lo que viene, con gesto amable",
     "cierre": "se rasca la barbilla pensativo y mira al espectador, como haciendo una pregunta",
     "final_short": "señala hacia abajo con el brazo extendido, invitando a seguir mirando",
+    "miniatura": "con cara de asombro total, ojos muy abiertos y boca abierta, las dos manos en la cabeza",
 }
 
 
@@ -86,6 +87,24 @@ def texto_con_personajes(descripcion, nombres, fichas_guion):
                       f"(mismos rasgos: {p['rasgos']}).")
     return descripcion + "\n\nPersonajes de la escena: " + " ".join(partes) + \
         " No copies el fondo liso de las referencias: dibuja la escena completa."
+
+
+def lado_despejado(img, lado, franja=0.27):
+    """True si el tercio «lado» del dibujo está despejado (poco detalle), para poner encima al presentador.
+
+    Compara el detalle (bordes) de esa franja con el del resto del dibujo: la franja tiene que ser
+    claramente más tranquila. Si Gemini no dejó el hueco que se le pidió, el presentador no sale ahí.
+    """
+    g = img.convert("L").resize((320, max(1, int(320 * img.height / img.width))), Image.BILINEAR)
+    bordes = np.asarray(g.filter(ImageFilter.FIND_EDGES), np.float32)[2:-2, 2:-2]
+    h, w = bordes.shape
+    n = max(1, int(w * franja))
+    y0, y1 = int(h * 0.12), int(h * 0.95)  # donde está el cuerpo del presentador
+    tira = bordes[y0:y1, -n:] if lado == "derecha" else bordes[y0:y1, :n]
+    resto = bordes[:, :-n] if lado == "derecha" else bordes[:, n:]
+    detalle_tira = float(np.percentile(tira, 90))
+    detalle_resto = float(np.percentile(resto, 90)) + 1e-6
+    return detalle_tira <= 0.62 * detalle_resto or detalle_tira < 14
 
 
 # =====================================================================
@@ -150,7 +169,7 @@ class CapaPresentador:
             hueco = W * (0.24 if vertical else 0.27)
             centro = (W - hueco / 2) if lado == "derecha" else hueco / 2
             self.x = int(centro - self.img.width / 2)
-            self.base_y = int(H * 0.45 + self.img.height / 2) if vertical else int(H * 0.86)
+            self.base_y = int(H * 0.5 + self.img.height / 2) if vertical else int(H * 0.86)
         self.env, self.fps, self.voz_ini = _envolvente(audio, sr, fps), fps, voz_ini
 
     def dibujar(self, lienzo, t):

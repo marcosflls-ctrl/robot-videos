@@ -30,11 +30,11 @@ colores:
 
 # Fuentes rotuladas a mano (carpeta fuentes/, licencia libre SIL OFL)
 fuentes:
-  tit: "GochiHand-Regular.ttf"      # titulares y rótulos
-  tit2: "PatrickHand-Regular.ttf"   # citas
-  txt: "PatrickHand-Regular.ttf"    # textos
-  txt_b: "PatrickHand-Regular.ttf"  # etiquetas
-  num: "GochiHand-Regular.ttf"      # cifras
+  tit: "Oswald-Bold.ttf"      # titulares y rótulos
+  tit2: "Oswald-SemiBold.ttf"   # citas
+  txt: "CourierPrime-Regular.ttf"    # textos
+  txt_b: "CourierPrime-Bold.ttf"  # etiquetas
+  num: "Oswald-Bold.ttf"      # cifras
 
 # Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
 # 1K cuesta un tercio menos que 2K y en este estilo de dibujo apenas se nota.
@@ -70,7 +70,7 @@ presentador:
   rasgos: >-
     muñeco de palo de tinta negra; cabeza grande, redonda y blanca con contorno negro; dos ojos de punto y
     cejas negras muy expresivas; sombrero marrón de ala corta con una cinta roja; cuerpo, brazos y piernas de
-    una sola línea negra, sin manos ni pies detallados; lleva siempre una lupa redonda de mango marrón
+    una sola línea negra, sin manos ni pies detallados; no lleva nada en las manos
   auto: true
 
 # Música de fondo (generada por código, sin derechos): grave y con tensión

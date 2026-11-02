@@ -35,11 +35,11 @@ colores:
 
 # Fuentes (carpeta fuentes/, licencia libre SIL OFL): una sola familia, Bricolage Grotesque, de aire técnico
 fuentes:
-  tit: "BricolageGrotesque-ExtraBold.ttf"   # titulares y rótulos
-  tit2: "BricolageGrotesque-Bold.ttf"       # citas
-  txt: "BricolageGrotesque-Regular.ttf"     # textos
-  txt_b: "BricolageGrotesque-Bold.ttf"     # etiquetas
-  num: "BricolageGrotesque-ExtraBold.ttf"   # cifras
+  tit: "Fredoka-SemiBold.ttf"   # titulares y rótulos
+  tit2: "Fredoka-Medium.ttf"       # citas
+  txt: "Nunito-Regular.ttf"     # textos
+  txt_b: "Nunito-ExtraBold.ttf"     # etiquetas
+  num: "Fredoka-SemiBold.ttf"   # cifras
 
 # Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
 # Si dos escenas llevan exactamente la misma «escena», la imagen se paga una sola vez.

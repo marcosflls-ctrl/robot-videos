@@ -55,6 +55,13 @@ y se queda con el que más tiempo de visualización consigue. Por eso cada guion
 
 Siguen valiendo `titulo` y `miniatura` (una sola) en los guiones antiguos.
 
+**Cómo son las miniaturas:** un dibujo a toda la imagen, con el mismo estilo que los del vídeo, con un monigote grande en primer
+plano y cara exagerada, la escena detrás y el título enorme arriba, en amarillo con borde negro (las palabras de
+`resaltar`, en blanco; la `cifra`, en una etiqueta roja abajo). El monigote es el presentador del canal; para poner
+a un personaje del guion: `monigote: sospechoso`. Su cara o postura: `gesto: "se tapa la boca con cara de miedo"`.
+Para ponerlo a la derecha: `lado: derecha`. Si la miniatura no trae `escena`, se usa la del primer dibujo del vídeo.
+Cada miniatura es una imagen nueva (unos 3 céntimos). Con `imagen` o `buscar_imagen` (una foto real) se hace como antes.
+
 ## Vídeos ya publicados
 
 Cuando un vídeo se sube a YouTube, se añade al principio de su guion la línea `publicado: true`.
@@ -101,6 +108,9 @@ todos los vídeos, recortado y animado encima de la escena (entra rebotando y se
 - **En una escena concreta**: `presentador: "señala el mapa con cara de sorpresa"` (o
   `presentador: {gesto: "...", lado: izquierda}`). Cada gesto nuevo es una imagen (unos céntimos, una sola vez).
 - **Hablando a cámara**: `tipo: presentador` con `texto` (y `kicker`, `resaltar`): él grande a un lado y su frase al otro.
+- **Nunca tapa el dibujo**: en las ilustraciones donde sale, se pide a Gemini que deje despejado su lado (cielo,
+  pared, suelo…) y el robot comprueba que de verdad está despejado. Si no lo está, el presentador no sale en ese
+  dibujo y aparece en el siguiente gráfico (titular, cifra, mapa…) del mismo capítulo.
 
 ## Personajes que salen siempre iguales
 

@@ -28,11 +28,11 @@ colores:
 
 # Fuentes (carpeta fuentes/, todas con licencia libre SIL OFL)
 fuentes:
-  tit: "Fraunces-Black.ttf"         # titulares
-  tit2: "Fraunces-SemiBold.ttf"     # citas y textos destacados
-  txt: "SpaceGrotesk-Medium.ttf"    # textos
-  txt_b: "SpaceGrotesk-Bold.ttf"    # etiquetas
-  num: "Fraunces-Black.ttf"         # cifras
+  tit: "PlayfairDisplay-Black.ttf"         # titulares
+  tit2: "PlayfairDisplay-Bold.ttf"     # citas y textos destacados
+  txt: "IBMPlexSans-Medium.ttf"    # textos
+  txt_b: "IBMPlexSans-Bold.ttf"    # etiquetas
+  num: "PlayfairDisplay-Black.ttf"         # cifras
 
 # Ilustraciones generadas con IA (escenas «ilustracion»). El estilo se añade a todas para que
 # parezcan de la misma mano. Cada imagen cuesta unos céntimos y se guarda para no repetirla.
