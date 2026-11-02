@@ -119,7 +119,7 @@ class CapaPresentador:
     """Dibuja al presentador encima de un fotograma: entra rebotando y se mueve mientras habla la voz."""
 
     def __init__(self, recorte, W, H, vertical, lado="derecha", grande=False, audio=None, sr=24000, fps=30,
-                 voz_ini=0.35):
+                 voz_ini=0.35, junto_al_dibujo=False):
         self.W, self.H, self.vertical, self.lado = W, H, vertical, lado
         alto = int(H * (0.46 if grande else 0.30)) if vertical else int(H * (0.78 if grande else 0.46))
         if vertical and not grande:
@@ -137,6 +137,20 @@ class CapaPresentador:
         if grande:
             x = int(W * (0.62 if lado == "derecha" else 0.06)) if not vertical else (W - self.img.width) // 2
         self.x, self.base_y = x, base_y
+        if junto_al_dibujo:
+            # El dibujo está apartado al otro lado: el presentador ocupa el hueco libre, a su altura
+            alto = int(H * (0.24 if vertical else 0.66))
+            r = alto / recorte.height
+            ancho_max = int(W * (0.22 if vertical else 0.24))
+            if recorte.width * r > ancho_max:
+                r = ancho_max / recorte.width
+            self.img = recorte.resize((max(1, int(recorte.width * r)), max(1, int(recorte.height * r))), Image.LANCZOS)
+            self.sombra = Image.new("RGBA", self.img.size, (0, 0, 0, 0))
+            self.sombra.putalpha(self.img.getchannel("A").point(lambda v: v * 0.35).filter(ImageFilter.GaussianBlur(10)))
+            hueco = W * (0.24 if vertical else 0.27)
+            centro = (W - hueco / 2) if lado == "derecha" else hueco / 2
+            self.x = int(centro - self.img.width / 2)
+            self.base_y = int(H * 0.45 + self.img.height / 2) if vertical else int(H * 0.86)
         self.env, self.fps, self.voz_ini = _envolvente(audio, sr, fps), fps, voz_ini
 
     def dibujar(self, lienzo, t):

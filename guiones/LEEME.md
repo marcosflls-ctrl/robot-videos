@@ -118,6 +118,16 @@ su ficha una vez y la manda como referencia en cada escena, para que sea siempre
 muy visibles (ropa, sombrero, gafas, colores), porque los muñecos no tienen cara detallada. Nunca se dibuja a una
 persona real reconocible: el personaje se distingue por sus rasgos, no por parecerse a nadie.
 
+## Movimiento de las imágenes
+
+Cada foto o ilustración se mueve de una forma distinta, sin repetir siempre el mismo zoom: `acercar`, `alejar`,
+`barrido` (de lado a lado), `vertical`, `deriva` (cámara en mano) o `golpe` (acercamiento rápido al empezar).
+El robot elige uno distinto en cada escena; para forzar uno: `camara: barrido`. Cuando sale el presentador, el
+dibujo se aparta al otro lado y casi no se mueve, para que él no tape nada.
+
+Ambiente dibujado por código encima de la imagen (gratis): `ambiente: niebla`, `lluvia`, `nieve`, `polvo`,
+`ceniza` o `chispas`.
+
 ## Sonido
 
 Cada canal tiene su música (`musica:` en el `canal_*.yaml`: misterio, naturaleza o datos). En una escena se puede

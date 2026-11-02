@@ -861,7 +861,7 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         stdin=subprocess.PIPE,
     )
 
-    bi, pieza, anterior, ultimo, capa_pres = -1, None, None, None, None
+    bi, pieza, anterior, ultimo, capa_pres, apartar = -1, None, None, None, None, None
     clips_usados = []
     inicio = time.time()
     for nf in range(n_frames):
@@ -882,19 +882,29 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
                     if clip:
                         clips_usados.append(clip)
                 ctx.semilla = f"{g['_nombre']}-{bi}"
+                # Si sale el presentador en una ilustración, el dibujo se aparta para dejarle sitio
+                junto = bool(e.get("_presentador") and e.get("tipo") == "ilustracion"
+                             and e.get("diseno", "completa") == "completa")
+                e["_hueco"] = e["_presentador"][1] if junto else None
                 pieza = crear_pieza(e, ctx, b["fin"] - b["ini"], imagen=e.get("_img"), credito=e.get("_credito", ""), clip=clip)
                 capa_pres = None
+                apartar = None
                 if e.get("_presentador"):
                     rec, lado = e["_presentador"]
                     capa_pres = personajes.CapaPresentador(rec, W, H, vertical, lado=lado,
                                                            grande=e.get("tipo") == "presentador", audio=e.get("_audio"),
-                                                           sr=sr, fps=FPS, voz_ini=b["voz_ini"] - b["ini"])
+                                                           sr=sr, fps=FPS, voz_ini=b["voz_ini"] - b["ini"],
+                                                           junto_al_dibujo=junto)
+                    # En el vídeo horizontal, los gráficos (titulares, cifras, mapas…) se encogen y se apartan
+                    if not junto and not vertical and e.get("tipo") not in ("presentador", "foto", "ilustracion"):
+                        apartar = lado
             elif b["tipo"] == "final_short" and g.get("_presentador_final") is not None:
+                apartar = None
                 capa_pres = personajes.CapaPresentador(g["_presentador_final"], W, H, vertical, grande=False)
                 capa_pres.x = (W - capa_pres.img.width) // 2
                 capa_pres.base_y = int(H * 0.93)
             else:
-                capa_pres = None
+                capa_pres, apartar = None, None
         b = bloques[bi]
         tl, dur = t - b["ini"], b["fin"] - b["ini"]
 
@@ -909,7 +919,11 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
         else:
             # En el Short, la primera escena sale ya montada: nada de esperar a que entre el texto
             capa = pieza.cuadro(tl + (pieza.fin_animacion() if es_short and bi == 0 else 0))
-            if pieza.opaca:
+            if apartar:
+                peque = capa.resize((int(W * 0.76), int(H * 0.76)), Image.BILINEAR)
+                capa = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+                capa.alpha_composite(peque, (int(W * 0.03) if apartar == "derecha" else int(W * 0.21), int(H * 0.12)))
+            if pieza.opaca and not apartar:
                 lienzo = capa.copy()
             else:
                 lienzo = base.copy()

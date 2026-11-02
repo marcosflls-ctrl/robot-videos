@@ -34,6 +34,7 @@ gancho:
       Una calle estrecha de pueblo de noche, con niebla, una farola antigua encendida y fachadas de piedra con
       ventanas a oscuras.
     kicker: "Caso inventado · prueba"
+    ambiente: niebla
 
 capitulos:
   - titulo: "La testigo"
@@ -54,6 +55,7 @@ capitulos:
           mirando hacia atrás.
         personajes: [sospechoso]
         sonido: viento
+        ambiente: lluvia
       - voz: "A la mañana siguiente, el inspector fue a hablar con ella."
         tipo: presentador
         texto: "¿Qué vio exactamente?"
