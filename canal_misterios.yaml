@@ -30,11 +30,11 @@ colores:
 
 # Fuentes rotuladas a mano (carpeta fuentes/, licencia libre SIL OFL)
 fuentes:
-  tit: "GochiHand-Regular.ttf"      # titulares y rótulos
-  tit2: "PatrickHand-Regular.ttf"   # citas
-  txt: "PatrickHand-Regular.ttf"    # textos
-  txt_b: "PatrickHand-Regular.ttf"  # etiquetas
-  num: "GochiHand-Regular.ttf"      # cifras
+  tit: "Oswald-Bold.ttf"      # titulares y rótulos
+  tit2: "Oswald-SemiBold.ttf"   # citas
+  txt: "CourierPrime-Regular.ttf"    # textos
+  txt_b: "CourierPrime-Bold.ttf"  # etiquetas
+  num: "Oswald-Bold.ttf"      # cifras
 
 # Ilustraciones con IA. El estilo se añade a todas para que parezcan de la misma mano.
 # 1K cuesta un tercio menos que 2K y en este estilo de dibujo apenas se nota.
