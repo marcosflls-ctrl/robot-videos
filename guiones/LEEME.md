@@ -132,6 +132,16 @@ Colores que se pueden usar: `acento` (rojo anaranjado), `acento2` (dorado), `tex
 Al lanzar el robot, en «Solo estos Shorts» escribe los números de capítulo separados por comas (por
 ejemplo `1,4,6`) para montar solo esos. Vacío = todos los capítulos marcados con `short: true`.
 
+### Copia en Google Drive
+
+Si está el secreto `GDRIVE_REFRESH`, cada ejecución copia lo generado a Google Drive, con nombres claros:
+`Vídeos/<canal>/<carpeta del guion>/` con `Largo - <título>.mp4`, `Short 1 - <título del Short>.mp4`,
+`Miniatura 1.png`, `Títulos.txt`, `Descripción.txt` y `Subtítulos.srt`. El nombre de la carpeta del vídeo
+sale de la línea `carpeta:` del guion (por ejemplo `carpeta: "La Palma (2021)"`). Si relanzas un vídeo, los
+archivos con el mismo nombre se sustituyen. Las copias ligeras de Telegram no se suben.
+
+El robot solo ve en Drive lo que crea él (permiso `drive.file`): no puede leer ni tocar tus otros archivos.
+
 ### Velocidad de la voz
 
 En el archivo del canal, `velocidad_voz: 1.1` hace la voz un 10 % más rápida (de 0.8 a 1.3). Se aplica al

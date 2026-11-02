@@ -111,6 +111,18 @@ jobs:
             scripts/salida/*.txt
             scripts/salida/*.srt
             scripts/salida/*.png
+      - name: Copiarlo a Google Drive (si está configurado)
+        if: always()
+        continue-on-error: true
+        env:
+          GDRIVE_REFRESH: ${{ secrets.GDRIVE_REFRESH }}
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          GUION: ${{ github.event.inputs.guion }}
+        working-directory: scripts
+        run: python subir_drive.py
       - name: Mandarlo por Telegram (si está configurado)
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
