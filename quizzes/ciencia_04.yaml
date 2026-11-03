@@ -1,0 +1,35 @@
+fecha: '2026-11-26'
+categoria: ciencia
+titulo: 'La tercera casi nadie la sabe 🐙 #quiz'
+gancho: Tres preguntas de ciencia. La tercera casi nadie la sabe.
+preguntas:
+- pregunta: ¿Cuál es el animal terrestre más rápido?
+  opciones:
+  - León
+  - Guepardo
+  - Caballo
+  - Gacela
+  correcta: B
+  dato: En carreras cortas puede superar los cien kilómetros por hora.
+  escena: Un guepardo corriendo a toda velocidad por la sabana dorada, con polvo levantándose
+  dato_pantalla: En carreras cortas puede superar los 100 km/h.
+- tipo: vf
+  pregunta: Las personas solo usamos el 10 % del cerebro.
+  correcta: falso
+  dato: 'Es un mito: las pruebas de imagen muestran que usamos todas sus zonas.'
+  escena: Un cerebro humano luminoso con todas sus zonas encendidas de colores, en un fondo oscuro
+- pregunta: ¿De qué color es la sangre de los pulpos?
+  opciones:
+  - Roja
+  - Azul
+  - Verde
+  - Negra
+  correcta: B
+  dato: Lleva hemocianina, una molécula con cobre en lugar de hierro.
+  escena: Un pulpo naranja simpático sobre el fondo del mar entre corales, con luz azul
+extra: ¿Cuántos corazones tiene un pulpo?
+fuentes:
+- https://es.wikipedia.org/wiki/Acinonyx_jubatus
+- https://es.wikipedia.org/wiki/Mito_del_10_%_del_cerebro
+- https://es.wikipedia.org/wiki/Hemocianina
+publicado: false

@@ -1,0 +1,280 @@
+fecha: '2026-11-29'
+formato: largo
+categoria: variado
+titulo: 24 preguntas sobre el mundo 🌍 ¿Cuántas aciertas? | Quiz de fácil a difícil
+gancho: Veinticuatro preguntas sobre el mundo, de fácil a muy difícil. Las últimas son para expertos.
+gancho_pantalla: 24 preguntas sobre el mundo, de fácil a muy difícil. Las últimas son para expertos.
+preguntas:
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Cuál es la capital de Alemania?
+  opciones:
+  - Múnich
+  - Berlín
+  - Hamburgo
+  - Fráncfort
+  correcta: B
+  dato: Volvió a ser la capital de toda Alemania tras la reunificación, en 1990.
+  escena: Una puerta monumental de columnas iluminada de noche en una gran plaza
+- categoria: ciencia
+  dificultad: facil
+  pregunta: ¿Cuál es el animal más grande del planeta?
+  opciones:
+  - El elefante
+  - La ballena azul
+  - El tiburón ballena
+  - La jirafa
+  correcta: B
+  dato: Es el animal más grande que se conoce, más que cualquier dinosaurio.
+  escena: Una ballena azul gigantesca nadando bajo el mar junto a un pequeño barco en la superficie
+- categoria: deporte
+  dificultad: facil
+  pregunta: ¿Con qué no puede tocar el balón un jugador de campo en fútbol?
+  opciones:
+  - La cabeza
+  - El pecho
+  - Las manos
+  - La rodilla
+  correcta: C
+  dato: Solo el portero puede usar las manos, y solo dentro de su área.
+  escena: Unos guantes de portero sobre el césped junto a un balón, con la portería al fondo
+- categoria: arte
+  dificultad: facil
+  pregunta: ¿Cuántas cuerdas tiene una guitarra española?
+  opciones:
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  correcta: C
+  dato: El bajo eléctrico, en cambio, suele tener cuatro.
+  escena: Primer plano de una guitarra española de madera con sus cuerdas brillando
+  decir_respuesta: '¡La C: seis!'
+- categoria: mitologia
+  dificultad: facil
+  pregunta: ¿Cómo se llama el dios griego del amor, con arco y flechas?
+  opciones:
+  - Eros
+  - Apolo
+  - Hermes
+  - Dioniso
+  correcta: A
+  dato: Los romanos lo llamaban Cupido.
+  escena: Un arco dorado y flechas con plumas rosas sobre nubes al atardecer
+- categoria: ciencia
+  dificultad: facil
+  tipo: vf
+  pregunta: La Tierra tarda un año en dar una vuelta alrededor del Sol.
+  correcta: verdadero
+  dato: 'Para ser exactos, unos trescientos sesenta y cinco días y seis horas: por eso existen los años bisiestos.'
+  escena: La Tierra girando alrededor del Sol con su órbita dibujada en el espacio
+  dato_pantalla: 'Para ser exactos, unos 365 días y 6 horas: por eso existen los años bisiestos.'
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Qué país es famoso por sus tulipanes y molinos?
+  opciones:
+  - Bélgica
+  - Países Bajos
+  - Dinamarca
+  - Suiza
+  correcta: B
+  dato: Los tulipanes llegaron allí desde el Imperio otomano, en el siglo dieciséis.
+  escena: Campos de tulipanes de colores en franjas con un molino de viento al fondo
+  dato_pantalla: Los tulipanes llegaron allí desde el Imperio otomano, en el siglo XVI.
+- categoria: primaria
+  dificultad: facil
+  pregunta: ¿Cuántas caras tiene un cubo?
+  opciones:
+  - '4'
+  - '6'
+  - '8'
+  - '12'
+  correcta: B
+  dato: Y tiene doce aristas y ocho vértices.
+  escena: Un dado gigante de madera sobre una mesa de juegos con luz cálida
+  decir_respuesta: '¡La B: seis!'
+  dato_pantalla: Y tiene 12 aristas y 8 vértices.
+- categoria: historia
+  dificultad: media
+  pregunta: ¿Quién terminó la primera vuelta al mundo, en 1522?
+  opciones:
+  - Fernando de Magallanes
+  - Juan Sebastián Elcano
+  - Cristóbal Colón
+  - Vasco da Gama
+  correcta: B
+  dato: Magallanes la empezó, pero murió en Filipinas; Elcano volvió con solo dieciocho hombres.
+  escena: Una nao del siglo XVI con las velas rotas llegando a puerto, vista desde el mar
+  dato_pantalla: Magallanes la empezó, pero murió en Filipinas; Elcano volvió con solo 18 hombres.
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿A qué velocidad viaja la luz, más o menos?
+  opciones:
+  - 300.000 km/s
+  - 30.000 km/s
+  - 3.000 km/s
+  - 3 millones de km/s
+  correcta: A
+  dato: La luz de la Luna tarda poco más de un segundo en llegar a la Tierra.
+  escena: Un haz de luz atravesando el espacio entre la Tierra y la Luna
+  decir_respuesta: '¡La A: unos trescientos mil kilómetros por segundo!'
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿Cuál es la capital de Marruecos?
+  opciones:
+  - Casablanca
+  - Rabat
+  - Marrakech
+  - Fez
+  correcta: B
+  dato: Casablanca es la ciudad más grande, pero la capital es Rabat.
+  escena: Una medina blanca junto al océano Atlántico con una torre antigua, al atardecer
+- categoria: arte
+  dificultad: media
+  pregunta: ¿Qué grupo cantaba «Yellow Submarine»?
+  opciones:
+  - The Beatles
+  - Queen
+  - ABBA
+  - The Rolling Stones
+  correcta: A
+  dato: Eran cuatro chicos de Liverpool.
+  escena: Un submarino amarillo de juguete bajo el mar entre burbujas y peces de colores
+- categoria: deporte
+  dificultad: media
+  tipo: vf
+  pregunta: El voleibol se inventó en Estados Unidos.
+  correcta: verdadero
+  dato: Lo inventó William Morgan en 1895, como un deporte más suave que el baloncesto.
+  escena: Un balón de voleibol en el aire sobre una red en un gimnasio antiguo de madera
+- categoria: mitologia
+  dificultad: media
+  pregunta: ¿Qué dios romano da nombre al mes de marzo?
+  opciones:
+  - Marte
+  - Mercurio
+  - Saturno
+  - Jano
+  correcta: A
+  dato: Y enero viene de Jano, el dios de las puertas y los comienzos.
+  escena: Un casco romano con penacho rojo sobre un escudo junto a una lanza, en un templo
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Cuántos cromosomas tiene una célula humana normal?
+  opciones:
+  - '23'
+  - '46'
+  - '48'
+  - '44'
+  correcta: B
+  dato: 'Son veintitrés parejas: la mitad viene de la madre y la otra mitad, del padre.'
+  escena: Cromosomas de colores en forma de X flotando en un fondo científico oscuro
+  decir_respuesta: '¡La B: cuarenta y seis!'
+  dato_pantalla: 'Son 23 parejas: la mitad viene de la madre y la otra, del padre.'
+- categoria: historia
+  dificultad: media
+  pregunta: ¿Qué ciudad de la antigua Grecia inventó la democracia?
+  opciones:
+  - Esparta
+  - Atenas
+  - Corinto
+  - Tebas
+  correcta: B
+  dato: 'Pero solo votaban los hombres libres: ni las mujeres ni los esclavos.'
+  escena: Una colina rocosa con un templo de columnas en lo alto sobre una ciudad antigua, al amanecer
+- categoria: geografia
+  dificultad: dificil
+  pregunta: ¿Qué país tiene más pirámides antiguas?
+  opciones:
+  - Egipto
+  - Sudán
+  - Irak
+  - Grecia
+  correcta: B
+  dato: En Sudán hay más de doscientas pirámides nubias, más que en Egipto.
+  escena: Pirámides puntiagudas y estrechas en fila en el desierto de arena rojiza al atardecer
+  dato_pantalla: En Sudán hay más de 200 pirámides nubias, más que en Egipto.
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Qué animal tiene huellas dactilares casi idénticas a las humanas?
+  opciones:
+  - El chimpancé
+  - El koala
+  - El gorila
+  - El mapache
+  correcta: B
+  dato: Se parecen tanto que cuesta distinguirlas incluso al microscopio.
+  escena: Un koala abrazado a la rama de un eucalipto, con primer plano de su pata
+- categoria: historia
+  dificultad: dificil
+  pregunta: ¿En qué año cayó el Imperio romano de Occidente?
+  opciones:
+  - '410'
+  - '476'
+  - '1453'
+  - '395'
+  correcta: B
+  dato: El de Oriente, el bizantino, aguantó hasta 1453.
+  escena: Columnas romanas caídas entre la hierba con un cielo de atardecer rojizo
+- categoria: arte
+  dificultad: dificil
+  pregunta: ¿Quién escribió «La vida es sueño»?
+  opciones:
+  - Lope de Vega
+  - Calderón de la Barca
+  - Tirso de Molina
+  - Francisco de Quevedo
+  correcta: B
+  dato: Su protagonista, Segismundo, vive encerrado en una torre desde que nace.
+  escena: Una torre de piedra solitaria en un paisaje montañoso con una sola ventana iluminada
+- categoria: deporte
+  dificultad: dificil
+  pregunta: ¿Cuántos jugadores tiene en el agua un equipo de waterpolo?
+  opciones:
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  correcta: C
+  dato: Seis jugadores de campo y un portero.
+  escena: Una piscina con una portería de waterpolo flotante y un balón amarillo en el agua
+  decir_respuesta: '¡La C: siete!'
+- categoria: mitologia
+  dificultad: dificil
+  pregunta: ¿Qué diosa egipcia tenía forma de gata?
+  opciones:
+  - Bastet
+  - Isis
+  - Sejmet
+  - Hathor
+  correcta: A
+  dato: Los gatos eran tan sagrados en Egipto que también los momificaban.
+  escena: Una estatua egipcia de bronce de una gata sentada con un pendiente de oro en un templo
+- categoria: geografia
+  dificultad: dificil
+  tipo: vf
+  pregunta: Australia es más ancha que la Luna.
+  correcta: verdadero
+  dato: Australia mide unos cuatro mil kilómetros de este a oeste, y la Luna, unos tres mil quinientos de diámetro.
+  escena: La Luna llena junto al contorno del continente australiano a la misma escala, en el espacio
+  dato_pantalla: Australia mide unos 4.000 km de este a oeste, y la Luna, unos 3.475 km de diámetro.
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Cuál es el único mamífero capaz de volar de verdad?
+  opciones:
+  - La ardilla voladora
+  - El murciélago
+  - El colugo
+  - El petauro del azúcar
+  correcta: B
+  dato: Los demás solo planean.
+  escena: Un murciélago con las alas desplegadas volando sobre un bosque al anochecer
+fuentes:
+- https://es.wikipedia.org/wiki/Balaenoptera_musculus
+- https://es.wikipedia.org/wiki/Primera_vuelta_al_mundo
+- https://es.wikipedia.org/wiki/Velocidad_de_la_luz
+- https://es.wikipedia.org/wiki/Pirámides_nubias
+- https://es.wikipedia.org/wiki/Phascolarctos_cinereus
+- https://es.wikipedia.org/wiki/Australia
+- https://es.wikipedia.org/wiki/Waterpolo
+publicado: false

@@ -1,0 +1,34 @@
+fecha: '2026-11-10'
+categoria: historia
+titulo: '3 preguntas sobre la antigua Roma 🏺 ¿Las aciertas? #quiz'
+gancho: Tres preguntas sobre la antigua Roma. Con la primera ya falla mucha gente.
+preguntas:
+- pregunta: ¿Quién fue el primer emperador de Roma?
+  opciones:
+  - Julio César
+  - Augusto
+  - Nerón
+  - Trajano
+  correcta: B
+  dato: 'Julio César nunca fue emperador: fue dictador. El primero fue su heredero, Augusto.'
+  escena: Una corona de laurel dorada sobre un cojín rojo en un salón de mármol de la antigua Roma
+- pregunta: ¿En qué actual país nació el emperador Trajano?
+  opciones:
+  - Italia
+  - España
+  - Grecia
+  - Francia
+  correcta: B
+  dato: Nació en Itálica, cerca de la actual Sevilla, y fue el primer emperador nacido fuera de Italia.
+  escena: Ruinas de un anfiteatro romano entre olivos en el sur de España, con luz dorada de atardecer
+- tipo: vf
+  pregunta: Los gladiadores siempre luchaban a muerte.
+  correcta: falso
+  dato: 'La mayoría de los combates no acababan en muerte: entrenar a un gladiador era muy caro.'
+  escena: La arena vacía de un anfiteatro romano con un casco y un escudo de gladiador en el suelo
+extra: ¿Qué volcán sepultó la ciudad de Pompeya en el año 79?
+fuentes:
+- https://es.wikipedia.org/wiki/Augusto
+- https://es.wikipedia.org/wiki/Trajano
+- https://es.wikipedia.org/wiki/Gladiador
+publicado: false

@@ -1,0 +1,273 @@
+fecha: '2026-11-22'
+formato: largo
+categoria: variado
+titulo: 24 preguntas de cultura general (2) 🧠 ¿Cuántas aciertas? | Quiz
+gancho: 'Vuelve el quiz de cultura general: veinticuatro preguntas, de fácil a muy difícil.'
+gancho_pantalla: 'Vuelve el quiz de cultura general: 24 preguntas, de fácil a muy difícil.'
+preguntas:
+- categoria: ciencia
+  dificultad: facil
+  pregunta: ¿Quién descubrió la penicilina?
+  opciones:
+  - Alexander Fleming
+  - Louis Pasteur
+  - Marie Curie
+  - Isaac Newton
+  correcta: A
+  dato: Fue en 1928, casi por casualidad, con un moho que creció en una placa.
+  escena: Una placa de laboratorio antigua con moho verde junto a un microscopio de latón
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Cuál es la capital de Japón?
+  opciones:
+  - Pekín
+  - Tokio
+  - Seúl
+  - Osaka
+  correcta: B
+  dato: Antes se llamaba Edo.
+  escena: Una gran ciudad de noche con luces de neón y una montaña nevada al fondo
+- categoria: deporte
+  dificultad: facil
+  pregunta: ¿De qué color es el maillot del líder del Tour de Francia?
+  opciones:
+  - Verde
+  - Amarillo
+  - Rojo
+  - Rosa
+  correcta: B
+  dato: El rosa es el del Giro de Italia, y el rojo, el de la Vuelta a España.
+  escena: Un maillot de ciclismo amarillo colgado en una percha frente a una carretera de montaña
+- categoria: arte
+  dificultad: facil
+  pregunta: ¿Qué dibujante creó a Tintín?
+  opciones:
+  - Hergé
+  - Goscinny
+  - Francisco Ibáñez
+  - Morris
+  correcta: A
+  dato: Su primera aventura se publicó en 1929.
+  escena: Un tebeo antiguo cerrado sobre una mesa de dibujante con plumillas y tinta
+- categoria: ciencia
+  dificultad: facil
+  tipo: vf
+  pregunta: Las ballenas son peces.
+  correcta: falso
+  dato: 'Son mamíferos: respiran aire y amamantan a sus crías.'
+  escena: Una ballena enorme nadando bajo la superficie del mar con rayos de luz
+- categoria: mitologia
+  dificultad: facil
+  pregunta: ¿Qué héroe de la mitología hizo doce trabajos?
+  opciones:
+  - Hércules
+  - Ulises
+  - Jasón
+  - Aquiles
+  correcta: A
+  dato: En griego se llamaba Heracles; Hércules es su nombre romano.
+  escena: Una piel de león dorada sobre una roca y una gran maza de madera, en un paisaje griego
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Qué país tiene forma de bota?
+  opciones:
+  - Grecia
+  - Italia
+  - Portugal
+  - Chile
+  correcta: B
+  dato: Y la isla de Sicilia parece el balón que va a patear.
+  escena: Un mapa antiguo en relieve del Mediterráneo con una península alargada, sin letras
+- categoria: historia
+  dificultad: facil
+  pregunta: ¿Qué reina egipcia se alió con Julio César y con Marco Antonio?
+  opciones:
+  - Nefertiti
+  - Cleopatra
+  - Hatshepsut
+  - Nefertari
+  correcta: B
+  dato: Vivió más cerca en el tiempo de la llegada a la Luna que de la construcción de la Gran Pirámide.
+  escena: Un palacio egipcio junto al mar en Alejandría con un faro gigantesco al fondo
+- categoria: deporte
+  dificultad: media
+  pregunta: ¿Cuántos jugadores tiene en el campo un equipo de rugby?
+  opciones:
+  - '11'
+  - '13'
+  - '15'
+  - '7'
+  correcta: C
+  dato: Y en el rugby a siete, que es el olímpico, son siete.
+  escena: Un balón de rugby ovalado sobre el césped de un estadio con niebla, sin logotipos
+  decir_respuesta: '¡La C: quince!'
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Qué científica ganó dos premios Nobel en dos ciencias distintas?
+  opciones:
+  - Marie Curie
+  - Rosalind Franklin
+  - Ada Lovelace
+  - Lise Meitner
+  correcta: A
+  dato: Ganó el de Física en 1903 y el de Química en 1911.
+  escena: Un laboratorio antiguo de principios del siglo XX con frascos que brillan en la oscuridad
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿Qué estrecho separa España de África?
+  opciones:
+  - El Bósforo
+  - Gibraltar
+  - Magallanes
+  - Ormuz
+  correcta: B
+  dato: En su punto más estrecho mide unos catorce kilómetros.
+  escena: Un estrecho de mar entre dos costas montañosas con barcos, visto desde lo alto
+  dato_pantalla: En su punto más estrecho mide unos 14 kilómetros.
+- categoria: arte
+  dificultad: media
+  pregunta: ¿Qué pintor fue pintor de cámara de Felipe IV?
+  opciones:
+  - Goya
+  - Velázquez
+  - El Greco
+  - Zurbarán
+  correcta: B
+  dato: Pintó muchos retratos del rey y de su familia.
+  escena: Un taller de pintor del siglo XVII en un palacio con un gran lienzo de espaldas
+- categoria: historia
+  dificultad: media
+  tipo: vf
+  pregunta: Napoleón era bajísimo.
+  correcta: falso
+  dato: Medía alrededor de un metro sesenta y ocho, lo normal en su época. El mito vino de la propaganda británica.
+  escena: Un sombrero bicornio negro sobre un mapa antiguo de Europa y una vela
+  dato_pantalla: Medía alrededor de 1,68 m, lo normal en su época. El mito vino de la propaganda británica.
+- categoria: mitologia
+  dificultad: media
+  pregunta: ¿Qué dios nórdico es famoso por sus engaños?
+  opciones:
+  - Loki
+  - Balder
+  - Freyr
+  - Heimdall
+  correcta: A
+  dato: 'Cambiaba de forma a su antojo: llegó a convertirse en una yegua.'
+  escena: Una sombra con cuernos de fuego verde bailando en un bosque nórdico de noche
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Cuál es el hueso más pequeño del cuerpo humano?
+  opciones:
+  - El estribo
+  - El martillo
+  - La rótula
+  - El yunque
+  correcta: A
+  dato: Está en el oído y mide unos tres milímetros.
+  escena: Ilustración científica del oído interno humano con huesecillos dorados, estilo atlas médico
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿Cuál es la ciudad más poblada de España?
+  opciones:
+  - Barcelona
+  - Madrid
+  - Valencia
+  - Sevilla
+  correcta: B
+  dato: Tiene más de tres millones de habitantes.
+  escena: Una gran avenida con edificios clásicos y una cúpula al atardecer, con tráfico de luces
+- categoria: historia
+  dificultad: dificil
+  pregunta: ¿Qué dinastía construyó la mayor parte de la Gran Muralla que se visita hoy?
+  opciones:
+  - Han
+  - Ming
+  - Qin
+  - Tang
+  correcta: B
+  dato: Los tramos más visitados son de la dinastía Ming, entre los siglos catorce y diecisiete.
+  escena: Una torre de vigilancia de la Gran Muralla china entre montañas otoñales
+  dato_pantalla: Los tramos más visitados son de la dinastía Ming, entre los siglos XIV y XVII.
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Qué elemento químico tiene el número atómico 1?
+  opciones:
+  - Helio
+  - Hidrógeno
+  - Oxígeno
+  - Litio
+  correcta: B
+  dato: Es el elemento más abundante del universo.
+  escena: Una nebulosa de gas brillante en el espacio con estrellas naciendo
+- categoria: arte
+  dificultad: dificil
+  pregunta: ¿Qué escritor argentino escribió «El Aleph»?
+  opciones:
+  - Julio Cortázar
+  - Jorge Luis Borges
+  - Ernesto Sabato
+  - Adolfo Bioy Casares
+  correcta: B
+  dato: Nunca ganó el Nobel, aunque fue candidato muchas veces.
+  escena: Una biblioteca infinita de estanterías hexagonales con escaleras que se pierden en la luz
+- categoria: geografia
+  dificultad: dificil
+  pregunta: ¿Cuál es la capital de Kazajistán?
+  opciones:
+  - Almaty
+  - Astaná
+  - Taskent
+  - Biskek
+  correcta: B
+  dato: 'Ha cambiado de nombre varias veces: entre 2019 y 2022 se llamó Nursultán.'
+  escena: Una ciudad futurista en la estepa con una torre dorada y nieve, al atardecer
+- categoria: deporte
+  dificultad: dificil
+  pregunta: ¿En qué año ganó España su primer Mundial de fútbol?
+  opciones:
+  - '2006'
+  - '2010'
+  - '2014'
+  - '2008'
+  correcta: B
+  dato: Fue en Sudáfrica, con un gol de Iniesta en la prórroga.
+  escena: Un trofeo dorado genérico sobre un césped con confeti rojo y amarillo cayendo, sin logotipos
+- categoria: mitologia
+  dificultad: dificil
+  pregunta: ¿Cómo se llama el perro de tres cabezas que guarda el inframundo griego?
+  opciones:
+  - Cerbero
+  - Ortro
+  - Fenrir
+  - Argos
+  correcta: A
+  dato: Hércules lo sacó a la superficie en su último trabajo.
+  escena: Unas puertas gigantes de piedra en una caverna oscura con un resplandor rojo, vigiladas por una sombra
+    enorme
+- categoria: ciencia
+  dificultad: dificil
+  tipo: vf
+  pregunta: El diamante y la mina de un lápiz están hechos del mismo elemento.
+  correcta: verdadero
+  dato: Los dos son carbono puro; solo cambia cómo se ordenan sus átomos.
+  escena: Un diamante brillante junto a un lápiz de grafito sobre un fondo oscuro con luz de estudio
+- categoria: historia
+  dificultad: dificil
+  pregunta: ¿En qué año se descubrió la tumba de Tutankamón?
+  opciones:
+  - '1898'
+  - '1922'
+  - '1945'
+  - '1912'
+  correcta: B
+  dato: La encontró el arqueólogo Howard Carter, casi intacta.
+  escena: La entrada de una tumba egipcia excavada en la roca iluminada por una lámpara de aceite, con tesoros dorados
+fuentes:
+- https://es.wikipedia.org/wiki/Penicilina
+- https://es.wikipedia.org/wiki/Marie_Curie
+- https://es.wikipedia.org/wiki/Estrecho_de_Gibraltar
+- https://es.wikipedia.org/wiki/Napoleón_Bonaparte
+- https://es.wikipedia.org/wiki/Estribo_(hueso)
+- https://es.wikipedia.org/wiki/Astaná
+- https://es.wikipedia.org/wiki/Tumba_de_Tutankamón
+publicado: false

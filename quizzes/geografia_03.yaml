@@ -1,0 +1,36 @@
+fecha: '2026-11-18'
+categoria: geografia
+titulo: '3 preguntas de geografía con trampa 🗺️ #quiz'
+gancho: Tres preguntas de geografía. La segunda es un mito que te han contado mil veces.
+preguntas:
+- pregunta: ¿Cuál es la capital de Canadá?
+  opciones:
+  - Toronto
+  - Ottawa
+  - Montreal
+  - Vancouver
+  correcta: B
+  dato: Toronto es la ciudad más grande, pero la capital es Ottawa.
+  escena: Un edificio de parlamento neogótico junto a un río en otoño, con bosques rojos y dorados
+- tipo: vf
+  pregunta: La Gran Muralla china se ve a simple vista desde el espacio.
+  correcta: falso
+  dato: 'Es muy larga, pero estrecha: los astronautas dicen que a simple vista no se distingue.'
+  escena: La Gran Muralla china serpenteando por montañas verdes, vista desde muy alto entre nubes
+- pregunta: ¿Cuántas comunidades autónomas tiene España?
+  opciones:
+  - '15'
+  - '17'
+  - '19'
+  - '16'
+  correcta: B
+  dato: Son diecisiete, y además están las ciudades autónomas de Ceuta y Melilla.
+  escena: Un mapa antiguo en relieve de la península ibérica sobre una mesa de madera, sin letras legibles
+  decir_respuesta: '¡La B: diecisiete!'
+  dato_pantalla: Son 17, y además están las ciudades autónomas de Ceuta y Melilla.
+extra: ¿En qué país está la ciudad de Marrakech?
+fuentes:
+- https://es.wikipedia.org/wiki/Ottawa
+- https://es.wikipedia.org/wiki/Gran_Muralla_China
+- https://es.wikipedia.org/wiki/Comunidad_autónoma
+publicado: false

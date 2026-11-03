@@ -1,0 +1,35 @@
+fecha: '2026-11-30'
+categoria: mitologia
+titulo: 'Mitología nórdica, segunda ronda ⚡ #quiz'
+gancho: Vuelve la mitología nórdica. La última es un mito que sale en todas las películas.
+preguntas:
+- pregunta: ¿Cuál es el dios del trueno en la mitología nórdica?
+  opciones:
+  - Odín
+  - Thor
+  - Loki
+  - Tyr
+  correcta: B
+  dato: 'El jueves se llama Thursday en inglés por él: es el día de Thor.'
+  escena: Un cielo de tormenta sobre fiordos nórdicos con rayos enormes cayendo sobre el mar
+- pregunta: ¿Cómo se llama el árbol que une los nueve mundos?
+  opciones:
+  - Yggdrasil
+  - Asgard
+  - Midgard
+  - Valhalla
+  correcta: A
+  dato: Asgard es el hogar de los dioses, y Midgard, el de los humanos.
+  escena: Un árbol gigantesco cuyas ramas sostienen mundos flotantes entre las estrellas
+- tipo: vf
+  pregunta: Los vikingos llevaban cascos con cuernos.
+  correcta: falso
+  dato: No hay pruebas. Esa imagen se popularizó en el siglo diecinueve, con el vestuario de las óperas de Wagner.
+  escena: Un casco vikingo redondo de hierro sin cuernos sobre una mesa de madera junto a un hacha
+  dato_pantalla: No hay pruebas. Esa imagen se popularizó en el siglo XIX, con el vestuario de las óperas de Wagner.
+extra: ¿Cómo se llama el gran salón de Odín al que van los guerreros caídos?
+fuentes:
+- https://es.wikipedia.org/wiki/Thor
+- https://es.wikipedia.org/wiki/Yggdrasil
+- https://es.wikipedia.org/wiki/Casco_vikingo
+publicado: false

@@ -7,17 +7,45 @@ Telegram (y a Drive) con el título, la descripción y las respuestas, y lo sube
 
 La identidad del canal (nombre, voz, colores, categorías, plan de la semana) está en `canal_quiz.yaml`.
 
-## Plan de la semana
+## Plan de la semana y calendario
 
-Si lanzas el robot sin escribir el nombre de un quiz, coge el primero sin publicar de la categoría del día:
+El robot se lanza **solo cada día a las 17:37** (hora de Madrid en invierno; 18:37 en verano) y monta el quiz
+que tenga la **fecha** de ese día. Te llega por Telegram (y a Drive) para que lo subas tú.
 
 | Lunes | Martes | Miércoles | Jueves | Viernes | Sábado | Domingo |
 |---|---|---|---|---|---|---|
-| Mitología | Historia | Geografía | Ciencia | Arte y letras | Deporte | Nivel Primaria |
+| Mitología | Historia | Geografía | Ciencia | Arte y letras | Deporte | **Vídeo largo** |
+
+- Los quizzes **no se repiten**: cuando se acaban las fechas, hay que escribir más (el robot avisa).
+- Los que no tienen `fecha` son **de reserva**: se usan si un día no tiene ninguno.
+- Hay quizzes escritos hasta el **sábado 5 de diciembre de 2026**.
+
+## Vídeo largo (domingos)
+
+Horizontal, de unos 7–8 minutos: 24 preguntas en tres niveles (8 fáciles, 8 medias y 8 difíciles), con la
+categoría de cada una, una pantalla de resultado («0–8: calentando motores… 23–24: ¡genio total!») y 14 s de
+pantalla final para poner otros vídeos encima. Llegan también la **miniatura** y la **descripción con capítulos**.
+Si pesa más de 45 MB, a Telegram llega una copia ligera; el de calidad completa está en Drive y en Artifacts.
+
+```yaml
+fecha: "2026-11-08"
+formato: largo
+categoria: variado
+titulo: "24 preguntas de cultura general 🧠 ¿Cuántas aciertas?"
+gancho: "Veinticuatro preguntas de cultura general..."   # se lee
+gancho_pantalla: "24 preguntas de cultura general..."  # se ve
+miniatura_de: 16        # (opcional) número de la pregunta (desde 0) cuya ilustración va en la miniatura
+preguntas:
+  - categoria: geografia
+    dificultad: facil     # facil, media o dificil: decide el nivel
+    pregunta: "..."
+    ...                   # igual que en los Shorts
+```
 
 ## Cómo se escribe un quiz
 
 ```yaml
+fecha: "2026-11-09"             # el día en que el robot lo monta (sin fecha = de reserva)
 categoria: mitologia            # mitologia, historia, geografia, ciencia, arte, deporte o primaria
 titulo: "Título para YouTube #quiz"
 gancho: "Tres preguntas de mitología nórdica. La última casi nadie la acierta."
@@ -54,6 +82,7 @@ publicado: false                 # ponlo a true cuando lo subas: así el robot n
 
 ## Gasto por vídeo
 
-3 ilustraciones (unos céntimos cada una, en 1K) y 8 frases de voz (2 o 3 peticiones a Gemini).
+- Short: 3 ilustraciones (unos céntimos cada una, en 1K) y 11 frases de voz (unas 3 peticiones a Gemini).
+- Largo: 24 ilustraciones (alrededor de 1 €) y unas 77 frases de voz (unas 16 peticiones).
 Lo ya generado se guarda: volver a montarlo sin cambios no gasta nada.
 Con **Prueba rápida sin voz** se ve el montaje gratis (sin voz ni imágenes).

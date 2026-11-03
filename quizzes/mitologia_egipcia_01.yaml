@@ -1,0 +1,34 @@
+fecha: '2026-11-16'
+categoria: mitologia
+titulo: '¿Cuánto sabes del antiguo Egipto? 🏜️ 3 preguntas #quiz'
+gancho: Tres preguntas de mitología egipcia. La última desmonta un mito.
+preguntas:
+- pregunta: ¿Cuál era el dios del sol en el antiguo Egipto?
+  opciones:
+  - Ra
+  - Anubis
+  - Osiris
+  - Set
+  correcta: A
+  dato: Lo imaginaban cruzando el cielo cada día en una barca.
+  escena: Una barca dorada egipcia navegando por un cielo de atardecer con un gran disco solar encima
+- pregunta: ¿Qué dios egipcio tenía cabeza de chacal?
+  opciones:
+  - Horus
+  - Anubis
+  - Thot
+  - Sobek
+  correcta: B
+  dato: Era el dios de los muertos y de la momificación.
+  escena: Una estatua de un dios egipcio con cabeza de chacal negro y oro en una tumba iluminada por antorchas
+- tipo: vf
+  pregunta: Las pirámides de Guiza las construyeron esclavos.
+  correcta: falso
+  dato: Las excavaciones apuntan a trabajadores egipcios con sueldo, comida y hasta atención médica.
+  escena: Las pirámides de Guiza al amanecer con campamentos de trabajadores y bloques de piedra en primer plano
+extra: ¿Cómo se llamaba el dios egipcio con cabeza de halcón?
+fuentes:
+- https://es.wikipedia.org/wiki/Ra
+- https://es.wikipedia.org/wiki/Anubis
+- https://es.wikipedia.org/wiki/Pirámides_de_Guiza
+publicado: false

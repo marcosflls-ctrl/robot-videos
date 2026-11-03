@@ -1,0 +1,273 @@
+fecha: '2026-11-08'
+formato: largo
+categoria: variado
+titulo: 24 preguntas de cultura general 🧠 ¿Cuántas aciertas? | Quiz de fácil a difícil
+gancho: Veinticuatro preguntas de cultura general, de fácil a muy difícil. ¿Cuántas vas a acertar?
+gancho_pantalla: 24 preguntas de cultura general, de fácil a muy difícil. ¿Cuántas vas a acertar?
+preguntas:
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Cuál es la capital de Francia?
+  opciones:
+  - París
+  - Lyon
+  - Marsella
+  - Niza
+  correcta: A
+  dato: La torre Eiffel se construyó para la Exposición Universal de 1889.
+  escena: Una gran torre de hierro sobre una ciudad europea al amanecer, junto a un río
+- categoria: ciencia
+  dificultad: facil
+  pregunta: ¿Cuántos planetas tiene el sistema solar?
+  opciones:
+  - '7'
+  - '8'
+  - '9'
+  - '10'
+  correcta: B
+  dato: Eran nueve hasta 2006, cuando Plutón pasó a ser un planeta enano.
+  escena: Los planetas del sistema solar en fila junto al Sol, sobre un fondo de estrellas
+  decir_respuesta: '¡La B: ocho!'
+- categoria: historia
+  dificultad: facil
+  pregunta: ¿Qué civilización construyó las pirámides de Guiza?
+  opciones:
+  - Los romanos
+  - Los egipcios
+  - Los griegos
+  - Los persas
+  correcta: B
+  dato: La Gran Pirámide tiene unos cuatro mil quinientos años.
+  escena: Tres grandes pirámides en el desierto al atardecer con palmeras a lo lejos
+  dato_pantalla: La Gran Pirámide tiene unos 4.500 años.
+- categoria: deporte
+  dificultad: facil
+  tipo: vf
+  pregunta: Un partido de tenis puede terminar en empate.
+  correcta: falso
+  dato: 'Siempre hay un ganador: si hace falta, se juega un desempate.'
+  escena: Una pista de tenis de hierba vacía con la red en el centro y una pelota amarilla
+- categoria: arte
+  dificultad: facil
+  pregunta: ¿Qué instrumento tocaba Paco de Lucía?
+  opciones:
+  - La guitarra
+  - El piano
+  - El violín
+  - La trompeta
+  correcta: A
+  dato: Es uno de los guitarristas flamencos más importantes de la historia.
+  escena: Una guitarra española sobre una silla de enea en un patio andaluz con macetas
+- categoria: mitologia
+  dificultad: facil
+  pregunta: ¿Quién era el rey de los dioses griegos?
+  opciones:
+  - Zeus
+  - Hermes
+  - Ares
+  - Hefesto
+  correcta: A
+  dato: Vivía en el monte Olimpo, la montaña más alta de Grecia.
+  escena: Un monte majestuoso con la cima entre nubes y rayos, con templos de mármol en lo alto
+- categoria: primaria
+  dificultad: facil
+  pregunta: ¿Cuántos días tiene un año bisiesto?
+  opciones:
+  - '365'
+  - '366'
+  - '364'
+  - '360'
+  correcta: B
+  dato: El día de más es el 29 de febrero, cada cuatro años.
+  escena: Un calendario de pared antiguo con una hoja de febrero y un círculo rojo, sin letras legibles
+  decir_respuesta: '¡La B: trescientos sesenta y seis!'
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿En qué país está la torre inclinada de Pisa?
+  opciones:
+  - España
+  - Italia
+  - Grecia
+  - Francia
+  correcta: B
+  dato: Empezó a inclinarse cuando aún la estaban construyendo, en el siglo doce.
+  escena: Una torre de mármol blanco inclinada junto a una catedral en un prado verde
+  dato_pantalla: Empezó a inclinarse cuando aún la estaban construyendo, en el siglo XII.
+- categoria: historia
+  dificultad: media
+  pregunta: ¿Qué pueblo fundó la ciudad de Tenochtitlan?
+  opciones:
+  - Los incas
+  - Los aztecas
+  - Los mayas
+  - Los olmecas
+  correcta: B
+  dato: Sobre sus ruinas se levanta hoy Ciudad de México.
+  escena: Una gran ciudad antigua sobre un lago con templos escalonados y canoas, al amanecer
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Qué vitamina fabrica nuestra piel con la luz del sol?
+  opciones:
+  - La vitamina A
+  - La vitamina C
+  - La vitamina D
+  - La vitamina K
+  correcta: C
+  dato: La piel la produce gracias a la luz ultravioleta.
+  escena: Rayos de sol entrando entre las hojas de un bosque, con luz cálida
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿Cuál es el desierto cálido más grande del mundo?
+  opciones:
+  - Gobi
+  - Sáhara
+  - Atacama
+  - Kalahari
+  correcta: B
+  dato: Si contamos también los fríos, el mayor es la Antártida.
+  escena: Dunas de arena dorada infinitas bajo un sol potente con una caravana de camellos a lo lejos
+- categoria: arte
+  dificultad: media
+  pregunta: ¿De qué país era la pintora Frida Kahlo?
+  opciones:
+  - España
+  - México
+  - Argentina
+  - Cuba
+  correcta: B
+  dato: Muchas de sus obras son autorretratos.
+  escena: Una casa azul con un jardín de cactus y flores de colores, sin personas
+- categoria: deporte
+  dificultad: media
+  pregunta: ¿En qué deporte se usa un stick y una bola?
+  opciones:
+  - Hockey
+  - Golf
+  - Críquet
+  - Béisbol
+  correcta: A
+  dato: En el hockey sobre hielo, en lugar de bola se usa un disco.
+  escena: Un stick de hockey de madera y una bola blanca sobre un campo de césped artificial azul
+- categoria: mitologia
+  dificultad: media
+  tipo: vf
+  pregunta: Thor es hijo de Odín.
+  correcta: verdadero
+  dato: Y Loki, aunque muchos lo crean, no es su hermano en los mitos antiguos.
+  escena: Un trono nórdico de madera tallada en un gran salón con escudos colgados y fuego
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Qué gas expulsamos al respirar?
+  opciones:
+  - Oxígeno
+  - Dióxido de carbono
+  - Nitrógeno
+  - Helio
+  correcta: B
+  dato: Las plantas lo usan para hacer la fotosíntesis.
+  escena: Vaho saliendo de una boca en el aire frío de la mañana junto a plantas verdes
+- categoria: historia
+  dificultad: media
+  pregunta: ¿Qué barco se hundió en 1912 tras chocar con un iceberg?
+  opciones:
+  - El Lusitania
+  - El Titanic
+  - El Britannic
+  - El Queen Mary
+  correcta: B
+  dato: Hacía su primer viaje, de Southampton a Nueva York.
+  escena: Un gran transatlántico de cuatro chimeneas navegando de noche hacia un iceberg en un mar en calma
+- categoria: geografia
+  dificultad: dificil
+  pregunta: ¿Qué río atraviesa Budapest?
+  opciones:
+  - El Rin
+  - El Danubio
+  - El Elba
+  - El Vístula
+  correcta: B
+  dato: La ciudad eran dos, Buda y Pest, una a cada orilla.
+  escena: Un gran río de noche con un parlamento iluminado en la orilla y un puente colgante
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Cuál es el metal más abundante en la corteza terrestre?
+  opciones:
+  - Hierro
+  - Aluminio
+  - Cobre
+  - Oro
+  correcta: B
+  dato: Detrás del oxígeno y el silicio, es el tercer elemento más abundante.
+  escena: Un corte geológico de la corteza terrestre con capas de roca y vetas metálicas brillantes
+- categoria: historia
+  dificultad: dificil
+  pregunta: ¿Qué emperador romano mandó construir una gran muralla en Britania?
+  opciones:
+  - Nerón
+  - Adriano
+  - Calígula
+  - Augusto
+  correcta: B
+  dato: La muralla de Adriano medía unos ciento diecisiete kilómetros, de costa a costa.
+  escena: Una muralla de piedra romana recorriendo colinas verdes del norte de Inglaterra bajo la niebla
+  dato_pantalla: La muralla de Adriano medía unos 117 km, de costa a costa.
+- categoria: arte
+  dificultad: dificil
+  pregunta: ¿Quién compuso el «Bolero»?
+  opciones:
+  - Maurice Ravel
+  - Claude Debussy
+  - Georges Bizet
+  - Manuel de Falla
+  correcta: A
+  dato: Se estrenó en París en 1928 como música para un ballet.
+  escena: Un escenario de teatro antiguo con el telón rojo abierto y un foco sobre un tambor
+- categoria: deporte
+  dificultad: dificil
+  pregunta: ¿En qué lugar se celebraban los Juegos Olímpicos de la Antigüedad?
+  opciones:
+  - Atenas
+  - Olimpia
+  - Esparta
+  - Delfos
+  correcta: B
+  dato: Eran en honor a Zeus y, según la tradición, empezaron en el año 776 antes de Cristo.
+  escena: Ruinas de un estadio antiguo griego entre olivos con un arco de piedra en la entrada
+- categoria: mitologia
+  dificultad: dificil
+  pregunta: ¿Cuál era la diosa griega de la sabiduría?
+  opciones:
+  - Afrodita
+  - Atenea
+  - Hera
+  - Artemisa
+  correcta: B
+  dato: Según el mito, nació ya adulta y armada, de la cabeza de Zeus.
+  escena: Una lechuza sobre un escudo griego de bronce frente a un templo de columnas blancas
+- categoria: ciencia
+  dificultad: dificil
+  tipo: vf
+  pregunta: Para la botánica, el tomate es un fruto.
+  correcta: verdadero
+  dato: Es el fruto de la planta, con sus semillas dentro, aunque en la cocina lo usemos como verdura.
+  escena: Una tomatera con tomates rojos y verdes brillantes en un huerto soleado
+- categoria: geografia
+  dificultad: dificil
+  pregunta: ¿En qué país está la ciudad de Tombuctú?
+  opciones:
+  - Mali
+  - Níger
+  - Marruecos
+  - Senegal
+  correcta: A
+  dato: En la Edad Media fue un gran centro de comercio y de saber.
+  escena: Una mezquita de barro con vigas de madera saliendo de los muros en el desierto al atardecer
+fuentes:
+- https://es.wikipedia.org/wiki/Torre_Eiffel
+- https://es.wikipedia.org/wiki/Planeta_enano
+- https://es.wikipedia.org/wiki/Torre_de_Pisa
+- https://es.wikipedia.org/wiki/México-Tenochtitlan
+- https://es.wikipedia.org/wiki/Muro_de_Adriano
+- https://es.wikipedia.org/wiki/Bolero_(Ravel)
+- https://es.wikipedia.org/wiki/Tombuctú
+publicado: false

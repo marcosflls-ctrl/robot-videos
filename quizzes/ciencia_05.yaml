@@ -1,0 +1,34 @@
+fecha: '2026-12-03'
+categoria: ciencia
+titulo: '3 preguntas de ciencia ⚛️ La última es un mito #quiz'
+gancho: Tres preguntas de ciencia. La última es un mito de los que dan calambre.
+preguntas:
+- pregunta: ¿Qué planeta tiene los anillos más famosos?
+  opciones:
+  - Júpiter
+  - Saturno
+  - Urano
+  - Neptuno
+  correcta: B
+  dato: 'No es el único: Júpiter, Urano y Neptuno también tienen anillos, pero muy finos.'
+  escena: Un planeta con grandes anillos brillantes visto desde una de sus lunas heladas
+- pregunta: ¿En qué parte de la célula se guarda el ADN?
+  opciones:
+  - En el núcleo
+  - En la membrana
+  - En el citoplasma
+  - En la pared
+  correcta: A
+  dato: Si estirásemos el ADN de una sola célula humana, mediría unos dos metros.
+  escena: Ilustración científica de una célula en corte con un núcleo brillante y una doble hélice luminosa
+- tipo: vf
+  pregunta: El agua pura conduce muy bien la electricidad.
+  correcta: falso
+  dato: 'El agua pura conduce muy mal: lo que conduce son las sales disueltas en ella.'
+  escena: Un vaso de agua cristalina en un laboratorio con chispas eléctricas alrededor, fondo oscuro
+extra: ¿Cuál es el hueso más largo del cuerpo humano?
+fuentes:
+- https://es.wikipedia.org/wiki/Anillos_planetarios
+- https://es.wikipedia.org/wiki/Núcleo_celular
+- https://es.wikipedia.org/wiki/Agua_pura
+publicado: false

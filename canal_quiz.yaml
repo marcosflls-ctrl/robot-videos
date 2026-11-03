@@ -83,6 +83,13 @@ categorias:
     musica: {estilo: gta, bpm: 118}
     estilo: >-
       escena deportiva dinámica con movimiento, estadio genérico sin logotipos ni marcas, sin deportistas reales
+  variado:
+    nombre: "Cultura general"
+    color: [255, 201, 60]
+    patron: puntos
+    musica: {estilo: datos, bpm: 100}
+    estilo: >-
+      ilustración luminosa y clara
   primaria:
     nombre: "Nivel Primaria"
     color: [255, 214, 70]
@@ -109,7 +116,9 @@ cuenta_atras: 3
 # Frases que se turnan al final para pedir comentarios (la pregunta extra se pone en cada quiz)
 cierre: "¿Cuántas has acertado? Dímelo en los comentarios"
 
-# Qué categoría toca cada día cuando el robot se lanza sin elegir quiz (coge el primero sin publicar)
+# Plan de la semana: de lunes a sábado un Short por categoría y el domingo el vídeo largo.
+# Cada quiz lleva su «fecha»; si un día no tiene ninguno, el robot usa uno de reserva (sin fecha)
+# de lo que toca ese día según esta lista.
 plan_semana:
   lunes: mitologia
   martes: historia
@@ -117,4 +126,10 @@ plan_semana:
   jueves: ciencia
   viernes: arte
   sabado: deporte
-  domingo: primaria
+  domingo: largo
+
+# Vídeo largo (horizontal): segundos de cuenta atrás y de pantalla final (YouTube pide 5–20 s
+# para poner otros vídeos encima)
+largo:
+  cuenta_atras: 5
+  pantalla_final: 14

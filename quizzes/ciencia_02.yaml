@@ -1,0 +1,34 @@
+fecha: '2026-11-12'
+categoria: ciencia
+titulo: '¿Te sabes estas 3 de ciencia? 🔬 #quiz'
+gancho: Tres preguntas de ciencia. La segunda es un mito que casi todos se creen.
+preguntas:
+- pregunta: ¿Cuál es el planeta más cercano al Sol?
+  opciones:
+  - Venus
+  - Mercurio
+  - Marte
+  - Tierra
+  correcta: B
+  dato: Y aun así, el más caliente es Venus, por su atmósfera tan densa.
+  escena: Un pequeño planeta rocoso gris lleno de cráteres junto a un Sol enorme y brillante
+- tipo: vf
+  pregunta: Los murciélagos son ciegos.
+  correcta: falso
+  dato: Ven, y muchos además se orientan escuchando el eco de sus propios chillidos.
+  escena: Un murciélago volando de noche frente a una gran luna llena, con ondas de sonido dibujadas en el aire
+- pregunta: ¿Cuál es el órgano más grande del cuerpo humano?
+  opciones:
+  - El hígado
+  - La piel
+  - El cerebro
+  - Los pulmones
+  correcta: B
+  dato: La de un adulto pesa varios kilos y ocupa casi dos metros cuadrados.
+  escena: Ilustración científica luminosa de una mano humana con capas de la piel en corte, estilo de atlas médico
+extra: ¿A cuántos grados hierve el agua al nivel del mar?
+fuentes:
+- https://es.wikipedia.org/wiki/Mercurio_(planeta)
+- https://es.wikipedia.org/wiki/Ecolocalización
+- https://es.wikipedia.org/wiki/Piel
+publicado: false

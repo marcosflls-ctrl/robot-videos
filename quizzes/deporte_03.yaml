@@ -1,0 +1,39 @@
+fecha: '2026-11-21'
+categoria: deporte
+titulo: '3 preguntas de deporte 🚴 ¿Las sabes todas? #quiz'
+gancho: Tres preguntas de deporte. ¿Las sabes todas?
+preguntas:
+- pregunta: ¿En qué deporte se disputa el Tour de Francia?
+  opciones:
+  - Ciclismo
+  - Atletismo
+  - Automovilismo
+  - Vela
+  correcta: A
+  dato: La primera edición se corrió en 1903.
+  escena: Un pelotón de ciclistas anónimos subiendo un puerto de montaña entre girasoles, sin marcas
+- pregunta: ¿Cuántos jugadores tiene en la pista un equipo de baloncesto?
+  opciones:
+  - '5'
+  - '6'
+  - '7'
+  - '4'
+  correcta: A
+  dato: Y en balonmano son siete, contando al portero.
+  escena: Una pista de baloncesto vacía vista desde arriba con el balón en el círculo central
+  decir_respuesta: '¡La A: cinco!'
+- pregunta: ¿En qué ciudad se celebraron los Juegos Olímpicos de 1992?
+  opciones:
+  - Madrid
+  - Barcelona
+  - Sevilla
+  - Atlanta
+  correcta: B
+  dato: Fueron los primeros Juegos Olímpicos de verano celebrados en España.
+  escena: Una ciudad mediterránea con una montaña junto al mar al anochecer, con fuegos artificiales sobre un estadio
+extra: ¿Cuántos sets puede durar como máximo un partido de voleibol?
+fuentes:
+- https://es.wikipedia.org/wiki/Tour_de_Francia
+- https://es.wikipedia.org/wiki/Baloncesto
+- https://es.wikipedia.org/wiki/Juegos_Olímpicos_de_Barcelona_1992
+publicado: false

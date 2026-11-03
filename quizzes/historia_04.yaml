@@ -1,0 +1,40 @@
+fecha: '2026-12-01'
+categoria: historia
+titulo: 'Viaje a la Antigüedad 🗿 3 preguntas #quiz'
+gancho: Tres preguntas de historia antigua. La última es de matrícula.
+preguntas:
+- pregunta: ¿Cuál es la cueva con pinturas prehistóricas más famosa de España?
+  opciones:
+  - Altamira
+  - Atapuerca
+  - Covadonga
+  - Nerja
+  correcta: A
+  dato: Está en Cantabria y la llaman «la Capilla Sixtina del arte rupestre».
+  escena: El techo de una cueva prehistórica iluminado por una antorcha, con pinturas de bisontes ocres
+- pregunta: ¿Qué civilización construyó Machu Picchu?
+  opciones:
+  - Los mayas
+  - Los incas
+  - Los aztecas
+  - Los olmecas
+  correcta: B
+  dato: Se construyó en el siglo quince, en lo alto de los Andes de Perú.
+  escena: Una ciudadela de piedra en lo alto de montañas verdes entre nubes, al amanecer
+  dato_pantalla: Se construyó en el siglo XV, en lo alto de los Andes de Perú.
+- pregunta: ¿Qué rey de Macedonia llegó con su ejército hasta la India?
+  opciones:
+  - Filipo II
+  - Alejandro Magno
+  - Ptolomeo
+  - Darío
+  correcta: B
+  dato: Lo consiguió con unos treinta años, y murió con solo treinta y dos.
+  escena: Un ejército antiguo con lanzas y estandartes cruzando un gran río bajo montañas, visto de lejos
+  dato_pantalla: Lo consiguió con unos 30 años, y murió con solo 32.
+extra: ¿Qué pueblo inventó la escritura cuneiforme?
+fuentes:
+- https://es.wikipedia.org/wiki/Cueva_de_Altamira
+- https://es.wikipedia.org/wiki/Machu_Picchu
+- https://es.wikipedia.org/wiki/Alejandro_Magno
+publicado: false
