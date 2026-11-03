@@ -12,9 +12,9 @@ mascota: "Coco"   # el cerebro con cara que sale en el gancho y al final
 voz: "Puck"
 estilo_voz: >-
   Presentador de concurso de televisión en español de España: cercano, con energía y chispa,
-  ritmo ágil y sonrisa en la voz. Lee las preguntas con intriga y celebra la respuesta correcta.
+  ritmo tranquilo y claro, con sonrisa en la voz, sin correr. Lee las preguntas con intriga y celebra la respuesta correcta.
   Natural, sin gritar y sin sonar a anuncio.
-velocidad_voz: 1.05
+velocidad_voz: 1.0
 
 # Colores (rojo, verde, azul de 0 a 255)
 colores:
