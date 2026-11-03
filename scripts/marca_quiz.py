@@ -187,32 +187,61 @@ def logo(canal, lado=800):
 
 
 def banner(canal, w=2560, h=1440):
-    """Banner de YouTube. Lo importante va dentro de la zona segura central (1546x423), que se ve en todo."""
+    """Banner de YouTube (2560x1440). Todo lo importante va DENTRO de la zona segura central
+    (1546x423), que es lo único que se ve en el móvil; fuera solo hay fondo decorativo."""
     col = canal["colores"]
     img = _fondo_puntos(w, h, col["fondo"], col["fondo2"])
-    sx0, sy0 = (w - 1546) // 2, (h - 423) // 2
+    SW, SH = 1546, 423
+    sx0, sy0 = (w - SW) // 2, (h - SH) // 2
     _interrogantes(img, (0, 0, w, h), [col["acento"], col["acento2"], col["cerebro"]], 26, 150, 11, canal["fuentes"]["tit"])
-    # Franja de la zona segura
-    franja = Image.new("RGBA", (w, 470), c(col["fondo"], 235))
-    img.alpha_composite(franja, (0, sy0 - 24))
+    franja = Image.new("RGBA", (w, SH + 60), c(col["fondo"], 235))
+    img.alpha_composite(franja, (0, sy0 - 30))
+    margen = 24
+    # Mascota a la izquierda, entera dentro de la zona segura
+    lado_m = SH - 2 * margen
+    masc = mascota(lado_m, col, gesto="guino")
+    img.alpha_composite(masc, (sx0 + margen, sy0 + margen))
+    # Bloque de texto: desde la mascota hasta el borde derecho de la zona segura
+    x = sx0 + margen + lado_m + 30
+    ancho = sx0 + SW - margen - x
     d = ImageDraw.Draw(img)
-    masc = mascota(430, col, gesto="guino")
-    img.alpha_composite(masc, (sx0 - 10, sy0 - 10))
-    f = fuente(canal["fuentes"]["tit"], 150)
-    f2 = fuente(canal["fuentes"]["txt_b"], 52)
-    x = sx0 + 450
-    d.text((x, sy0 + 150), canal["marca"], font=f, fill=c(col["texto"]), anchor="lm")
-    d.text((x + 4, sy0 + 270), canal["lema"], font=f2, fill=c(col["acento"]), anchor="lm")
-    # Categorías en chips
-    fx = fuente(canal["fuentes"]["txt_b"], 34)
-    xx = x
-    for cat in list(canal["categorias"].values())[:6]:
+
+    def ajustar(texto, nombre, tam):
+        f = fuente(nombre, tam)
+        while f.getlength(texto) > ancho and tam > 20:
+            tam -= 2
+            f = fuente(nombre, tam)
+        return f
+
+    f = ajustar(canal["marca"], canal["fuentes"]["tit"], 130)
+    f2 = ajustar(canal["lema"], canal["fuentes"]["txt_b"], 44)
+    d.text((x, sy0 + 105), canal["marca"], font=f, fill=c(col["texto"]), anchor="lm")
+    d.text((x + 4, sy0 + 200), canal["lema"], font=f2, fill=c(col["acento"]), anchor="lm")
+    # Categorías en chips, en las filas que hagan falta sin salirse
+    fx = fuente(canal["fuentes"]["txt_b"], 30)
+    xx, yy, alto, hueco = x, sy0 + 250, 54, 14
+    for cat in canal["categorias"].values():
         t = cat["nombre"]
-        tw = fx.getlength(t)
-        d.rounded_rectangle((xx, sy0 + 330, xx + tw + 44, sy0 + 392), radius=31, fill=c(cat["color"]))
-        d.text((xx + 22 + tw / 2, sy0 + 361), t, font=fx, fill=c(col["tinta"]), anchor="mm")
-        xx += tw + 60
+        cw = fx.getlength(t) + 40
+        if xx + cw > x + ancho:
+            xx, yy = x, yy + alto + hueco
+        if yy + alto > sy0 + SH - margen:
+            break
+        d.rounded_rectangle((xx, yy, xx + cw, yy + alto), radius=alto // 2, fill=c(cat["color"]))
+        d.text((xx + cw / 2, yy + alto / 2), t, font=fx, fill=c(col["tinta"]), anchor="mm")
+        xx += cw + hueco
     return img.convert("RGB")
+
+
+def comprobar_banner(img):
+    """Copia del banner con las zonas que usa YouTube marcadas, para revisarlo."""
+    w, h = img.size
+    out = img.convert("RGBA")
+    d = ImageDraw.Draw(out)
+    for (zw, zh, color) in [(1546, 423, (0, 255, 0)), (2560, 423, (255, 200, 0)), (1855, 423, (0, 180, 255))]:
+        x0, y0 = (w - zw) // 2, (h - zh) // 2
+        d.rectangle((x0, y0, x0 + zw, y0 + zh), outline=color + (255,), width=4)
+    return out.convert("RGB")
 
 
 def main():
@@ -220,7 +249,9 @@ def main():
     out = RAIZ / "scripts" / "salida" / "marca"
     out.mkdir(parents=True, exist_ok=True)
     logo(canal).save(out / "logo.png")
-    banner(canal).save(out / "banner.png")
+    b = banner(canal)
+    b.save(out / "banner.png")
+    comprobar_banner(b).save(out / "banner_zonas.png")
     for g in ("feliz", "sorpresa", "guino", "pensando"):
         mascota(500, canal["colores"], gesto=g).save(out / f"mascota_{g}.png")
     print(f"Listo: {out}")
