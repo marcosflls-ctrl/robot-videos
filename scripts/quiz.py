@@ -45,8 +45,8 @@ FUENTES = RAIZ / "fuentes"
 CACHE_VOZ = RAIZ / "cache_voz"
 SALIDA = Path(__file__).resolve().parent / "salida"
 W, H, FPS = 1080, 1920, 30
-# Columna de contenido: deja libre la franja derecha, donde YouTube pone los botones
-X0, X1 = 60, 960
+# Columna de contenido, centrada en la pantalla
+X0, X1 = 60, 1020
 CX = (X0 + X1) // 2
 LETRAS = "ABCD"
 DIAS = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
@@ -189,8 +189,12 @@ def frase_respuesta(p):
         base = str(p["decir_respuesta"])
     else:
         base = f"¡La {LETRAS[p['_ok']]}: {texto}!"
-    dato = str(p.get("dato") or "").strip()
-    return f"{base} {dato}".strip()
+    return base
+
+
+def frase_dato(p):
+    """El dato curioso va en su propia frase, con una pausa después de la respuesta."""
+    return str(p.get("dato") or "").strip()
 
 
 def frase_pregunta(p, i, total):
@@ -226,7 +230,7 @@ def voces(textos, canal):
     if _env("SIN_VOZ") == "1":
         sr = 24000
         print("Prueba SIN VOZ: tiempos calculados a ojo")
-        return sr, [np.zeros(int(sr * max(1.6, len(t.split()) / 2.7)), np.float32) for t in textos]
+        return sr, [np.zeros(int(sr * max(1.6, len(t.split()) / 2.7)) if t else 0, np.float32) for t in textos]
     os.environ["GEMINI_VOZ"] = _env("VOZ_QUIZ") or canal["voz"]
     os.environ["GEMINI_ESTILO"] = " ".join(str(canal["estilo_voz"]).split())
     os.environ.setdefault("VOZ_MOTOR", "gemini")
@@ -237,6 +241,9 @@ def voces(textos, canal):
     firma = f"{type(motor).__name__}|{getattr(motor, 'modelo', '')}|{getattr(motor, 'voz', '')}|{getattr(motor, 'estilo', '')}"
     audios, pendientes = [None] * len(textos), []
     for k, t in enumerate(textos):
+        if not t:
+            audios[k] = np.zeros(0, np.float32)
+            continue
         ruta = CACHE_VOZ / (hashlib.sha1(f"{firma}|{t}".encode("utf-8")).hexdigest()[:20] + ".wav")
         if ruta.exists():
             audios[k], _ = sf.read(ruta, dtype="float32")
@@ -692,7 +699,7 @@ class Montador:
         if revela:
             cd = self.capa_dato(i)
             if cd is not None:
-                tr = tl - tiempos["revela"] - 0.5
+                tr = tl - tiempos.get("dato", tiempos["revela"] + 0.5)
                 if tr > 0:
                     pegar(lz, cd, CX, 810 - cd.height / 2 - 10 + (1 - suave(tr / 0.3)) * 60, suave(tr / 0.3))
             m = self.mini["feliz" if (tl - tiempos["revela"]) < 1.2 else "guino"]
@@ -776,8 +783,8 @@ def linea_de_tiempo(q, canal, sr, audios):
     t = bloques[-1]["fin"]
     k = 1
     for i, p in enumerate(q["preguntas"]):
-        a_preg, a_resp = audios[k], audios[k + 1]
-        k += 2
+        a_preg, a_resp, a_dato = audios[k], audios[k + 1], audios[k + 2]
+        k += 3
         ini = t
         voz_ini = 0.5
         voz_fin = voz_ini + len(a_preg) / sr
@@ -788,11 +795,17 @@ def linea_de_tiempo(q, canal, sr, audios):
         opciones = [primera + j * paso for j in range(n_op)]
         c_ini = max(voz_fin + 0.15, opciones[-1] + 0.3)
         revela = c_ini + cuenta
-        fin = revela + len(a_resp) / sr + 0.75
+        resp_ini = revela + 0.25
+        # Pausa tras decir la respuesta, para que se oiga el «¡acierto!» antes del dato
+        dato_ini = resp_ini + len(a_resp) / sr + 0.7
+        fin = (dato_ini + len(a_dato) / sr + 0.9) if len(a_dato) else (resp_ini + len(a_resp) / sr + 1.0)
         bloques.append({"tipo": "pregunta", "i": i, "ini": ini, "fin": ini + fin,
-                        "tiempos": {"voz_fin": voz_fin, "cuenta": c_ini, "revela": revela, "opciones": opciones}})
+                        "tiempos": {"voz_fin": voz_fin, "cuenta": c_ini, "revela": revela, "opciones": opciones,
+                                    "dato": dato_ini - 0.25}})
         voz.append((ini + voz_ini, a_preg))
-        voz.append((ini + revela + 0.25, a_resp))
+        voz.append((ini + resp_ini, a_resp))
+        if len(a_dato):
+            voz.append((ini + dato_ini, a_dato))
         t = ini + fin
     a_fin = audios[k]
     bloques.append({"tipo": "final", "ini": t, "fin": t + len(a_fin) / sr + 1.2})
@@ -955,7 +968,7 @@ def main():
     SALIDA.mkdir(parents=True, exist_ok=True)
     textos = [str(q.get("decir_gancho") or q.get("gancho") or "")]
     for i, p in enumerate(q["preguntas"]):
-        textos += [frase_pregunta(p, i, len(q["preguntas"])), frase_respuesta(p)]
+        textos += [frase_pregunta(p, i, len(q["preguntas"])), frase_respuesta(p), frase_dato(p)]
     textos.append(frase_final(q, canal))
     sr, auds = voces(textos, canal)
     imgs = imagenes(q, canal)
@@ -967,8 +980,8 @@ def main():
             solo = {int(float(x) * FPS) for x in _env("FOTOGRAMAS").split(",")}
         dur = montar(q, canal, bloques, ruta_audio, imgs, SALIDA / f"{nombre}.mp4", solo)
     (SALIDA / f"{nombre}.txt").write_text(texto_publicacion(q, canal), encoding="utf-8")
-    if dur > 60:
-        print(f"::warning::El Short dura {dur:.0f} s: más de 60 s se ve peor en Shorts. Quita una pregunta o acorta datos.")
+    if dur > 75:
+        print(f"::warning::El Short dura {dur:.0f} s: es largo para un quiz. Quita una pregunta o acorta los datos.")
     # Nombre del quiz para los pasos siguientes del robot (Telegram, Drive)
     if _env("GITHUB_OUTPUT"):
         with open(_env("GITHUB_OUTPUT"), "a") as f:
