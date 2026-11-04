@@ -10,6 +10,9 @@ on:
   # GitHub suele retrasar las tareas programadas varias horas cuando va cargado: por eso se programa
   # de madrugada, para que los vídeos lleguen igualmente por la mañana.
   # Las ejecuciones programadas usan las opciones por defecto: las tres webs, Gemini, tu voz clonada.
+  # PAUSA (nov 2026): las tandas automáticas solo hacen Zona Leonida. Al Final de Mes y Dinero en Claro
+  # están parados porque sus robots de noticias no se actualizan. A mano se pueden seguir lanzando.
+  # Para reactivarlos, quita «github.event_name == 'schedule' && 'gta' ||» de la línea WEBS.
   schedule:
     - cron: "13 3 * * *"
   workflow_dispatch:
@@ -67,7 +70,7 @@ jobs:
         id: datos
         env:
           DATOS_TOKEN: ${{ secrets.DATOS_TOKEN }}
-          WEBS: ${{ github.event.inputs.webs }}
+          WEBS: ${{ github.event_name == 'schedule' && 'gta' || github.event.inputs.webs }}
         run: |
           if [ "$WEBS" = "gta" ]; then
             echo "leer=no" >> "$GITHUB_OUTPUT"
@@ -128,7 +131,7 @@ jobs:
         run: pip install --quiet "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox@5de7a54aa4e5e2baadb0182dde554908b48b85c2" soundfile num2words pillow
       - name: Montar los vídeos
         env:
-          WEBS: ${{ (github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs }}
+          WEBS: ${{ github.event_name == 'schedule' && 'gta' || ((github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs) }}
           VOZ: ${{ github.event.inputs.voz }}
           VOZ_MOTOR: ${{ github.event.inputs.motor_voz }}
           GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}

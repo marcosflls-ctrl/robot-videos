@@ -7,6 +7,9 @@ name: Vídeos de los artículos
 
 on:
   # Cada día a las 16:07 UTC (17:07 en Madrid en invierno, 18:07 en verano).
+  # PAUSA (nov 2026): las tandas automáticas solo hacen Zona Leonida. Al Final de Mes y Dinero en Claro
+  # están parados porque sus robots de noticias no se actualizan. A mano se pueden seguir lanzando.
+  # Para reactivarlos, quita «github.event_name == 'schedule' && 'gta' ||» de la línea WEBS.
   schedule:
     - cron: "7 16 * * *"
   workflow_dispatch:
@@ -64,7 +67,7 @@ jobs:
         run: pip install --quiet numpy soundfile num2words pillow
       - name: Montar los vídeos
         env:
-          WEBS: ${{ (github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs }}
+          WEBS: ${{ github.event_name == 'schedule' && 'gta' || ((github.event.inputs.webs == 'las tres' || github.event.inputs.webs == '') && 'gta,afdm,dec' || github.event.inputs.webs) }}
           VENTANA_HORAS: ${{ github.event.inputs.horas }}
           VOZ_MOTOR: gemini
           GEMINI_VOZ: ${{ github.event.inputs.voz_gemini }}
