@@ -24,10 +24,22 @@ W, H, FPS = 1920, 1080, 30
 NIVELES = [("facil", "NIVEL FÁCIL", "Para calentar"), ("media", "NIVEL MEDIO", "Aquí empieza lo bueno"),
            ("dificil", "NIVEL DIFÍCIL", "Solo para cerebritos")]
 # Columnas: ilustración a la izquierda, pregunta y respuestas a la derecha
-IX0, IX1, IY0 = 80, 980, 170
-IH = int((IX1 - IX0) * 9 / 16)
-RX0, RX1 = 1040, 1840
+# Dos columnas iguales y simétricas, centradas a media altura (bajo la cabecera)
+MARGEN, HUECO = 80, 50
+COL = (W - 2 * MARGEN - HUECO) // 2
+IX0, IX1 = MARGEN, MARGEN + COL
+RX0, RX1 = W - MARGEN - COL, W - MARGEN
 RCX = (RX0 + RX1) // 2
+CY = 575  # centro vertical del contenido
+IH = int(COL * 9 / 16)
+IY0 = CY - IH // 2
+# Columna derecha: pregunta (hasta 3 líneas) + respuestas, con posiciones fijas en todas las preguntas.
+# El bloque entero (con 4 respuestas) queda centrado a la altura de la ilustración.
+ZONA_PREGUNTA = 215
+ALTO_OP, HUECO_OP = 92, 16
+ALTO_4 = 4 * ALTO_OP + 3 * HUECO_OP
+Y_PREGUNTA = CY - (ZONA_PREGUNTA + ALTO_4) // 2
+Y_OPCIONES = Y_PREGUNTA + ZONA_PREGUNTA
 
 
 def ordenar(q):
@@ -91,7 +103,7 @@ class MontadorLargo:
         def hacer():
             texto = self.q["preguntas"][i]["pregunta"]
             ancho = RX1 - RX0
-            f, lineas = encajar_texto(texto, self.ft["tit"], ancho - 10, 4, 60, 34)
+            f, lineas = encajar_texto(texto, self.ft["tit"], ancho - 10, 3, 56, 34)
             lh = f.size * 1.16
             img = Image.new("RGBA", (ancho, int(len(lineas) * lh + 14)), (0, 0, 0, 0))
             d = ImageDraw.Draw(img)
@@ -102,14 +114,19 @@ class MontadorLargo:
             return img
         return self._guardado(("preg", i), hacer)
 
+    def bloque_derecho(self, i):
+        """(y de la pregunta, y donde empiezan las respuestas). Siempre las mismas en todas las preguntas:
+        la pregunta arriba y las respuestas debajo, en el mismo sitio aunque haya 2 o 4."""
+        return Y_PREGUNTA, Y_OPCIONES
+
     def cajas(self, i):
         p = self.q["preguntas"][i]
-        y0 = 470
+        _, y0 = self.bloque_derecho(i)
         if p["tipo"] == "vf":
             m = RCX
             return [(RX0, y0, m - 12, y0 + 200), (m + 12, y0, RX1, y0 + 200)]
         n = len(p["opciones"])
-        alto, hueco = (96, 18) if n > 2 else (130, 26)
+        alto, hueco = (ALTO_OP, HUECO_OP) if n > 2 else (130, 26)
         return [(RX0, y0 + k * (alto + hueco), RX1, y0 + k * (alto + hueco) + alto) for k in range(n)]
 
     def capa_opcion(self, i, k, estado):
@@ -157,8 +174,8 @@ class MontadorLargo:
             dato = str(p.get("dato_pantalla") or p.get("dato") or "").strip()
             if not dato:
                 return None
-            w = IX1 - IX0
-            f, lineas = encajar_texto(dato, self.ft["txt_b"], w - 60, 4, 36, 24)
+            w = IX1 - IX0 - 28
+            f, lineas = encajar_texto(dato, self.ft["txt_b"], w - 60, 3, 34, 24)
             lh = int(f.size * 1.22)
             h = 80 + len(lineas) * lh + 18
             img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
@@ -251,7 +268,8 @@ class MontadorLargo:
         # Pregunta
         cp = self.capa_pregunta(i)
         ap = suave((tl - 0.1) / 0.3)
-        pegar(lz, cp, RX0 + cp.width / 2 + (1 - ap) * 120, IY0 + 140, ap)
+        yq, _ = self.bloque_derecho(i)
+        pegar(lz, cp, RX0 + cp.width / 2 + (1 - ap) * 120, yq + cp.height / 2, ap)
         # Respuestas
         revela = tl >= ts["revela"]
         for k, caja in enumerate(self.cajas(i)):
@@ -291,7 +309,7 @@ class MontadorLargo:
             cd = self.capa_dato(i)
             td = tl - ts["dato"]
             if cd is not None and td > 0:
-                pegar(lz, cd, (IX0 + IX1) / 2, IY0 + IH + 30 + cd.height / 2 + (1 - suave(td / 0.3)) * 40, suave(td / 0.3))
+                pegar(lz, cd, (IX0 + IX1) / 2, IY0 + IH - cd.height / 2 - 14 + (1 - suave(td / 0.3)) * 40, suave(td / 0.3))
         return lz
 
     def final(self, t, tl, total, b):
