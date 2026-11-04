@@ -1,0 +1,36 @@
+fecha: '2026-12-02'
+categoria: geografia
+titulo: 'La tercera casi nadie la acierta 🏔️ #quiz'
+gancho: Tres preguntas de geografía. La tercera casi nadie la acierta.
+preguntas:
+- pregunta: ¿Cuál es la capital de Brasil?
+  opciones:
+  - Río de Janeiro
+  - Brasilia
+  - São Paulo
+  - Salvador
+  correcta: B
+  dato: Se construyó desde cero y es la capital desde 1960.
+  escena: Una ciudad moderna con edificios blancos de formas curvas bajo un cielo azul inmenso
+- pregunta: ¿Qué país de la Unión Europea tiene más habitantes?
+  opciones:
+  - Francia
+  - Alemania
+  - Italia
+  - España
+  correcta: B
+  dato: Tiene unos ochenta y tres millones de habitantes.
+  escena: Un río ancho con castillos en las colinas y viñedos en otoño
+  dato_pantalla: Tiene unos 83 millones de habitantes.
+- tipo: vf
+  pregunta: El Everest es también la montaña más alta si se mide desde su base.
+  correcta: falso
+  dato: Desde el nivel del mar sí, pero de la base a la cima gana el Mauna Kea, en Hawái, que nace bajo el océano.
+  escena: Una montaña volcánica que sale del fondo del océano, vista en corte con la parte sumergida y la cima sobre
+    las nubes
+extra: ¿Cuál es el lago más grande de África?
+fuentes:
+- https://es.wikipedia.org/wiki/Brasilia
+- https://es.wikipedia.org/wiki/Alemania
+- https://es.wikipedia.org/wiki/Mauna_Kea
+publicado: false

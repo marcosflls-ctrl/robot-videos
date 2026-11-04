@@ -1,0 +1,38 @@
+fecha: '2026-11-25'
+categoria: geografia
+titulo: 'La última te va a sorprender 🌍 3 preguntas #quiz'
+gancho: Tres preguntas de geografía. La segunda te va a sorprender.
+preguntas:
+- pregunta: ¿Cuál es la capital de Portugal?
+  opciones:
+  - Oporto
+  - Lisboa
+  - Coímbra
+  - Faro
+  correcta: B
+  dato: Está junto a la desembocadura del Tajo, el río más largo de la península.
+  escena: Una ciudad de colinas con tejados naranjas y un tranvía amarillo junto a un gran río al atardecer
+- pregunta: ¿En qué continente está Egipto?
+  opciones:
+  - Asia
+  - África
+  - Europa
+  - Oceanía
+  correcta: B
+  dato: Casi todo está en África, pero la península del Sinaí está en Asia.
+  escena: Vista aérea del delta de un gran río verde en medio del desierto, junto al mar
+- pregunta: ¿Cuál es el país más pequeño del mundo?
+  opciones:
+  - Mónaco
+  - Ciudad del Vaticano
+  - San Marino
+  - Malta
+  correcta: B
+  dato: Mide menos de medio kilómetro cuadrado y está dentro de Roma.
+  escena: Una gran cúpula renacentista sobre una plaza con columnatas, vista desde lo alto al atardecer
+extra: ¿Qué océano está entre América y Europa?
+fuentes:
+- https://es.wikipedia.org/wiki/Lisboa
+- https://es.wikipedia.org/wiki/Península_del_Sinaí
+- https://es.wikipedia.org/wiki/Ciudad_del_Vaticano
+publicado: false

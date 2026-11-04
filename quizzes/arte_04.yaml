@@ -1,0 +1,40 @@
+fecha: '2026-11-27'
+categoria: arte
+titulo: '3 preguntas de arte y letras 🎹 #quiz'
+gancho: Tres preguntas de arte y literatura. ¿Llegas al pleno?
+preguntas:
+- pregunta: ¿Quién escribió «La casa de Bernarda Alba»?
+  opciones:
+  - Federico García Lorca
+  - Antonio Machado
+  - Ramón María del Valle-Inclán
+  - Miguel de Unamuno
+  correcta: A
+  dato: La terminó en junio de 1936, dos meses antes de morir.
+  escena: El patio blanco y silencioso de una casa andaluza con rejas y macetas, a pleno sol
+- pregunta: ¿Cuántas teclas tiene un piano normal?
+  opciones:
+  - '66'
+  - '76'
+  - '88'
+  - '96'
+  correcta: C
+  dato: Cincuenta y dos blancas y treinta y seis negras.
+  escena: Primer plano del teclado de un piano de cola negro brillante con luz cálida
+  decir_respuesta: '¡La C: ochenta y ocho!'
+  dato_pantalla: 52 blancas y 36 negras.
+- pregunta: ¿En qué museo está «El jardín de las delicias» de El Bosco?
+  opciones:
+  - El Prado
+  - El Thyssen
+  - El Reina Sofía
+  - El Sorolla
+  correcta: A
+  dato: Felipe II lo llevó a El Escorial, y hoy está en el Museo del Prado.
+  escena: La fachada de un museo neoclásico de Madrid entre árboles otoñales, sin personas
+extra: ¿Quién escribió «El Quijote»? Venga, esta es fácil.
+fuentes:
+- https://es.wikipedia.org/wiki/La_casa_de_Bernarda_Alba
+- https://es.wikipedia.org/wiki/Piano
+- https://www.museodelprado.es/coleccion/obra-de-arte/el-jardin-de-las-delicias/02388242-6d6a-4e9e-a992-e1311eab3609
+publicado: false

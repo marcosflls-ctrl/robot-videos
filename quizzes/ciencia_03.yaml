@@ -1,0 +1,36 @@
+fecha: '2026-11-19'
+categoria: ciencia
+titulo: '¿Aciertas las 3? La última es un mito 🔬 #quiz'
+gancho: Tres preguntas de ciencia. La última es un mito que casi todos creen.
+preguntas:
+- pregunta: ¿Cuántas patas tiene una araña?
+  opciones:
+  - '6'
+  - '8'
+  - '10'
+  - '4'
+  correcta: B
+  dato: 'Por eso no son insectos: los insectos tienen seis.'
+  escena: Una araña simpática y colorida en el centro de una telaraña con gotas de rocío al amanecer
+  decir_respuesta: '¡La B: ocho!'
+- pregunta: ¿Qué científico propuso la teoría de la relatividad?
+  opciones:
+  - Isaac Newton
+  - Albert Einstein
+  - Galileo Galilei
+  - Nikola Tesla
+  correcta: B
+  dato: Publicó la relatividad especial en 1905, con veintiséis años.
+  escena: Una pizarra antigua llena de fórmulas borrosas junto a un reloj y una lámpara de despacho
+  dato_pantalla: Publicó la relatividad especial en 1905, con 26 años.
+- tipo: vf
+  pregunta: Un rayo nunca cae dos veces en el mismo sitio.
+  correcta: falso
+  dato: 'Cae a menudo en el mismo sitio: los rascacielos más altos reciben decenas de rayos al año.'
+  escena: Un rayo cayendo sobre la punta de un rascacielos genérico en una noche de tormenta
+extra: ¿Cuál es el símbolo químico del oro?
+fuentes:
+- https://es.wikipedia.org/wiki/Araneae
+- https://es.wikipedia.org/wiki/Teoría_de_la_relatividad_especial
+- https://es.wikipedia.org/wiki/Rayo
+publicado: false

@@ -1,0 +1,38 @@
+fecha: '2026-11-17'
+categoria: historia
+titulo: '3 preguntas de la Edad Media en España ⚔️ #quiz'
+gancho: Tres preguntas de la Edad Media en España. ¿Llegas a la tercera?
+preguntas:
+- pregunta: ¿En qué año terminó la Reconquista con la toma de Granada?
+  opciones:
+  - '1492'
+  - '1212'
+  - '1479'
+  - '1516'
+  correcta: A
+  dato: Fue el 2 de enero de 1492, el mismo año del primer viaje de Colón.
+  escena: Una fortaleza roja sobre una colina con la sierra nevada detrás y estandartes medievales
+- pregunta: ¿Cómo se llamaba el caballo del Cid?
+  opciones:
+  - Babieca
+  - Rocinante
+  - Bucéfalo
+  - Marengo
+  correcta: A
+  dato: Rocinante es el de Don Quijote, y Bucéfalo, el de Alejandro Magno.
+  escena: Un caballo blanco con armadura medieval en un campo de Castilla al amanecer
+- pregunta: ¿Qué batalla de 1212 abrió el camino hacia Andalucía?
+  opciones:
+  - Covadonga
+  - Las Navas de Tolosa
+  - Guadalete
+  - Lepanto
+  correcta: B
+  dato: Allí se unieron los reyes de Castilla, Aragón y Navarra contra los almohades.
+  escena: Un paso de montaña de Sierra Morena con estandartes medievales al viento, sin combates
+extra: ¿Qué dos reyes eran conocidos como los Reyes Católicos?
+fuentes:
+- https://es.wikipedia.org/wiki/Toma_de_Granada
+- https://es.wikipedia.org/wiki/Babieca
+- https://es.wikipedia.org/wiki/Batalla_de_Las_Navas_de_Tolosa
+publicado: false

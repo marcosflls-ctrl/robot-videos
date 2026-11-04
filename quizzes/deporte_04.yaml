@@ -1,0 +1,36 @@
+fecha: '2026-11-28'
+categoria: deporte
+titulo: 'La última engaña hasta a los que juegan ♟️ #quiz'
+gancho: Tres preguntas de deporte. La última engaña hasta a los que juegan.
+preguntas:
+- pregunta: ¿Cuánto dura un partido de fútbol, sin prórroga?
+  opciones:
+  - 80 minutos
+  - 90 minutos
+  - 100 minutos
+  - 120 minutos
+  correcta: B
+  dato: Son dos partes de cuarenta y cinco minutos, más el tiempo añadido.
+  escena: Un marcador electrónico genérico de un estadio de fútbol de noche, sin nombres de equipos
+  dato_pantalla: Son dos partes de 45 minutos, más el tiempo añadido.
+- pregunta: ¿En qué deporte destacó Rafa Nadal?
+  opciones:
+  - Pádel
+  - Tenis
+  - Golf
+  - Fútbol
+  correcta: B
+  dato: Ganó Roland Garros catorce veces, un récord.
+  escena: Una pista de tenis de tierra batida naranja vacía con una raqueta y una pelota, sin personas
+  dato_pantalla: Ganó Roland Garros 14 veces, un récord.
+- tipo: vf
+  pregunta: En el ajedrez, la pieza más poderosa es el rey.
+  correcta: falso
+  dato: La más poderosa es la dama. El rey es la más importante, pero solo avanza de casilla en casilla.
+  escena: Un tablero de ajedrez de madera con una reina blanca brillante en el centro iluminada por un foco
+extra: ¿En qué país nació el judo?
+fuentes:
+- https://es.wikipedia.org/wiki/Fútbol
+- https://es.wikipedia.org/wiki/Rafael_Nadal
+- https://es.wikipedia.org/wiki/Dama_(ajedrez)
+publicado: false

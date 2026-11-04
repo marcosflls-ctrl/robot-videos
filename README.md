@@ -132,5 +132,7 @@ entrar en pantalla, para que no salgan todos iguales.
 - **Identidad del canal** (nombre, voz Puck, colores, categorías y plan de la semana): `canal_quiz.yaml`.
 - **Cómo se escriben los quizzes:** `quizzes/LEEME.md`. Ya hay 7, uno por categoría.
 - **Logo, banner y mascota** (el cerebro «Coco», dibujado con código): `python scripts/marca_quiz.py`.
-- Cómo lanzarlo: **Actions** → **Vídeo de quiz** → **Run workflow**. Vacío = el quiz que toca hoy.
+- **Se lanza solo cada día** a las 17:37 (Madrid): de lunes a sábado un Short y el domingo un vídeo largo
+  horizontal de 24 preguntas (`scripts/quiz_largo.py`), según la `fecha` de cada quiz.
+  A mano: **Actions** → **Vídeo de quiz** → **Run workflow** (vacío = el que toca hoy).
 - Te llega por Telegram (y a Drive) con el título, la descripción y las respuestas. **No publica nada.**

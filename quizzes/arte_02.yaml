@@ -1,0 +1,39 @@
+fecha: '2026-11-13'
+categoria: arte
+titulo: '3 preguntas de arte y letras 🎨 ¿Cuántas sabes? #quiz'
+gancho: Tres preguntas de arte y literatura. La última tiene truco.
+preguntas:
+- pregunta: ¿Quién pintó «La Gioconda»?
+  opciones:
+  - Miguel Ángel
+  - Leonardo da Vinci
+  - Rafael
+  - Botticelli
+  correcta: B
+  dato: Está en el Museo del Louvre, en París, tras un cristal blindado.
+  escena: Un taller de pintor del Renacimiento italiano con un caballete de espaldas y pinceles, luz de ventana
+- pregunta: ¿Quién escribió «Cien años de soledad»?
+  opciones:
+  - Mario Vargas Llosa
+  - Gabriel García Márquez
+  - Julio Cortázar
+  - Isabel Allende
+  correcta: B
+  dato: Se publicó en 1967 y transcurre en el pueblo imaginario de Macondo.
+  escena: Un pueblo tropical imaginario junto a un río, con mariposas amarillas y casas de colores
+- pregunta: ¿Cuántas sinfonías compuso Beethoven?
+  opciones:
+  - '5'
+  - '7'
+  - '9'
+  - '12'
+  correcta: C
+  dato: La Novena, la del «Himno a la alegría», la compuso cuando ya estaba casi sordo.
+  escena: Un piano antiguo de madera junto a una ventana con partituras esparcidas y velas, de noche
+  decir_respuesta: '¡La C: nueve!'
+extra: ¿Qué escritor creó a Sherlock Holmes?
+fuentes:
+- https://es.wikipedia.org/wiki/La_Gioconda
+- https://es.wikipedia.org/wiki/Cien_años_de_soledad
+- https://es.wikipedia.org/wiki/Sinfonía_n.º_9_(Beethoven)
+publicado: false

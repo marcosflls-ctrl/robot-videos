@@ -118,24 +118,42 @@ def cargar_canal():
     return yaml.safe_load((RAIZ / "canal_quiz.yaml").read_text(encoding="utf-8"))
 
 
+def hoy_madrid():
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.datetime.now(ZoneInfo("Europe/Madrid")).date()
+    except Exception:
+        return datetime.date.today()
+
+
 def elegir_quiz(canal):
+    """El quiz que toca. Orden: el que se pida (QUIZ) -> el que tenga la fecha de hoy -> uno de reserva
+    (sin fecha y sin publicar) del tipo que toca hoy según el plan de la semana."""
     nombre = _env("QUIZ")
     if nombre:
         return nombre
-    hoy = DIAS[datetime.datetime.now().weekday()]
-    cat = (canal.get("plan_semana") or {}).get(hoy)
-    candidatos = []
+    hoy = hoy_madrid()
+    dia = DIAS[hoy.weekday()]
+    plan = (canal.get("plan_semana") or {}).get(dia)
+    reservas = []
     for ruta in sorted(QUIZZES.glob("*.yaml")):
         q = yaml.safe_load(ruta.read_text(encoding="utf-8")) or {}
-        if q.get("publicado") or q.get("prueba"):
+        if q.get("prueba"):
             continue
-        candidatos.append((q.get("categoria") != cat, ruta.stem))
-    if not candidatos:
-        raise SystemExit("::error::No queda ningún quiz sin publicar en quizzes/. Escribe más (ver quizzes/LEEME.md).")
-    candidatos.sort()
-    if candidatos[0][0]:
-        print(f"::warning::Hoy ({hoy}) toca «{cat}», pero no queda ninguno sin publicar: uso otro")
-    return candidatos[0][1]
+        fecha = q.get("fecha")
+        if fecha and str(fecha) == hoy.isoformat():
+            print(f"Hoy ({dia} {hoy}) toca: {ruta.stem}")
+            return ruta.stem
+        if not fecha and not q.get("publicado"):
+            es_largo = q.get("formato") == "largo"
+            if es_largo == (plan == "largo"):
+                reservas.append((q.get("categoria") != plan, ruta.stem))
+    if not reservas:
+        raise SystemExit(f"::error::Hoy ({dia} {hoy}) no hay ningún quiz con esta fecha ni de reserva. "
+                         "Escribe más (ver quizzes/LEEME.md).")
+    reservas.sort()
+    print(f"::warning::Hoy ({dia} {hoy}) no hay quiz con fecha: uso uno de reserva ({reservas[0][1]})")
+    return reservas[0][1]
 
 
 def cargar_quiz(nombre, canal):
@@ -149,6 +167,8 @@ def cargar_quiz(nombre, canal):
         raise SystemExit(f"::error::{nombre}: categoría «{q.get('categoria')}» no existe. Hay: {', '.join(cats)}")
     errores = []
     for i, p in enumerate(q.get("preguntas") or [], 1):
+        if p.get("categoria") and p["categoria"] not in cats:
+            errores.append(f"pregunta {i}: categoría «{p['categoria']}» no existe")
         tipo = p.setdefault("tipo", "opciones")
         if tipo == "vf":
             p["opciones"] = ["Verdadero", "Falso"]
@@ -297,11 +317,11 @@ def voces(textos, canal):
 # =====================================================================
 
 def imagenes(q, canal):
-    cat = canal["categorias"][q["categoria"]]
     sin = _env("SIN_VOZ") == "1"
     import ilustraciones
     salida = []
     for p in q["preguntas"]:
+        cat = canal["categorias"][p.get("categoria") or q["categoria"]]
         img = None
         escena = str(p.get("escena") or "").strip()
         if escena and not sin:
@@ -331,7 +351,7 @@ def imagen_provisional(cat, colores, i):
 #  Fondo de cada categoría
 # =====================================================================
 
-def fondo(canal, cat, semilla):
+def fondo(canal, cat, semilla, W=W, H=H):
     col = canal["colores"]
     arr = np.linspace(0, 1, H)[:, None, None]
     arriba, abajo = np.array(col["fondo2"], np.float32), np.array(col["fondo"], np.float32)
@@ -941,7 +961,9 @@ def subir_drive(nombre):
     canal = cargar_canal()
     q = cargar_quiz(nombre, canal)
     titulo = sd.limpio(q.get("titulo") or nombre, 80)
-    archivos = [(SALIDA / f"{nombre}.mp4", f"Short - {titulo}.mp4"), (SALIDA / f"{nombre}.txt", "Texto para YouTube.txt")]
+    tipo = "Largo" if q.get("formato") == "largo" else "Short"
+    archivos = [(SALIDA / f"{nombre}.mp4", f"{tipo} - {titulo}.mp4"), (SALIDA / f"{nombre}.txt", "Texto para YouTube.txt"),
+                (SALIDA / f"{nombre}_miniatura.png", "Miniatura.png")]
     archivos = [(r, n) for r, n in archivos if r.exists()]
     if not archivos:
         print("Drive: no hay archivos que copiar.")
@@ -964,6 +986,9 @@ def main():
     q = cargar_quiz(nombre, canal)
     if q.get("publicado") and _env("REMONTAR") != "1":
         raise SystemExit(f"::error::{nombre} ya está publicado. Para montarlo otra vez, marca «Volver a montar».")
+    if q.get("formato") == "largo":
+        import quiz_largo
+        return quiz_largo.montar_largo(q, canal)
     print(f"Quiz: {nombre} · {canal['categorias'][q['categoria']]['nombre']} · {len(q['preguntas'])} preguntas")
     SALIDA.mkdir(parents=True, exist_ok=True)
     textos = [str(q.get("decir_gancho") or q.get("gancho") or "")]
@@ -985,7 +1010,7 @@ def main():
     # Nombre del quiz para los pasos siguientes del robot (Telegram, Drive)
     if _env("GITHUB_OUTPUT"):
         with open(_env("GITHUB_OUTPUT"), "a") as f:
-            f.write(f"quiz={nombre}\n")
+            f.write(f"quiz={nombre}\nformato=short\n")
 
 
 if __name__ == "__main__":

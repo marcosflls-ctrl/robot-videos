@@ -1,0 +1,38 @@
+fecha: '2026-11-24'
+categoria: historia
+titulo: '3 fechas que cambiaron el mundo 📜 #quiz'
+gancho: Tres preguntas de historia. La última tiene trampa.
+preguntas:
+- pregunta: ¿En qué año empezó la Revolución francesa?
+  opciones:
+  - '1789'
+  - '1815'
+  - '1776'
+  - '1848'
+  correcta: A
+  dato: Empezó con la toma de la Bastilla, el 14 de julio.
+  escena: Una fortaleza medieval en París envuelta en humo con banderas tricolores al viento
+- pregunta: ¿Qué muro cayó en 1989?
+  opciones:
+  - El muro de Berlín
+  - La Gran Muralla
+  - El muro de Adriano
+  - El muro de las Lamentaciones
+  correcta: A
+  dato: Cayó el 9 de noviembre, y Alemania se reunificó al año siguiente.
+  escena: Un muro de hormigón lleno de grafitis de colores derribado en parte, de noche, con gente anónima celebrando
+- pregunta: ¿Quién fue el primer ser humano en pisar la Luna?
+  opciones:
+  - Buzz Aldrin
+  - Neil Armstrong
+  - Yuri Gagarin
+  - Michael Collins
+  correcta: B
+  dato: Fue en 1969. Gagarin, en cambio, fue el primero en viajar al espacio, en 1961.
+  escena: Una huella de bota en el polvo gris de la Luna con la Tierra brillando en el cielo negro
+extra: ¿En qué año terminó la Segunda Guerra Mundial?
+fuentes:
+- https://es.wikipedia.org/wiki/Revolución_francesa
+- https://es.wikipedia.org/wiki/Caída_del_muro_de_Berlín
+- https://es.wikipedia.org/wiki/Apolo_11
+publicado: false

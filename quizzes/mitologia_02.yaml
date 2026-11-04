@@ -1,0 +1,34 @@
+fecha: '2026-11-23'
+categoria: mitologia
+titulo: 'Mitología griega y romana 🏛️ ¿Las aciertas? #quiz'
+gancho: Tres preguntas de mitología. La última es una leyenda famosísima.
+preguntas:
+- pregunta: ¿Cómo se llama Zeus en la mitología romana?
+  opciones:
+  - Marte
+  - Júpiter
+  - Neptuno
+  - Apolo
+  correcta: B
+  dato: 'Los romanos adoptaron muchos dioses griegos con otro nombre: Poseidón, por ejemplo, es Neptuno.'
+  escena: Un trono de mármol en lo alto de una montaña entre nubes, con un rayo dorado apoyado en él
+- pregunta: ¿Qué criatura tenía cuerpo de hombre y cabeza de toro?
+  opciones:
+  - El centauro
+  - El minotauro
+  - La esfinge
+  - El cíclope
+  correcta: B
+  dato: Vivía en el laberinto de Creta, hasta que lo venció Teseo.
+  escena: La entrada de un gran laberinto de piedra en Creta iluminada por antorchas, con un hilo rojo en el suelo
+- tipo: vf
+  pregunta: Según la leyenda, Aquiles era invulnerable salvo en el talón.
+  correcta: verdadero
+  dato: Su madre lo bañó en la laguna Estigia sujetándolo por el talón, que quedó seco.
+  escena: Un río oscuro y brillante del inframundo griego entre rocas, con niebla y luz azulada
+extra: ¿Cómo se llamaba el caballo alado de la mitología griega?
+fuentes:
+- https://es.wikipedia.org/wiki/Júpiter_(mitología)
+- https://es.wikipedia.org/wiki/Minotauro
+- https://es.wikipedia.org/wiki/Aquiles
+publicado: false

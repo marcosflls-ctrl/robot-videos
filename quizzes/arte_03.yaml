@@ -1,0 +1,39 @@
+fecha: '2026-11-20'
+categoria: arte
+titulo: '3 preguntas de arte 🖌️ La última es de nivel experto #quiz'
+gancho: Tres preguntas de arte y literatura. La última es de nivel experto.
+preguntas:
+- pregunta: ¿Quién escribió «Romeo y Julieta»?
+  opciones:
+  - William Shakespeare
+  - Miguel de Cervantes
+  - Molière
+  - Dante Alighieri
+  correcta: A
+  dato: Shakespeare y Cervantes murieron con pocos días de diferencia, en 1616.
+  escena: Un balcón de piedra de una casa medieval italiana de noche, con flores y la luz de la luna
+- pregunta: ¿En qué ciudad está el Museo Guggenheim de España?
+  opciones:
+  - Bilbao
+  - Madrid
+  - Valencia
+  - Barcelona
+  correcta: A
+  dato: Lo diseñó Frank Gehry, se inauguró en 1997 y está recubierto de titanio.
+  escena: Un edificio de museo moderno de formas curvas y metálicas junto a una ría, al atardecer
+- pregunta: ¿Qué pintor es famoso por sus relojes blandos?
+  opciones:
+  - Pablo Picasso
+  - Salvador Dalí
+  - Joan Miró
+  - René Magritte
+  correcta: B
+  dato: El cuadro se titula «La persistencia de la memoria» y lo pintó en 1931.
+  escena: Un paisaje desértico surrealista junto al mar al atardecer con un árbol seco, sin relojes ni copias de
+    cuadros
+extra: ¿Quién compuso «Las cuatro estaciones»?
+fuentes:
+- https://es.wikipedia.org/wiki/Romeo_y_Julieta
+- https://es.wikipedia.org/wiki/Museo_Guggenheim_Bilbao
+- https://es.wikipedia.org/wiki/La_persistencia_de_la_memoria
+publicado: false

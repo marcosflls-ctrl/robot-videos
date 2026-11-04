@@ -1,0 +1,38 @@
+fecha: '2026-12-04'
+categoria: arte
+titulo: '3 preguntas de arte y letras 📚 #quiz'
+gancho: Tres preguntas de arte y literatura. ¿Sacas un tres de tres?
+preguntas:
+- pregunta: ¿Quién escribió «La Odisea»?
+  opciones:
+  - Homero
+  - Sófocles
+  - Virgilio
+  - Platón
+  correcta: A
+  dato: Cuenta el largo viaje de Ulises de vuelta a casa tras la guerra de Troya.
+  escena: Un barco griego antiguo de velas cuadradas navegando por un mar de color vino al atardecer
+- pregunta: ¿En qué ciudad está la Alhambra?
+  opciones:
+  - Córdoba
+  - Granada
+  - Sevilla
+  - Toledo
+  correcta: B
+  dato: Fue el palacio de los reyes nazaríes hasta 1492.
+  escena: Un patio de palacio andalusí con arcos decorados y un estanque que refleja el cielo
+- pregunta: ¿Qué pintor se cortó parte de una oreja?
+  opciones:
+  - Pablo Picasso
+  - Vincent van Gogh
+  - Claude Monet
+  - Salvador Dalí
+  correcta: B
+  dato: Fue en 1888, en Arlés, en el sur de Francia.
+  escena: Un campo de girasoles en el sur de Francia bajo un cielo de pinceladas en espiral, sin copiar ningún cuadro
+extra: ¿Quién escribió «El principito»?
+fuentes:
+- https://es.wikipedia.org/wiki/Odisea
+- https://es.wikipedia.org/wiki/Alhambra
+- https://es.wikipedia.org/wiki/Vincent_van_Gogh
+publicado: false

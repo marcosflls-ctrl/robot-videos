@@ -1,0 +1,39 @@
+fecha: '2026-11-11'
+categoria: geografia
+titulo: 'La tercera la falla casi todo el mundo 🌍 #quiz'
+gancho: Tres preguntas de geografía. La tercera la falla casi todo el mundo.
+preguntas:
+- pregunta: ¿Cuál es el país más grande del mundo?
+  opciones:
+  - Canadá
+  - China
+  - Rusia
+  - Estados Unidos
+  correcta: C
+  dato: 'Ocupa más de diecisiete millones de kilómetros cuadrados: más de treinta veces España.'
+  escena: Vista desde el espacio de un enorme territorio nevado del norte de Eurasia con ríos y bosques
+  dato_pantalla: 'Ocupa más de 17 millones de km²: más de 30 veces España.'
+- pregunta: ¿Cuál es la montaña más alta de España?
+  opciones:
+  - Mulhacén
+  - Teide
+  - Aneto
+  - Veleta
+  correcta: B
+  dato: El Teide, en Tenerife, mide 3.715 metros. El Mulhacén es el más alto de la península.
+  escena: Un gran volcán con la cima nevada sobre un mar de nubes en una isla atlántica al amanecer
+- pregunta: ¿Cuál es la capital de Turquía?
+  opciones:
+  - Estambul
+  - Ankara
+  - Esmirna
+  - Antalya
+  correcta: B
+  dato: Estambul es la ciudad más grande, pero la capital es Ankara desde 1923.
+  escena: Una ciudad en la meseta de Anatolia al atardecer, con colinas y una gran mezquita moderna a lo lejos
+extra: ¿Qué país tiene más habitantes del mundo?
+fuentes:
+- https://es.wikipedia.org/wiki/Rusia
+- https://es.wikipedia.org/wiki/Teide
+- https://es.wikipedia.org/wiki/Ankara
+publicado: false

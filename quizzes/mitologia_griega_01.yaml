@@ -1,0 +1,34 @@
+fecha: '2026-11-09'
+categoria: mitologia
+titulo: '¿Cuánto sabes de mitología griega? 🏛️ 3 preguntas #quiz'
+gancho: Tres preguntas de mitología griega. La última engaña a casi todos.
+preguntas:
+- pregunta: ¿Quién es el dios del mar en la mitología griega?
+  opciones:
+  - Zeus
+  - Poseidón
+  - Hades
+  - Apolo
+  correcta: B
+  dato: Su símbolo es el tridente, y su hermano Zeus gobernaba el cielo.
+  escena: Un gran tridente dorado saliendo de un mar embravecido con olas enormes bajo un cielo de tormenta
+- pregunta: ¿Qué héroe le cortó la cabeza a Medusa?
+  opciones:
+  - Hércules
+  - Aquiles
+  - Perseo
+  - Teseo
+  correcta: C
+  dato: Usó un escudo pulido como un espejo para no mirarla a los ojos.
+  escena: Un escudo griego de bronce brillante como un espejo, en una cueva oscura con estatuas de piedra al fondo
+- tipo: vf
+  pregunta: En el mito, Pandora abrió una caja.
+  correcta: falso
+  dato: En el mito griego era una tinaja, un pithos. Lo de «caja» viene de una traducción del siglo XVI.
+  escena: Una gran tinaja griega de cerámica entreabierta de la que salen sombras y luces en una sala de piedra
+extra: ¿Qué titán robó el fuego a los dioses para dárselo a los humanos?
+fuentes:
+- https://es.wikipedia.org/wiki/Poseidón
+- https://es.wikipedia.org/wiki/Perseo
+- https://es.wikipedia.org/wiki/Caja_de_Pandora
+publicado: false

@@ -1,0 +1,283 @@
+fecha: '2026-11-15'
+formato: largo
+categoria: variado
+titulo: ¿Sabes más que un niño de Primaria? 24 preguntas del cole 🎒 | Quiz
+gancho: ¿Sabes más que un niño de Primaria? Veinticuatro preguntas del colegio, de fácil a muy difícil.
+gancho_pantalla: ¿Sabes más que un niño de Primaria? 24 preguntas del colegio, de fácil a muy difícil.
+preguntas:
+- categoria: primaria
+  dificultad: facil
+  pregunta: ¿Cuánto es 9 por 7?
+  opciones:
+  - '56'
+  - '63'
+  - '72'
+  - '54'
+  correcta: B
+  dato: 'Truco: nueve por siete es lo mismo que diez por siete, menos siete.'
+  escena: Una pizarra verde de colegio con números de colores dibujados con tiza, sin texto legible
+  decir: ¿Cuánto es nueve por siete?
+  decir_respuesta: '¡La B: sesenta y tres!'
+  dato_pantalla: 'Truco: 9 × 7 es lo mismo que 10 × 7, menos 7.'
+- categoria: primaria
+  dificultad: facil
+  pregunta: ¿Cuál es el plural de «pez»?
+  opciones:
+  - Pezs
+  - Peces
+  - Pezes
+  - Pez
+  correcta: B
+  dato: 'La zeta cambia a ce delante de la e: luz, luces; lápiz, lápices.'
+  escena: Un banco de peces de colores nadando en un acuario de clase
+  dato_pantalla: 'La z cambia a c delante de e: luz, luces; lápiz, lápices.'
+- categoria: ciencia
+  dificultad: facil
+  pregunta: ¿Cuál de estos animales es un mamífero?
+  opciones:
+  - La gallina
+  - El delfín
+  - El tiburón
+  - La rana
+  correcta: B
+  dato: Respira aire con pulmones y sus crías toman leche de su madre.
+  escena: Un delfín saltando fuera del agua en un mar azul y soleado
+- categoria: geografia
+  dificultad: facil
+  pregunta: ¿Cuál es el océano más grande?
+  opciones:
+  - Atlántico
+  - Pacífico
+  - Índico
+  - Ártico
+  correcta: B
+  dato: Es más grande que todas las tierras emergidas juntas.
+  escena: Un globo terráqueo girado mostrando un océano inmenso azul con islas pequeñas
+- categoria: primaria
+  dificultad: facil
+  tipo: vf
+  pregunta: Un triángulo puede tener dos ángulos rectos.
+  correcta: falso
+  dato: 'Sus tres ángulos suman ciento ochenta grados: con dos rectos no quedaría nada para el tercero.'
+  escena: Escuadras, cartabones y un transportador de colores sobre un cuaderno de cuadros
+  dato_pantalla: 'Sus tres ángulos suman 180°: con dos rectos no quedaría nada para el tercero.'
+- categoria: ciencia
+  dificultad: facil
+  pregunta: ¿En qué estado está el agua cuando es hielo?
+  opciones:
+  - Líquido
+  - Sólido
+  - Gaseoso
+  - Plasma
+  correcta: B
+  dato: Al congelarse ocupa más sitio, y por eso el hielo flota.
+  escena: Cubitos de hielo flotando en un vaso de agua con luz que los atraviesa
+- categoria: historia
+  dificultad: facil
+  pregunta: ¿Cómo se llama el periodo anterior a la invención de la escritura?
+  opciones:
+  - La Prehistoria
+  - La Edad Media
+  - La Edad Antigua
+  - La Edad Moderna
+  correcta: A
+  dato: La historia empieza con la escritura, hace unos cinco mil años.
+  escena: Una cueva prehistórica con huellas de manos pintadas en la pared y un fuego encendido
+  dato_pantalla: La historia empieza con la escritura, hace unos 5.000 años.
+- categoria: primaria
+  dificultad: facil
+  pregunta: ¿Cuántos minutos son una hora y media?
+  opciones:
+  - '60'
+  - '90'
+  - '120'
+  - '150'
+  correcta: B
+  dato: Una hora son sesenta minutos, y media hora, treinta.
+  escena: Un reloj de pared de colegio redondo con agujas grandes sobre una pared de colores
+  decir_respuesta: '¡La B: noventa!'
+  dato_pantalla: Una hora son 60 minutos, y media hora, 30.
+- categoria: primaria
+  dificultad: media
+  pregunta: ¿Qué tipo de palabra es «rápidamente»?
+  opciones:
+  - Adjetivo
+  - Adverbio
+  - Verbo
+  - Sustantivo
+  correcta: B
+  dato: Muchos adverbios se forman añadiendo «mente» a un adjetivo.
+  escena: Un caracol y un guepardo corriendo en una carrera divertida en un libro infantil, sin letras
+- categoria: ciencia
+  dificultad: media
+  pregunta: ¿Cómo se llama el proceso con el que las plantas fabrican su alimento?
+  opciones:
+  - Respiración
+  - Fotosíntesis
+  - Digestión
+  - Polinización
+  correcta: B
+  dato: Usan la luz del sol, el agua y el dióxido de carbono del aire.
+  escena: Una hoja verde enorme atravesada por rayos de sol con gotas de agua
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿En qué comunidad autónoma está Santiago de Compostela?
+  opciones:
+  - Asturias
+  - Galicia
+  - Castilla y León
+  - Cantabria
+  correcta: B
+  dato: Es la meta del Camino de Santiago.
+  escena: Una catedral de piedra con torres barrocas en una plaza mojada por la lluvia
+- categoria: primaria
+  dificultad: media
+  pregunta: ¿Cuál es la mitad de un cuarto?
+  opciones:
+  - Un medio
+  - Un octavo
+  - Un tercio
+  - Un sexto
+  correcta: B
+  dato: Si partes un cuarto en dos, cada trozo es un octavo.
+  escena: Una pizza cortada en porciones sobre una mesa de cocina, vista desde arriba
+- categoria: historia
+  dificultad: media
+  pregunta: ¿Qué pueblo trajo el latín a la península ibérica?
+  opciones:
+  - Los árabes
+  - Los romanos
+  - Los visigodos
+  - Los fenicios
+  correcta: B
+  dato: Del latín vienen el castellano, el catalán, el gallego y el portugués.
+  escena: Un puente romano de piedra sobre un río en Hispania al atardecer
+- categoria: ciencia
+  dificultad: media
+  tipo: vf
+  pregunta: El Sol es una estrella.
+  correcta: verdadero
+  dato: Es una estrella mediana. Su luz tarda unos ocho minutos en llegar hasta nosotros.
+  escena: El Sol brillante visto desde el espacio con llamaradas, y la Tierra pequeña a lo lejos
+- categoria: primaria
+  dificultad: media
+  pregunta: ¿Cuál es el número primo más pequeño?
+  opciones:
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  correcta: C
+  dato: Y es el único número primo que es par.
+  escena: Números de madera de colores sobre una mesa de clase, desordenados
+  decir_respuesta: '¡La C: el dos!'
+- categoria: geografia
+  dificultad: media
+  pregunta: ¿Cuál es la cordillera más larga sobre tierra firme?
+  opciones:
+  - El Himalaya
+  - Los Andes
+  - Los Alpes
+  - Las Rocosas
+  correcta: B
+  dato: Recorre unos siete mil kilómetros por el oeste de Sudamérica.
+  escena: Una cordillera de picos nevados que se pierde en el horizonte junto a un lago azul
+  dato_pantalla: Recorre unos 7.000 km por el oeste de Sudamérica.
+- categoria: primaria
+  dificultad: dificil
+  pregunta: ¿Cuál es el sujeto de la frase «Me gustan las fresas»?
+  opciones:
+  - Yo
+  - Me
+  - Las fresas
+  - Gustan
+  correcta: C
+  dato: 'Lo que gusta son las fresas: por eso el verbo va en plural, gustan.'
+  escena: Un cuenco de fresas rojas brillantes sobre un pupitre de colegio
+- categoria: primaria
+  dificultad: dificil
+  pregunta: ¿Cuánto suman los ángulos de un cuadrado?
+  opciones:
+  - 180°
+  - 270°
+  - 360°
+  - 400°
+  correcta: C
+  dato: Son cuatro ángulos rectos de noventa grados.
+  escena: Un cuadrado de cartulina con sus esquinas marcadas en colores sobre una mesa
+  decir_respuesta: '¡La C: trescientos sesenta grados!'
+  dato_pantalla: Son cuatro ángulos rectos de 90°.
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Qué planeta gira casi tumbado, de lado?
+  opciones:
+  - Marte
+  - Urano
+  - Venus
+  - Saturno
+  correcta: B
+  dato: Su eje está inclinado unos noventa y ocho grados.
+  escena: Un planeta azul verdoso con anillos verticales finos, visto en el espacio oscuro
+  dato_pantalla: Su eje está inclinado unos 98 grados.
+- categoria: historia
+  dificultad: dificil
+  pregunta: ¿En qué año se aprobó la Constitución española actual?
+  opciones:
+  - '1975'
+  - '1978'
+  - '1981'
+  - '1986'
+  correcta: B
+  dato: 'Se votó en referéndum el 6 de diciembre: por eso ese día es festivo.'
+  escena: Un libro antiguo cerrado con tapas rojas sobre una mesa de madera con una pluma, sin letras legibles
+- categoria: primaria
+  dificultad: dificil
+  pregunta: ¿Cuál de estas palabras es esdrújula?
+  opciones:
+  - Árbol
+  - Canción
+  - Murciélago
+  - Reloj
+  correcta: C
+  dato: Las esdrújulas llevan la fuerza en la antepenúltima sílaba, y siempre llevan tilde.
+  escena: Un murciélago simpático colgado de la rama de un árbol bajo la luna
+- categoria: geografia
+  dificultad: dificil
+  pregunta: ¿Cuál es la capital de Islandia?
+  opciones:
+  - Oslo
+  - Reikiavik
+  - Helsinki
+  - Copenhague
+  correcta: B
+  dato: Es la capital de un país independiente más al norte del mundo.
+  escena: Una pequeña ciudad de casas de colores junto al mar con una aurora boreal en el cielo
+- categoria: ciencia
+  dificultad: dificil
+  pregunta: ¿Cuántos dientes tiene un adulto con la dentadura completa?
+  opciones:
+  - '28'
+  - '30'
+  - '32'
+  - '36'
+  correcta: C
+  dato: Contando las cuatro muelas del juicio, que no a todo el mundo le salen.
+  escena: Un modelo de dentadura de consulta de dentista sobre una bandeja, ilustración limpia
+  decir_respuesta: '¡La C: treinta y dos!'
+- categoria: primaria
+  dificultad: dificil
+  tipo: vf
+  pregunta: El número pi es exactamente 3,14.
+  correcta: falso
+  dato: Es tres coma catorce, uno, cinco, nueve… y sus decimales no se acaban nunca.
+  escena: Una tarta redonda con un compás y una cinta métrica alrededor sobre una mesa
+  decir: El número pi es exactamente tres coma catorce.
+  dato_pantalla: Es 3,14159… y sus decimales no se acaban nunca.
+fuentes:
+- https://www.rae.es/dpd/plural
+- https://es.wikipedia.org/wiki/Número_primo
+- https://es.wikipedia.org/wiki/Urano_(planeta)
+- https://es.wikipedia.org/wiki/Constitución_española_de_1978
+- https://es.wikipedia.org/wiki/Reikiavik
+- https://es.wikipedia.org/wiki/Número_π
+publicado: false

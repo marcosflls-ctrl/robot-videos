@@ -1,0 +1,37 @@
+fecha: '2026-11-14'
+categoria: deporte
+titulo: 'La última la falla casi todo el mundo 🏃 #quiz'
+gancho: Tres preguntas de deporte. La última la falla casi todo el mundo.
+preguntas:
+- pregunta: ¿Cuántos puntos vale un triple en baloncesto?
+  opciones:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  correcta: C
+  dato: La línea de tres puntos llegó a la NBA en 1979.
+  escena: Un balón de baloncesto entrando en la canasta en un pabellón iluminado, sin logotipos
+  decir_respuesta: '¡La C: tres!'
+- pregunta: ¿Cuántos hoyos tiene un recorrido completo de golf?
+  opciones:
+  - '9'
+  - '12'
+  - '18'
+  - '24'
+  correcta: C
+  dato: Se fijaron dieciocho en St Andrews, en Escocia, en 1764.
+  escena: Un campo de golf verde junto al mar en Escocia con una bandera en el hoyo y nubes
+  decir_respuesta: '¡La C: dieciocho!'
+  dato_pantalla: Se fijaron 18 en St Andrews, en Escocia, en 1764.
+- tipo: vf
+  pregunta: El maratón mide exactamente 42 kilómetros.
+  correcta: falso
+  dato: 'Mide 42,195 kilómetros: esa distancia viene de los Juegos de Londres de 1908.'
+  escena: Corredores de maratón anónimos vistos de espaldas en una avenida al amanecer, sin dorsales legibles
+extra: ¿Cuántos jugadores tiene un equipo de voleibol en la pista?
+fuentes:
+- https://es.wikipedia.org/wiki/Tiro_de_tres_puntos
+- https://es.wikipedia.org/wiki/Old_Course_de_St_Andrews
+- https://es.wikipedia.org/wiki/Maratón
+publicado: false

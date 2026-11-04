@@ -1,0 +1,40 @@
+fecha: '2026-12-05'
+categoria: deporte
+titulo: '3 preguntas de deporte 🥌 ¿Pleno? #quiz'
+gancho: Tres preguntas de deporte. La última es de un deporte que casi nadie ha practicado.
+preguntas:
+- pregunta: ¿Con qué se golpea la pelota en el pádel?
+  opciones:
+  - Con una raqueta de cuerdas
+  - Con una pala
+  - Con un bate
+  - Con la mano
+  correcta: B
+  dato: El pádel se inventó en México, en 1969.
+  escena: Una pista de pádel con paredes de cristal al atardecer, con una pala y pelotas sobre el suelo
+- pregunta: ¿Cuántos aros tiene la bandera olímpica?
+  opciones:
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  correcta: B
+  dato: Representan la unión de los cinco continentes.
+  escena: Un pebetero olímpico encendido al anochecer con fuegos artificiales de colores
+  decir_respuesta: '¡La B: cinco!'
+- pregunta: ¿En qué deporte se desliza una piedra sobre el hielo?
+  opciones:
+  - Hockey
+  - Curling
+  - Biatlón
+  - Bobsleigh
+  correcta: B
+  dato: Las piedras pesan unos veinte kilos y se fabrican con granito.
+  escena: Una piedra de granito pulida con asa deslizándose por una pista de hielo hacia una diana pintada
+  dato_pantalla: Las piedras pesan unos 20 kilos y se fabrican con granito.
+extra: ¿Cuántos metros mide de largo una piscina olímpica?
+fuentes:
+- https://es.wikipedia.org/wiki/Pádel
+- https://es.wikipedia.org/wiki/Anillos_olímpicos
+- https://es.wikipedia.org/wiki/Curling
+publicado: false
