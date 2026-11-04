@@ -1,0 +1,560 @@
+# El paso Diátlov (Urales, 1959): nueve montañistas que salieron de su tienda en plena noche
+# Canal de misterios · sección Misterios. Guion para revisar antes de montar.
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+# Las víctimas fueron personas reales: se cuentan con respeto, sin detalles escabrosos, y los muñecos
+# no se parecen a ninguna de ellas.
+
+canal: misterios
+
+descripcion: >-
+  En febrero de 1959, nueve jóvenes montañistas soviéticos murieron en los montes Urales. Los rescatadores
+  encontraron su tienda rajada desde dentro y a los primeros, a más de un kilómetro, casi sin ropa, a treinta
+  grados bajo cero. Durante sesenta años se habló de pruebas militares, de ataques y hasta de extraterrestres.
+  En 2020, la fiscalía rusa habló de una avalancha, y en 2021 dos científicos suizos explicaron cómo pudo
+  ocurrir. Esta es la historia completa, lo que se sabe y lo que todavía no.
+hashtags: "#Diatlov #misterio #Urales #1959 #avalancha #CasosATrazos"
+
+carpeta: "El paso Diátlov (1959)"   # nombre de la carpeta en Google Drive
+titulos:
+  - "El paso Diátlov: nueve montañistas huyeron de su tienda en plena noche (1959)"
+  - "Rajaron su tienda desde dentro a 30 bajo cero: qué pasó en el paso Diátlov"
+  - "El misterio de los Urales que la ciencia empezó a resolver 60 años después"
+
+miniaturas:
+  - texto: "Huyeron en plena noche"
+    resaltar: "noche"
+    cifra: "1959"
+    escena: &tienda_rajada >-
+      Una tienda de campaña de lona de los años cincuenta, medio hundida por la nieve en una ladera pelada de
+      montaña, con un corte largo y vertical en un costado por el que asoma la oscuridad del interior. Noche
+      azul helada, viento levantando nieve. En primer plano, el presentador mira el corte con cara de asombro.
+    gesto: "mira el corte de la tienda con los ojos muy abiertos"
+  - texto: "Rajada desde dentro"
+    resaltar: "dentro"
+    cifra: "-30 °C"
+    lado: izquierda
+    escena: *tienda_rajada
+    gesto: "señala el corte de la lona con cara de intriga"
+  - texto: "¿Fue una avalancha?"
+    resaltar: "avalancha"
+    cifra: "2021"
+    escena: &placa >-
+      Una ladera nevada de montaña de noche: una placa de nieve compacta se desprende y se desliza unos metros
+      hacia una tienda de campaña pequeña cavada en la pendiente. Cielo negro con estrellas, viento.
+    gesto: "se lleva las manos a la cabeza al ver la nieve caer"
+
+fuentes:
+  - id: 1
+    corta: "EPFL (2021)"
+    cita: "École Polytechnique Fédérale de Lausanne (EPFL) (2021). Using science to explore a 60-year-old Russian mystery."
+    url: "https://longread.epfl.ch/en/dossier/quand-la-science-permet-dexplorer-un-mystere-russe-vieux-de-60-ans"
+  - id: 2
+    corta: "Gaume y Puzrin (2021)"
+    cita: "Gaume, J. y Puzrin, A. M. (2021). Mechanisms of slab avalanche release and impact in the Dyatlov Pass incident in 1959. Communications Earth & Environment, 2, 10."
+    url: "https://infoscience.epfl.ch/entities/publication/cc46c95a-9cd5-4748-ac51-5e4094128089"
+  - id: 3
+    corta: "TASS (11-07-2020)"
+    cita: "TASS (11-07-2020). Prosecutors say avalanche killed Dyatlov group in Urals in 1959."
+    url: "https://tass.com/emergencies/1177345/amp"
+  - id: 4
+    corta: "Mental Floss"
+    cita: "Mental Floss. The unsolved Dyatlov Pass mystery: what happened to nine hikers."
+    url: "https://www.mentalfloss.com/history/mystery/unsolved-dyatlov-pass-mystery-what-happened-nine-hikers"
+  - id: 5
+    corta: "Advanced Science News (2021)"
+    cita: "Advanced Science News (29-01-2021). Researchers shed light on the 1959 Dyatlov Pass incident."
+    url: "https://www.advancedsciencenews.com/researchers-shed-light-on-the-1959-dyatlov-pass-incident/"
+  - id: 6
+    corta: "ETH Zúrich"
+    cita: "ETH Zúrich. The Dyatlov Pass mystery and what a research article can trigger."
+    url: "https://ethrat.mironet.ch/research/the-dyatlov-pass-mystery-and-what-a-research-article-can-trigger.html"
+  - id: 7
+    corta: "Wikipedia: Dyatlov Pass incident"
+    cita: "«Dyatlov Pass incident». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Dyatlov_Pass_incident"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "En febrero de 1959, en los montes Urales, nueve jóvenes montañistas salieron de su tienda en plena noche. Algunos, en calcetines. Fuera había treinta grados bajo cero."
+    tipo: ilustracion
+    escena: *tienda_rajada
+    kicker: "Montes Urales · febrero de 1959"
+    ambiente: nieve
+    sonido: viento
+    fuente: [1, 3]
+  - voz: "Cuando los encontraron, la tienda estaba rajada desde dentro. Como si hubieran tenido tanta prisa por salir que no les dio tiempo a abrir la puerta."
+    tipo: ilustracion
+    escena: &corte_cerca >-
+      Primer plano del costado de una tienda de lona cubierto de escarcha, con un corte limpio de arriba abajo
+      hecho desde dentro; los bordes de la lona hacia fuera. Luz fría del amanecer sobre la nieve.
+    texto: "Rajada desde dentro"
+    fuente: 4
+  - voz: "Ninguno sobrevivió. Durante sesenta años se habló de pruebas militares, de ataques, hasta de extraterrestres."
+    tipo: ilustracion
+    escena: &noche_bosque >-
+      El borde de un bosque de abetos y cedros cubierto de nieve en plena noche, bajo un cielo negro con
+      estrellas; en el suelo, huellas que bajan desde la ladera pelada y se pierden entre los árboles. Nadie a
+      la vista. Silencio y frío.
+    texto: "Sesenta años de teorías"
+    ambiente: nieve
+    fuente: 6
+  - voz: "Hoy te cuento lo que se sabe, lo que se inventó y la explicación que la ciencia propuso en 2021."
+    tipo: presentador
+    kicker: "El paso Diátlov"
+    texto: "¿Qué pasó aquella noche?"
+    resaltar: "aquella noche"
+    presentador: {gesto: "frota las manos por el frío con cara de intriga"}
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Diez estudiantes rumbo al Otorten"
+    titulo_short: "La expedición que acabó en el paso Diátlov"
+    short: true
+    gancho_short:
+      - voz: "Eran diez montañistas expertos. Solo uno volvió a casa, y fue por estar enfermo."
+        tipo: titulo
+        texto: "Eran diez. Solo volvió uno"
+        resaltar: "uno"
+        kicker: "Misterio · 1959"
+        fuente: [1, 4]
+    escenas:
+      - voz: "La mayoría eran estudiantes del Instituto Politécnico de los Urales, en la Unión Soviética. Su jefe, Ígor Diátlov, tenía veintitrés años."
+        tipo: ilustracion
+        escena: &grupo >-
+          Un grupo de diez muñecos de palo con gorros de lana, anoraks de los años cincuenta y grandes mochilas de
+          lona, con esquís de madera al hombro, posando juntos y sonrientes delante de una estación de tren de madera
+          nevada. Invierno, luz clara de mañana.
+        kicker: "Instituto Politécnico de los Urales"
+        texto: "Un grupo de esquiadores expertos"
+        fuente: 1
+      - voz: "Todos eran esquiadores con experiencia. El plan: catorce días de travesía hasta el monte Otorten, en una ruta de la categoría más difícil."
+        tipo: ilustracion
+        escena: &travesia >-
+          Una fila de pequeños muñecos de palo con mochilas avanza con esquís por un valle nevado entre bosques de
+          abetos, con montañas redondeadas y blancas al fondo. Cielo gris, frío intenso, aliento visible.
+        kicker: "14 días de travesía"
+        texto: "Rumbo al monte Otorten"
+        ambiente: nieve
+        fuente: 1
+      - voz: "Salieron de Sverdlovsk, la actual Ekaterimburgo, el veintitrés de enero. Fueron en tren hasta Ivdel y en camión hasta Vizhai, el último pueblo habitado."
+        tipo: ilustracion
+        escena: &camion >-
+          Un camión soviético de los años cincuenta con la caja de madera abierta, cargado de mochilas y esquís, avanza
+          por un camino de nieve entre bosques de abetos; varios muñecos de palo con gorros de lana van sentados detrás,
+          cantando. Al fondo, unas pocas casas de madera humeantes. Luz fría de mañana.
+        kicker: "Sverdlovsk · Ivdel · Vizhai"
+        texto: "Hasta el último pueblo"
+        fuente: 7
+      - voz: "Empezaron a esquiar el veintisiete de enero de 1959. Las temperaturas podían bajar a treinta grados bajo cero."
+        tipo: fecha
+        fecha: "27 de enero de 1959"
+        lugar: "Empieza la travesía · hasta -30 °C"
+        fuente: 1
+      - voz: "Al día siguiente, uno de ellos, Yuri Yudin, se puso enfermo y decidió volver. Esa decisión le salvó la vida."
+        tipo: ilustracion
+        escena: &yudin >-
+          En un claro nevado, un muñeco de palo con gorro de lana y bufanda se despide con la mano y se da la vuelta
+          con sus esquís; a lo lejos, una fila de nueve muñecos de palo con mochilas sigue adelante entre los
+          árboles. Luz fría de mañana.
+        kicker: "28 de enero"
+        texto: "Uno se da la vuelta"
+        fuente: [1, 4]
+      - voz: "Los otros nueve siguieron adelante. Llevaban diarios y cámaras de fotos, y gracias a ellos sabemos por dónde fueron casi hasta el último día."
+        tipo: ilustracion
+        escena: &diario >-
+          Sobre una mochila de lona, un cuaderno de tapas gastadas abierto con letra a lápiz ilegible y una cámara de
+          fotos soviética de los años cincuenta; alrededor, nieve y un trozo de esquí de madera. Luz de linterna.
+        texto: "Diarios y cámaras"
+        fuente: 7
+      - voz: "Los otros nueve siguieron adelante. Nadie volvería a verlos con vida."
+        tipo: ilustracion
+        escena: *travesia
+        texto: "Siguieron nueve"
+        ambiente: nieve
+        sonido: viento
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La última acampada"
+    titulo_short: "La última noche del grupo Diátlov"
+    short: true
+    gancho_short:
+      - voz: "Montaron la tienda en una ladera pelada, en plena nevada. Sería su última noche."
+        tipo: titulo
+        texto: "Su última noche"
+        resaltar: "última"
+        kicker: "Misterio · 1959"
+        fuente: [1, 4]
+    escenas:
+      - voz: "El treinta y uno de enero dejaron escondida parte de la comida y del material, para recogerla a la vuelta. Al día siguiente, una tormenta les hizo perder el rumbo."
+        tipo: ilustracion
+        escena: &tormenta >-
+          Una fila de pequeños muñecos de palo con mochilas avanza con esquís, inclinados contra el viento, en una ladera
+          pelada envuelta en una ventisca blanca; apenas se ve a unos metros. Luz gris y fría.
+        kicker: "31 de enero y 1 de febrero"
+        texto: "Una tormenta les hace perder el rumbo"
+        ambiente: nieve
+        sonido: viento
+        fuente: 7
+      - voz: "El uno de febrero acamparon en la ladera del Jolat Siajl, un nombre que se suele traducir como la montaña muerta."
+        tipo: ilustracion
+        escena: &ladera >-
+          Una ladera de montaña amplia y pelada, sin árboles, cubierta de nieve dura y azotada por el viento al
+          atardecer; abajo, a lo lejos, el borde oscuro de un bosque. Nubes bajas y luz grisácea.
+        kicker: "1 de febrero de 1959"
+        texto: "La montaña muerta"
+        ambiente: nieve
+        fuente: [1, 4]
+      - voz: "Para montar la tienda, cavaron un corte en la nieve de la pendiente y la colocaron dentro, al resguardo del viento."
+        tipo: ilustracion
+        escena: &montando >-
+          Varios muñecos de palo con gorros de lana cavan con palas un escalón en la nieve de una ladera y montan dentro
+          una tienda de lona alargada; esquís clavados en la nieve a un lado. Atardecer azul, viento.
+        texto: "Un corte en la nieve"
+        fuente: [1, 2]
+      - voz: "Esa noche, entre el uno y el dos de febrero, pasó algo que les hizo salir corriendo de la tienda. Nadie sobrevivió para contarlo."
+        tipo: ilustracion
+        escena: &tienda_noche >-
+          Una tienda de lona alargada en un escalón de nieve de una ladera, de noche; dentro, la luz tenue de una
+          linterna dibuja las sombras de varios muñecos de palo. Alrededor, oscuridad total y nieve que vuela.
+        kicker: "Noche del 1 al 2 de febrero"
+        texto: "Nadie sobrevivió para contarlo"
+        ambiente: nieve
+        sonido: viento
+        fuente: 1
+      - voz: "Diátlov había prometido mandar un telegrama antes del doce de febrero. No llegó. El veinte, las familias pidieron que los buscaran, y salieron estudiantes y profesores voluntarios. Después se sumaron el ejército, aviones y helicópteros."
+        tipo: ilustracion
+        escena: &busqueda >-
+          Un grupo de muñecos de palo rescatadores con gorros y esquís avanza en fila por una ladera nevada; sobre ellos
+          vuela un pequeño avión de hélice de los años cincuenta, sin marcas. Al fondo, montañas redondeadas. Luz fría.
+        kicker: "20 de febrero"
+        texto: "Empieza la búsqueda"
+        fuente: 7
+      - voz: "El veintiséis de febrero, un estudiante del equipo de rescate encontró la tienda."
+        tipo: fecha
+        fecha: "26 de febrero de 1959"
+        lugar: "Encuentran la tienda"
+        fuente: [1, 4]
+      - voz: "Estaba a unos veinte kilómetros al sur del monte Otorten, medio enterrada en la nieve. Y dentro seguían casi todas sus cosas."
+        tipo: ilustracion
+        escena: *tienda_rajada
+        texto: "Todo seguía dentro"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Una tienda rajada por dentro"
+    titulo_short: "Por qué rajaron su tienda desde dentro"
+    short: true
+    gancho_short:
+      - voz: "Nueve montañistas rajaron su propia tienda desde dentro y salieron a treinta bajo cero. Algunos, en calcetines."
+        tipo: titulo
+        texto: "Huyeron a 30 bajo cero"
+        resaltar: "30 bajo cero"
+        kicker: "Misterio · 1959"
+        fuente: [1, 3, 4]
+    escenas:
+      - voz: "Lo primero que llamó la atención fue la lona. La habían cortado desde dentro, y por ahí habían salido."
+        tipo: ilustracion
+        escena: *corte_cerca
+        texto: "Salieron por el corte"
+        fuente: 4
+      - voz: "Dentro seguían casi todas sus cosas. Algo les hizo salir a toda prisa, sin pararse a recoger nada."
+        tipo: ilustracion
+        escena: &interior >-
+          El interior de una tienda de lona abandonada, con la luz del día entrando por un corte en la pared: botas de
+          cuero en fila, mochilas abiertas, anoraks doblados y una olla. Todo cubierto por una capa fina de nieve. Nadie.
+        kicker: "Todo seguía dentro"
+        texto: "Salieron a toda prisa"
+        fuente: 1
+      - voz: "Desde la tienda bajaban nueve rastros de huellas. Unos de calcetines, otros de un solo zapato, otros descalzos. A los quinientos metros, la nieve los borraba."
+        tipo: ilustracion
+        escena: &huellas >-
+          Una ladera nevada y pelada vista de cerca, con varias filas de huellas paralelas que bajan hacia un bosque
+          lejano: algunas de pie descalzo, otras de calcetín, una de bota; más abajo la nieve las va borrando. Luz gris.
+        kicker: "Nueve rastros"
+        texto: "En calcetines y descalzos"
+        fuente: 7
+      - voz: "Ladera abajo, a cerca de un kilómetro y medio, en el borde del bosque, había un cedro grande. Allí estaban los dos primeros, en calcetines y ropa interior."
+        tipo: ilustracion
+        escena: &cedro >-
+          Un cedro grande y viejo en el borde de un bosque nevado, con algunas ramas bajas rotas sobre la nieve. Nadie
+          a la vista. Luz gris del amanecer. Sin cuerpos.
+        kicker: "Cerca de 1,5 km ladera abajo"
+        texto: "El cedro"
+        ambiente: nieve
+        fuente: [1, 4]
+      - voz: "Bajo el cedro, un tipo de pino siberiano, quedaban los restos de una pequeña hoguera. Y había ramas rotas hasta cinco metros de altura."
+        tipo: ilustracion
+        escena: *cedro
+        texto: "Ramas rotas a cinco metros"
+        fuente: 7
+      - voz: "Otros tres estaban entre el cedro y la tienda, a trescientos, cuatrocientos ochenta y seiscientos treinta metros del árbol. Entre ellos, el propio Diátlov. Todo indica que intentaban volver a la tienda, y que el frío los venció."
+        tipo: ilustracion
+        escena: *noche_bosque
+        texto: "Intentaban volver a la tienda"
+        fuente: 1
+      - voz: "Faltaban cuatro. Y la nieve no dejaría encontrarlos hasta la primavera."
+        tipo: ilustracion
+        escena: *ladera
+        texto: "Faltaban cuatro"
+        ambiente: nieve
+        fuente: [1, 3]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El barranco"
+    titulo_short: "Lo que encontraron en el barranco del paso Diátlov"
+    short: true
+    gancho_short:
+      - voz: "Los cuatro últimos montañistas aparecieron dos meses después, bajo varios metros de nieve. Y tenían heridas que nadie entendía."
+        tipo: titulo
+        texto: "Heridas que nadie entendía"
+        resaltar: "nadie entendía"
+        kicker: "Misterio · 1959"
+        fuente: [1, 3]
+    escenas:
+      - voz: "El cuatro de mayo, con el deshielo, encontraron a los cuatro que faltaban. Estaban en un barranco a setenta y cinco metros del cedro, bajo unos cuatro metros de nieve."
+        tipo: ilustracion
+        escena: &barranco >-
+          Un barranco estrecho en un bosque de abetos durante el deshielo de primavera: nieve vieja y húmeda en el fondo,
+          un arroyo que empieza a correr y ramas cortadas sobre la nieve. Varios muñecos de palo rescatadores con gorros
+          miran desde arriba, de espaldas. Luz pálida. Sin cuerpos.
+        kicker: "4 de mayo de 1959"
+        texto: "El barranco"
+        fuente: [3, 7]
+      - voz: "Alguno llevaba ropa de los compañeros que habían muerto antes. Habían intentado abrigarse como pudieron."
+        tipo: ilustracion
+        escena: *barranco
+        texto: "Se abrigaron con lo que tenían"
+        fuente: 7
+      - voz: "A diferencia de los demás, tres tenían fracturas graves en el pecho y en el cráneo. Los forenses las compararon con las de un accidente de coche."
+        tipo: ilustracion
+        escena: &forense >-
+          Una sala de forense soviética de los años cincuenta vista con respeto: un muñeco de palo con bata blanca escribe
+          en un cuaderno junto a una mesa cubierta con una sábana; una lámpara colgante y un armario de cristal con frascos.
+          Sin cuerpos visibles.
+        kicker: "Fracturas en pecho y cráneo"
+        texto: "Como un accidente de coche"
+        fuente: [1, 3, 7]
+      - voz: "Además, algunas prendas tenían restos de radiactividad. Eso daría para muchas teorías."
+        tipo: ilustracion
+        escena: &contador >-
+          Sobre una mesa de madera, un contador de radiación soviético de los años cincuenta con su aguja y su sonda,
+          junto a un jersey de lana doblado. Un muñeco de palo con bata acerca la sonda con cara de sorpresa.
+        texto: "Restos de radiactividad"
+        fuente: 4
+      - voz: "La investigación soviética se cerró a los tres meses con una conclusión que no explicaba nada: los había matado una fuerza natural irresistible."
+        tipo: ilustracion
+        escena: &expediente >-
+          Un despacho soviético de los años cincuenta: sobre la mesa, una carpeta gruesa de cartón atada con cinta y un
+          sello grande; un muñeco de palo con gorra de oficial cierra la carpeta con gesto serio. Luz de flexo. Sin texto
+          legible ni símbolos.
+        kicker: "Mayo de 1959"
+        texto: "«Una fuerza natural irresistible»"
+        fuente: 1
+      - voz: "Sin supervivientes, sin testigos y con un expediente cerrado a toda prisa, el caso quedó abierto a cualquier explicación."
+        tipo: ilustracion
+        escena: *expediente
+        texto: "Caso cerrado, misterio abierto"
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Sesenta años de teorías"
+    titulo_short: "Las teorías más locas sobre el paso Diátlov"
+    short: true
+    gancho_short:
+      - voz: "Pruebas militares secretas, ataques, hasta yetis y extraterrestres. Al paso Diátlov se le atribuyó de todo."
+        tipo: titulo
+        texto: "Militares, yetis y extraterrestres"
+        resaltar: "extraterrestres"
+        kicker: "Misterio · 1959"
+        fuente: 6
+    escenas:
+      - voz: "Durante décadas, el caso se llenó de teorías. Algunas hablaban de pruebas de armas secretas soviéticas en las montañas."
+        tipo: ilustracion
+        escena: &cohete >-
+          Un cielo nocturno sobre montañas nevadas con una estela luminosa naranja que cruza las estrellas, como un
+          cohete lejano; abajo, el borde de un bosque oscuro. Atmósfera inquietante. Sin personas.
+        kicker: "Teoría 1"
+        texto: "¿Pruebas militares?"
+        fuente: 6
+      - voz: "Otras, de un ataque, o de una pelea entre ellos."
+        tipo: ilustracion
+        escena: *noche_bosque
+        kicker: "Teorías 2 y 3"
+        texto: "¿Un ataque? ¿Una pelea?"
+        fuente: 3
+      - voz: "Y las más populares en internet hablaban de un yeti o de extraterrestres."
+        tipo: ilustracion
+        escena: &yeti >-
+          Una gran sombra peluda y borrosa entre los árboles nevados de noche, apenas un contorno, observada desde lejos
+          por un muñeco de palo con gorro de lana y cara de susto exagerada, en tono de humor. Luna llena.
+        kicker: "Teorías 4 y 5"
+        texto: "¿Un yeti? ¿Extraterrestres?"
+        fuente: 6
+      - voz: "También se sospechó de los mansis, el pueblo indígena de la zona. Pero los investigadores nunca encontraron ninguna prueba contra ellos."
+        tipo: ilustracion
+        escena: *noche_bosque
+        texto: "Sin ninguna prueba"
+        fuente: 7
+      - voz: "Hubo explicaciones más serias. Una, que el viento en la ladera produjera un ruido grave que no se oye pero inquieta, el infrasonido. Otra, que un viento muy fuerte bajando de la montaña los obligara a huir."
+        tipo: ilustracion
+        escena: &viento >-
+          Lámina en corte de una ladera nevada de noche: el viento baja desde la cumbre arrastrando nieve, que se acumula
+          en una capa gruesa justo por encima de una tienda pequeña cavada en la pendiente. Líneas de viento dibujadas,
+          estilo de libro ilustrado.
+        kicker: "Teorías con más base"
+        texto: "¿Infrasonido? ¿Un viento brutal?"
+        ambiente: nieve
+        sonido: viento
+        fuente: 7
+      - voz: "El problema es que ninguna encajaba con todas las pistas a la vez. Y casi ninguna tenía pruebas."
+        tipo: lista
+        titulo: "Las pistas que había que explicar"
+        puntos: ["Tienda rajada desde dentro", "Huida a -30 °C, algunos en calcetines", "Fracturas graves en pecho y cráneo", "Radiactividad en algunas prendas"]
+        fuente: [1, 4]
+      - voz: "Lo que sí estaba claro es que aquella noche hizo mucho frío. Y que la mayoría murió de hipotermia."
+        tipo: ilustracion
+        escena: *cedro
+        texto: "La mayoría murió de frío"
+        ambiente: nieve
+        fuente: 3
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La avalancha que nadie vio"
+    titulo_short: "La explicación científica del paso Diátlov"
+    short: true
+    gancho_short:
+      - voz: "Sesenta años después, dos científicos suizos encontraron una explicación que encaja con casi todas las pistas."
+        tipo: titulo
+        texto: "La ciencia propone una respuesta"
+        resaltar: "respuesta"
+        kicker: "Misterio · 1959"
+        fuente: [1, 2]
+    escenas:
+      - voz: "En 2019, a petición de los familiares, la fiscalía rusa reabrió el caso."
+        tipo: fecha
+        fecha: "Febrero de 2019"
+        lugar: "La fiscalía rusa reabre el caso"
+        fuente: [1, 3]
+      - voz: "Los nuevos investigadores reconstruyeron el tiempo de aquella noche: ventisca, rachas de veinte a treinta metros por segundo y cerca de cuarenta grados bajo cero."
+        tipo: cifra
+        valor: -40
+        sufijo: " °C"
+        etiqueta: "Temperatura aproximada aquella noche, según la nueva investigación"
+        fuente: 7
+      - voz: "En julio de 2020 dio su conclusión: una avalancha. Según el fiscal Andréi Kuriákov, las heridas eran las típicas de montañeros atrapados por la nieve."
+        tipo: ilustracion
+        escena: *placa
+        kicker: "Julio de 2020"
+        texto: "La fiscalía: una avalancha"
+        fuente: 3
+      - voz: "Y añadió una frase sobre el grupo: «Fue una lucha heroica»."
+        tipo: cita
+        texto: "Fue una lucha heroica."
+        autor: "Andréi Kuriákov, fiscal"
+        fecha: "2020"
+        fuente: 7
+      - voz: "Pero había objeciones. La ladera no parecía tan empinada para una avalancha, no se vieron restos de una, y ¿por qué iba a caer horas después de acampar?"
+        tipo: lista
+        titulo: "Las objeciones a la avalancha"
+        puntos: ["Ladera de menos de 30°", "Sin restos visibles de avalancha", "¿Por qué horas después?"]
+        fuente: [1, 5]
+      - voz: "En 2021, Johan Gaume, de la Escuela Politécnica de Lausana, y Alexander Puzrin, de la ETH de Zúrich, publicaron un modelo que responde a las tres."
+        tipo: ilustracion
+        escena: &laboratorio >-
+          Un laboratorio moderno de nieve: dos muñecos de palo con bata, uno con gafas, miran una pantalla grande con una
+          simulación de una ladera nevada en colores; sobre la mesa, una maqueta de montaña de nieve y una regla.
+        kicker: "Gaume y Puzrin · 2021"
+        texto: "Un modelo de la avalancha"
+        fuente: [1, 2]
+      - voz: "Primero, el corte que cavaron para la tienda debilitó la base de la capa de nieve."
+        tipo: ilustracion
+        escena: *montando
+        kicker: "Paso 1"
+        texto: "El corte debilita la nieve"
+        fuente: [1, 2]
+      - voz: "Segundo, el viento que baja de las cumbres fue acumulando nieve encima, poco a poco, durante horas."
+        tipo: ilustracion
+        escena: *viento
+        kicker: "Paso 2"
+        texto: "El viento carga nieve encima"
+        ambiente: nieve
+        sonido: viento
+        fuente: [1, 2]
+      - voz: "Y tercero, al menos nueve horas después, se soltó una placa de nieve pequeña, que cayó sobre la tienda. Con la ladera de menos de treinta grados, bastaba."
+        tipo: ilustracion
+        escena: *placa
+        kicker: "Paso 3 · 9 horas después"
+        texto: "Cae una placa de nieve"
+        sonido: golpe
+        fuente: [1, 5]
+      - voz: "Sus simulaciones mostraron que el golpe de una placa así podía causar heridas como las del barranco. Y siendo pequeña, podía no dejar rastro visible."
+        tipo: ilustracion
+        escena: *laboratorio
+        texto: "Encaja con las heridas"
+        fuente: [1, 5]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "¿Caso cerrado?"
+    titulo_short: "¿Está resuelto el misterio del paso Diátlov?"
+    short: true
+    gancho_short:
+      - voz: "¿Está resuelto por fin el misterio del paso Diátlov? Los propios científicos responden con prudencia."
+        tipo: titulo
+        texto: "¿Caso cerrado?"
+        resaltar: "cerrado"
+        kicker: "Misterio · 1959"
+        fuente: 5
+    escenas:
+      - voz: "Con esa explicación, la noche tiene sentido. La nieve cae sobre la tienda y el grupo, asustado, corta la lona para salir cuanto antes."
+        tipo: ilustracion
+        escena: *tienda_noche
+        texto: "Una huida con sentido"
+        ambiente: nieve
+        fuente: [1, 2]
+      - voz: "Bajan hacia el bosque buscando refugio, hasta el cedro. Pero sin su ropa de abrigo, a treinta bajo cero, el frío los vence."
+        tipo: ilustracion
+        escena: *cedro
+        texto: "El frío hizo el resto"
+        ambiente: nieve
+        fuente: [1, 3]
+      - voz: "No todo el mundo está convencido. Los críticos recuerdan que en la ladera nunca se vieron restos de avalancha y que nadie registró condiciones de avalancha aquel febrero."
+        tipo: ilustracion
+        escena: *ladera
+        kicker: "Los críticos"
+        texto: "¿Dónde están los restos?"
+        ambiente: nieve
+        fuente: 7
+      - voz: "Aun así, Alexander Puzrin lo dice claro."
+        tipo: cita
+        texto: "La verdad, por supuesto, es que nadie sabe de verdad lo que pasó aquella noche."
+        autor: "Alexander Puzrin, ETH de Zúrich"
+        fecha: "2021"
+        fuente: 5
+      - voz: "Lo que aportan, dice, son pruebas cuantitativas sólidas de que la teoría de la avalancha es posible. No es una certeza, pero sí la explicación con más base."
+        tipo: ilustracion
+        escena: *laboratorio
+        texto: "Posible, con pruebas"
+        sub: "No es una certeza"
+        fuente: 5
+      - voz: "Y para él, toda esta historia ha servido para algo más: defender el método científico como una forma fiable de explicar lo que parece inexplicable."
+        tipo: presentador
+        kicker: "La lección"
+        texto: "Lo inexplicable también se puede investigar"
+        resaltar: "investigar"
+        presentador: {gesto: "asiente despacio con el dedo índice levantado"}
+        fuente: 6
+      - voz: "Hoy el lugar lleva el nombre del jefe del grupo: el paso Diátlov. Un recuerdo de nueve jóvenes que salieron a la montaña y no volvieron."
+        tipo: ilustracion
+        escena: &memorial >-
+          Una ladera nevada de montaña al amanecer, tranquila, con un pequeño monumento de piedra sencilla y unas flores
+          sobre la nieve; a lo lejos, el bosque y las montañas redondeadas de los Urales. Luz suave y cálida. Sin texto
+          ni nombres.
+        texto: "El paso Diátlov"
+        fuente: 1
+
+cierre:
+  - voz: "Si te ha gustado el caso, en el canal tienes más misterios, desastres y crímenes reales, contados con fuentes. Y dime en los comentarios: ¿te convence la avalancha?"
+    tipo: ilustracion
+    escena: *memorial
+    texto: "Casos a trazos"
+    sub: "Fuentes en la descripción"

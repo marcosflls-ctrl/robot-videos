@@ -20,7 +20,8 @@ del canal de medio ambiente: no es para publicar.
 - Fuentes de primera mano (IGN, AEMET, Copernicus, IPCC, NASA, NOAA, artículos revisados). La prensa solo
   para hechos que no publica ningún organismo, y siempre citada.
 - Los debates se cuentan con sus dos posturas, sin alarmismo y sin consignas.
-- Las fuentes del canal no tienen subíndices: escribe `CO2`, no `CO₂` (saldría un cuadrado).
+- Las fuentes de los canales no tienen subíndices ni flechas: escribe `CO2` (no `CO₂`) y `=` o `·` en vez de `→`
+  (saldría un cuadrado). En las cifras del canal de medio ambiente, tampoco `≈`.
 - Las ilustraciones son láminas de naturalista: cortes del terreno, paisajes y figuras humanas diminutas
   sin rasgos, solo para dar la escala.
 

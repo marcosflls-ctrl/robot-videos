@@ -1,0 +1,475 @@
+# El corralito (Argentina, 2001): el día que los argentinos no pudieron sacar su dinero del banco
+# Canal de historia económica. Guion para revisar antes de montar.
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+# Los políticos que salen se nombran, pero nunca se dibujan: las figuras son anónimas.
+
+descripcion: >-
+  El 3 de diciembre de 2001, millones de argentinos fueron a su banco y descubrieron que solo podían sacar
+  250 pesos a la semana. Era el corralito. Diez años antes, el país había atado el peso al dólar para acabar
+  con la hiperinflación, y funcionó. Pero el uno a uno tenía una trampa. Esta es la historia de cómo una
+  moneda fuerte acabó en recesión, fuga de depósitos, cinco personas al frente del país en trece días, la
+  suspensión de pagos de la deuda y unos ahorros en dólares convertidos a pesos por menos de la mitad de lo que valían.
+hashtags: "#historia #economía #Argentina #corralito #2001 #convertibilidad"
+
+carpeta: "El corralito (2001)"   # nombre de la carpeta en Google Drive
+titulos:
+  - "El corralito: el día que los argentinos no pudieron sacar su dinero (2001)"
+  - "Solo 250 pesos a la semana: así se congelaron los ahorros de un país"
+  - "Un peso, un dólar: la promesa que acabó en el corralito"
+
+miniaturas:
+  - texto: "No podían sacar su dinero"
+    resaltar: "dinero"
+    cifra: "250 $"
+    escena: &cola_banco >-
+      Una larga cola de figuras ante la puerta cerrada de un banco de Buenos Aires en diciembre de 2001: fachada
+      clásica de piedra con rejas bajadas, gente de verano con bolsos y carpetas, algunos con cacerolas. Calor,
+      luz dura de mediodía.
+  - texto: "Un peso, un dólar"
+    resaltar: "un dólar"
+    cifra: "1991"
+    lado: izquierda
+    escena: &uno_a_uno >-
+      Sobre un mostrador de casa de cambio de los años noventa, un billete de un peso argentino y un billete de un
+      dólar colocados exactamente a la misma altura en una balanza de latón equilibrada. Fondo de madera oscura,
+      luz cálida.
+  - texto: "Ahorros convertidos a la mitad"
+    resaltar: "la mitad"
+    cifra: "1,40"
+    escena: &libreta >-
+      Una mano de figura dibujada a trazo sostiene una libreta de ahorro bancaria abierta frente a la ventanilla de un
+      banco; detrás del cristal, un empleado se encoge de hombros. Luz de fluorescente, ambiente tenso.
+
+fuentes:
+  - id: 1
+    corta: "FMI · IEO (2004)"
+    cita: "Oficina de Evaluación Independiente del FMI (julio de 2004). The IMF and Argentina, 1991–2001."
+    url: "https://www.imf.org/external/np/ieo/2004/arg/eng/index.htm"
+  - id: 2
+    corta: "Marval O'Farrell Mairal (28-12-2001)"
+    cita: "Marval O'Farrell Mairal (28-12-2001). Restricciones bancarias en la Argentina: el corralito (Decreto 1570/2001)."
+    url: "https://www.marval.com/publicacion/restricciones-bancarias-en-la-argentina-el-corralito-12460"
+  - id: 3
+    corta: "CNN en Español (2021)"
+    cita: "CNN en Español (20-12-2021). 20 años del corralito en Argentina (información de Ignacio Grimaldi)."
+    url: "https://cnnespanol.cnn.com/2021/12/20/20-anos-corralito-argentina-orix"
+  - id: 4
+    corta: "iProfesional (03-12-2021)"
+    cita: "Ramallo, R. (03-12-2021). El día que cambió la historia de la Argentina: a 20 años del «corralito» y de la implosión de la convertibilidad. iProfesional."
+    url: "https://www.iprofesional.com/finanzas/352887-que-paso-antes-y-despues-del-corralito-hace-20-anos"
+  - id: 5
+    corta: "El Litoral (2026)"
+    cita: "El Litoral (27-07-2026). Pesificación asimétrica y corralón: qué fue el Decreto 214/2002."
+    url: "https://www.ellitoral.com/economia/pesificacion-asimetrica-corralon-crisis-2001-argentina-dolar-convertibilidad-demendiguren-milei_0_f2QXY2B4SJ.html"
+  - id: 6
+    corta: "La Nación / INDEC (2003)"
+    cita: "La Nación (19-03-2003). El PBI cayó 10,9 por ciento durante 2002 (datos del INDEC)."
+    url: "https://www.lanacion.com.ar/economia/el-pbi-cayo-109-por-ciento-durante-2002-nid482035"
+  - id: 7
+    corta: "Página/12 (23-11-2002)"
+    cita: "Zlotnik, C. (23-11-2002). Lavagna anunció el fin del corralito. Página/12."
+    url: "https://www.pagina12.com.ar/diario/elpais/1-13288-2002-11-23.html"
+  - id: 8
+    corta: "Wikipedia: 1989 hyperinflation in Argentina"
+    cita: "«1989 hyperinflation in Argentina». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/1989_hyperinflation_in_Argentina"
+  - id: 9
+    corta: "El Cronista (2021)"
+    cita: "El Cronista (2021). La crisis de 2001, 20 años después: no fueron cinco presidentes ni fue una semana."
+    url: "https://www.cronista.com/economia-politica/la-crisis-de-2001-20-anos-despues-no-fueron-cinco-presidentes-ni-fue-una-semana"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "El lunes tres de diciembre de 2001, millones de argentinos fueron a su banco a sacar dinero. Y descubrieron que no podían."
+    tipo: ilustracion
+    escena: *cola_banco
+    kicker: "Argentina · 3 de diciembre de 2001"
+    fuente: [2, 3]
+  - voz: "Desde ese día, cada persona solo podía sacar doscientos cincuenta pesos a la semana. Su propio dinero."
+    tipo: cifra
+    valor: 250
+    sufijo: " $"
+    etiqueta: "Lo máximo que se podía sacar por semana"
+    fuente: 2
+  - voz: "Lo llamaron el corralito. Y fue solo el principio: en pocas semanas, cinco personas pasaron por la presidencia, el país dejó de pagar su deuda y los dólares de los ahorradores se convirtieron en pesos por menos de la mitad de su valor."
+    tipo: ilustracion
+    escena: &cacerolas >-
+      Una plaza de Buenos Aires de noche llena de figuras que golpean cacerolas y sartenes; al fondo, la fachada de un
+      edificio de gobierno con columnas iluminado. Banderas sin texto, ambiente de protesta pacífica, luz de farolas.
+    texto: "El corralito"
+    fuente: [3, 5, 9]
+  - voz: "¿Cómo pudo pasar en un país donde un peso valía exactamente un dólar? Para entenderlo hay que volver diez años atrás."
+    tipo: presentador
+    kicker: "El corralito"
+    texto: "¿Cómo se llegó hasta aquí?"
+    resaltar: "aquí"
+    presentador: {gesto: "abre la libreta y señala una página con la pluma"}
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un peso, un dólar"
+    titulo_short: "La ley que hizo que un peso valiera un dólar"
+    short: true
+    gancho_short:
+      - voz: "En 1991, Argentina decidió por ley que un peso valdría lo mismo que un dólar. Funcionó. Hasta que dejó de funcionar."
+        tipo: titulo
+        texto: "Un peso = un dólar"
+        resaltar: "un dólar"
+        kicker: "Historia económica"
+        fuente: 1
+    escenas:
+      - voz: "A finales de los ochenta, Argentina vivía una hiperinflación. En 1989 y en 1990 los precios subieron más de un dos mil seiscientos por ciento al año."
+        tipo: cifra
+        valor: 2600
+        prefijo: "+"
+        sufijo: " %"
+        etiqueta: "Subida de precios en un año (1989 y 1990)"
+        fuente: 8
+      - voz: "Los precios cambiaban de un día para otro. Cobrar el sueldo y gastarlo cuanto antes era la única forma de no perderlo."
+        tipo: ilustracion
+        escena: &hiperinflacion >-
+          Un supermercado argentino de finales de los ochenta: un empleado con delantal cambia con una etiquetadora el
+          precio de unas latas en la estantería mientras varias figuras empujan carritos llenos a toda prisa. Luz de
+          fluorescente, prisa y tensión.
+        kicker: "Hiperinflación"
+        texto: "El precio cambiaba cada día"
+        fuente: 8
+      - voz: "En 1991 llegó la solución: la convertibilidad. Por ley, un peso valdría exactamente un dólar."
+        tipo: ilustracion
+        escena: *uno_a_uno
+        kicker: "1991 · Convertibilidad"
+        texto: "Un peso, un dólar"
+        fuente: 1
+      - voz: "Funcionó. El propio Fondo Monetario Internacional reconoce que el uno a uno fue muy eficaz para acabar con la hiperinflación."
+        tipo: ilustracion
+        escena: &noventa >-
+          Una calle comercial de Buenos Aires a mediados de los noventa, animada: escaparates con electrodomésticos
+          importados, figuras con bolsas de compras, coches de la época y carteles sin texto legible. Sol de tarde.
+        kicker: "Los años noventa"
+        texto: "Se acaba la hiperinflación"
+        fuente: 1
+      - voz: "Pero tenía una trampa. Con el peso atado al dólar, Argentina ya no podía abaratar su moneda aunque lo necesitara. Si las cosas se torcían, no había válvula de escape."
+        tipo: ilustracion
+        escena: &cadena >-
+          Un billete de peso argentino y un billete de dólar atados entre sí con una cadena de hierro y un candado,
+          sobre una mesa de madera. Composición sencilla, luz lateral cálida.
+        kicker: "La trampa"
+        texto: "Sin válvula de escape"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La trampa del uno a uno"
+    titulo_short: "Por qué el uno a uno llevó a Argentina a la crisis"
+    short: true
+    gancho_short:
+      - voz: "El peso fuerte acabó con la inflación. Pero dejó a Argentina sin salida cuando llegó la recesión."
+        tipo: titulo
+        texto: "Una moneda fuerte, sin salida"
+        resaltar: "sin salida"
+        kicker: "Historia económica"
+        fuente: 1
+    escenas:
+      - voz: "Desde la segunda mitad de 1998, la economía argentina dejó de crecer. A finales de 2001 llevaba ya tres años en recesión."
+        tipo: ilustracion
+        escena: &fabrica >-
+          Una fábrica textil argentina a finales de los noventa con las persianas metálicas bajadas y un candado; en la
+          acera, varias figuras de obreros con mono miran la puerta cerrada. Cielo gris.
+        kicker: "1998–2001"
+        texto: "Tres años de recesión"
+        fuente: 1
+      - voz: "Mientras, la deuda pública no paraba de crecer. Gran parte estaba en dólares y en manos de inversores extranjeros."
+        tipo: ilustracion
+        escena: &deuda >-
+          Un despacho de ministerio de los años noventa: sobre una mesa, montones altísimos de carpetas y documentos
+          atados, que casi tocan el techo; una figura con traje mira las pilas con preocupación. Luz de flexo.
+        texto: "Una deuda en dólares que no paraba de crecer"
+        fuente: 1
+      - voz: "El Fondo Monetario fue prestando más dinero año tras año, aunque Argentina no cumplía los objetivos de déficit. En 2001 sus compromisos llegaron a veintidós mil millones de dólares."
+        tipo: cifra
+        valor: 22000
+        sufijo: " M$"
+        etiqueta: "Compromisos del FMI con Argentina en 2001"
+        fuente: 1
+      - voz: "El Gobierno lo intentó todo: canjeó deuda por valor de veintinueve mil quinientos millones de dólares y aprobó una ley de déficit cero."
+        tipo: lista
+        titulo: "Los intentos de 2001"
+        puntos: ["Megacanje de deuda: 29.500 M$", "Ley de déficit cero", "Ley de intangibilidad de los depósitos"]
+        fuente: 4
+      - voz: "Pero en octubre de 2001 el paro llegaba al dieciocho coma tres por ciento, la deuda pública a ciento treinta y dos mil millones de dólares, y el riesgo país pasaba de cinco mil puntos. Nadie quería prestarle a Argentina."
+        tipo: lista
+        titulo: "Argentina, finales de 2001"
+        puntos: ["Paro: 18,3 % (octubre)", "Deuda pública: 132.000 M$", "Riesgo país: más de 5.000 puntos"]
+        fuente: 4
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La huida de los depósitos"
+    titulo_short: "Cuando los ahorradores vaciaron los bancos argentinos"
+    short: true
+    gancho_short:
+      - voz: "En un solo año, los argentinos sacaron de los bancos casi veinte mil millones de dólares."
+        tipo: titulo
+        texto: "La gran huida del dinero"
+        resaltar: "huida"
+        kicker: "Historia económica"
+        fuente: 3
+    escenas:
+      - voz: "Si el peso tenía que caer, los que tuvieran pesos lo perderían todo. Así que la gente empezó a hacer lo lógico: sacar su dinero, o pasarlo a dólares."
+        tipo: ilustracion
+        escena: &cajero >-
+          Varias figuras hacen cola ante un cajero automático de un banco de Buenos Aires en 2001; una de ellas guarda
+          un fajo de billetes en un sobre con cara de alivio. Calle de ciudad, luz de tarde.
+        texto: "Sacar el dinero, por si acaso"
+        fuente: 4
+      - voz: "En enero de 2001 había en los bancos unos ochenta y cinco mil millones de dólares en depósitos. En diciembre quedaban sesenta y cinco mil."
+        tipo: comparar
+        titulo: "Depósitos en los bancos argentinos en 2001"
+        izquierda: {etiqueta: "Enero", valor: 85308, texto: "85.308 M$"}
+        derecha: {etiqueta: "Diciembre", valor: 65380, texto: "65.380 M$"}
+        fuente: 3
+      - voz: "Solo en noviembre salieron cinco mil quinientos cuarenta y tres millones. Fue la mayor salida de depósitos en un mes de la historia argentina."
+        tipo: cifra
+        valor: 5543
+        sufijo: " M"
+        etiqueta: "Depósitos retirados en noviembre de 2001, récord histórico"
+        fuente: 4
+      - voz: "Un banco no guarda todo el dinero en la caja: la mayor parte la presta. Si todos quieren sacar sus ahorros a la vez, no hay suficiente para todos."
+        tipo: esquema
+        modo: cadena
+        titulo: "Cómo cae un sistema bancario"
+        nodos:
+          - {etiqueta: "Miedo", texto: "Se teme una devaluación"}
+          - {etiqueta: "Retiradas", texto: "Todos sacan su dinero"}
+          - {etiqueta: "Colapso", texto: "Los bancos se quedan sin efectivo", destacar: true}
+        flechas: ["Pánico", "Sin liquidez"]
+      - voz: "El ministro de Economía, Domingo Cavallo, preparó una respuesta de urgencia."
+        tipo: ilustracion
+        escena: &ministerio_noche >-
+          El exterior de un edificio de ministerio en Buenos Aires de noche, con muchas ventanas iluminadas; en una de
+          ellas se recortan las siluetas de varias figuras reunidas alrededor de una mesa. Calle vacía, farolas.
+        kicker: "Ministerio de Economía"
+        texto: "Una reunión de urgencia"
+        fuente: [3, 4]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El corralito"
+    titulo_short: "Así funcionaba el corralito argentino"
+    short: true
+    gancho_short:
+      - voz: "Imagina ir al banco y que te digan que de tu propio dinero solo puedes sacar doscientos cincuenta pesos a la semana."
+        tipo: titulo
+        texto: "Solo 250 pesos a la semana"
+        resaltar: "250 pesos"
+        kicker: "Historia económica"
+        fuente: 2
+    escenas:
+      - voz: "El uno de diciembre de 2001, el Gobierno firmó el decreto mil quinientos setenta. Entró en vigor el lunes tres."
+        tipo: fecha
+        fecha: "1 de diciembre de 2001"
+        lugar: "Decreto 1570/2001: nace el corralito"
+        fuente: 2
+      - voz: "Cada persona podía sacar como máximo doscientos cincuenta pesos o dólares a la semana, sumando todas sus cuentas en cada banco."
+        tipo: ilustracion
+        escena: *libreta
+        kicker: "Decreto 1570/2001"
+        texto: "250 a la semana, como máximo"
+        fuente: 2
+      - voz: "Además se prohibió sacar dinero al extranjero, salvo para el comercio y para pagar con tarjeta fuera del país."
+        tipo: ilustracion
+        escena: &aduana >-
+          Un mostrador de banco con un cartel colgado sin texto legible y una ventanilla de cambio de divisas cerrada con
+          una persiana metálica; al otro lado, una figura con maleta de viaje se queda mirando. Luz de fluorescente.
+        texto: "Prohibido sacar dinero del país"
+        fuente: 2
+      - voz: "El dinero seguía en los bancos y se podía pagar con tarjeta o con cheque. Lo que no se podía era tenerlo en la mano."
+        tipo: ilustracion
+        escena: &tarjeta >-
+          Una tienda de barrio de Buenos Aires con un datáfono antiguo sobre el mostrador; una figura paga con tarjeta
+          mientras otra cuenta unas pocas monedas con cara de preocupación. Luz cálida de tarde.
+        texto: "Con tarjeta sí, en efectivo no"
+        fuente: [2, 4]
+      - voz: "Para las fiestas de fin de año, el límite se subió a quinientos durante una semana. La medida iba a durar unos noventa días."
+        tipo: comparar
+        titulo: "Límite de retirada por semana"
+        izquierda: {etiqueta: "Normal", valor: 250, texto: "250"}
+        derecha: {etiqueta: "Semana de fiestas", valor: 500, texto: "500"}
+        fuente: 2
+      - voz: "El nombre se lo puso el periodista Antonio Laje en televisión. El dinero de los argentinos estaba en un corral."
+        tipo: ilustracion
+        escena: &corral >-
+          Una ilustración simbólica: dentro de una pequeña valla de madera de corral, como las del campo, un montón de
+          billetes y monedas; alrededor, varias figuras se asoman a la valla sin poder entrar. Fondo de ciudad.
+        kicker: "Antonio Laje, periodista"
+        texto: "El dinero, en un corral"
+        fuente: 4
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Diciembre de 2001"
+    titulo_short: "Diciembre de 2001: cinco al mando de Argentina en trece días"
+    short: true
+    gancho_short:
+      - voz: "En diciembre de 2001, cinco personas pasaron por la presidencia de Argentina en solo trece días."
+        tipo: titulo
+        texto: "Cinco al mando en trece días"
+        resaltar: "trece días"
+        kicker: "Historia económica"
+        fuente: 9
+    escenas:
+      - voz: "El corralito paralizó el comercio. Muchos vivían del dinero en efectivo, y de repente no había."
+        tipo: ilustracion
+        escena: &comercio >-
+          Una calle comercial de un barrio de Buenos Aires con muchas tiendas con la persiana a medio bajar y carteles en
+          blanco en los escaparates; un vendedor ambulante sentado sin clientes. Calor de verano, luz dura.
+        texto: "El comercio se paraliza"
+        fuente: 4
+      - voz: "Hubo protestas, huelgas y saqueos. Los ahorradores salieron a la calle golpeando cacerolas."
+        tipo: ilustracion
+        escena: *cacerolas
+        kicker: "Diciembre de 2001"
+        texto: "Cacerolas en la calle"
+        sonido: golpe
+        fuente: 3
+      - voz: "El diecinueve de diciembre, el presidente Fernando de la Rúa declaró el estado de sitio. Las protestas siguieron, y la represión dejó treinta y nueve muertos, según la Secretaría de Derechos Humanos."
+        tipo: cifra
+        valor: 39
+        etiqueta: "Muertos en la represión de las protestas (19 y 20 de diciembre)"
+        fuente: 3
+      - voz: "El día veinte, De la Rúa dimitió y salió de la Casa Rosada en helicóptero."
+        tipo: ilustracion
+        escena: &helicoptero >-
+          Un helicóptero blanco sin marcas despega de la azotea de un gran edificio de gobierno de color rosado al
+          atardecer, sobre una plaza; abajo, figuras diminutas miran hacia arriba. Cielo naranja y humo lejano.
+        kicker: "20 de diciembre de 2001"
+        texto: "El presidente dimite"
+        fuente: 3
+      - voz: "El veintitrés de diciembre, el Congreso nombró presidente a Adolfo Rodríguez Saá, que anunció que Argentina dejaba de pagar su deuda. Dimitió a los siete días."
+        tipo: ilustracion
+        escena: &congreso >-
+          El interior de un parlamento con escaños semicirculares de madera llenos de figuras de pie que aplauden, y una
+          figura en la tribuna; banderas sin símbolos ni texto. Luz cálida de lámparas.
+        kicker: "Diciembre de 2001"
+        texto: "Argentina deja de pagar su deuda"
+        fuente: [1, 3, 9]
+      - voz: "Entre medias, dos presidentes de las cámaras ocuparon el puesto de forma provisional. Al final, el Congreso eligió a Eduardo Duhalde para terminar el mandato. Le tocaba lo más difícil: desatar el peso del dólar."
+        tipo: ilustracion
+        escena: *cadena
+        kicker: "Enero de 2002"
+        texto: "Romper la cadena"
+        fuente: [1, 3, 9]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Pesificación y corralón"
+    titulo_short: "Cómo los ahorros en dólares se convirtieron en pesos"
+    short: true
+    gancho_short:
+      - voz: "Tenías mil dólares en el banco. Te devolvieron mil cuatrocientos pesos. Y el dólar ya valía casi tres."
+        tipo: titulo
+        texto: "Tus dólares, convertidos en pesos"
+        resaltar: "pesos"
+        kicker: "Historia económica"
+        fuente: [3, 5]
+    escenas:
+      - voz: "A principios de enero de 2002, Argentina abandonó la convertibilidad. Después de diez años, el peso volvía a flotar."
+        tipo: fecha
+        fecha: "Enero de 2002"
+        lugar: "Fin del uno a uno"
+        fuente: 1
+      - voz: "En pocas semanas, un dólar pasó a costar unos tres pesos."
+        tipo: comparar
+        titulo: "Pesos por cada dólar"
+        izquierda: {etiqueta: "Convertibilidad", valor: 1, texto: "1"}
+        derecha: {etiqueta: "Semanas después", valor: 3, texto: "unos 3"}
+        fuente: 3
+      - voz: "En febrero llegó el decreto doscientos catorce. Los depósitos en dólares se convertían en pesos a uno coma cuarenta por dólar, más un ajuste por inflación."
+        tipo: ilustracion
+        escena: *libreta
+        kicker: "Decreto 214/2002"
+        texto: "1 dólar = 1,40 pesos"
+        fuente: 5
+      - voz: "En cambio, las deudas en dólares con los bancos se convertían uno a uno. Por eso se la llamó pesificación asimétrica."
+        tipo: esquema
+        modo: causas
+        titulo: "La pesificación asimétrica"
+        nodos:
+          - {etiqueta: "Ahorros en dólares", texto: "1 dólar = 1,40 pesos"}
+          - {etiqueta: "Deudas en dólares", texto: "1 dólar = 1 peso"}
+        resultado: {etiqueta: "Mientras tanto", texto: "El dólar, a unos 3 pesos"}
+        fuente: [3, 5]
+      - voz: "Quien había ahorrado en dólares perdió una gran parte. Quien debía dólares al banco vio su deuda muy aligerada."
+        tipo: ilustracion
+        escena: &balanza_rota >-
+          Una balanza de latón muy desequilibrada sobre un mostrador: en un plato, una hucha rota con pocas monedas; en el
+          otro, que pesa más, un contrato de préstamo con un lazo. Fondo de banco con madera oscura, luz cálida.
+        texto: "Unos perdieron, otros ganaron"
+        fuente: 5
+      - voz: "Y los plazos fijos quedaron reprogramados: no se podían sacar hasta años después. Si el corralito encerraba el dinero, aquello era más grande. Lo llamaron el corralón."
+        tipo: ilustracion
+        escena: *corral
+        kicker: "El corralón"
+        texto: "Plazos fijos encerrados durante años"
+        fuente: [5, 7]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La salida y la lección"
+    titulo_short: "Qué aprendió Argentina del corralito"
+    short: true
+    gancho_short:
+      - voz: "En 2002, la economía argentina cayó casi un once por ciento. Más de la mitad del país quedó en la pobreza."
+        tipo: titulo
+        texto: "Más de la mitad, en la pobreza"
+        resaltar: "la pobreza"
+        kicker: "Historia económica"
+        fuente: [3, 6]
+    escenas:
+      - voz: "El precio fue enorme. En 2002 la economía se hundió un diez coma nueve por ciento, según el INDEC."
+        tipo: cifra
+        valor: -10.9
+        decimales: 1
+        sufijo: " %"
+        etiqueta: "Caída del PIB de Argentina en 2002"
+        color: baja
+        fuente: 6
+      - voz: "El paro llegó al veintiuno por ciento y la pobreza, al cincuenta y siete coma cinco."
+        tipo: comparar
+        titulo: "Argentina en 2002"
+        izquierda: {etiqueta: "Paro", valor: 21, texto: "21 %"}
+        derecha: {etiqueta: "Pobreza", valor: 57.5, texto: "57,5 %"}
+        fuente: 3
+      - voz: "El corralito se levantó un año después, el dos de diciembre de 2002, con el ministro Roberto Lavagna. Se liberaron casi veinticuatro mil millones de pesos."
+        tipo: fecha
+        fecha: "2 de diciembre de 2002"
+        lugar: "Fin del corralito: se liberan 23.739 millones de pesos"
+        fuente: 7
+      - voz: "Pero unos diecisiete mil trescientos millones siguieron atrapados en el corralón, con vencimientos hasta 2005."
+        tipo: ilustracion
+        escena: *corral
+        texto: "El corralón, hasta 2005"
+        fuente: 7
+      - voz: "¿Qué falló? La evaluación independiente del propio FMI critica al Fondo por apoyar demasiado tiempo una política sin salida, y por no vigilar la deuda que se acumulaba."
+        tipo: ilustracion
+        escena: &informe >-
+          Una mesa de trabajo con un informe grueso encuadernado abierto, gráficos de líneas descendentes dibujados a
+          mano en sus páginas, unas gafas y una taza de café. Luz de mañana por una ventana. Sin texto legible.
+        kicker: "FMI · Evaluación independiente (2004)"
+        texto: "Una política sin salida, apoyada demasiado tiempo"
+        fuente: 1
+      - voz: "Y concluye que el dinero gastado en 2001 para salvar el uno a uno se podría haber usado mejor para reducir el coste de salir de él."
+        tipo: cita
+        texto: "Los recursos usados en 2001 para preservar el régimen podrían haberse usado mejor para reducir los costes de la salida."
+        autor: "Oficina de Evaluación Independiente del FMI"
+        fecha: "2004"
+        fuente: 1
+      - voz: "La lección no es que una moneda fuerte sea mala: el uno a uno acabó con la hiperinflación. Es que atar la moneda sin cuidar la deuda deja a un país sin salida cuando llega una crisis."
+        tipo: presentador
+        kicker: "La lección"
+        texto: "Una moneda atada necesita cuentas en orden"
+        resaltar: "cuentas en orden"
+        presentador: {gesto: "cierra la libreta y la levanta con gesto serio"}
+        fuente: 1
+
+cierre:
+  - voz: "Si te ha interesado, en el canal tienes más historias de dinero, crisis y burbujas, contadas con datos. Todas las fuentes, en la descripción."
+    tipo: ilustracion
+    escena: *uno_a_uno
+    texto: "El Precio de la Historia"
+    sub: "Fuentes en la descripción"
