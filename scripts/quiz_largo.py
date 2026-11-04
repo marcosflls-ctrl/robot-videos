@@ -33,6 +33,7 @@ RCX = (RX0 + RX1) // 2
 CY = 575  # centro vertical del contenido
 IH = int(COL * 9 / 16)
 IY0 = CY - IH // 2
+ZONA_PREGUNTA = 255  # alto reservado a la pregunta (hasta 3 líneas); las respuestas empiezan debajo
 
 
 def ordenar(q):
@@ -96,7 +97,7 @@ class MontadorLargo:
         def hacer():
             texto = self.q["preguntas"][i]["pregunta"]
             ancho = RX1 - RX0
-            f, lineas = encajar_texto(texto, self.ft["tit"], ancho - 10, 4, 60, 34)
+            f, lineas = encajar_texto(texto, self.ft["tit"], ancho - 10, 3, 60, 34)
             lh = f.size * 1.16
             img = Image.new("RGBA", (ancho, int(len(lineas) * lh + 14)), (0, 0, 0, 0))
             d = ImageDraw.Draw(img)
@@ -108,18 +109,9 @@ class MontadorLargo:
         return self._guardado(("preg", i), hacer)
 
     def bloque_derecho(self, i):
-        """(y de la pregunta, y donde empiezan las respuestas): pregunta + respuestas centradas en CY."""
-        p = self.q["preguntas"][i]
-        qh = self.capa_pregunta(i).height
-        if p["tipo"] == "vf":
-            alto_op = 200
-        else:
-            n = len(p["opciones"])
-            alto, hueco = (96, 18) if n > 2 else (130, 26)
-            alto_op = n * alto + (n - 1) * hueco
-        total = qh + 40 + alto_op
-        arriba = CY - total / 2
-        return arriba, arriba + qh + 40
+        """(y de la pregunta, y donde empiezan las respuestas). Siempre las mismas en todas las preguntas:
+        la pregunta arranca a la altura del borde de arriba de la ilustración y las respuestas, debajo."""
+        return IY0, IY0 + ZONA_PREGUNTA
 
     def cajas(self, i):
         p = self.q["preguntas"][i]

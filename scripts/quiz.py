@@ -691,7 +691,8 @@ class Montador:
         pegar(lz, et, X0 + 24 + et.width / 2, 290 + 40, suave((tl - 0.6) / 0.2))
         # Texto de la pregunta
         cp = self.capa_pregunta(i)
-        self.entrar(cp, CX, 845 + cp.height / 2 + max(0, (300 - cp.height) / 2) - 20, tl, lz, 0.5)
+        # Siempre a la misma altura: la primera línea arranca en el mismo sitio en todas las preguntas
+        self.entrar(cp, CX, 850 + cp.height / 2, tl, lz, 0.5)
         # Respuestas
         revela = tl >= tiempos["revela"]
         for k, caja in enumerate(self.cajas(i)):
