@@ -1,14 +1,17 @@
 # Canal de quiz (Dale al Coco, antes TrivialXpress): monta un Short vertical a partir de un quiz de la carpeta quizzes/.
 # Te lo manda por Telegram (y a Google Drive, si está configurado) para que lo subas tú. NO publica nada.
 # Se lanza solo cada día por la tarde (de lunes a sábado un Short, el domingo el vídeo largo), con el quiz
-# que tenga la fecha de ese día. También se puede lanzar a mano: "Actions" -> "Vídeo de quiz" -> "Run workflow".
+# que tenga la fecha de ese día. GitHub a veces retrasa o se salta las tareas programadas, así que lo intenta
+# tres veces por la tarde; en cuanto una sale bien, las demás de ese día no hacen nada (no se repite el envío). También se puede lanzar a mano: "Actions" -> "Vídeo de quiz" -> "Run workflow".
 
 name: Vídeo de quiz
 
 on:
-  # Todos los días a las 16:37 UTC (17:37 en Madrid en invierno, 18:37 en verano)
+  # Tres intentos al día (hora UTC; en Madrid, +1 en invierno): 16:37, 18:07 y 20:07 en Madrid
   schedule:
-    - cron: "37 16 * * *"
+    - cron: "37 15 * * *"
+    - cron: "7 17 * * *"
+    - cron: "7 19 * * *"
   workflow_dispatch:
     inputs:
       quiz:
@@ -37,8 +40,39 @@ on:
 permissions:
   contents: read
 
+# Nunca dos a la vez: si coinciden, el segundo espera y luego ve que ya está hecho
+concurrency:
+  group: video-quiz
+  cancel-in-progress: false
+
 jobs:
+  # ¿Ya se hizo el vídeo de hoy? (solo cuenta en los lanzamientos automáticos; a mano siempre se monta)
+  control:
+    runs-on: ubuntu-latest
+    outputs:
+      seguir: ${{ steps.decidir.outputs.seguir }}
+      fecha: ${{ steps.fecha.outputs.fecha }}
+    steps:
+      - id: fecha
+        run: echo "fecha=$(TZ=Europe/Madrid date +%F)" >> "$GITHUB_OUTPUT"
+      - id: hecho
+        uses: actions/cache/restore@v4
+        with:
+          path: .quiz-hecho
+          key: quiz-hecho-${{ steps.fecha.outputs.fecha }}
+          lookup-only: true
+      - id: decidir
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ steps.hecho.outputs.cache-hit }}" = "true" ]; then
+            echo "El vídeo de hoy (${{ steps.fecha.outputs.fecha }}) ya se hizo: no hago nada."
+            echo "seguir=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "seguir=1" >> "$GITHUB_OUTPUT"
+          fi
+
   video:
+    needs: control
+    if: needs.control.outputs.seguir == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -145,3 +179,12 @@ jobs:
             comprobar "$(curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"${QUIZ}.mp4" -F supports_streaming=true \
               -F caption="$(head -c 1000 "${QUIZ}.txt")" "$API/sendVideo")" "${QUIZ}.mp4"
           fi
+      - name: Apuntar que el vídeo de hoy ya está hecho
+        if: success() && github.event.inputs.sin_voz != 'true' && (github.event_name == 'schedule' || github.event.inputs.quiz == '')
+        run: mkdir -p .quiz-hecho && date > .quiz-hecho/hecho
+      - name: Guardar la marca de hecho
+        if: success() && github.event.inputs.sin_voz != 'true' && (github.event_name == 'schedule' || github.event.inputs.quiz == '')
+        uses: actions/cache/save@v4
+        with:
+          path: .quiz-hecho
+          key: quiz-hecho-${{ needs.control.outputs.fecha }}
