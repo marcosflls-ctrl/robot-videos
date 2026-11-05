@@ -62,8 +62,9 @@ ilustraciones:
 # La miniatura se hace con la ilustración en color
 miniatura_color: true
 
-# En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
-ilustracion_vertical: encajar
+# En los Shorts, las ilustraciones (horizontales) ocupan toda la pantalla y la cámara las recorre
+# de lado a lado («recorrer»). Con «encajar» se ven enteras en el centro con un fondo difuminado.
+ilustracion_vertical: recorrer
 
 # Presentador del canal: sale en los momentos clave (gancho, inicio de cada capítulo, cierre y final
 # de los Shorts) y en las escenas «presentador». Se dibuja una vez y se reutiliza en todos los vídeos.

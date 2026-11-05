@@ -58,8 +58,9 @@ ilustraciones:
 # La miniatura se hace con la ilustración en color (antes, en dos tonos)
 miniatura_color: true
 
-# En los Shorts, las ilustraciones (horizontales) se ven enteras en el centro en vez de recortadas
-ilustracion_vertical: encajar
+# En los Shorts, las ilustraciones (horizontales) ocupan toda la pantalla y la cámara las recorre
+# de lado a lado («recorrer»). Con «encajar» se ven enteras en el centro con un fondo difuminado.
+ilustracion_vertical: recorrer
 
 # Subtítulos grabados en el vídeo (en los Shorts casi siempre conviene; en el largo es opcional,
 # porque de todas formas se genera el archivo .srt para subirlo a YouTube)
