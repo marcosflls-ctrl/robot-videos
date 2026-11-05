@@ -350,11 +350,15 @@ def preparar_imagenes(g, canal):
             e["_credito"] = str((canal.get("ilustraciones") or {}).get("credito") or "Ilustración")
             if canal.get("ilustracion_vertical") == "encajar":
                 e["encajar"] = True
+            if canal.get("ilustracion_vertical") == "recorrer":
+                e["recorrer"] = True  # en los Shorts, a pantalla completa con la cámara recorriéndolo
             hay += e["_img"] is not None
         elif e.get("tipo") == "ilustracion":
             e["_img"], e["_credito"] = ilustraciones.generar({**e, "escena": _escena_para_pedir(e)}, canal)
             if canal.get("ilustracion_vertical") == "encajar":
                 e["encajar"] = True  # en los Shorts, el dibujo entero en vez de recortado
+            if canal.get("ilustracion_vertical") == "recorrer":
+                e["recorrer"] = True  # en los Shorts, a pantalla completa con la cámara recorriéndolo
             hay += e["_img"] is not None
         elif e.get("imagen") or e.get("buscar_imagen"):
             e["_img"], e["_credito"] = imagenes.conseguir(e, GUIONES)
@@ -830,7 +834,7 @@ def _a_48k(x, sr):
     return np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype(np.float32)
 
 
-def colocar_presentador(bloques):
+def colocar_presentador(bloques, vertical=False):
     """Decide en qué bloques sale el presentador: b["pres"] = ((recorte, lado), junto_al_dibujo).
 
     Encima de un dibujo solo sale si ese lado del dibujo está despejado; si no, espera al siguiente
@@ -848,7 +852,8 @@ def colocar_presentador(bloques):
         junto = False
         if quien and es_dibujo:
             junto = (e.get("tipo") == "ilustracion" and e.get("diseno", "completa") == "completa"
-                     and e.get("_img") is not None and personajes.lado_despejado(e["_img"], quien[1]))
+                     and e.get("_img") is not None and not (vertical and e.get("recorrer"))
+                     and personajes.lado_despejado(e["_img"], quien[1]))
             if not junto:
                 print(f"   El presentador no cabe en «{str(e.get('voz'))[:45]}…»: sale en el siguiente gráfico")
                 pendiente, quien = quien, None
@@ -923,7 +928,7 @@ def montar(g, canal, bloques, sr, geo, salida, subtitulos=False):
     vertical = ctx.vertical
     duracion = bloques[-1]["fin"]
     n_frames = int(math.ceil(duracion * FPS))
-    colocar_presentador(bloques)
+    colocar_presentador(bloques, vertical)
     audio = mezclar_audio(bloques, sr, duracion, carpeta, canal)
     es_short = bloques[-1]["tipo"] == "final_short"
 

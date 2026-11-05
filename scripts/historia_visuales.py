@@ -730,6 +730,7 @@ class Foto(Pieza):
             tratada = _encajar_vertical(tratada, int(W * 1.12), int(H * 1.12), ctx.tema)
             foco = (0.5, 0.5)
             self.encajada = True
+        self.recorre = bool(d.get("recorrer") and ctx.vertical and self.diseno == "completa" and not self.encajada)
         if self.diseno == "completa":
             self.caja = (0, 0, W, H)
         elif self.diseno == "marco":
@@ -741,7 +742,15 @@ class Foto(Pieza):
             self.caja = (0, 0, W, int(H * 0.56)) if ctx.vertical else (int(W * 0.36), 0, W, H)
         bw, bh = self.caja[2] - self.caja[0], self.caja[3] - self.caja[1]
         self.zoom = 1.06 if d.get("_hueco") else 1.18
-        self.foto = recortar_a(tratada, int(bw * self.zoom), int(bh * self.zoom), foco)
+        if self.recorre:
+            # Short a pantalla completa: el dibujo horizontal, a toda la altura, y la cámara lo recorre
+            # de un lado a otro para enseñar más de lo que cabe de una vez
+            alto = int(bh * 1.06)
+            ancho = max(int(bw * 1.06), int(alto * tratada.width / tratada.height))
+            self.foto = tratada.resize((ancho, alto), Image.LANCZOS).filter(
+                ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2))
+        else:
+            self.foto = recortar_a(tratada, int(bw * self.zoom), int(bh * self.zoom), foco)
         # Movimiento de cámara: el que pida el guion («camara: barrido») o uno distinto en cada escena
         opciones = CENTRADOS if (self.encajada or self.diseno == "marco") else MOVIMIENTOS
         pedido = str(d.get("camara") or "").strip()
@@ -750,6 +759,8 @@ class Foto(Pieza):
             self.mov = "acercar"
         if d.get("_hueco"):  # con el presentador encima del hueco del dibujo, el dibujo apenas se mueve
             self.mov = "suave"
+        if self.recorre:
+            self.mov = "recorrido"
         self.sentido = self.rnd.choice((-1, 1))
         self.foco_mov = (0.5 + self.rnd.uniform(-0.15, 0.15), 0.45 + self.rnd.uniform(-0.1, 0.1))
         self.ambiente = Ambiente(str(d["ambiente"]), self.W, self.H, semilla=self.rnd.randint(0, 9999)) \
@@ -768,10 +779,26 @@ class Foto(Pieza):
         self.velo = None
         if self.diseno == "completa":
             y = np.linspace(0, 1, H)[:, None]
-            a = 0.15 + 0.8 * np.clip((y - 0.45) / 0.4, 0, 1) ** 1.3 + 0.45 * np.clip((0.15 - y) / 0.15, 0, 1)
+            if self.recorre:  # Short a pantalla completa: velo solo abajo (texto y subtítulos), el dibujo se ve
+                a = 0.05 + 0.85 * np.clip((y - 0.6) / 0.3, 0, 1) ** 1.3 + 0.35 * np.clip((0.12 - y) / 0.12, 0, 1)
+            else:
+                a = 0.15 + 0.8 * np.clip((y - 0.45) / 0.4, 0, 1) ** 1.3 + 0.45 * np.clip((0.15 - y) / 0.15, 0, 1)
             self.velo = Image.new("RGBA", (W, H), ctx.c("fondo"))
             self.velo.putalpha(Image.fromarray((np.broadcast_to(a, (H, W)).clip(0, 1) * 255).astype(np.uint8)))
         self.textos = self._preparar_textos()
+        self.halo = None
+        if self.recorre and self.textos:
+            # El dibujo llega hasta el texto: una nube suave del color del fondo detrás para que se lea
+            cajas = []
+            for tipo, coords, txt, f in self.textos:
+                for (x, y), l in zip(coords, txt if isinstance(txt, list) else [txt]):
+                    b = f.getbbox(l)
+                    cajas.append((x + b[0], y + b[1], x + b[2], y + b[3]))
+            x0, y0 = min(c[0] for c in cajas) - 50, min(c[1] for c in cajas) - 40
+            x1, y1 = max(c[2] for c in cajas) + 50, max(c[3] for c in cajas) + 40
+            halo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            ImageDraw.Draw(halo).rounded_rectangle((x0, y0, x1, y1), 40, fill=ctx.c("fondo", 200))
+            self.halo = halo.filter(ImageFilter.GaussianBlur(28))
 
     def movil(self):
         return True
@@ -799,6 +826,17 @@ class Foto(Pieza):
         elif m == "golpe":      # acercamiento rápido al empezar y luego casi quieta
             s = 1 - 0.09 * _rebote_suave(t / 0.5) - 0.04 * e
             fx, fy = self.foco_mov
+        elif m == "recorrido":  # Short a pantalla completa: barrido lateral por el dibujo, sin prisa
+            W0, H0 = self.foto.width, self.foto.height
+            holgura = W0 - bw
+            tramo = min(holgura * 0.75, 230 * max(self.dur, 1.0))  # nunca más deprisa que ~230 px/s
+            cx = W0 / 2 + self.sentido * tramo * (e - 0.5)
+            s = 1 - 0.04 * e  # y se acerca un pelín
+            h = int(H0 * s)
+            w = min(W0, int(bw * h / bh))
+            x = max(0, min(W0 - w, int(cx - w / 2)))
+            y = max(0, min(H0 - h, int((H0 - h) * 0.5)))
+            return self.foto.crop((x, y, x + w, y + h)).resize((bw, bh), Image.BILINEAR)
         elif m == "suave":      # casi quieta: un acercamiento mínimo
             s = 1 - 0.05 * e
             fx = 0.5 + 0.02 * math.sin(t * 0.5)
@@ -904,6 +942,9 @@ class Foto(Pieza):
             xc = self.W - ctx.m if not ctx.vertical else self.W - ctx.m
             yc = self.H - 48 if not ctx.vertical else int(self.H * 0.56) - 70
             d.text((xc, yc), self.credito, font=ctx.f("txt", 19), fill=ctx.c("luz_foto", int(190 * entra)), anchor="rm")
+        if self.halo is not None:
+            img.alpha_composite(alfa_capa(self.halo, suave((t - 0.35) / 0.5)))
+            d = ImageDraw.Draw(img)
         # Textos escalonados
         k = 0
         for tipo, coords, txt, f in self.textos:
