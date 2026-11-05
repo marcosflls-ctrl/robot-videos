@@ -1,0 +1,535 @@
+# El radón: el gas radiactivo que puede haber en tu casa
+# Canal de ciencias medioambientales · sección «Cómo funciona».
+# Temario: Riesgos naturales, tema 9 (riesgos geoquímicos: radiactividad natural, radón).
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+
+canal: medioambiente
+
+descripcion: >-
+  En 1984, un ingeniero hizo saltar la alarma de radiación de una central nuclear que todavía no tenía
+  combustible. La radiactividad no venía de la central: venía de su casa. Era radón, un gas radiactivo
+  natural que sale de las rocas, no se ve ni huele y se acumula en los bajos de los edificios. La OMS lo
+  considera una de las principales causas de cáncer de pulmón. En este vídeo explicamos de dónde sale, por
+  qué daña los pulmones, en qué zonas de España hay más, cómo se mide y cómo se reduce. Todos los datos,
+  con su fuente.
+hashtags: "#radón #salud #geología #vivienda #ciencia #España"
+
+carpeta: "El radón"   # nombre de la carpeta en Google Drive
+titulos:
+  - "El gas radiactivo que puede haber en tu casa (y cómo saberlo)"
+  - "Radón: por qué en Galicia y Madrid deberías medir tu casa"
+  - "Una alarma nuclear sonó por culpa de su casa: el radón, explicado"
+
+miniaturas:
+  - texto: "El gas invisible de tu casa"
+    resaltar: "invisible"
+    cifra: "Radón"
+    escena: &casa_corte >-
+      Lámina didáctica en corte de una casa de dos plantas sobre el terreno: abajo, el suelo de granito con
+      grietas; desde las grietas sube un gas representado con un sombreado violeta muy suave que entra por la
+      solera y se acumula en el sótano y la planta baja; en el piso de arriba, una ventana abierta. Cielo claro.
+  - texto: "¿Hay radón en tu zona?"
+    resaltar: "tu zona"
+    cifra: "17 %"
+    lado: izquierda
+    escena: &granito >-
+      Un afloramiento de granito gris claro con grandes bolos redondeados y cristales visibles, en una sierra
+      con pinos y jaras; al pie, un pueblo pequeño de casas de piedra con tejados de pizarra. Luz limpia de
+      mañana.
+  - texto: "La alarma era su casa"
+    resaltar: "su casa"
+    cifra: "1984"
+    escena: &alarma >-
+      La entrada de una central nuclear en construcción en los años ochenta: un arco detector de radiación con
+      una luz roja encendida y, dentro del arco, una figura diminuta de tinta con casco y abrigo, sin rasgos;
+      al fondo, las torres de refrigeración todavía con andamios. Luz gris de invierno.
+
+fuentes:
+  - id: 1
+    corta: "OMS · Radón y salud"
+    cita: "Organización Mundial de la Salud. Radon and health (nota descriptiva)."
+    url: "https://www.who.int/news-room/fact-sheets/detail/radon-and-health"
+  - id: 2
+    corta: "CSN · Preguntas sobre el radón"
+    cita: "Consejo de Seguridad Nuclear. Preguntas frecuentes sobre el radón en viviendas."
+    url: "https://www.csn.es/documents/10182/989198/Preguntas%20frecuentes%20sobre%20el%20radón%20en%20viviendas"
+  - id: 3
+    corta: "CSN · Mapa del potencial de radón"
+    cita: "Consejo de Seguridad Nuclear (2017, actualización de zonas de 2025). Cartografía del potencial de radón de España (FDE-02.17)."
+    url: "https://www.csn.es/documents/10182/914801/FDE+-02.17+Cartograf%C3%ADa+del+potencial+de+rad%C3%B3n+de+Espa%C3%B1a/c64ecbcc-d203-128e-066b-f0f01ff30e93"
+  - id: 4
+    corta: "EPA · Radon basics"
+    cita: "U.S. Environmental Protection Agency. Radionuclide basics: radon."
+    url: "https://19january2021snapshot.epa.gov/radiation/radionuclide-basics-radon_.html"
+  - id: 5
+    corta: "Ruano-Ravina et al. (2021)"
+    cita: "Ruano-Ravina, A., Varela Lema, L., García Talavera, M. et al. (2021). Lung cancer mortality attributable to residential radon exposure in Spain and its regions. Environmental Research, 199, 111372."
+    url: "https://doi.org/10.1016/j.envres.2021.111372"
+  - id: 6
+    corta: "Redacción Médica (2021)"
+    cita: "Redacción Médica. Un 4 % de las muertes por cáncer de pulmón se debe a la exposición al radón (resume Ruano-Ravina et al., 2021)."
+    url: "https://www.redaccionmedica.com/secciones/neumologia/un-4-de-las-muertes-por-cancer-de-pulmon-se-debe-a-la-exposicion-al-radon-7410"
+  - id: 7
+    corta: "Comunidad de Madrid · Gas radón"
+    cita: "Comunidad de Madrid. El gas radón en la Comunidad de Madrid."
+    url: "https://www.comunidad.madrid/vivienda/gas-radon-comunidad-madrid"
+  - id: 8
+    corta: "IGME-CSIC (2025)"
+    cita: "IGME-CSIC (22-10-2025). Nota de prensa sobre el radón como riesgo geológico (factsheet «Radon – Geohazard», EuroGeoSurveys)."
+    url: "https://info.igme.es/media/Material_Divulgativo/Noticias/Radón 2.pdf"
+  - id: 9
+    corta: "Institute of Physics"
+    cita: "Institute of Physics, IOP Spark. The radioactive nuclear plant worker."
+    url: "https://spark.iop.org/radioactive-nuclear-plant-worker"
+  - id: 10
+    corta: "JLC (2019)"
+    cita: "Clement, M. (13-09-2019). Radon: The Origin Story. Journal of Light Construction."
+    url: "https://www.jlconline.com/?p=105945"
+  - id: 11
+    corta: "CSN · Plan Nacional contra el Radón"
+    cita: "García-Talavera, M. (CSN) (10-04-2024). Plan Nacional contra el Radón: conocimiento básico y municipios de actuación prioritaria. Ministerio de Sanidad."
+    url: "https://www.sanidad.gob.es/ciudadanos/saludAmbLaboral/medioAmbiente/docs/MGT.pdf"
+  - id: 12
+    corta: "Comunidad de Madrid · DB HS6"
+    cita: "Comunidad de Madrid (2020). Conceptos básicos del Real Decreto 732/2019 y del DB HS6 «Protección frente a la exposición al radón»."
+    url: "https://comunidad.madrid/sites/default/files/doc/vivienda/conceptos_basicos_rd_732_2019_dbhs_6.pdf"
+  - id: 13
+    corta: "Redacción Médica (21-09-2022)"
+    cita: "Redacción Médica (21-09-2022). Expertos advierten que es necesario medir el radón en viviendas y oficinas incluso si no están en zona de riesgo (II Congreso Nacional de Radón)."
+    url: "https://www.redaccionmedica.com/ultimas-noticias/20220921/expertos-advierten-que-es-necesario-medir-el-radon-en-viviendas-oficinas-incluso-si-no-estan-zona-de-riesgo/92024_0.amp.html"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "En 1984, un ingeniero hizo saltar la alarma de radiación al entrar en una central nuclear de Pensilvania."
+    tipo: ilustracion
+    escena: *alarma
+    kicker: "Pensilvania · 1984"
+    fuente: [9, 10]
+  - voz: "Lo raro es que la central aún estaba en obras y no tenía combustible nuclear. Aquella radiactividad no podía venir de allí."
+    tipo: ilustracion
+    escena: &central_obras >-
+      Una central nuclear en construcción vista de lejos, en un valle verde con un río: grúas, andamios y
+      torres de refrigeración sin terminar, sin humo ni vapor. Cielo nublado de invierno.
+    texto: "Una central sin combustible"
+    fuente: [9, 10]
+  - voz: "Venía de su casa. Y la culpa la tenía un gas que no se ve, no huele y sale de las rocas: el radón."
+    tipo: ilustracion
+    escena: *casa_corte
+    texto: "El radón"
+    sub: "Un gas radiactivo natural"
+    fuente: [9, 10]
+  - voz: "Hoy vamos a ver de dónde sale, por qué daña los pulmones, dónde hay más en España y cómo saber si lo tienes en casa."
+    tipo: lista
+    titulo: "En este vídeo"
+    puntos: ["De dónde sale el radón", "Por qué daña los pulmones", "Dónde hay más en España", "Cómo se mide y cómo se reduce"]
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La alarma que sonó al revés"
+    titulo_short: "La alarma nuclear que sonó por culpa de una casa"
+    short: true
+    gancho_short:
+      - voz: "Un hombre hizo saltar la alarma de una central nuclear. Y la radiactividad la traía de su propia casa."
+        tipo: titulo
+        texto: "La radiación venía de su casa"
+        resaltar: "su casa"
+        kicker: "El suceso"
+        fuente: [9, 10]
+    escenas:
+      - voz: "Se llamaba Stanley Watras y trabajaba como ingeniero en la construcción de la central de Limerick, en Pensilvania."
+        tipo: ilustracion
+        escena: *central_obras
+        kicker: "Central de Limerick"
+        texto: "Un ingeniero de la obra"
+        fuente: [9, 10]
+      - voz: "Las centrales tienen detectores en la entrada para comprobar que nadie sale contaminado. Él los hacía sonar al entrar."
+        tipo: ilustracion
+        escena: *alarma
+        texto: "Contaminado al entrar"
+        fuente: [9, 10]
+      - voz: "Los técnicos de la central no encontraban nada. En la obra no había combustible nuclear, así que la radiactividad tenía que venir de fuera."
+        tipo: ilustracion
+        escena: &tecnicos >-
+          Dos figuras diminutas de tinta con bata y casco, sin rasgos, revisan con un contador de radiación de mano
+          un abrigo colgado en una sala de control sencilla de los años ochenta, con paneles de luces y un
+          ventanal hacia una obra.
+        texto: "¿De dónde venía?"
+        fuente: [9, 10]
+      - voz: "Al final midieron su casa. Y allí estaba: el aire tenía tanto radón que superaba en cien veces la dosis permitida a los mineros de uranio."
+        tipo: ilustracion
+        escena: &casa_americana >-
+          Una casa unifamiliar de madera de dos plantas en un barrio residencial de Pensilvania en los años ochenta,
+          con porche y jardín; sobre ella, un cielo gris. Delante, una pequeña figura de tinta con un aparato de medida.
+          Tranquila, normal, sin nada aparente.
+        kicker: "Su casa"
+        texto: "100 veces la dosis de un minero"
+        fuente: 9
+      - voz: "El radón salía de la roca bajo la casa: un granito rico en uranio."
+        tipo: ilustracion
+        escena: *granito
+        texto: "Venía del granito"
+        fuente: 9
+      - voz: "La familia tuvo que irse de casa mientras la arreglaban. Y el caso convenció a muchos de algo que pocos sabían: la radiación natural también entra en las casas."
+        tipo: ilustracion
+        escena: *casa_americana
+        texto: "La radiación natural también entra en casa"
+        fuente: 10
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Qué es el radón"
+    titulo_short: "Qué es el radón y de dónde sale"
+    short: true
+    gancho_short:
+      - voz: "Hay un gas radiactivo saliendo ahora mismo del suelo de casi cualquier sitio. Se llama radón."
+        tipo: titulo
+        texto: "Un gas radiactivo que sale del suelo"
+        resaltar: "radiactivo"
+        kicker: "Cómo funciona"
+        fuente: 4
+    escenas:
+      - voz: "Casi todas las rocas y los suelos tienen un poco de uranio. Y el uranio no es estable: con el tiempo se va transformando en otros elementos."
+        tipo: ilustracion
+        escena: &cristales >-
+          Lámina didáctica: un trozo de roca abierto por la mitad, visto muy de cerca como con lupa, con cristales
+          de colores y pequeños puntos brillantes amarillo verdoso dentro de algunos cristales. Fondo de papel claro.
+        kicker: "Uranio"
+        texto: "Está en casi todas las rocas"
+        fuente: 4
+      - voz: "En esa cadena, el uranio acaba dando radio. Y el radio, al desintegrarse, suelta radón."
+        tipo: esquema
+        modo: cadena
+        titulo: "De la roca al gas"
+        nodos:
+          - {etiqueta: "En la roca", texto: "Uranio"}
+          - {etiqueta: "En la roca", texto: "Radio"}
+          - {etiqueta: "En el aire", texto: "Radón", destacar: true}
+        flechas: ["Se desintegra", "Se desintegra"]
+        nota: "El radón es un gas: puede salir de la roca"
+        fuente: 4
+      - voz: "La diferencia es que el uranio y el radio son sólidos y se quedan en la roca. El radón es un gas, así que escapa por los poros y las grietas."
+        tipo: ilustracion
+        escena: &suelo_corte >-
+          Lámina didáctica en corte del subsuelo: capas de roca y tierra con grietas y poros; desde abajo suben
+          por las grietas pequeñas burbujas de gas representadas con un sombreado violeta muy suave, hasta la
+          superficie, donde crece hierba. Estilo de atlas de ciencias.
+        texto: "Un gas que escapa por las grietas"
+        fuente: 4
+      - voz: "No tiene color, no tiene olor y no tiene sabor. Sin un aparato, es imposible saber que está ahí."
+        tipo: ilustracion
+        escena: *casa_corte
+        texto: "Ni color, ni olor, ni sabor"
+        fuente: [2, 7]
+      - voz: "Y es radiactivo. En unos tres coma ocho días, la mitad del radón se ha desintegrado y se ha convertido en otras partículas, también radiactivas."
+        tipo: cifra
+        valor: 3.8
+        decimales: 1
+        sufijo: " días"
+        etiqueta: "Lo que tarda en desintegrarse la mitad del radón"
+        fuente: 4
+      - voz: "Al aire libre se diluye enseguida. El problema empieza cuando se queda encerrado."
+        tipo: ilustracion
+        escena: *granito
+        texto: "Al aire libre, se diluye"
+        sub: "El problema es en interiores"
+        fuente: [2, 7]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "De la roca a tu salón"
+    titulo_short: "Cómo entra el radón en las casas"
+    short: true
+    gancho_short:
+      - voz: "El radón no entra por la puerta. Entra por el suelo."
+        tipo: titulo
+        texto: "Entra por el suelo"
+        resaltar: "suelo"
+        kicker: "Cómo funciona"
+        fuente: 1
+    escenas:
+      - voz: "No todas las rocas sueltan lo mismo. Los granitos, algunas pizarras y los travertinos están entre las que más radón pueden dar."
+        tipo: ilustracion
+        escena: &tres_rocas >-
+          Lámina de naturalista con tres muestras de roca dibujadas una junto a otra sobre papel: un granito gris
+          moteado con cristales, una pizarra oscura en láminas finas y un travertino de color crema con pequeños
+          huecos. Sombras suaves, sin etiquetas.
+        kicker: "Las rocas que más dan"
+        texto: "Granito, pizarra y travertino"
+        fuente: 8
+      - voz: "El granito tiene más uranio que las areniscas, las calizas o los basaltos. Por eso las zonas graníticas suelen tener más radón."
+        tipo: ilustracion
+        escena: *granito
+        texto: "Más uranio, más radón"
+        fuente: 7
+      - voz: "Una casa apoyada en el suelo es como una tapa. El gas sube y se cuela por las grietas de la solera, las juntas entre suelo y pared y los huecos de los tubos y los cables."
+        tipo: ilustracion
+        escena: &entradas >-
+          Lámina didáctica muy de cerca: el encuentro entre el suelo de hormigón de una planta baja y una pared, con
+          una grieta fina en la solera y un tubo que atraviesa el suelo; por la grieta y alrededor del tubo sube un
+          sombreado violeta muy suave desde la tierra de abajo. Corte limpio, estilo atlas.
+        kicker: "Por dónde entra"
+        texto: "Grietas, juntas y tubos"
+        fuente: 1
+      - voz: "Por eso se acumula sobre todo en sótanos y plantas bajas. En un séptimo piso es muy raro que sea un problema."
+        tipo: ilustracion
+        escena: &edificio_corte >-
+          Lámina didáctica en corte de un edificio de viviendas de seis plantas: el sombreado violeta suave del gas
+          es más intenso en el sótano y la planta baja y desaparece en los pisos de arriba. Pequeñas figuras de tinta
+          sin rasgos en algunas ventanas para dar la escala.
+        texto: "Más abajo, más radón"
+        fuente: [2, 7]
+      - voz: "Y cambia a lo largo del día: sube por la noche, con la casa cerrada, y baja de día. También suele ser más alto en invierno que en verano."
+        tipo: ilustracion
+        escena: &noche_dia >-
+          La misma casa de pueblo de piedra dibujada dos veces, una junto a otra: a la izquierda de noche, con las
+          ventanas cerradas y un sombreado violeta suave dentro de la planta baja; a la derecha de día, con las
+          ventanas abiertas, cortinas al viento y el interior limpio. Lámina de naturalista.
+        kicker: "Noche y día"
+        texto: "Sube por la noche, con la casa cerrada"
+        fuente: 2
+      - voz: "Por eso el Consejo de Seguridad Nuclear recomienda medirlo durante meses, y no en verano. Una medida de un día no dice casi nada."
+        tipo: ilustracion
+        escena: *noche_dia
+        texto: "Una medida de un día no basta"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Por qué daña los pulmones"
+    titulo_short: "Por qué el radón puede causar cáncer de pulmón"
+    short: true
+    gancho_short:
+      - voz: "Después del tabaco, una de las principales causas de cáncer de pulmón es un gas que casi nadie conoce."
+        tipo: titulo
+        texto: "La causa de cáncer de pulmón que nadie conoce"
+        resaltar: "nadie conoce"
+        kicker: "Salud"
+        fuente: [1, 4]
+    escenas:
+      - voz: "El radón no hace daño por tocarlo. El problema es respirarlo, junto con las partículas radiactivas en las que se convierte."
+        tipo: ilustracion
+        escena: &pulmones >-
+          Lámina anatómica de naturalista: unos pulmones y los bronquios dibujados a plumilla en tonos azul y rosa
+          apagado, sobre papel claro; junto a ellos, unas partículas diminutas de color violeta suave flotando en el aire.
+          Sin texto ni etiquetas.
+        kicker: "Al respirarlo"
+        texto: "El problema es respirarlo"
+        fuente: 1
+      - voz: "Esas partículas se quedan pegadas en las paredes de los bronquios. Allí sueltan radiación que puede dañar el ADN de las células."
+        tipo: ilustracion
+        escena: &bronquio >-
+          Lámina didáctica muy ampliada del interior de un bronquio: la pared cubierta de células dibujadas como
+          pequeños adoquines rosados, con unas partículas violeta pegadas a ella que emiten trazos finos hacia las
+          células. Estilo de atlas de biología, sin texto.
+        texto: "Dañan el ADN de las células"
+        fuente: 1
+      - voz: "Con los años, ese daño puede acabar en un cáncer de pulmón. La agencia del cáncer de la OMS lo clasifica en el grupo uno: carcinógeno seguro para las personas."
+        tipo: ilustracion
+        escena: *pulmones
+        kicker: "Carcinógeno de clase I"
+        texto: "Puede causar cáncer de pulmón"
+        fuente: [1, 8]
+      - voz: "Según la OMS, el radón causa entre el tres y el catorce por ciento de los cánceres de pulmón de un país, según cuánto radón haya y cuánto se fume."
+        tipo: comparar
+        titulo: "Cánceres de pulmón por radón, según el país"
+        izquierda: {etiqueta: "Mínimo", valor: 3, texto: "3 %"}
+        derecha: {etiqueta: "Máximo", valor: 14, texto: "14 %"}
+        fuente: 1
+      - voz: "Y el riesgo crece con la cantidad. Por cada cien unidades más de radón en el aire de casa, el riesgo de cáncer de pulmón sube alrededor de un dieciséis por ciento."
+        tipo: cifra
+        valor: 16
+        prefijo: "+"
+        sufijo: " %"
+        etiqueta: "Riesgo de cáncer de pulmón por cada 100 Bq/m³ más"
+        fuente: 1
+      - voz: "Esas unidades son bequerelios por metro cúbico: cuántas desintegraciones radiactivas hay cada segundo en un metro cúbico de aire."
+        tipo: titulo
+        texto: "Bq/m³"
+        kicker: "La unidad"
+        sub: "Desintegraciones por segundo en un metro cúbico de aire"
+      - voz: "Lo peor es la combinación con el tabaco. La OMS calcula que, para un fumador, el radón es unas veinticinco veces más peligroso que para quien no fuma."
+        tipo: cifra
+        valor: 25
+        prefijo: "×"
+        etiqueta: "Más riesgo por el radón para un fumador"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El mapa del radón en España"
+    titulo_short: "Dónde hay más radón en España"
+    short: true
+    gancho_short:
+      - voz: "En Galicia, siete de cada diez hectáreas están en zona de actuación prioritaria por radón."
+        tipo: titulo
+        texto: "Las zonas de España con más radón"
+        resaltar: "más radón"
+        kicker: "España"
+        fuente: 3
+    escenas:
+      - voz: "El Consejo de Seguridad Nuclear ha hecho un mapa del potencial de radón de España con más de doce mil medidas en viviendas."
+        tipo: cifra
+        valor: 12000
+        prefijo: "+"
+        etiqueta: "Medidas de radón en viviendas para hacer el mapa"
+        fuente: 3
+      - voz: "Las cruzó con la geología y con la radiación natural del terreno, y dividió el país en zonas parecidas."
+        tipo: ilustracion
+        escena: &mapa_campo >-
+          Una mesa de trabajo de geólogo vista desde arriba: un mapa geológico grande de colores, dibujado a mano,
+          con zonas sombreadas en violeta suave; encima, una lupa, un martillo de geólogo, una muestra de granito y
+          un cuaderno de campo abierto. Sin texto legible.
+        texto: "Geología + medidas en casas"
+        fuente: 3
+      - voz: "Son zonas de actuación prioritaria aquellas donde más de uno de cada diez edificios puede pasar de trescientos bequerelios por metro cúbico. Ocupan el diecisiete por ciento de España."
+        tipo: cifra
+        valor: 17
+        sufijo: " %"
+        etiqueta: "Del territorio de España en zona de actuación prioritaria"
+        fuente: 3
+      - voz: "Por comunidades, Galicia está a la cabeza, con un setenta por ciento de su territorio. Le siguen Extremadura y Madrid, y después Canarias y Castilla y León."
+        tipo: barras
+        titulo: "Territorio en zona de actuación prioritaria"
+        subtitulo: "Porcentaje de la superficie de cada comunidad"
+        valores: [70, 47, 36, 19, 19]
+        etiquetas: ["Galicia", "Extremadura", "Madrid", "Canarias", "Castilla y León"]
+        sufijo: " %"
+        destacar: [0]
+        fuente: 3
+      - voz: "Encaja con la geología: el granito domina buena parte de Galicia, del oeste peninsular y de la sierra de Madrid."
+        tipo: ilustracion
+        escena: *granito
+        texto: "Donde hay granito"
+        fuente: [3, 7]
+      - voz: "Un equipo de la Universidad de Santiago calculó que en 2017 alrededor del cuatro por ciento de las muertes por cáncer de pulmón en España se debieron al radón de las casas."
+        tipo: cifra
+        valor: 4
+        sufijo: " %"
+        etiqueta: "Muertes por cáncer de pulmón atribuidas al radón en España (2017, aprox.)"
+        fuente: [5, 6]
+      - voz: "Pero ojo: el mapa es una aproximación de zona. Dos casas de la misma calle pueden tener niveles muy distintos. La única forma de saberlo es medir."
+        tipo: ilustracion
+        escena: &dos_casas >-
+          Dos casas de pueblo de piedra, pegadas en la misma calle de una sierra granítica: la de la izquierda con
+          un sombreado violeta suave en la planta baja, la de la derecha limpia. Pequeñas figuras de tinta en la calle.
+          Lámina de naturalista.
+        texto: "La única forma de saberlo: medir"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Medir y bajar el radón"
+    titulo_short: "Cómo se mide y cómo se quita el radón de casa"
+    short: true
+    gancho_short:
+      - voz: "Saber si tienes radón en casa es más fácil de lo que parece."
+        tipo: titulo
+        texto: "¿Tienes radón en casa?"
+        resaltar: "radón"
+        kicker: "Cómo funciona"
+        fuente: 2
+    escenas:
+      - voz: "Lo más habitual es un detector pasivo: una cajita de plástico que se deja en casa al menos tres meses y luego se manda a analizar a un laboratorio acreditado."
+        tipo: ilustracion
+        escena: &detector >-
+          Un salón sencillo de una casa de pueblo, visto de cerca: sobre una estantería, una cajita redonda de plástico
+          blanco del tamaño de una galleta, junto a unos libros y una planta. Luz de mañana por la ventana.
+        kicker: "Detector pasivo"
+        texto: "Tres meses en casa"
+        sub: "Y se manda a un laboratorio acreditado"
+        fuente: 2
+      - voz: "Suelen venir dos: uno para el salón y otro para un dormitorio. Y mejor no medir en verano, cuando las ventanas abiertas dan una cifra demasiado baja."
+        tipo: ilustracion
+        escena: *detector
+        texto: "Uno en el salón, otro en el dormitorio"
+        fuente: 2
+      - voz: "En España, el nivel de referencia es de trescientos bequerelios por metro cúbico de media al año. La OMS recomienda apuntar más bajo: a cien."
+        tipo: comparar
+        titulo: "Niveles de referencia de radón (media anual)"
+        izquierda: {etiqueta: "Recomendación de la OMS", valor: 100, texto: "100 Bq/m³"}
+        derecha: {etiqueta: "Referencia en España", valor: 300, texto: "300 Bq/m³"}
+        fuente: [1, 11]
+      - voz: "Y el propio Consejo de Seguridad Nuclear recuerda que no hay una línea que separe un nivel seguro de uno peligroso: cuanto menos, mejor."
+        tipo: cita
+        texto: "No hay una línea que separe un nivel seguro de un nivel de riesgo."
+        autor: "Consejo de Seguridad Nuclear"
+        fuente: 2
+      - voz: "Si el nivel es moderado, ventilar ayuda mucho. Como el radón se acumula de noche, abrir unos quince minutos por la mañana ya lo baja."
+        tipo: ilustracion
+        escena: *noche_dia
+        kicker: "Niveles moderados"
+        texto: "Ventilar por la mañana"
+        fuente: 2
+      - voz: "Si es alto, hay que hacer obra: sellar grietas y juntas del suelo, ventilar el espacio bajo la casa o poner un pequeño extractor que aspira el gas del terreno antes de que entre."
+        tipo: ilustracion
+        escena: &extractor >-
+          Lámina didáctica en corte de una casa: bajo la solera, un tubo que recoge el gas del terreno y lo lleva por
+          un conducto hasta un pequeño extractor en el exterior, que lo suelta por encima del tejado; las grietas del
+          suelo aparecen selladas. Sombreado violeta suave solo bajo la casa, fuera de las habitaciones.
+        kicker: "Niveles altos"
+        texto: "Sellar y extraer el gas del terreno"
+        fuente: [1, 12]
+      - voz: "Según la OMS, los sistemas pasivos ya pueden reducirlo a menos de la mitad, y con un extractor se baja todavía más."
+        tipo: cifra
+        valor: 50
+        prefijo: "−"
+        sufijo: " %"
+        etiqueta: "Lo que puede bajar el radón un sistema pasivo (o más)"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Lo que dice la ley, y lo que se debate"
+    titulo_short: "¿Es obligatorio medir el radón en España?"
+    short: true
+    gancho_short:
+      - voz: "En España, ninguna ley te obliga a medir el radón de tu casa. Pero las casas nuevas sí tienen que protegerse."
+        tipo: titulo
+        texto: "¿Es obligatorio medir el radón?"
+        resaltar: "obligatorio"
+        kicker: "El debate, con datos"
+        fuente: [7, 12]
+    escenas:
+      - voz: "Desde septiembre de 2020, el Código Técnico de la Edificación obliga a proteger frente al radón los edificios nuevos en los municipios de zona uno y zona dos."
+        tipo: fecha
+        fecha: "24 de septiembre de 2020"
+        lugar: "Obligatorio en obra nueva en las zonas 1 y 2"
+        fuente: [7, 12]
+      - voz: "En zona uno basta con una barrera entre el terreno y la casa, o una cámara de aire ventilada. En zona dos, además, un espacio ventilado o un sistema que despresurice el terreno."
+        tipo: esquema
+        modo: cadena
+        titulo: "Qué se exige en obra nueva"
+        nodos:
+          - {etiqueta: "Zona 1", texto: "Barrera o cámara de aire ventilada"}
+          - {etiqueta: "Zona 2", texto: "Barrera + ventilación o despresurización", destacar: true}
+        flechas: ["Más radón"]
+        fuente: [7, 12]
+      - voz: "También afecta a las reformas, ampliaciones y cambios de uso que toquen el contacto con el terreno."
+        tipo: ilustracion
+        escena: &obra >-
+          Una obra de una casa unifamiliar en una sierra granítica: la solera de hormigón a medio hacer, una lámina
+          oscura de impermeabilización extendida sobre el terreno y un tubo saliendo del suelo; dos figuras diminutas
+          de tinta con casco trabajan. Luz de mediodía.
+        texto: "También reformas y ampliaciones"
+        fuente: 12
+      - voz: "En los lugares de trabajo, las empresas tienen que estudiar si su plantilla está expuesta. En las viviendas que ya existen, medir es voluntario."
+        tipo: ilustracion
+        escena: *edificio_corte
+        texto: "En casa, medir es voluntario"
+        fuente: [7, 11]
+      - voz: "Ahí está el debate. El plan oficial centra el esfuerzo en los municipios de actuación prioritaria. Pero muchos expertos piden medir en casas y oficinas también fuera de esas zonas, porque el mapa no puede decir qué edificio concreto está a salvo."
+        tipo: esquema
+        modo: causas
+        titulo: "El debate"
+        nodos:
+          - {etiqueta: "Plan oficial", texto: "Centrarse en los municipios prioritarios"}
+          - {etiqueta: "Muchos expertos", texto: "Medir también fuera de esas zonas"}
+        resultado: {etiqueta: "En lo que coinciden", texto: "Sin medir, no se puede saber"}
+        fuente: [11, 13]
+      - voz: "Lo que no se discute es lo básico: el radón no se ve, el mapa solo orienta, y la única forma de saber si lo tienes es medirlo."
+        tipo: ilustracion
+        escena: *casa_corte
+        texto: "Si vives en zona de riesgo, mídelo"
+        fuente: [2, 3]
+
+cierre:
+  - voz: "Si te ha servido para entender el radón, en el canal tienes más fenómenos del planeta explicados con datos. Todas las fuentes están en la descripción."
+    tipo: ilustracion
+    escena: *granito
+    texto: "Bitácora de la Tierra"
+    sub: "Fuentes en la descripción"
