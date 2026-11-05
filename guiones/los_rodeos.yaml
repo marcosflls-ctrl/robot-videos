@@ -3,6 +3,9 @@
 # Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
 # «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
 
+# Ya está en YouTube: el robot no lo vuelve a montar salvo que se marque «Volver a montar».
+publicado: true
+
 canal: misterios
 
 descripcion: >-
