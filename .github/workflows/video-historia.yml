@@ -106,16 +106,28 @@ jobs:
             cache_voz
             cache_imagenes
           key: voz-historia-${{ github.run_id }}
+      # Dos descargas separadas (un zip de casi 1 GB se cortaba al bajarlo):
+      # «video-largo» (vídeo largo, miniaturas, descripción, títulos, subtítulos) y «video-shorts».
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           retention-days: 7
-          name: video-historia
+          name: video-largo
+          if-no-files-found: ignore
           path: |
             scripts/salida/*.mp4
             scripts/salida/*.txt
             scripts/salida/*.srt
             scripts/salida/*.png
+            !scripts/salida/*_short_*
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          retention-days: 7
+          name: video-shorts
+          if-no-files-found: ignore
+          path: |
+            scripts/salida/*_short_*
       - name: Copiarlo a Google Drive (si está configurado)
         if: always()
         continue-on-error: true
