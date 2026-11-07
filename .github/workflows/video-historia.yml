@@ -120,6 +120,7 @@ jobs:
             scripts/salida/*.srt
             scripts/salida/*.png
             !scripts/salida/*_short_*
+            !scripts/salida/*_movil*
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -128,6 +129,7 @@ jobs:
           if-no-files-found: ignore
           path: |
             scripts/salida/*_short_*
+            !scripts/salida/*_movil*
       - name: Copiarlo a Google Drive (si está configurado)
         if: always()
         continue-on-error: true
