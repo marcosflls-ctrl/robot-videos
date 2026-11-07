@@ -15,6 +15,7 @@ Genera en salida/:
     <guion>_miniatura_N.png    miniaturas 1280x720 (hasta 3, para la prueba A/B de YouTube)
     <guion>_titulos.txt        títulos a probar (hasta 3) y cómo poner la prueba en YouTube Studio
     <guion>_short_NN.mp4/.txt  un Short vertical por cada capítulo marcado con «short: true»
+    <guion>_short_NN_portada.png  su portada vertical (su primer dibujo con el título enorme)
 
 No publica nada.
 
@@ -1196,6 +1197,42 @@ def miniatura_cartel(g, canal, ruta, mi):
     img.convert("RGB").save(ruta)
 
 
+def portada_short(g, canal, cap, ruta):
+    """Portada vertical 1080x1920 de un Short (gratis): su primer dibujo a toda pantalla y el título enorme
+    en amarillo con borde negro, como las miniaturas del vídeo largo."""
+    escenas = _lista(cap.get("gancho_short")) + cap["escenas"]
+    foto = next((e["_img"] for e in escenas if e.get("tipo") == "ilustracion" and e.get("_img") is not None), None)
+    if foto is None:
+        foto = next((e["_img"] for e in escenas if e.get("_img") is not None), None)
+    if foto is None:
+        return False
+    W, H = 1080, 1920
+    img = recortar_a(foto.convert("RGBA"), W, H, (0.5, 0.5))
+    # Un poco más oscuro arriba para que el título destaque
+    a = np.clip((0.55 - np.linspace(0, 1, H)) / 0.55, 0, 1) ** 1.5 * 150
+    velo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    velo.putalpha(Image.fromarray(np.broadcast_to(a[:, None], (H, W)).astype(np.uint8)))
+    img.alpha_composite(velo)
+    d = ImageDraw.Draw(img)
+    texto = str(cap.get("titulo_short") or cap["titulo"]).upper()
+    color = tuple(canal.get("miniatura_texto") or (255, 222, 0)) + (255,)
+    ruta_f = str(RAIZ / "fuentes" / str(canal.get("fuente_miniatura") or "Anton.ttf"))
+    for tam in range(190, 70, -6):  # la letra más grande que quepa en 4 líneas
+        f = ImageFont.truetype(ruta_f, tam)
+        lineas = envolver(texto, f, W - 120)
+        if len(lineas) <= 4 and all(f.getlength(l) <= W - 120 for l in lineas):
+            break
+    borde = max(6, int(tam * 0.085))
+    y = 300  # por debajo de la zona que tapan los botones de arriba en el móvil
+    for l in lineas:
+        x = (W - f.getlength(l)) / 2
+        d.text((x + 7, y + 9), l, font=f, fill=(0, 0, 0, 160), stroke_width=borde, stroke_fill=(0, 0, 0, 160))
+        d.text((x, y), l, font=f, fill=color, stroke_width=borde, stroke_fill=(0, 0, 0, 255))
+        y += tam * 1.06
+    img.convert("RGB").save(ruta)
+    return True
+
+
 def miniatura(g, canal, ruta, mi=None):
     """Una miniatura 1280x720. «mi» es una de las variantes (texto, resaltar, cifra, imagen, lado)."""
     mi = mi if mi is not None else variantes_miniatura(g)[0]
@@ -1330,6 +1367,7 @@ def main():
             r = montar(g, canal, bloques, sr, VERTICAL, base.with_suffix(".mp4"),
                        subtitulos=bool(canal.get("subtitulos_shorts", True)))
             dur = r["duracion"]
+            portada_short(g, canal, cap, base.parent / f"{base.name}_portada.png")
             # Copia que cabe en Telegram (los bots no pueden mandar más de 50 MB); el original queda en Artifacts
             copia_ligera(base.with_suffix(".mp4"), base.parent / f"{base.name}_movil.mp4", dur, escala="1080:1920")
             notas = ["✅ Más de 1 minuto: vale para el programa de pagos de TikTok" if dur > 61
