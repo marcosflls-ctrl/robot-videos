@@ -1,0 +1,541 @@
+# Qué pasa con tu basura cuando la tiras
+# Canal de ciencias medioambientales · sección «Cómo funciona».
+# Temario: Gestión de Residuos Sólidos, temas 1 a 5 (introducción, legislación, prevención,
+# residuos urbanos y recogida, reciclado). Ampliado con datos actuales; cada dato lleva su fuente.
+# Las escenas que repiten exactamente la misma «escena» (marcadas con & y *) reutilizan la imagen.
+
+canal: medioambiente
+
+descripcion: >-
+  En 1953, una empresa química vendió por un dólar un terreno a un colegio. Debajo había 21.000 toneladas de
+  residuos tóxicos. En este vídeo seguimos el camino de la basura: qué es un residuo, cuánto generamos, qué
+  pasa cuando se gestiona mal (Love Canal y el vertedero de Zaldibar), por qué no generar residuos es mejor
+  que reciclarlos, cómo se recogen y se reciclan el papel y el plástico, y qué cambian las nuevas leyes, del
+  impuesto al plástico al depósito de 10 céntimos por botella. Todos los datos, con su fuente.
+hashtags: "#residuos #reciclaje #basura #economíacircular #medioambiente #España"
+
+carpeta: "Residuos"
+titulos:
+  - "Qué pasa con tu basura cuando la tiras"
+  - "Vendieron por un dólar un terreno lleno de veneno: la historia de la basura"
+  - "España recicla menos de lo que crees: el viaje de tu basura"
+
+miniaturas:
+  - texto: "¿A dónde va tu basura?"
+    resaltar: "tu basura"
+    cifra: "467 kg"
+    escena: &contenedores >-
+      Una calle de un barrio español al atardecer con una fila de contenedores de colores (amarillo, azul,
+      verde, marrón y gris) junto a la acera; una bolsa de basura apoyada al lado. Edificios de ladrillo y
+      balcones con ropa tendida. Luz cálida.
+  - texto: "Un colegio sobre veneno"
+    resaltar: "veneno"
+    cifra: "1 $"
+    lado: izquierda
+    escena: &escuela_canal >-
+      Un colegio de ladrillo de una planta de los años cincuenta en un barrio de casas de madera de Estados
+      Unidos; delante, un campo de hierba con charcos de colores extraños y bidones oxidados asomando de la
+      tierra. Cielo gris.
+  - texto: "Solo se recicla el 9 %"
+    resaltar: "9 %"
+    cifra: "9 %"
+    escena: &montana_plastico >-
+      Una montaña de envases de plástico aplastados (botellas, garrafas, bolsas, bandejas) atados en balas
+      dentro de una nave industrial enorme, con una pala mecánica pequeña al pie. Luz fría que entra por
+      lucernarios.
+
+fuentes:
+  - id: 1
+    corta: "Temario de Gestión de Residuos"
+    cita: "Gestión de Residuos Sólidos, temas 1 a 5 (apuntes de la asignatura, curso 2024-2027)."
+    url: ""
+  - id: 2
+    corta: "Ley 7/2022"
+    cita: "Ley 7/2022, de 8 de abril, de residuos y suelos contaminados para una economía circular. BOE núm. 85."
+    url: "https://www.boe.es/buscar/act.php?id=BOE-A-2022-5809"
+  - id: 3
+    corta: "PNUMA · Global Waste Management Outlook 2024"
+    cita: "Programa de las Naciones Unidas para el Medio Ambiente e ISWA (2024). Global Waste Management Outlook 2024."
+    url: "https://www.unep.org/resources/global-waste-management-outlook-2024"
+  - id: 4
+    corta: "AEMA · Ficha de España (2025)"
+    cita: "Agencia Europea de Medio Ambiente (2025). Municipal and packaging waste management country profiles: Spain."
+    url: "https://www.eea.europa.eu/en/topics/in-depth/waste-and-recycling/municipal-and-packaging-waste-management-country-profiles-2025/es-municipal-waste-factsheet.pdf/@@download/file"
+  - id: 5
+    corta: "Banco Mundial · What a Waste 2.0"
+    cita: "Kaza, S. et al. (2018). What a Waste 2.0: A Global Snapshot of Solid Waste Management to 2050. Banco Mundial."
+    url: "https://datatopics.worldbank.org/what-a-waste/trends_in_solid_waste_management.html"
+  - id: 6
+    corta: "Love Canal (UWF)"
+    cita: "University of West Florida. Environmental Science, 6.4 Case study: the Love Canal disaster."
+    url: "https://pressbooks.uwf.edu/envrioscience/chapter/6-4-case-study-the-love-canal-disaster/"
+  - id: 7
+    corta: "Gobierno Vasco · Zaldibar (2023)"
+    cita: "Irekia, Gobierno Vasco (07-02-2023). Bankruptcy, criminal and administrative proceedings continue years after the Zaldibar disaster."
+    url: "https://www.irekia.euskadi.eus/en/news/83382-bankruptcy-criminal-and-administrative-proceedings-continue-years-after-the-zaldibar-disaster"
+  - id: 8
+    corta: "Orain · Cronología de Zaldibar"
+    cita: "Orain (05-06-2020). Cronología del desprendimiento en el vertedero de Zaldibar."
+    url: "https://orain.eus/es/actualidad/sociedad/2020/06/05/cronologia-del-desprendimiento-en-vertedero-de-zaldibar-/"
+  - id: 9
+    corta: "Público (2020)"
+    cita: "Público (19-08-2020). Los restos hallados en el vertedero de Zaldibar son de Alberto Sololuze."
+    url: "https://www.publico.es/sociedad/restos-hallados-vertedero-zaldibar-son-alberto-sololuze.html"
+  - id: 10
+    corta: "Orain (2021)"
+    cita: "Orain (13-05-2021). El Gobierno Vasco pone fin a la búsqueda de Beltrán en el vertedero de Zaldibar."
+    url: "https://orain.eus/es/actualidad/sociedad/2021/05/13/termina-busqueda-de-joaquin-beltran-en-vertedero-de-zaldibar-14-de-mayo/"
+  - id: 11
+    corta: "OCDE (2022)"
+    cita: "OCDE (22-02-2022). Plastic pollution is growing relentlessly as waste management and recycling fall short (Global Plastics Outlook)."
+    url: "https://www.oecd.org/en/about/news/press-releases/2022/02/plastic-pollution-is-growing-relentlessly-as-waste-management-and-recycling-fall-short.html"
+  - id: 12
+    corta: "Garrigues · Impuestos de la Ley 7/2022"
+    cita: "Garrigues. Nuevas medidas tributarias de la Ley de residuos y suelos contaminados para una economía circular."
+    url: "https://www.garrigues.com/es_ES/noticia/nuevas-medidas-tributarias-ley-residuos-suelos-contaminados-economia-circular"
+  - id: 13
+    corta: "Moncloa.com (28-10-2026)"
+    cita: "Moncloa.com (28-10-2026). Vuelve el dinero por tus botellas: el sistema de depósito y devolución de envases arranca en noviembre con 10 céntimos."
+    url: "https://www.moncloa.com/2026/10/28/sistema-deposito-devolucion-envases-3456676/"
+  - id: 14
+    corta: "Mongabay (18-06-2026)"
+    cita: "Mongabay (18-06-2026). With plastic treaty in limbo, Mongabay speaks to top negotiator Julio Cordano."
+    url: "https://news.mongabay.com/2026/06/with-plastic-treaty-in-limbo-mongabay-speaks-to-top-negotiator-julio-cordano/"
+  - id: 15
+    corta: "Directiva (UE) 2018/851"
+    cita: "Directiva (UE) 2018/851 del Parlamento Europeo y del Consejo, de 30 de mayo de 2018, que modifica la Directiva 2008/98/CE sobre los residuos."
+    url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32018L0851"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "En 1953, una empresa química vendió un terreno a un colegio por un dólar."
+    tipo: ilustracion
+    escena: *escuela_canal
+    kicker: "Niagara Falls · 1953"
+    fuente: 6
+  - voz: "Debajo había enterradas veintiuna mil toneladas de residuos químicos. Encima construyeron una escuela y un barrio entero."
+    tipo: cifra
+    valor: 21000
+    sufijo: " t"
+    etiqueta: "De residuos químicos bajo el terreno"
+    fuente: 6
+  - voz: "Hoy esa historia se estudia en las clases de gestión de residuos. Porque la basura no desaparece cuando cierras la tapa del contenedor."
+    tipo: ilustracion
+    escena: *contenedores
+    texto: "La basura no desaparece"
+    fuente: 1
+  - voz: "Vamos a seguir el viaje de tu basura: cuánta hacemos, qué pasa cuando se gestiona mal, cómo se recicla y qué cambian las nuevas leyes."
+    tipo: lista
+    titulo: "En este vídeo"
+    puntos: ["Qué es un residuo y cuánto hacemos", "Dos desastres: Love Canal y Zaldibar", "Por qué es mejor no generarlo", "Cómo se recoge y se recicla", "Las nuevas reglas de la basura"]
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Qué es un residuo, y cuánto hacemos"
+    titulo_short: "Cuánta basura tiras al año (y no es poca)"
+    short: true
+    gancho_short:
+      - voz: "Cada persona en España genera casi media tonelada de basura al año. ¿Sabes qué hay dentro?"
+        tipo: cifra
+        valor: 467
+        sufijo: " kg"
+        etiqueta: "Residuos municipales por habitante y año en España (2022)"
+        fuente: 4
+    escenas:
+      - voz: "Para la ley española, un residuo es cualquier sustancia u objeto que su dueño desecha, o tiene la intención o la obligación de desechar."
+        tipo: cita
+        texto: "Cualquier sustancia u objeto que su poseedor deseche o tenga la intención o la obligación de desechar."
+        autor: "Ley 7/2022 de residuos"
+        fuente: 2
+      - voz: "La OCDE lo dice de otra forma: es lo que no tiene valor, porque no hay tecnología para aprovecharlo o porque nadie lo compra. Ese matiz es importante: la basura de hoy puede ser la materia prima de mañana."
+        tipo: ilustracion
+        escena: &bolsa_abierta >-
+          Una bolsa de basura de cocina abierta sobre una mesa, vista desde arriba como una lámina de naturalista:
+          a su alrededor, ordenados como piezas de colección, una piel de plátano, un cartón de leche, una botella
+          de plástico, un periódico doblado, una lata y un tarro de vidrio. Fondo de papel claro.
+        texto: "Lo que nadie quiere… todavía"
+        fuente: 1
+      - voz: "En todo el mundo se generaron en 2023 unos dos mil cien millones de toneladas de residuos urbanos."
+        tipo: cifra
+        valor: 2100
+        sufijo: " millones de t"
+        etiqueta: "Residuos urbanos en el mundo (2023)"
+        fuente: 3
+      - voz: "Y si nada cambia, en 2050 serán tres mil ochocientos millones. Casi el doble."
+        tipo: comparar
+        titulo: "Residuos urbanos en el mundo"
+        izquierda: {etiqueta: "2023", valor: 2.1, texto: "2.100 millones de t"}
+        derecha: {etiqueta: "2050 (previsión)", valor: 3.8, texto: "3.800 millones de t"}
+        fuente: 3
+      - voz: "La basura crece porque somos más, vivimos en ciudades, todo viene envasado y cambiamos las cosas antes de que se rompan."
+        tipo: ilustracion
+        escena: &ciudad_crece >-
+          Una gran ciudad vista desde una colina al amanecer, con bloques de pisos, grúas de obra y autopistas;
+          en primer plano, un camión de la basura subiendo por una carretera. Neblina suave.
+        texto: "Más gente, más envases"
+        fuente: 1
+      - voz: "En España, cada persona genera unos cuatrocientos sesenta y siete kilos de residuos municipales al año. Algo menos que la media europea."
+        tipo: comparar
+        titulo: "Residuos municipales por persona y año (2022)"
+        izquierda: {etiqueta: "España", valor: 467, texto: "467 kg"}
+        derecha: {etiqueta: "Media de la UE", valor: 513, texto: "513 kg"}
+        fuente: 4
+      - voz: "¿Y qué hay en esa bolsa? Casi la mitad es materia orgánica: restos de comida. Luego papel y cartón, y después plásticos."
+        tipo: barras
+        titulo: "Qué hay en la basura de casa en España"
+        subtitulo: "Porcentaje en peso"
+        valores: [45, 21, 11]
+        etiquetas: ["Materia orgánica", "Papel y cartón", "Plásticos"]
+        sufijo: " %"
+        destacar: [0]
+        fuente: 1
+      - voz: "Y el destino depende mucho de dónde vivas. En los países más pobres, casi toda la basura acaba tirada en vertederos a cielo abierto. En los ricos, apenas un dos por ciento."
+        tipo: comparar
+        titulo: "Basura que acaba en vertederos a cielo abierto"
+        izquierda: {etiqueta: "Países de renta baja", valor: 93, texto: "93 %"}
+        derecha: {etiqueta: "Países de renta alta", valor: 2, texto: "2 %"}
+        fuente: [1, 5]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Love Canal: el barrio construido sobre veneno"
+    titulo_short: "Vendieron por 1 dólar un terreno lleno de veneno"
+    short: true
+    gancho_short:
+      - voz: "Una empresa química vendió por un dólar el terreno donde había enterrado sus residuos. Encima construyeron un colegio."
+        tipo: titulo
+        texto: "Un colegio sobre 21.000 toneladas de veneno"
+        resaltar: "veneno"
+        kicker: "Love Canal"
+        fuente: 6
+    escenas:
+      - voz: "La historia empieza a finales del siglo diecinueve, en Niagara Falls, Nueva York. Allí se excavó un canal para producir electricidad que nunca se terminó."
+        tipo: ilustracion
+        escena: &canal_viejo >-
+          Una zanja larga y recta excavada en la tierra a finales del siglo XIX, con agua estancada y orillas de
+          barro, en una llanura con árboles; a lo lejos, la bruma de unas cataratas. Una carretilla abandonada.
+          Tonos de grabado antiguo.
+        kicker: "Niagara Falls · años 1890"
+        texto: "Un canal sin terminar"
+        fuente: 6
+      - voz: "Desde los años veinte, la ciudad usó la zanja como vertedero. Y en 1942 la compró una empresa química, Hooker Chemical."
+        tipo: fecha
+        fecha: "1942"
+        lugar: "Hooker Chemical compra el canal"
+        fuente: 6
+      - voz: "Durante una década, la empresa enterró allí unas veintiuna mil toneladas de residuos químicos en bidones, y los tapó con arcilla."
+        tipo: ilustracion
+        escena: &bidones >-
+          Un vertedero de los años cuarenta: una zanja ancha llena de bidones metálicos amontonados, algunos
+          oxidados y abollados, y una excavadora antigua echando tierra arcillosa por encima. Figuras diminutas de
+          tinta con mono de trabajo. Cielo industrial con chimeneas al fondo.
+        texto: "21.000 toneladas en bidones"
+        fuente: 6
+      - voz: "En 1953 vendió el terreno al consejo escolar de la ciudad por un dólar. En el contrato, la empresa se libraba de responsabilidad por lo que había enterrado."
+        tipo: cifra
+        valor: 1
+        prefijo: "$"
+        etiqueta: "Precio de venta del terreno al consejo escolar (1953)"
+        fuente: 6
+      - voz: "Sobre el antiguo vertedero se levantó un colegio, y alrededor crecieron cientos de casas."
+        tipo: ilustracion
+        escena: *escuela_canal
+        texto: "Un colegio encima"
+        fuente: [1, 6]
+      - voz: "Con los años, los bidones se corroyeron. Los productos químicos llegaron a sótanos, patios y charcos, y los vecinos empezaron a denunciar problemas de salud."
+        tipo: ilustracion
+        escena: &sotano >-
+          El sótano de una casa de madera estadounidense de los años setenta: una pared de bloques con manchas
+          oscuras y un líquido aceitoso de color extraño filtrándose por las juntas hasta un charco en el suelo.
+          Una bombilla colgando. Sin personas.
+        texto: "El veneno sale a la superficie"
+        fuente: 6
+      - voz: "En 1978, el presidente Carter declaró la emergencia en Love Canal. Fue la primera vez que se hizo en Estados Unidos por un desastre causado por el ser humano."
+        tipo: fecha
+        fecha: "1978"
+        lugar: "Primera emergencia federal por un desastre causado por el ser humano"
+        fuente: 6
+      - voz: "Más de mil familias tuvieron que abandonar sus casas. Y en 1980 nació el Superfund, la ley de Estados Unidos para limpiar los terrenos más contaminados del país."
+        tipo: cifra
+        valor: 1000
+        prefijo: "+"
+        etiqueta: "Familias realojadas"
+        fuente: 6
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Zaldibar: el vertedero que se vino abajo"
+    titulo_short: "El día que un vertedero se vino abajo en Euskadi"
+    short: true
+    gancho_short:
+      - voz: "El seis de febrero de 2020, una montaña de residuos se desplomó en Euskadi y sepultó a dos trabajadores."
+        tipo: titulo
+        texto: "La montaña de basura que se vino abajo"
+        resaltar: "se vino abajo"
+        kicker: "Zaldibar · 2020"
+        fuente: [7, 8]
+    escenas:
+      - voz: "No hace falta irse a Estados Unidos. El vertedero de Zaldibar, en Bizkaia, recibía residuos industriales y estaba gestionado por una empresa privada, Verter Recycling."
+        tipo: ilustracion
+        escena: &zaldibar >-
+          Un valle verde y empinado del País Vasco con caseríos, prados y bosque; en la ladera, un gran vertedero
+          escalonado de tierra gris y escombros, y abajo una autopista que pasa junto a la falda del monte. Cielo
+          nublado y lluvia fina.
+        kicker: "Zaldibar · Bizkaia"
+        texto: "Un vertedero de residuos industriales"
+        fuente: [1, 7]
+      - voz: "El seis de febrero de 2020, la ladera de residuos se deslizó. Bajó hasta la autopista y sepultó a dos trabajadores: Alberto Sololuze y Joaquín Beltrán."
+        tipo: fecha
+        fecha: "6 de febrero de 2020"
+        lugar: "Se desploma el vertedero de Zaldibar"
+        fuente: [7, 8]
+      - voz: "Al día siguiente, la búsqueda tuvo que pararse: entre los residuos había amianto."
+        tipo: ilustracion
+        escena: &derrumbe >-
+          La ladera de un vertedero desplomada sobre una autopista: una lengua enorme de tierra gris, escombros y
+          plásticos cubre los carriles; al borde, vehículos de emergencia pequeños con luces y figuras diminutas
+          de tinta con chaleco. Humo blanco al fondo. Sin rasgos en las personas.
+        texto: "Amianto entre los escombros"
+        fuente: [1, 8]
+      - voz: "Luego llegaron los incendios en la parte alta. Se detectó lindano, un pesticida muy tóxico, y en el aire se midieron dioxinas muy por encima de lo normal."
+        tipo: ilustracion
+        escena: &zaldibar_humo >-
+          El mismo valle vasco con el vertedero al fondo humeando: columnas de humo gris que se extienden sobre los
+          caseríos y el pueblo, con ventanas cerradas. Tonos apagados, atardecer.
+        texto: "Incendios, lindano y dioxinas"
+        fuente: [1, 8]
+      - voz: "Durante días, los vecinos de la comarca tuvieron que cerrar ventanas y evitar actividades al aire libre."
+        tipo: ilustracion
+        escena: *zaldibar_humo
+        texto: "Ventanas cerradas"
+        fuente: 8
+      - voz: "Los restos de Alberto se encontraron en agosto de 2020. A Joaquín no se le pudo encontrar: la búsqueda terminó en mayo de 2021."
+        tipo: titulo
+        texto: "Alberto Sololuze y Joaquín Beltrán"
+        kicker: "En su recuerdo"
+        fuente: [9, 10]
+      - voz: "El vertedero se estabilizó y se selló, la empresa entró en liquidación, y los procesos judiciales se alargaron durante años."
+        tipo: ilustracion
+        escena: *zaldibar
+        texto: "Años de procesos judiciales"
+        fuente: 7
+      - voz: "Love Canal y Zaldibar enseñan lo mismo: la basura mal gestionada no es solo un problema de olor. Puede contaminar el suelo, el agua y el aire, y costar vidas."
+        tipo: lista
+        titulo: "Lo que pasa cuando se gestiona mal"
+        puntos: ["Suelos y acuíferos contaminados", "Gases, incendios y explosiones", "Derrumbes", "Daños a la salud"]
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Mejor que reciclar: no generarlo"
+    titulo_short: "Reciclar no es lo mejor que puedes hacer con tu basura"
+    short: true
+    gancho_short:
+      - voz: "Reciclar está bien. Pero no es lo mejor que puedes hacer con tu basura."
+        tipo: titulo
+        texto: "Reciclar no es lo mejor"
+        resaltar: "no es lo mejor"
+        kicker: "La jerarquía de residuos"
+        fuente: [1, 2]
+    escenas:
+      - voz: "Las leyes europeas y españolas ordenan las opciones de mejor a peor. Es la jerarquía de residuos."
+        tipo: esquema
+        modo: cadena
+        titulo: "La jerarquía de residuos"
+        nodos:
+          - {etiqueta: "1.º", texto: "Prevenir", destacar: true}
+          - {etiqueta: "2.º", texto: "Reutilizar"}
+          - {etiqueta: "3.º", texto: "Reciclar"}
+          - {etiqueta: "4.º", texto: "Valorizar"}
+          - {etiqueta: "5.º", texto: "Eliminar"}
+        nota: "De mejor a peor: primero, que el residuo no llegue a existir"
+        fuente: [2, 15]
+      - voz: "Lo mejor es la prevención: que el residuo no llegue a existir. Luego, reutilizar. Después, reciclar. Y solo al final, quemarlo para sacar energía o enterrarlo en un vertedero."
+        tipo: ilustracion
+        escena: &piramide >-
+          Lámina didáctica dibujada a mano de una pirámide invertida dividida en cinco franjas de colores suaves,
+          de ancho a estrecho, con pequeños dibujos en cada franja: una mano que rechaza una bolsa, un tarro
+          reutilizado, unos contenedores de reciclaje, una chimenea con una bombilla y un vertedero. Sin texto.
+        texto: "De mejor a peor"
+        fuente: [1, 2]
+      - voz: "Para prevenir hay que mirar toda la vida de un producto: de dónde salen sus materiales, cómo se fabrica, cómo se transporta, cuánto dura y qué pasa al final. Se llama análisis de ciclo de vida."
+        tipo: esquema
+        modo: cadena
+        titulo: "El ciclo de vida de un producto"
+        nodos:
+          - {etiqueta: "1", texto: "Materiales"}
+          - {etiqueta: "2", texto: "Fabricación"}
+          - {etiqueta: "3", texto: "Transporte"}
+          - {etiqueta: "4", texto: "Uso"}
+          - {etiqueta: "5", texto: "Fin de vida", destacar: true}
+        nota: "Se analiza todo, no solo la fábrica"
+        fuente: 1
+      - voz: "En casa también se previene. Se calcula que una familia tira a la basura alrededor de un diez por ciento de la comida que compra, muchas veces sin abrir."
+        tipo: cifra
+        valor: 10
+        sufijo: " %"
+        etiqueta: "De la comida comprada que acaba en la basura"
+        fuente: 1
+      - voz: "Los envases son casi una cuarta parte del peso de la basura de casa. Comprar a granel o con menos embalaje se nota."
+        tipo: cifra
+        valor: 23
+        sufijo: " %"
+        etiqueta: "Del peso de la basura doméstica que son envases y embalajes"
+        fuente: 1
+      - voz: "Una bolsa de plástico de un solo uso se utiliza, de media, unos veinte minutos antes de acabar en la basura."
+        tipo: cifra
+        valor: 20
+        sufijo: " min"
+        etiqueta: "Vida útil media de una bolsa de un solo uso"
+        fuente: 1
+      - voz: "Y reparar también es prevenir. Cada año tiramos entre trece y veinticinco kilos de aparatos eléctricos por persona, y muchos se podrían arreglar."
+        tipo: ilustracion
+        escena: &taller >-
+          Un pequeño taller de reparación de barrio: sobre el mostrador, una tostadora abierta, una radio antigua y
+          un móvil desmontado con herramientas finas alrededor; estanterías con piezas en cajitas. Luz de lámpara
+          de mesa, ambiente cálido.
+        texto: "Reparar también es prevenir"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "El viaje de tu basura: recogida y reciclaje"
+    titulo_short: "Lo que pasa con tu botella después del contenedor amarillo"
+    short: true
+    gancho_short:
+      - voz: "¿Qué pasa con una botella de plástico cuando la echas al contenedor amarillo?"
+        tipo: ilustracion
+        escena: *contenedores
+        texto: "¿Y después del contenedor?"
+        resaltar: "después"
+        fuente: 1
+    escenas:
+      - voz: "El viaje empieza en la calle. Los contenedores se reparten para que nadie tenga que andar mucho: lo recomendable es que estén a menos de cincuenta metros de donde se genera la basura."
+        tipo: cifra
+        valor: 50
+        prefijo: "< "
+        sufijo: " m"
+        etiqueta: "Distancia recomendada de casa al contenedor"
+        fuente: 1
+      - voz: "Luego pasa el camión compactador, que aprieta los residuos para llevar más en cada viaje. En algunos barrios ni siquiera hay camión: la basura viaja por tubos bajo tierra, empujada por aire. Es la recogida neumática."
+        tipo: ilustracion
+        escena: &neumatica >-
+          Lámina didáctica en corte de una calle: arriba, un buzón metálico de recogida en la acera y edificios;
+          debajo del asfalto, una red de tubos grandes por donde viajan bolsas de basura empujadas por flechas de
+          aire, hasta una central con grandes contenedores. Estilo de libro de texto, colores suaves, sin texto.
+        texto: "Basura por tubos bajo tierra"
+        fuente: 1
+      - voz: "Los envases del amarillo llegan a una planta de clasificación. Allí, cintas, imanes, corrientes de aire y lectores ópticos separan cada material."
+        tipo: ilustracion
+        escena: &planta >-
+          El interior de una planta de clasificación de envases: cintas transportadoras elevadas llenas de botellas,
+          latas y briks, un tambor giratorio y operarios diminutos de tinta con chaleco y guantes junto a la cinta.
+          Luz industrial blanca y polvo en el aire.
+        kicker: "Planta de clasificación"
+        texto: "Cada material por su lado"
+        fuente: 1
+      - voz: "Con el papel, el reciclaje funciona muy bien. Según el temario, fabricar papel reciclado ahorra en torno a un setenta por ciento de energía y un ochenta por ciento de agua frente a hacerlo con fibra virgen."
+        tipo: comparar
+        titulo: "Lo que ahorra el papel reciclado"
+        izquierda: {etiqueta: "Energía", valor: 70, texto: "−70 %"}
+        derecha: {etiqueta: "Agua", valor: 80, texto: "−80 %"}
+        fuente: 1
+      - voz: "Con el plástico es otra historia. En todo el mundo solo se recicla de verdad alrededor del nueve por ciento de los residuos plásticos. El resto se quema, se entierra o acaba en la naturaleza."
+        tipo: cifra
+        valor: 9
+        sufijo: " %"
+        etiqueta: "Residuos plásticos que se reciclan en el mundo"
+        fuente: 11
+      - voz: "¿Por qué tan poco? Hay muchísimos tipos de plástico, a menudo mezclados, sucios o pegados a otros materiales. Y pesan tan poco que hacen falta unas diecisiete mil botellas para juntar una tonelada."
+        tipo: ilustracion
+        escena: *montana_plastico
+        kicker: "17.000 botellas = 1 tonelada"
+        texto: "Muchos plásticos, muy mezclados"
+        fuente: 1
+      - voz: "Hay dos formas de reciclarlo. La mecánica: triturar, lavar y fundir. Y la química, que rompe el plástico en sus moléculas para fabricar plástico nuevo de la misma calidad, aunque gasta más."
+        tipo: esquema
+        modo: cadena
+        titulo: "Reciclado mecánico"
+        nodos:
+          - {etiqueta: "1", texto: "Triturar"}
+          - {etiqueta: "2", texto: "Lavar"}
+          - {etiqueta: "3", texto: "Fundir"}
+          - {etiqueta: "4", texto: "Granza nueva", destacar: true}
+        nota: "El químico rompe el plástico en moléculas"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Las nuevas reglas de la basura"
+    titulo_short: "10 céntimos por botella: lo que cambia con los envases"
+    short: true
+    gancho_short:
+      - voz: "Pronto pagarás diez céntimos más por cada botella o lata. Y te los devolverán cuando la lleves de vuelta a la tienda."
+        tipo: cifra
+        valor: 10
+        sufijo: " céntimos"
+        etiqueta: "Depósito por envase de bebida"
+        fuente: 13
+    escenas:
+      - voz: "La idea que lo cambia todo es la economía circular: que los materiales sigan dando vueltas en la economía el mayor tiempo posible, en lugar de usar y tirar."
+        tipo: ilustracion
+        escena: &circulo >-
+          Lámina didáctica de un círculo dibujado a mano con flechas, formado por pequeñas escenas encadenadas:
+          una fábrica, una tienda, una casa, un contenedor y una planta de reciclaje que vuelve a la fábrica.
+          Colores suaves de acuarela, fondo de papel claro, sin texto.
+        texto: "Economía circular"
+        fuente: [1, 15]
+      - voz: "Europa lo convirtió en ley con la directiva de 2018. Y España con la ley de residuos de 2022, la que hoy marca las reglas."
+        tipo: fecha
+        fecha: "8 de abril de 2022"
+        lugar: "Ley 7/2022 de residuos y suelos contaminados"
+        fuente: [2, 15]
+      - voz: "Una de sus claves es la responsabilidad ampliada del productor: quien pone un producto en el mercado paga por gestionarlo cuando se convierte en residuo. Así sale más rentable diseñar envases fáciles de reciclar."
+        tipo: titulo
+        texto: "Quien lo vende, paga su residuo"
+        resaltar: "paga"
+        kicker: "Responsabilidad ampliada del productor"
+        fuente: [1, 2]
+      - voz: "Desde 2023, además, hay un impuesto de cuarenta y cinco céntimos por cada kilo de plástico no reciclado en los envases que no se reutilizan."
+        tipo: cifra
+        valor: 0.45
+        decimales: 2
+        sufijo: " €/kg"
+        etiqueta: "Impuesto al plástico no reciclado de los envases de un solo uso (desde 2023)"
+        fuente: 12
+      - voz: "Y aun así, España va con retraso. Recicla alrededor del treinta y nueve por ciento de sus residuos municipales, y el objetivo europeo para 2025 era el cincuenta y cinco."
+        tipo: comparar
+        titulo: "Residuos municipales reciclados"
+        izquierda: {etiqueta: "España (2022)", valor: 39, texto: "39 %"}
+        derecha: {etiqueta: "Objetivo UE 2025", valor: 55, texto: "55 %"}
+        fuente: 4
+      - voz: "Peor aún con los vertederos: la mitad de la basura municipal de España sigue acabando enterrada. En 2035 tendrá que ser como mucho el diez por ciento."
+        tipo: comparar
+        titulo: "Residuos municipales al vertedero"
+        izquierda: {etiqueta: "España (2022)", valor: 50, texto: "50 %"}
+        derecha: {etiqueta: "Máximo en 2035", valor: 10, texto: "10 %"}
+        fuente: 4
+      - voz: "Como España no recogió suficientes botellas y latas, la ley obliga a montar un sistema de depósito: pagas diez céntimos al comprar y los recuperas al devolver el envase."
+        tipo: ilustracion
+        escena: &maquina_retorno >-
+          La entrada de un supermercado de barrio español con una máquina de devolución de envases junto a la
+          pared: una boca redonda iluminada donde una mano de tinta mete una botella de plástico; al lado, una
+          bolsa con latas y botellas vacías. Luz clara de mañana.
+        texto: "Depósito de 10 céntimos"
+        fuente: 13
+      - voz: "Tenía que arrancar en noviembre de 2026. Pero a finales de octubre todavía no había gestor autorizado ni máquinas instaladas."
+        tipo: ilustracion
+        escena: *maquina_retorno
+        kicker: "A finales de octubre de 2026"
+        texto: "Sin gestor ni máquinas"
+        fuente: 13
+      - voz: "Y a escala mundial, el tratado de la ONU contra la contaminación por plásticos sigue atascado: los países no se ponen de acuerdo en si limitar cuánto plástico se fabrica."
+        tipo: ilustracion
+        escena: &tratado >-
+          Una gran sala de conferencias internacional con una mesa circular, banderas pequeñas sin escudos y
+          figuras diminutas de tinta sentadas con micrófonos; en el centro de la mesa, una botella de plástico
+          solitaria. Luz fría, ambiente tenso.
+        texto: "El tratado de los plásticos, atascado"
+        fuente: 14
+
+cierre:
+  - voz: "La próxima vez que bajes la basura, piensa en todo lo que viene detrás. Si te ha servido, en el canal tienes más temas del planeta explicados con datos. Todas las fuentes están en la descripción."
+    tipo: ilustracion
+    escena: *contenedores
+    texto: "Bitácora de la Tierra"
+    sub: "Fuentes en la descripción"
