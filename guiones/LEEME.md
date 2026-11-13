@@ -45,9 +45,13 @@ Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia
 YouTube deja probar hasta **3 títulos y 3 miniaturas** en cada vídeo largo («Prueba A/B», en YouTube Studio)
 y se queda con el que más tiempo de visualización consigue. Por eso cada guion lleva `titulos` y `miniaturas`:
 
+- **Con tensión, no de enciclopedia:** que el título plantee una pregunta o una anomalía que obligue a hacer clic
+  («Por qué salieron de la tienda sin zapatos a −30 °C»), no una descripción («El paso Diátlov (1959)»).
 - **Que sean de verdad distintos**, no la misma frase cambiando una palabra: si se parecen mucho, la prueba
   tarda más y no aclara nada. Un enfoque por título: la cifra, el misterio, la pregunta.
-- **Una idea por miniatura**, 3–5 palabras, con su propia imagen (`escena`, `imagen` o `buscar_imagen`).
+- **Una idea por miniatura, 3 palabras como mucho**, que planteen una duda y **no repitan el título**
+  («¿Sin zapatos a −30 °C?», no «El paso Diátlov»). Pocos elementos: monigote, un objeto clave y el texto.
+  La `cifra` (etiqueta roja) solo si la cifra ES la duda; si no, mejor sin ella. Con su propia imagen (`escena`, `imagen` o `buscar_imagen`).
   Si no trae imagen, usa la primera del vídeo. Con `lado: izquierda`, la imagen va a la izquierda y el texto
   a la derecha, para que se distinga más.
 - Los títulos, como mucho 100 letras (el robot avisa si alguno pasa).
@@ -149,7 +153,15 @@ pedir un efecto con `sonido: viento`, `latido`, `golpe`, `pop` o `whoosh`.
 - La primera frase arranca al instante y la escena sale ya montada: el gancho está en los 2 primeros segundos.
 - Subtítulos palabra a palabra, con la palabra que suena resaltada.
 - Pantalla final con una frase que invita a ver el vídeo completo: la del canal (`cierre_short`) o la de cada
-  capítulo (`cierre_short:` dentro del capítulo).
+  capítulo (`cierre_short:` dentro del capítulo). **La voz también la lee**, para llevar al vídeo largo.
+  Lo ideal es que cierre la intriga del Short pero deje abierta la gran pregunta del vídeo largo:
+  `cierre_short: "Tardaron años en saber por qué. Lo cuento entero en el vídeo del canal"`.
+
+**El gancho del Short (`gancho_short`) decide si la gente se queda (los 2–3 primeros segundos):**
+- Empieza por la anomalía o el clímax, nunca por el contexto: «Un solo mensaje mal entendido provocó el peor
+  choque de la aviación», no «En 1977, en Tenerife…».
+- Una frase corta (menos de 15 palabras) y, en pantalla desde el primer fotograma, un texto grande que la refuerce
+  (`titulo` o `cifra`).
 
 ## Escenas
 
