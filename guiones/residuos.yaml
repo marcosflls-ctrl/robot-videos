@@ -16,29 +16,26 @@ hashtags: "#residuos #reciclaje #basura #economíacircular #medioambiente #Espa�
 
 carpeta: "Residuos"
 titulos:
-  - "Qué pasa con tu basura cuando la tiras"
-  - "Vendieron por un dólar un terreno lleno de veneno: la historia de la basura"
-  - "España recicla menos de lo que crees: el viaje de tu basura"
+  - "Vendieron por 1 dólar un terreno lleno de veneno… y construyeron un colegio encima"
+  - "Por qué tu botella de plástico probablemente no se recicla"
+  - "Qué pasa con tu basura cuando la tiras (y por qué España suspende)"
 
 miniaturas:
-  - texto: "¿A dónde va tu basura?"
-    resaltar: "tu basura"
-    cifra: "467 kg"
+  - texto: "¿Dónde acaba?"
+    resaltar: "acaba"
     escena: &contenedores >-
       Una calle de un barrio español al atardecer con una fila de contenedores de colores (amarillo, azul,
       verde, marrón y gris) junto a la acera; una bolsa de basura apoyada al lado. Edificios de ladrillo y
       balcones con ropa tendida. Luz cálida.
-  - texto: "Un colegio sobre veneno"
+  - texto: "Colegio sobre veneno"
     resaltar: "veneno"
-    cifra: "1 $"
     lado: izquierda
     escena: &escuela_canal >-
       Un colegio de ladrillo de una planta de los años cincuenta en un barrio de casas de madera de Estados
       Unidos; delante, un campo de hierba con charcos de colores extraños y bidones oxidados asomando de la
       tierra. Cielo gris.
-  - texto: "Solo se recicla el 9 %"
-    resaltar: "9 %"
-    cifra: "9 %"
+  - texto: "¿Se recicla?"
+    resaltar: "recicla"
     escena: &montana_plastico >-
       Una montaña de envases de plástico aplastados (botellas, garrafas, bolsas, bandejas) atados en balas
       dentro de una nave industrial enorme, con una pala mecánica pequeña al pie. Luz fría que entra por
@@ -135,7 +132,7 @@ capitulos:
     titulo_short: "Cuánta basura tiras al año (y no es poca)"
     short: true
     gancho_short:
-      - voz: "Cada persona en España genera casi media tonelada de basura al año. ¿Sabes qué hay dentro?"
+      - voz: "Cada año tiras casi media tonelada de basura. Y casi la mitad es comida."
         tipo: cifra
         valor: 467
         sufijo: " kg"
@@ -200,6 +197,7 @@ capitulos:
   - titulo: "Love Canal: el barrio construido sobre veneno"
     titulo_short: "Vendieron por 1 dólar un terreno lleno de veneno"
     short: true
+    cierre_short: "Y no fue el único caso. El de Zaldibar, en el vídeo completo del canal"
     gancho_short:
       - voz: "Una empresa química vendió por un dólar el terreno donde había enterrado sus residuos. Encima construyeron un colegio."
         tipo: titulo
@@ -265,8 +263,9 @@ capitulos:
   - titulo: "Zaldibar: el vertedero que se vino abajo"
     titulo_short: "El día que un vertedero se vino abajo en Euskadi"
     short: true
+    cierre_short: "¿Cómo se evita que vuelva a pasar? Te lo cuento en el vídeo completo del canal"
     gancho_short:
-      - voz: "El seis de febrero de 2020, una montaña de residuos se desplomó en Euskadi y sepultó a dos trabajadores."
+      - voz: "Una montaña de basura se vino abajo, cortó una autopista y sepultó a dos trabajadores. Pasó en Euskadi."
         tipo: titulo
         texto: "La montaña de basura que se vino abajo"
         resaltar: "se vino abajo"
@@ -399,12 +398,12 @@ capitulos:
     titulo_short: "Lo que pasa con tu botella después del contenedor amarillo"
     short: true
     gancho_short:
-      - voz: "¿Qué pasa con una botella de plástico cuando la echas al contenedor amarillo?"
-        tipo: ilustracion
-        escena: *contenedores
-        texto: "¿Y después del contenedor?"
-        resaltar: "después"
-        fuente: 1
+      - voz: "De cada cien kilos de plástico que tiramos en el mundo, solo nueve se reciclan de verdad. ¿Y tu botella?"
+        tipo: cifra
+        valor: 9
+        sufijo: " %"
+        etiqueta: "Del plástico que se recicla de verdad en el mundo"
+        fuente: 11
     escenas:
       - voz: "El viaje empieza en la calle. Los contenedores se reparten para que nadie tenga que andar mucho: lo recomendable es que estén a menos de cincuenta metros de donde se genera la basura."
         tipo: cifra

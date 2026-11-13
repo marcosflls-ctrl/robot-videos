@@ -153,6 +153,8 @@ def todas_las_escenas(g):
     for c, cap in enumerate(g["capitulos"]):
         salida += [(e, c) for e in _lista(cap.get("gancho_short"))]
         salida += [(e, c) for e in cap["escenas"]]
+        if cap.get("_cta"):
+            salida.append((cap["_cta"], c))
     salida += [(e, None) for e in g.get("cierre") or []]
     return salida
 
@@ -408,7 +410,21 @@ def _tanda_cuadra(audios, textos):
     return True
 
 
+def frase_cierre_short(cap, canal):
+    return str(cap.get("cierre_short") or canal.get("cierre_short") or "¿Y qué pasó después? La historia completa, en el canal")
+
+
+def preparar_cta(g, canal):
+    """Cada Short termina con la voz invitando al vídeo largo (la frase de su pantalla final)."""
+    if not canal.get("cierre_short_voz", True):
+        return
+    for cap in g["capitulos"]:
+        if cap.get("short"):
+            cap["_cta"] = {"voz": frase_cierre_short(cap, canal), "tipo": "cta"}
+
+
 def generar_voces(g, canal):
+    preparar_cta(g, canal)
     escenas = [e for e, _ in todas_las_escenas(g)]
     if (os.environ.get("SIN_VOZ") or "").strip() == "1":
         sr = 24000
@@ -551,7 +567,12 @@ def bloques_short(g, sr, c):
         b = _bloque_escena(g, e, c, sr, t, antes=0.05 if k == 0 else ANTES_VOZ)
         bloques.append(b)
         t = b["fin"]
-    bloques.append({"tipo": "final_short", "ini": t, "fin": t + FINAL_SHORT, "cap": c})
+    fin = {"tipo": "final_short", "ini": t, "fin": t + FINAL_SHORT, "cap": c}
+    cta = cap.get("_cta")
+    if cta is not None and cta.get("_audio") is not None:  # la voz lee la invitación al vídeo largo
+        dur = len(cta["_audio"]) / sr
+        fin.update(escena=cta, voz_ini=t + 0.25, dur_voz=dur, fin=t + max(FINAL_SHORT, 0.25 + dur + 0.6))
+    bloques.append(fin)
     return bloques
 
 
@@ -813,7 +834,7 @@ class Pantallas:
         W, H = self.W, self.H
         a = rebote(min(1, t / 0.5))
         cap = self.g["capitulos"][self.c_final] if getattr(self, "c_final", None) is not None else {}
-        frase = str(cap.get("cierre_short") or self.canal.get("cierre_short") or "¿Y qué pasó después? La historia completa, en el canal")
+        frase = frase_cierre_short(cap, self.canal)
         f, lineas, tam = ctx.ajustar(frase, "tit", 104, W - 2 * ctx.m, 4, 50)
         y0 = H * 0.22
         for k, l in enumerate(lineas):
@@ -878,7 +899,7 @@ def mezclar_audio(bloques, sr, duracion, carpeta, canal=None):
             pista[a:b] += s[: b - a]
 
     for i, b in enumerate(bloques):
-        if b["tipo"] == "escena":
+        if b["tipo"] == "escena" or (b["tipo"] == "final_short" and b.get("escena")):
             poner(voz, b["voz_ini"], _a_48k(b["escena"]["_audio"], sr))
             if b["escena"].get("tipo") == "cifra":
                 poner(fx, b["ini"] + 0.1, sonido.pop() * 0.5)
