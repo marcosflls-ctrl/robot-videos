@@ -16,11 +16,11 @@ on:
         description: "El guion entero (pega aquí todo el párrafo del prompt)"
         type: string
         required: true
-      voz:
-        description: "Voz del narrador"
+      velocidad:
+        description: "Velocidad de la voz (1.0 = normal; 1.15 = un 15 % más rápida)"
         type: choice
-        options: ["Orus", "Charon", "Sadaltager", "Iapetus", "Rasalgethi", "Schedar", "Sulafat", "Kore", "Aoede"]
-        default: "Orus"
+        options: ["1.15", "1.0", "1.1", "1.2", "1.25", "1.3"]
+        default: "1.15"
 
 jobs:
   voz:
@@ -45,17 +45,20 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TITULO: ${{ github.event.inputs.titulo }}
           GUION: ${{ github.event.inputs.guion }}
-          GEMINI_VOZ: ${{ github.event.inputs.voz }}
+          GEMINI_VOZ: Orus
         run: |
           if [ -z "$GEMINI_API_KEY" ]; then
             echo "::error::Falta la clave GEMINI_API_KEY. Mira el README."
             exit 1
           fi
           python scripts/voz_guion.py
-      - name: Pasar a MP3
+      - name: Ajustar la velocidad y pasar a MP3
+        env:
+          VELOCIDAD: ${{ github.event.inputs.velocidad }}
         run: |
           N=$(cat nombre.txt)
-          ffmpeg -loglevel error -y -i "salida/$N.wav" -b:a 192k "salida/$N.mp3"
+          # atempo acelera sin cambiar el tono de la voz
+          ffmpeg -loglevel error -y -i "salida/$N.wav" -filter:a "atempo=${VELOCIDAD:-1.15}" -b:a 192k "salida/$N.mp3"
           rm "salida/$N.wav"
           echo "NOMBRE=$N" >> "$GITHUB_ENV"
       - uses: actions/upload-artifact@v4
