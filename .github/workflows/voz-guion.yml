@@ -1,0 +1,80 @@
+# Voz para la skill «Vídeos animados 2D» (canal de historia alternativa).
+# Pegas el título y el guion que te da el prompt, y el robot te manda por Telegram el audio (.mp3)
+# y el guion (.txt) con el nombre exacto que necesita la skill. NO publica nada.
+# Se lanza a mano: pestaña "Actions" -> "Voz para vídeo animado 2D" -> "Run workflow".
+
+name: Voz para vídeo animado 2D
+
+on:
+  workflow_dispatch:
+    inputs:
+      titulo:
+        description: "Título del vídeo, tal cual (p. ej. ¿Qué habría pasado si España no hubiera perdido Cuba?)"
+        type: string
+        required: true
+      guion:
+        description: "El guion entero (pega aquí todo el párrafo del prompt)"
+        type: string
+        required: true
+      voz:
+        description: "Voz del narrador"
+        type: choice
+        options: ["Orus", "Charon", "Sadaltager", "Iapetus", "Rasalgethi", "Schedar", "Sulafat", "Kore", "Aoede"]
+        default: "Orus"
+
+jobs:
+  voz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar programas del sistema
+        timeout-minutes: 5
+        run: |
+          if ! which ffmpeg; then
+            pip install --quiet imageio-ffmpeg
+            sudo ln -sf "$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')" /usr/local/bin/ffmpeg
+          fi
+      - name: Instalar librerías
+        run: pip install --quiet numpy soundfile num2words
+      - name: Leer el guion con la voz de Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TITULO: ${{ github.event.inputs.titulo }}
+          GUION: ${{ github.event.inputs.guion }}
+          GEMINI_VOZ: ${{ github.event.inputs.voz }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Falta la clave GEMINI_API_KEY. Mira el README."
+            exit 1
+          fi
+          python scripts/voz_guion.py
+      - name: Pasar a MP3
+        run: |
+          N=$(cat nombre.txt)
+          ffmpeg -loglevel error -y -i "salida/$N.wav" -b:a 192k "salida/$N.mp3"
+          rm "salida/$N.wav"
+          echo "NOMBRE=$N" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voz-${{ env.NOMBRE }}
+          path: salida/
+      - name: Mandarlo por Telegram
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram no está configurado: descarga los archivos en el apartado 'Artifacts' de esta ejecución."
+            exit 0
+          fi
+          API="https://api.telegram.org/bot${TELEGRAM_TOKEN}"
+          # Como documento, para que conserve el nombre exacto que necesita la skill
+          curl -s -o /dev/null -F chat_id="$TELEGRAM_CHAT_ID" -F document=@"salida/${NOMBRE}.mp3" \
+            -F caption="🎙️ Voz lista. Guarda este audio y el .txt en la carpeta del vídeo, sin cambiarles el nombre." \
+            "$API/sendDocument"
+          curl -s -o /dev/null -F chat_id="$TELEGRAM_CHAT_ID" -F document=@"salida/${NOMBRE}.txt" "$API/sendDocument"
+          echo "Enviado: ${NOMBRE}.mp3 y ${NOMBRE}.txt"

@@ -136,3 +136,12 @@ entrar en pantalla, para que no salgan todos iguales.
   horizontal de 24 preguntas (`scripts/quiz_largo.py`), según la `fecha` de cada quiz.
   A mano: **Actions** → **Vídeo de quiz** → **Run workflow** (vacío = el que toca hoy).
 - Te llega por Telegram (y a Drive) con el título, la descripción y las respuestas. **No publica nada.**
+
+## Voz para vídeos animados 2D (canal de historia alternativa)
+
+El robot **Voz para vídeo animado 2D** lee un guion entero con la voz de Gemini y te lo manda por Telegram
+listo para la skill «Vídeos animados 2D»: el audio (`.mp3`) y el guion (`.txt`), con el nombre exacto que
+usa la skill para los títulos y las miniaturas (p. ej. `que_habria_pasado_si_espana_no_hubiera_perdido_cuba.mp3`).
+
+Cómo lanzarlo: **Actions** → **Voz para vídeo animado 2D** → **Run workflow**, pega el título y el guion
+y elige la voz (Orus por defecto). Necesita `GEMINI_API_KEY`. El código está en `scripts/voz_guion.py`.
