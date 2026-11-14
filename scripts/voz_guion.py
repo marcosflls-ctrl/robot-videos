@@ -30,9 +30,9 @@ import soundfile as sf
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ESTILO = ("Narrador de vídeos animados de historia en español de España: cálido, cinematográfico y con suspense, "
-          "ritmo pausado, pausas dramáticas en los puntos suspensivos, frases cortas con energía, sin titubeos")
+          "ritmo ágil y con energía, pausas dramáticas breves en los puntos suspensivos, frases cortas con energía, sin titubeos")
 TANDA = 650     # letras por petición (≈ 100 palabras)
-PAUSA = 0.35    # segundos de silencio entre tandas
+PAUSA = 0.25    # segundos de silencio entre tandas
 
 
 def nombre_archivo(titulo: str) -> str:

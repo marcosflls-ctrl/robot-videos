@@ -144,4 +144,4 @@ listo para la skill «Vídeos animados 2D»: el audio (`.mp3`) y el guion (`.txt
 usa la skill para los títulos y las miniaturas (p. ej. `que_habria_pasado_si_espana_no_hubiera_perdido_cuba.mp3`).
 
 Cómo lanzarlo: **Actions** → **Voz para vídeo animado 2D** → **Run workflow**, pega el título y el guion
-y elige la voz (Orus por defecto). Necesita `GEMINI_API_KEY`. El código está en `scripts/voz_guion.py`.
+y elige la velocidad (1.15 por defecto, un 15 % más rápida). La voz es siempre Orus. Necesita `GEMINI_API_KEY`. El código está en `scripts/voz_guion.py`.
