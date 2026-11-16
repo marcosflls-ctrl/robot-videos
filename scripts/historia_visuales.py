@@ -706,6 +706,29 @@ class Lista(Pieza):
 #  Foto de época
 # =====================================================================
 
+def zona_clave(img, ancho):
+    """Dónde está lo importante de un dibujo horizontal, para encuadrarlo en vertical.
+
+    Devuelve (centro, lado): el centro (0–1) de la franja de anchura «ancho» (0–1) con más detalle
+    —personajes, objetos, trazos— y hacia qué lado (-1 izquierda, +1 derecha) queda más dibujo fuera de ella.
+    Un cielo, una pared lisa o la niebla casi no tienen trazos, así que no ganan nunca.
+    """
+    g = img.convert("L").resize((320, max(8, int(320 * img.height / img.width))), Image.BILINEAR)
+    bordes = np.asarray(g.filter(ImageFilter.FIND_EDGES), np.float32)[2:-2, 2:-2]
+    h, w = bordes.shape
+    filas = 1 - 0.5 * np.abs(np.linspace(-1, 1, h))  # lo del centro de la altura pesa más que el borde
+    perfil = (np.clip(bordes - 12, 0, None) * filas[:, None]).sum(axis=0)
+    n = max(4, min(w, int(round(w * ancho))))
+    sumas = np.convolve(perfil, np.ones(n), "valid")
+    centros = (np.arange(len(sumas)) + n / 2) / w
+    if sumas.max() <= 0:
+        return 0.5, 1
+    sumas = sumas * (1 - 0.12 * np.abs(centros - 0.5) * 2)  # a igualdad de detalle, mejor centrado
+    i = int(np.argmax(sumas))
+    izq, der = perfil[:i].sum(), perfil[i + n:].sum()
+    return float(centros[i]), (1 if der >= izq else -1)
+
+
 class Foto(Pieza):
     """Foto de archivo en tono sepia con zoom lento.
 
@@ -749,6 +772,8 @@ class Foto(Pieza):
             ancho = max(int(bw * 1.06), int(alto * tratada.width / tratada.height))
             self.foto = tratada.resize((ancho, alto), Image.LANCZOS).filter(
                 ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2))
+            # La cámara acaba encuadrando la zona con más dibujo, y llega a ella desde el lado que tiene más
+            self.clave, self.lado_clave = zona_clave(tratada, min(1.0, bw / ancho))
         else:
             self.foto = recortar_a(tratada, int(bw * self.zoom), int(bh * self.zoom), foco)
         # Movimiento de cámara: el que pida el guion («camara: barrido») o uno distinto en cada escena
@@ -828,12 +853,17 @@ class Foto(Pieza):
             fx, fy = self.foco_mov
         elif m == "recorrido":  # Short a pantalla completa: barrido lateral por el dibujo, sin prisa
             W0, H0 = self.foto.width, self.foto.height
-            holgura = W0 - bw
-            tramo = min(holgura * 0.75, 230 * max(self.dur, 1.0))  # nunca más deprisa que ~230 px/s
-            cx = W0 / 2 + self.sentido * tramo * (e - 0.5)
-            s = 1 - 0.04 * e  # y se acerca un pelín
+            s = 1 - 0.04 * e  # se acerca un pelín
             h = int(H0 * s)
             w = min(W0, int(bw * h / bh))
+            # Recorrido corto que TERMINA en la zona clave del dibujo: nunca se va a un lateral vacío,
+            # y lo importante está a la vista (casi entero) desde el primer momento
+            fin = min(W0 - bw / 2, max(bw / 2, self.clave * W0))
+            tramo = min(bw * 0.22, 70 * max(self.dur, 1.0))
+            ini = min(W0 - bw / 2, max(bw / 2, fin + self.lado_clave * tramo))
+            if abs(ini - fin) < tramo * 0.5:  # pegado al borde por ese lado: se llega desde el otro
+                ini = min(W0 - bw / 2, max(bw / 2, fin - self.lado_clave * tramo))
+            cx = ini + (fin - ini) * e
             x = max(0, min(W0 - w, int(cx - w / 2)))
             y = max(0, min(H0 - h, int((H0 - h) * 0.5)))
             return self.foto.crop((x, y, x + w, y + h)).resize((bw, bh), Image.BILINEAR)
