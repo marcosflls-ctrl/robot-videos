@@ -40,6 +40,12 @@ Cada vídeo es un archivo `.yaml` de esta carpeta. El robot **Vídeo de historia
 
 `ejemplo.yaml` enseña todos los tipos de escena. Es solo una prueba: no es para publicar.
 
+## El arranque del vídeo largo
+
+Los primeros 30 segundos son donde más gente se va. El `gancho` son 2 o 3 escenas que plantean la gran pregunta
+y entran ya en la historia: **sin lista de «En este vídeo veremos…»** ni presentaciones. La cabecera del canal
+dura un segundo y medio.
+
 ## Tres títulos y tres miniaturas (prueba A/B)
 
 YouTube deja probar hasta **3 títulos y 3 miniaturas** en cada vídeo largo («Prueba A/B», en YouTube Studio)
@@ -93,7 +99,7 @@ fuentes:                      # cada dato del guion apunta a una de estas
     cita: "Autor (año). Título. Publicación." # lo que va en la descripción
     url: "https://..."
 
-gancho: [escenas]             # opcional: lo primero que se oye, antes de la cabecera
+gancho: [escenas]             # lo primero que se oye, antes de la cabecera: 2 o 3 escenas, sin índice («En este vídeo…»)
 capitulos:
   - titulo: "Nombre del capítulo"
     short: true               # true = sacar un Short de este capítulo
@@ -156,6 +162,12 @@ pedir un efecto con `sonido: viento`, `latido`, `golpe`, `pop` o `whoosh`.
   capítulo (`cierre_short:` dentro del capítulo). **La voz también la lee**, para llevar al vídeo largo.
   Lo ideal es que cierre la intriga del Short pero deje abierta la gran pregunta del vídeo largo:
   `cierre_short: "Tardaron años en saber por qué. Lo cuento entero en el vídeo del canal"`.
+
+**Los Shorts duran 30–45 segundos**, no el capítulo entero: el gancho, lo más fuerte y el cierre que manda al
+vídeo largo. Así se ven hasta el final (YouTube los enseña más) y dejan con ganas del vídeo completo.
+- Marca con `en_short: true` las 3 o 4 escenas del capítulo que entran en el Short (unas 80–100 palabras con el
+  gancho). Tienen que entenderse seguidas sin las demás, y es mejor que no resuelvan del todo la historia.
+- Si no marcas ninguna, el robot coge las primeras hasta unos 40 segundos (`short_segundos` en el canal; 0 = entero).
 
 **El gancho del Short (`gancho_short`) decide si la gente se queda (los 2–3 primeros segundos):**
 - Empieza por la anomalía o el clímax, nunca por el contexto: «Un solo mensaje mal entendido provocó el peor
