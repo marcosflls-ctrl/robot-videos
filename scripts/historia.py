@@ -53,7 +53,7 @@ CACHE_VOZ = RAIZ / "cache_voz"
 
 ANTES_VOZ = 0.35      # segundos de imagen antes de que hable la voz en cada escena
 DESPUES_VOZ = 0.5     # y después
-STING = 3.2           # cabecera del canal
+STING = 1.6           # cabecera del canal: un visto y no visto, para entrar en la historia cuanto antes
 TARJETA_CAP = 2.8     # tarjeta de cada capítulo
 FINAL_SHORT = 2.8     # pantalla final de cada Short
 FUNDIDO = 0.35        # fundido entre escenas
@@ -558,11 +558,32 @@ def bloques_largo(g, sr, canal):
     return bloques
 
 
-def bloques_short(g, sr, c):
-    """Short de un capítulo: su gancho propio (si lo tiene) + sus escenas + pantalla final."""
+def escenas_short(cap, sr, canal=None):
+    """Las escenas que entran en el Short: el gancho y lo más fuerte del capítulo, no el capítulo entero.
+    Si el guion marca escenas con «en_short: true», van esas. Si no, las primeras hasta llenar unos
+    «short_segundos» de voz (40 por defecto; 0 = el capítulo entero, como antes)."""
+    gancho = _lista(cap.get("gancho_short"))
+    marcadas = [e for e in cap["escenas"] if e.get("en_short")]
+    if marcadas:
+        return gancho + marcadas
+    tope = float((canal or {}).get("short_segundos", 40) or 0)
+    if tope <= 0:
+        return gancho + cap["escenas"]
+    elegidas, total = [], sum(len(e["_audio"]) / sr for e in gancho)
+    for e in cap["escenas"]:
+        dur = len(e["_audio"]) / sr + ANTES_VOZ + DESPUES_VOZ
+        if len(elegidas) >= 2 and total + dur > tope:
+            break
+        elegidas.append(e)
+        total += dur
+    return gancho + elegidas
+
+
+def bloques_short(g, sr, c, canal=None):
+    """Short de un capítulo: su gancho propio (si lo tiene) + sus mejores escenas + pantalla final."""
     bloques, t = [], 0.0
     cap = g["capitulos"][c]
-    for k, e in enumerate(_lista(cap.get("gancho_short")) + cap["escenas"]):
+    for k, e in enumerate(escenas_short(cap, sr, canal)):
         # La primera frase del Short arranca casi al instante: el gancho tiene que estar en los 2 primeros segundos
         b = _bloque_escena(g, e, c, sr, t, antes=0.05 if k == 0 else ANTES_VOZ)
         bloques.append(b)
@@ -761,6 +782,8 @@ class Pantallas:
                                      "tit", 150 if not ctx.vertical else 130, W - 2 * ctx.m, 3, 50)
         alto = tam * 1.05 * len(lineas)
         y0 = H / 2 - alto / 2 - 30
+        salida = suave((t - (dur - 0.4)) / 0.4)
+        t = t * 3.2 / max(dur, 0.1)  # la animación de entrada se adapta a lo que dure la cabecera
         for k, l in enumerate(lineas):
             a = suave((t - 0.15 - 0.15 * k) / 0.6)
             d.text((W / 2, y0 + k * tam * 1.05 + 30 * (1 - a)), l, font=f, fill=ctx.c("texto", int(255 * a)), anchor="ma")
@@ -770,7 +793,6 @@ class Pantallas:
         b = suave((t - 1.0) / 0.5)
         d.text((W / 2, yb + 40), str(self.canal.get("lema", "")).upper(), font=ctx.f("txt_b", 30),
                fill=ctx.c("acento2", int(255 * b)), anchor="ma")
-        salida = suave((t - (dur - 0.4)) / 0.4)
         if salida > 0:
             img = Image.blend(img, base, salida)
         return img
@@ -1383,7 +1405,7 @@ def main():
         for c, cap in enumerate(g["capitulos"]):
             if not cap.get("short", True) or (elegidos and c + 1 not in elegidos):
                 continue
-            bloques = bloques_short(g, sr, c)
+            bloques = bloques_short(g, sr, c, canal)
             base = SALIDA / f"{nombre}_short_{c + 1:02d}"
             r = montar(g, canal, bloques, sr, VERTICAL, base.with_suffix(".mp4"),
                        subtitulos=bool(canal.get("subtitulos_shorts", True)))
