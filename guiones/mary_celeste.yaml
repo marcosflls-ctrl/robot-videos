@@ -54,6 +54,10 @@ fuentes:
     corta: "Wikipedia: Mary Celeste"
     cita: "«Mary Celeste». Wikipedia (en inglés), con las actas de la vista de Gibraltar y la bibliografía del caso."
     url: "https://en.wikipedia.org/wiki/Mary_Celeste"
+  - id: 3
+    corta: "Encyclopaedia Britannica"
+    cita: "Encyclopaedia Britannica. Mary Celeste (ship)."
+    url: "https://www.britannica.com/topic/Mary-Celeste"
 
 # ---------------------------------------------------------------------------------------------
 gancho:
@@ -111,6 +115,19 @@ capitulos:
         texto: "Todo estaba en su sitio"
         en_short: true
         fuente: [1, 2]
+      - voz: "Subieron el primer oficial, Oliver Deveau, y otro marinero. Encontraron los camarotes mojados y revueltos por el agua que había entrado, pero nada roto ni forzado."
+        tipo: ilustracion
+        escena: &camarote >-
+          El camarote del capitán de un velero del siglo XIX, húmedo y desordenado: una litera con mantas, ropa
+          colgada, un baúl abierto, libros caídos y agua en el suelo de madera; por un tragaluz entra luz gris.
+          Nadie dentro.
+        texto: "Camarotes mojados, nada forzado"
+        fuente: 2
+      - voz: "La bitácora, la caja que protege la brújula, estaba movida de su sitio y con el cristal roto. Y sobre la cubierta había una vara de medir el agua de la bodega."
+        tipo: lista
+        titulo: "Lo que vieron en cubierta"
+        puntos: ["La brújula, movida y con el cristal roto", "Dos escotillas abiertas", "Una vara de sondar la bodega", "Cabos colgando por la borda"]
+        fuente: [2, 3]
       - voz: "La carga estaba intacta: mil setecientos un barriles de alcohol industrial. Había comida y agua para seis meses."
         tipo: cifra
         valor: 1701
@@ -128,6 +145,64 @@ capitulos:
         titulo: "Lo que faltaba"
         puntos: ["El único bote salvavidas", "Los instrumentos de navegación", "Los papeles del barco", "Las diez personas"]
         fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un barco con mala fama"
+    titulo_short: "El barco fantasma ya tenía fama de maldito antes de desaparecer"
+    short: true
+    cierre_short: "Y lo peor aún no había pasado. El caso completo, en el canal"
+    gancho_short:
+      - voz: "Su primer capitán murió a las pocas semanas de estrenarlo. Y eso fue solo el principio."
+        tipo: titulo
+        texto: "Su primer capitán murió enseguida"
+        resaltar: "murió"
+        kicker: "Antes del misterio"
+        fuente: [2, 3]
+    escenas:
+      - voz: "El Mary Celeste no se llamó siempre así. Se botó en 1861 en Nueva Escocia, en Canadá, con otro nombre: Amazon."
+        tipo: fecha
+        fecha: "18 de mayo de 1861"
+        lugar: "Se bota el Amazon en Nueva Escocia"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Su primer capitán, Robert McLellan, enfermó en el viaje inaugural y murió al cabo de unas semanas."
+        tipo: ilustracion
+        escena: &astillero >-
+          Un pequeño astillero de madera en una bahía fría de Canadá hacia 1861: un bergantín de dos palos recién
+          terminado sobre la grada, con virutas y tablones alrededor, pinos al fondo y niebla sobre el agua.
+          Nadie a la vista.
+        kicker: "Nueva Escocia · 1861"
+        texto: "Un estreno con mala suerte"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Después chocó contra unos aparejos de pesca, hundió a otro barco en el canal de la Mancha y, en 1867, una tormenta lo lanzó contra la costa. Sus dueños lo dieron por perdido."
+        tipo: lista
+        titulo: "Los primeros años del Amazon"
+        puntos: ["1861: muere su primer capitán", "Choca con aparejos de pesca", "Hunde a otro barco en el canal de la Mancha", "1867: encalla en una tormenta"]
+        en_short: true
+        fuente: 2
+      - voz: "Un marino estadounidense compró los restos por mil setecientos cincuenta dólares. Gastó cinco veces más en repararlo y le cambió el nombre."
+        tipo: comparar
+        titulo: "Lo que costó resucitar el barco"
+        izquierda: {etiqueta: "Compra", valor: 1750, texto: "1.750 $"}
+        derecha: {etiqueta: "Reparación", valor: 8825, texto: "8.825 $"}
+        fuente: 2
+      - voz: "Entre los marineros, cambiar el nombre a un barco siempre ha tenido fama de traer mala suerte. Desde 1868, aquel barco fue el Mary Celeste."
+        tipo: titulo
+        texto: "De Amazon a Mary Celeste"
+        resaltar: "Mary Celeste"
+        kicker: "1868"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Tampoco le fue bien a su nuevo dueño: los acreedores le embargaron el barco. En 1872, ya con otros propietarios, lo reformaron por completo y lo hicieron más grande. Uno de los socios era su nuevo capitán."
+        tipo: ilustracion
+        escena: &reforma >-
+          Un velero de madera del siglo XIX en dique seco en un puerto de Nueva York: andamios, carpinteros
+          diminutos de tinta clavando tablones nuevos en el casco y una cubierta recién añadida. Al fondo,
+          almacenes de ladrillo y mástiles. Luz de tarde.
+        kicker: "Nueva York · 1872"
+        texto: "Reformado de arriba abajo"
+        fuente: 2
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Diez personas rumbo a Génova"
@@ -166,6 +241,31 @@ capitulos:
         texto: "Diez personas a bordo"
         en_short: true
         fuente: [1, 2]
+      - voz: "En casa se quedó su hijo mayor, Arthur, de siete años. Tenía que ir al colegio, y lo dejaron con su abuela."
+        tipo: titulo
+        texto: "Un hijo se quedó en tierra"
+        resaltar: "en tierra"
+        kicker: "Arthur Briggs, 7 años"
+        fuente: 2
+      - voz: "El primer oficial, Albert Richardson, ya había navegado con Briggs. El cocinero acababa de casarse. Y cuatro marineros eran alemanes, de las islas Frisias; dos de ellos, hermanos."
+        tipo: lista
+        titulo: "La tripulación"
+        puntos: ["Albert Richardson, primer oficial", "Andrew Gilling, segundo oficial", "Edward Head, cocinero", "Cuatro marineros alemanes"]
+        fuente: 2
+      - voz: "Nadie los describió nunca como gente conflictiva. Al contrario: era una tripulación de confianza."
+        tipo: ilustracion
+        escena: *familia
+        texto: "Una tripulación de confianza"
+        fuente: 2
+      - voz: "Las dos primeras semanas de travesía fueron de muy mal tiempo."
+        tipo: ilustracion
+        escena: &temporal >-
+          Un bergantín del siglo XIX escorado en mitad de una tormenta del Atlántico, con olas más altas que la
+          cubierta, las velas recogidas y espuma volando. Cielo negro con claros. Nadie visible en cubierta.
+        texto: "Dos semanas de temporal"
+        ambiente: lluvia
+        sonido: viento
+        fuente: 3
       - voz: "La última anotación del cuaderno de a bordo es del veinticinco de noviembre. Ese día tenían a la vista Santa María, una isla de las Azores."
         tipo: fecha
         fecha: "25 de noviembre de 1872"
@@ -187,6 +287,12 @@ capitulos:
         sufijo: " días"
         etiqueta: "Navegando sin nadie a bordo"
         fuente: [1, 2]
+      - voz: "Ocho días después que el Mary Celeste había salido de Nueva York otro barco con el mismo destino: el Dei Gratia. Iba, sin saberlo, tras su estela."
+        tipo: comparar
+        titulo: "Salida de Nueva York (noviembre de 1872)"
+        izquierda: {etiqueta: "Mary Celeste", valor: 7, texto: "Día 7"}
+        derecha: {etiqueta: "Dei Gratia", valor: 15, texto: "Día 15"}
+        fuente: 2
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Sospechosos en Gibraltar"
@@ -209,6 +315,12 @@ capitulos:
         kicker: "Gibraltar · diciembre de 1872"
         texto: "Una recompensa por el rescate"
         fuente: [1, 2]
+      - voz: "No fue fácil. Deveau lo llevó con solo dos marineros: tres hombres para manejar un barco pensado para ocho, durante casi mil quinientos kilómetros."
+        tipo: cifra
+        valor: 3
+        sufijo: " hombres"
+        etiqueta: "Llevaron el barco hasta Gibraltar (unos 1.480 km)"
+        fuente: [2, 3]
       - voz: "Pero el fiscal de Gibraltar, Frederick Solly-Flood, no se lo creyó. Estaba convencido de que allí había habido un crimen."
         tipo: ilustracion
         escena: &tribunal >-
@@ -233,6 +345,26 @@ capitulos:
         resaltar: "No"
         en_short: true
         fuente: 2
+      - voz: "Aun así, el fiscal envió a Londres un informe en el que apuntaba a que la tripulación había matado al capitán, a su familia y a los oficiales."
+        tipo: titulo
+        texto: "El fiscal insistió en el crimen"
+        resaltar: "insistió"
+        kicker: "Enero de 1873"
+        fuente: 2
+      - voz: "El dueño principal del barco cruzó el Atlántico para defender a Briggs. Le exigieron una fianza de quince mil dólares que no podía pagar."
+        tipo: cifra
+        valor: 15000
+        sufijo: " $"
+        etiqueta: "Fianza exigida al dueño del barco"
+        fuente: 2
+      - voz: "Un capitán de la Marina de Estados Unidos revisó el casco por encargo del cónsul. Su conclusión: las marcas eran obra del mar, no de un arma."
+        tipo: ilustracion
+        escena: &proa >-
+          La proa de madera de un velero del siglo XIX amarrado en un puerto, vista de cerca: dos surcos largos y
+          estrechos en las tablas, justo por encima del agua, que un muñeco de palo con uniforme de marino observa
+          desde un bote con una lupa. Agua tranquila, luz clara.
+        texto: "Marcas del mar, no de un arma"
+        fuente: 2
       - voz: "Tras más de tres meses de investigación, el tribunal no encontró ninguna prueba de delito."
         tipo: cifra
         valor: 3
@@ -240,12 +372,23 @@ capitulos:
         sufijo: " meses"
         etiqueta: "De investigación, sin ninguna prueba de crimen"
         fuente: 1
+      - voz: "El barco no quedó libre hasta el veinticinco de febrero de 1873. Dos semanas después, con otra tripulación, siguió viaje hasta Génova y entregó su carga."
+        tipo: fecha
+        fecha: "25 de febrero de 1873"
+        lugar: "El Mary Celeste queda libre y sigue hasta Génova"
+        fuente: 2
       - voz: "Aun así, la recompensa fue muy baja: mil setecientas libras, en torno a una quinta parte del valor del barco y su carga. La sospecha se quedó flotando."
         tipo: cifra
         valor: 1700
         prefijo: "£"
         etiqueta: "Recompensa: mucho menos de lo habitual"
         fuente: [1, 2]
+      - voz: "Y en la sentencia, el juez todavía criticó al capitán del Dei Gratia. Los hombres que habían salvado el barco volvieron a casa con poco dinero y con la sombra de la duda."
+        tipo: ilustracion
+        escena: *tribunal
+        texto: "Salvaron el barco. Y dudaron de ellos"
+        resaltar: "dudaron"
+        fuente: 2
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Motín, piratas y un calamar gigante"
@@ -358,6 +501,12 @@ capitulos:
         resaltar: "El bote, no"
         en_short: true
         fuente: 1
+      - voz: "La Enciclopedia Británica llega a una conclusión parecida: Briggs creyó, por error, que el barco se hundía. La vara de sondar tirada en cubierta indica que acababan de medir el agua."
+        tipo: ilustracion
+        escena: *bomba
+        kicker: "La vara de sondar"
+        texto: "Acababan de medir el agua"
+        fuente: 3
       - voz: "Es la explicación más probable. Pero no está demostrada. Nadie encontró nunca el bote."
         tipo: titulo
         texto: "Probable, no demostrado"
@@ -400,13 +549,34 @@ capitulos:
         derecha: {etiqueta: "El del cuento", valor: 1, texto: "Marie Celeste"}
         en_short: true
         fuente: 2
-      - voz: "¿Y el barco? Siguió navegando, con fama de maldito. En 1885, su último capitán lo estrelló a propósito contra un arrecife de Haití para cobrar el seguro."
+      - voz: "La bola siguió creciendo. En 1913, una revista publicó el relato de un supuesto superviviente. Era falso. En 1924, un periódico habló de un tesoro. Tampoco existía."
+        tipo: lista
+        titulo: "Las invenciones"
+        puntos: ["1883: la cena servida en la mesa", "1884: el cuento de Conan Doyle", "1913: un falso superviviente", "1924: un tesoro que no existía"]
+        fuente: 2
+      - voz: "También se cuenta que los dos capitanes eran amigos y cenaron juntos antes de zarpar. La única prueba es un recuerdo de la viuda de uno de ellos, cincuenta años después."
+        tipo: titulo
+        texto: "¿Cenaron juntos? No hay pruebas"
+        resaltar: "No hay pruebas"
+        fuente: 2
+      - voz: "¿Y el barco? Siguió navegando, con fama de maldito. Sus dueños lo vendieron perdiendo dinero, y con los siguientes tampoco dio beneficios. En 1879 murió otro de sus capitanes: el tercero que moría antes de tiempo."
+        tipo: cifra
+        valor: 3
+        etiqueta: "Capitanes del barco muertos antes de tiempo"
+        fuente: 2
+      - voz: "En 1885, su último capitán lo cargó con mercancía sin valor, lo aseguró por treinta mil dólares y lo estrelló a propósito contra un arrecife de Haití. El fraude se descubrió."
         tipo: ilustracion
         escena: &arrecife >-
           Un velero viejo de madera del siglo XIX encallado y escorado sobre un arrecife de coral en aguas
           turquesas del Caribe, con el casco roto; al fondo, una costa verde y montañosa. Sol fuerte.
         kicker: "Haití · 1885"
         texto: "Hundido para cobrar el seguro"
+        fuente: 2
+      - voz: "En 2001, una expedición anunció que había encontrado los restos en ese arrecife. Pero el análisis de la madera lo desmintió: venía de árboles que seguían vivos en 1894, casi diez años después del naufragio."
+        tipo: comparar
+        titulo: "¿Eran los restos del Mary Celeste?"
+        izquierda: {etiqueta: "Naufragio", valor: 1885, texto: "1885"}
+        derecha: {etiqueta: "Madera hallada", valor: 1894, texto: "Árboles vivos en 1894"}
         fuente: 2
       - voz: "De Benjamin Briggs, de Sarah, de la pequeña Sophia y de los siete marineros nunca se supo nada más."
         tipo: ilustracion
