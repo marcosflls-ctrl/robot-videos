@@ -1,0 +1,367 @@
+# El Prestige (2002): el petrolero que nadie quiso en su puerto
+# Canal de ciencias medioambientales · sección «El suceso». Guion para revisar antes de montar.
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+# Los políticos que salen se nombran, pero nunca se dibujan: las figuras son anónimas.
+# Las escenas con «en_short: true» son las que entran en el Short de su capítulo (30–45 segundos).
+
+canal: medioambiente
+
+descripcion: >-
+  El 13 de noviembre de 2002, un petrolero viejo y de un solo casco, cargado con 77.000 toneladas de fuel,
+  pidió socorro frente a Galicia. En vez de llevarlo a puerto, se decidió alejarlo. Seis días después se
+  partió en dos y se hundió a más de tres mil metros. El fuel llegó a más de mil playas, de Galicia a
+  Francia. Esta es la historia del Prestige: qué pasó, por qué se alejó el barco, cómo se limpió la costa,
+  quién acabó pagando y qué cambió después. Con datos y fuentes.
+hashtags: "#Prestige #Galicia #mareanegra #NuncaMáis #medioambiente #chapapote"
+
+carpeta: "El Prestige (2002)"
+titulos:
+  - "El petrolero que nadie quiso en su puerto: seis días a la deriva y una marea negra (Prestige, 2002)"
+  - "Lo alejaron de la costa… y el fuel llegó a más de mil playas: qué pasó con el Prestige"
+  - "Por qué se hundió el Prestige y quién pagó la mayor marea negra de España"
+
+miniaturas:
+  - texto: "Nadie lo quiso"
+    resaltar: "Nadie"
+    escena: &petrolero_escorado >-
+      Un petrolero viejo y oxidado de casco negro y rojo, muy escorado hacia un lado en mitad de un temporal del
+      Atlántico, con olas enormes rompiendo sobre la cubierta y una mancha oscura extendiéndose por el agua.
+      Cielo de tormenta gris plomo.
+    gesto: "mira el barco con las manos en la cabeza"
+  - texto: "¿Por qué lo alejaron?"
+    resaltar: "alejaron"
+    lado: derecha
+    escena: &remolque >-
+      Un remolcador pequeño tira con un cable largo de un petrolero enorme y escorado, alejándolo mar adentro
+      entre olas grandes; detrás queda una estela negra de fuel sobre el agua gris. Al fondo, muy lejos, la
+      línea de la costa. Cielo de temporal.
+    gesto: "señala el barco que se aleja con cara de no entenderlo"
+  - texto: "Marea negra"
+    resaltar: "negra"
+    escena: &playa_negra >-
+      Una playa gallega de arena y rocas cubierta de una capa negra y espesa de fuel, con olas oscuras rompiendo
+      en la orilla; al fondo, un faro sobre un acantilado. Cielo gris de invierno. Sin personas.
+    gesto: "se tapa la nariz mirando la arena negra"
+
+fuentes:
+  - id: 1
+    corta: "Maldita.es · Hemeroteca del Prestige"
+    cita: "Maldita.es (13-11-2022). La hemeroteca del desastre del Prestige."
+    url: "https://maldita.es/malditahemeroteca/20221113/hemeroteca-desastre-prestige/"
+  - id: 2
+    corta: "Wikipedia: Prestige oil spill"
+    cita: "«Prestige oil spill». Wikipedia (en inglés), con los informes técnicos y las resoluciones judiciales."
+    url: "https://en.wikipedia.org/wiki/Prestige_oil_spill"
+  - id: 3
+    corta: "Poder Judicial (2018)"
+    cita: "Consejo General del Poder Judicial (20-12-2018). El Tribunal Supremo fija las indemnizaciones definitivas por la catástrofe del Prestige en más de 1.500 millones de euros."
+    url: "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/El-Tribunal-Supremo-fija-las-indemnizaciones-definitivas-por-la-catastrofe-del--Prestige--en-mas-de-1-500-millones-de-euros-con-IVA-e-intereses"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "En noviembre de 2002, un petrolero con setenta y siete mil toneladas de fuel pidió socorro frente a Galicia. Y ningún puerto quiso recibirlo."
+    tipo: ilustracion
+    escena: *petrolero_escorado
+    kicker: "Costa da Morte · noviembre de 2002"
+    ambiente: lluvia
+    sonido: viento
+    fuente: [1, 2]
+  - voz: "Lo remolcaron mar adentro durante seis días. Hasta que se partió en dos."
+    tipo: titulo
+    texto: "Seis días. Y se partió en dos"
+    resaltar: "se partió en dos"
+    fuente: [1, 2]
+  - voz: "El fuel acabó en más de mil playas. ¿Por qué se alejó el barco en vez de llevarlo a puerto? De esa decisión se sigue discutiendo hoy."
+    tipo: ilustracion
+    escena: *playa_negra
+    texto: "¿Por qué lo alejaron?"
+    resaltar: "alejaron"
+    fuente: [1, 2]
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un barco viejo en mitad del temporal"
+    titulo_short: "El petrolero de 26 años que se rajó frente a Galicia"
+    short: true
+    cierre_short: "Lo que decidieron hacer con él lo cambió todo. Te lo cuento en el vídeo del canal"
+    gancho_short:
+      - voz: "Un petrolero de veintiséis años, con un solo casco y setenta y siete mil toneladas de fuel, se rajó en pleno temporal frente a Galicia."
+        tipo: cifra
+        valor: 77000
+        sufijo: " t"
+        etiqueta: "De fuel a bordo del Prestige"
+        fuente: [1, 2]
+    escenas:
+      - voz: "El Prestige tenía veintiséis años. Era un petrolero de un solo casco: entre el fuel y el mar solo había una plancha de acero."
+        tipo: comparar
+        titulo: "Un casco o dos"
+        izquierda: {etiqueta: "Casco sencillo (Prestige)", valor: 1, texto: "1 pared de acero"}
+        derecha: {etiqueta: "Doble casco", valor: 2, texto: "2 paredes"}
+        en_short: true
+        fuente: 2
+      - voz: "Navegaba con bandera de Bahamas, lo gestionaba una empresa griega y su dueña era una sociedad de Liberia. Había salido de San Petersburgo."
+        tipo: lista
+        titulo: "¿De quién era el Prestige?"
+        puntos: ["Bandera: Bahamas", "Dueña: una sociedad de Liberia", "Gestión: una empresa griega", "Carga: fuel pesado ruso"]
+        fuente: [1, 2]
+      - voz: "Llevaba setenta y siete mil toneladas de fuel pesado: un combustible espeso, negro y pegajoso, de los más difíciles de limpiar."
+        tipo: ilustracion
+        escena: &fuel >-
+          Lámina de naturalista: un tarro de cristal lleno de un líquido negro, espeso y brillante, del que cuelga
+          un hilo viscoso desde una espátula de madera; al lado, una pluma de ave manchada de negro y una concha.
+          Fondo de papel claro.
+        kicker: "Fuel pesado"
+        texto: "Espeso, negro y pegajoso"
+        fuente: 2
+      - voz: "El trece de noviembre de 2002, en mitad de un temporal, el capitán lanzó un S.O.S. Estaba a veintiocho millas de Finisterre, unos cincuenta kilómetros."
+        tipo: fecha
+        fecha: "13 de noviembre de 2002 · 15:15"
+        lugar: "S.O.S. a 28 millas de Finisterre"
+        en_short: true
+        fuente: 1
+      - voz: "El casco se había abierto por un costado. El barco se inclinó, y el fuel empezó a salir al mar."
+        tipo: ilustracion
+        escena: *petrolero_escorado
+        texto: "El casco se abrió"
+        resaltar: "se abrió"
+        ambiente: lluvia
+        en_short: true
+        fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Seis días a la deriva"
+    titulo_short: "Por qué alejaron el Prestige en vez de llevarlo a puerto"
+    short: true
+    cierre_short: "Y el fuel volvió. Adónde llegó, en el vídeo completo del canal"
+    gancho_short:
+      - voz: "Tenían un petrolero roto a cincuenta kilómetros de la costa. Y decidieron llevárselo lejos."
+        tipo: titulo
+        texto: "Decidieron llevárselo lejos"
+        resaltar: "lejos"
+        kicker: "Prestige · 2002"
+        fuente: [1, 2]
+    escenas:
+      - voz: "Había dos opciones. Una: meterlo en un puerto o una ría, vaciarlo allí y aceptar que esa zona se mancharía. Otra: alejarlo todo lo posible."
+        tipo: comparar
+        titulo: "Las dos opciones"
+        izquierda: {etiqueta: "Llevarlo a puerto", valor: 1, texto: "Daño en un punto"}
+        derecha: {etiqueta: "Alejarlo", valor: 1, texto: "Lejos de la costa"}
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Según publicó la prensa, un remolcador propuso llevarlo al puerto de A Coruña. La propuesta se rechazó."
+        tipo: titulo
+        texto: "A Coruña: rechazado"
+        resaltar: "rechazado"
+        fuente: 1
+      - voz: "El catorce de noviembre, con el fuel llegando ya a Muxía, el Ministerio de Fomento ordenó alejar el barco de la costa."
+        tipo: fecha
+        fecha: "14 de noviembre de 2002"
+        lugar: "Orden de alejar el Prestige"
+        fuente: 1
+      - voz: "España no lo quería cerca. Francia y Portugal, tampoco. El Prestige fue remolcado mar adentro, cambiando de rumbo, con el casco roto y dejando una estela de fuel."
+        tipo: ilustracion
+        escena: *remolque
+        texto: "Ningún país lo quería"
+        resaltar: "Ningún"
+        en_short: true
+        fuente: 2
+      - voz: "El temporal siguió golpeando un barco que ya estaba herido. Cada día, la grieta era más grande."
+        tipo: ilustracion
+        escena: &grieta >-
+          Primer plano del costado de un petrolero viejo de acero negro con una grieta vertical enorme por la que
+          sale fuel negro al mar, mientras una ola rompe contra él. Remaches y óxido visibles. Luz gris de
+          tormenta.
+        texto: "La grieta crecía"
+        ambiente: lluvia
+        fuente: 2
+      - voz: "El diecinueve de noviembre, a primera hora, el Prestige se partió en dos. Se hundió a más de doscientos kilómetros de Galicia, a más de tres mil metros de profundidad."
+        tipo: fecha
+        fecha: "19 de noviembre de 2002"
+        lugar: "El Prestige se parte en dos y se hunde"
+        en_short: true
+        fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La marea negra"
+    titulo_short: "El fuel del Prestige llegó a más de mil playas"
+    short: true
+    cierre_short: "¿Quién limpió todo eso? Te lo cuento en el vídeo completo del canal"
+    gancho_short:
+      - voz: "Lo hundieron lejos para salvar la costa. Y el fuel acabó en más de mil playas."
+        tipo: cifra
+        valor: 1000
+        prefijo: "+"
+        etiqueta: "Playas manchadas de fuel"
+        fuente: 2
+    escenas:
+      - voz: "Alejar el barco no alejó el fuel. Al contrario: lo repartió. El mar y el viento lo fueron devolviendo a tierra en oleadas, durante semanas."
+        tipo: ilustracion
+        escena: *playa_negra
+        texto: "El mar lo devolvió"
+        resaltar: "devolvió"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Se calcula que salieron al mar unas sesenta y tres mil toneladas. Más del ochenta por ciento de la carga."
+        tipo: comparar
+        titulo: "El fuel del Prestige"
+        izquierda: {etiqueta: "Carga", valor: 77, texto: "77.000 t"}
+        derecha: {etiqueta: "Vertido al mar", valor: 63, texto: "63.000 t"}
+        en_short: true
+        fuente: 2
+      - voz: "Primero Galicia. A finales de noviembre, Asturias. Después Cantabria, el País Vasco y la costa de Francia."
+        tipo: esquema
+        modo: cadena
+        titulo: "El camino del fuel"
+        nodos:
+          - {etiqueta: "1", texto: "Galicia", destacar: true}
+          - {etiqueta: "2", texto: "Asturias"}
+          - {etiqueta: "3", texto: "Cantabria"}
+          - {etiqueta: "4", texto: "País Vasco"}
+          - {etiqueta: "5", texto: "Francia"}
+        nota: "De noviembre de 2002 en adelante"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "En Galicia lo llamaron chapapote. Una pasta negra que cubría rocas, arena, redes y animales."
+        tipo: titulo
+        texto: "Chapapote"
+        kicker: "La palabra de aquel invierno"
+        fuente: 1
+      - voz: "En seis meses se recogieron más de veintitrés mil aves manchadas. Diecisiete mil ya estaban muertas."
+        tipo: comparar
+        titulo: "Aves recogidas en seis meses"
+        izquierda: {etiqueta: "Total", valor: 23181, texto: "23.181"}
+        derecha: {etiqueta: "Muertas", valor: 17061, texto: "17.061"}
+        fuente: 1
+      - voz: "La pesca y el marisqueo se prohibieron durante meses en una costa que vivía de ellos."
+        tipo: ilustracion
+        escena: &puerto_parado >-
+          Un pequeño puerto pesquero gallego en invierno con barcos de colores amarrados y sin salir, redes
+          amontonadas en el muelle y nasas apiladas; el agua junto al muelle tiene manchas negras. Casas de piedra
+          y cielo gris.
+        texto: "La flota, amarrada"
+        resaltar: "amarrada"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Nunca Máis"
+    titulo_short: "Miles de personas limpiaron el fuel del Prestige con las manos"
+    short: true
+    cierre_short: "¿Y quién pagó todo aquello? La respuesta, en el vídeo del canal"
+    gancho_short:
+      - voz: "Miles de personas cruzaron España para limpiar el fuel de las playas. Muchas, con las manos."
+        tipo: titulo
+        texto: "Lo limpiaron con las manos"
+        resaltar: "manos"
+        kicker: "Galicia · 2002"
+        fuente: 1
+    escenas:
+      - voz: "Los primeros en salir fueron los marineros. Con sus propios barcos y lo que tenían a mano, intentaron parar el fuel antes de que entrara en las rías."
+        tipo: ilustracion
+        escena: &marineros >-
+          Varias barcas pequeñas de pesca gallegas en el mar junto a una mancha negra de fuel: muñecos de palo
+          diminutos con trajes de agua amarillos sacan pasta negra del agua con redes, cubos y palas. Costa rocosa
+          al fondo, cielo gris.
+        texto: "Los marineros, los primeros"
+        en_short: true
+        fuente: 1
+      - voz: "Después llegaron miles de voluntarios de toda España y de fuera. Con monos blancos, mascarillas y palas, llenaron las playas durante meses."
+        tipo: ilustracion
+        escena: &voluntarios >-
+          Una playa gallega cubierta de fuel negro en la que trabajan decenas de figuras diminutas de tinta con
+          monos blancos manchados de negro, llenando capazos y pasándolos en cadena hacia unos contenedores.
+          Acantilados y cielo gris de invierno.
+        texto: "La marea blanca"
+        resaltar: "blanca"
+        en_short: true
+        fuente: 1
+      - voz: "El uno de diciembre, ciento cincuenta mil personas se manifestaron en Santiago de Compostela bajo un lema: Nunca Máis. Nunca más."
+        tipo: cifra
+        valor: 150000
+        etiqueta: "Manifestantes en Santiago (1 de diciembre de 2002)"
+        en_short: true
+        fuente: 1
+      - voz: "Mientras, el Gobierno quitaba importancia a lo que seguía saliendo del barco hundido. El cinco de diciembre, el vicepresidente lo describió como unos hilitos."
+        tipo: titulo
+        texto: "«Unos hilitos»"
+        kicker: "5 de diciembre de 2002"
+        fuente: 1
+      - voz: "Pero el barco hundido seguía soltando fuel: unas ciento veinticinco toneladas cada día."
+        tipo: cifra
+        valor: 125
+        sufijo: " t al día"
+        etiqueta: "De fuel que seguía saliendo del barco hundido"
+        fuente: 2
+      - voz: "En 2004, una operación a más de tres mil metros de profundidad sacó el fuel que quedaba dentro: unas trece mil toneladas. Costó más de cien millones de euros."
+        tipo: ilustracion
+        escena: &pecio >-
+          El fondo del océano a gran profundidad, casi negro: la mitad de un petrolero hundido apoyada en el lecho
+          marino, iluminada por los focos de un robot submarino pequeño que se acerca con un brazo mecánico.
+          Partículas en el agua.
+        kicker: "2004"
+        texto: "Vaciar el barco hundido"
+        fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "¿Quién paga una marea negra?"
+    titulo_short: "1.500 millones por el Prestige: cobrarlos es otra historia"
+    short: true
+    cierre_short: "¿Cómo se llegó a esto? La historia completa del Prestige, en el canal"
+    gancho_short:
+      - voz: "La justicia fijó más de mil quinientos millones de euros por el Prestige. Cobrarlos es otra historia."
+        tipo: cifra
+        valor: 1500
+        prefijo: "+"
+        sufijo: " M€"
+        etiqueta: "Indemnizaciones fijadas por el Tribunal Supremo"
+        fuente: 3
+    escenas:
+      - voz: "El juicio no empezó hasta octubre de 2012. Diez años después del hundimiento."
+        tipo: cifra
+        valor: 10
+        sufijo: " años"
+        etiqueta: "Entre el hundimiento y el inicio del juicio"
+        en_short: true
+        fuente: 1
+      - voz: "En 2013, la primera sentencia no condenó a nadie por delito ecológico. Ni a la tripulación ni al responsable de la Administración."
+        tipo: fecha
+        fecha: "Noviembre de 2013"
+        lugar: "Primera sentencia: sin condenas por delito ecológico"
+        fuente: 2
+      - voz: "En 2016, el Tribunal Supremo la corrigió: condenó al capitán, Apostolos Mangouras, a dos años de cárcel por imprudencia. El Estado quedó absuelto."
+        tipo: fecha
+        fecha: "26 de enero de 2016"
+        lugar: "El Supremo condena al capitán a dos años"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Y en 2018 fijó las indemnizaciones: más de mil quinientos millones de euros, sobre todo a cargo de la aseguradora británica del barco."
+        tipo: ilustracion
+        escena: &balanza >-
+          Lámina dibujada a mano de una balanza antigua de latón: en un platillo, un petrolero pequeño de juguete
+          manchado de negro; en el otro, una pila alta de monedas. Fondo de papel claro, sin texto.
+        texto: "1.500 millones de euros"
+        resaltar: "1.500 millones"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Cobrarlo es otra cosa. En 2023, la justicia inglesa se negó a ejecutar la sentencia española contra la aseguradora."
+        tipo: titulo
+        texto: "Londres se negó a ejecutarla"
+        resaltar: "se negó"
+        kicker: "2023"
+        en_short: true
+        fuente: 2
+      - voz: "Algo sí cambió. Tras el Prestige, Europa aceleró la retirada de los petroleros de un solo casco. Y abrió un debate que sigue vivo: si un barco herido debe tener derecho a un puerto de refugio."
+        tipo: ilustracion
+        escena: &doble_casco >-
+          Lámina didáctica en corte de dos petroleros vistos de frente: el de la izquierda con una sola pared entre
+          la carga negra y el mar; el de la derecha con dos paredes y un hueco vacío entre ambas. Estilo de libro
+          de texto, colores suaves, sin texto.
+        texto: "Adiós al casco único"
+        fuente: 2
+
+cierre:
+  - voz: "El Prestige enseñó que alejar un problema no lo hace desaparecer. Solo lo reparte. Si te ha servido, en el canal tienes más historias del planeta explicadas con datos. Las fuentes están en la descripción."
+    tipo: ilustracion
+    escena: *playa_negra
+    texto: "Bitácora de la Tierra"
+    sub: "Fuentes en la descripción"
