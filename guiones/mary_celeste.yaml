@@ -1,0 +1,611 @@
+# El Mary Celeste (1872): el barco que apareció navegando sin nadie a bordo
+# Canal de misterios · sección Misterios. Guion para revisar antes de montar.
+# Cada dato lleva su fuente (lista «fuentes»). Las escenas que repiten exactamente la misma
+# «escena» (marcadas con & y *) reutilizan la imagen: se paga una sola vez.
+# Las diez personas del barco fueron reales: se cuentan con respeto y los muñecos no se parecen a nadie.
+# Las escenas con «en_short: true» son las que entran en el Short de su capítulo (30–45 segundos).
+
+canal: misterios
+
+descripcion: >-
+  El 4 de diciembre de 1872, un barco apareció navegando solo en mitad del Atlántico. Tenía las velas puestas,
+  la carga intacta y comida para seis meses. Faltaban el bote salvavidas y las diez personas que iban a bordo,
+  entre ellas una niña de dos años. Nunca se las volvió a ver. Durante siglo y medio se habló de motines,
+  piratas, monstruos marinos y fraudes. Esta es la historia del Mary Celeste: lo que se encontró, lo que se
+  inventó después y la explicación que hoy parece más probable.
+hashtags: "#MaryCeleste #misterio #barcofantasma #1872 #CasosATrazos"
+
+carpeta: "El Mary Celeste (1872)"
+titulos:
+  - "Apareció navegando solo en mitad del Atlántico: ¿dónde estaban las diez personas del Mary Celeste?"
+  - "Comida para seis meses, la carga intacta y nadie a bordo: el misterio del Mary Celeste"
+  - "Por qué un capitán experto abandonó un barco que no se hundía (Mary Celeste, 1872)"
+
+miniaturas:
+  - texto: "¿Dónde están todos?"
+    resaltar: "todos"
+    escena: &cubierta_vacia >-
+      La cubierta de madera de un bergantín del siglo XIX en alta mar, completamente vacía: el timón gira solo,
+      cabos sueltos por el suelo, una escotilla abierta y las velas a medio izar, algunas rasgadas. Mar gris y
+      cielo cubierto. Nadie a la vista.
+    gesto: "mira a su alrededor con los ojos muy abiertos y los brazos caídos"
+  - texto: "Navegaba solo"
+    resaltar: "solo"
+    lado: derecha
+    escena: &barco_lejos >-
+      Un bergantín de dos palos del siglo XIX visto de lejos en mitad del océano Atlántico, con solo algunas
+      velas puestas y torcidas, avanzando de forma errática sobre un mar gris con oleaje. Cielo nublado de
+      invierno. Ni una persona en cubierta.
+    gesto: "señala el barco a lo lejos con cara de susto"
+  - texto: "Falta el bote"
+    resaltar: "bote"
+    escena: &pescantes >-
+      El costado de la cubierta de un velero del siglo XIX donde debería ir el bote salvavidas: los soportes de
+      madera vacíos, una barandilla desmontada y un cabo largo que cuelga por la borda y se arrastra por el
+      agua. Mar gris al fondo.
+    gesto: "se tapa la boca con la mano mirando los soportes vacíos"
+
+fuentes:
+  - id: 1
+    corta: "Smithsonian Magazine"
+    cita: "Blumberg, J. (2007). Abandoned ship: the Mary Celeste. Smithsonian Magazine."
+    url: "https://www.smithsonianmag.com/history/abandoned-ship-the-mary-celeste-174488104/"
+  - id: 2
+    corta: "Wikipedia: Mary Celeste"
+    cita: "«Mary Celeste». Wikipedia (en inglés), con las actas de la vista de Gibraltar y la bibliografía del caso."
+    url: "https://en.wikipedia.org/wiki/Mary_Celeste"
+  - id: 3
+    corta: "Encyclopaedia Britannica"
+    cita: "Encyclopaedia Britannica. Mary Celeste (ship)."
+    url: "https://www.britannica.com/topic/Mary-Celeste"
+  - id: 4
+    corta: "UCL (2006)"
+    cita: "University College London (2006). Solved: the mystery of the Mary Celeste (experimento del químico Andrea Sella)."
+    url: "https://www.ucl.ac.uk/news/2006/may/solved-mystery-mary-celeste"
+
+# ---------------------------------------------------------------------------------------------
+gancho:
+  - voz: "El cuatro de diciembre de 1872, en mitad del Atlántico, un barco navegaba solo. Tenía las velas puestas, la carga intacta y comida para seis meses. No había nadie a bordo."
+    tipo: ilustracion
+    escena: *barco_lejos
+    kicker: "Océano Atlántico · diciembre de 1872"
+    sonido: viento
+    fuente: [1, 2]
+  - voz: "Faltaban el bote salvavidas y diez personas. Entre ellas, una niña de dos años. Nunca se las volvió a ver."
+    tipo: ilustracion
+    escena: *pescantes
+    texto: "Faltaban diez personas"
+    resaltar: "diez"
+    fuente: [1, 2]
+  - voz: "Se habló de motín, de piratas y hasta de un monstruo marino. Pero la pista más importante estaba en cubierta, y casi nadie le hizo caso."
+    tipo: presentador
+    kicker: "El Mary Celeste"
+    texto: "¿Por qué abandonaron el barco?"
+    resaltar: "abandonaron"
+    presentador: {gesto: "se rasca la cabeza con cara de intriga"}
+
+capitulos:
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un barco sin nadie"
+    titulo_short: "Encontraron un barco navegando solo en el Atlántico"
+    short: true
+    cierre_short: "¿Qué les pasó a las diez personas? El caso completo, en el canal"
+    gancho_short:
+      - voz: "Un barco navegaba solo en mitad del Atlántico. Sin capitán, sin tripulación, sin nadie."
+        tipo: titulo
+        texto: "Navegaba solo. Sin nadie"
+        resaltar: "Sin nadie"
+        kicker: "Misterio · 1872"
+        fuente: [1, 2]
+    escenas:
+      - voz: "Lo vio la tripulación de otro barco, el Dei Gratia. Su capitán, David Morehouse, notó algo raro: aquel velero avanzaba dando bandazos, con pocas velas y mal puestas."
+        tipo: ilustracion
+        escena: *barco_lejos
+        kicker: "Entre las Azores y Portugal"
+        texto: "Algo iba mal en aquel barco"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Lo observaron durante horas. Nadie contestaba a las señales. Así que mandaron a varios hombres en un bote a subir a bordo."
+        tipo: ilustracion
+        escena: &abordaje >-
+          Un bote de remos pequeño con tres muñecos de palo con gorro de marinero se acerca al costado de un gran
+          velero del siglo XIX que parece abandonado; uno de ellos mira hacia arriba, hacia la cubierta vacía.
+          Mar gris con olas, cielo cubierto.
+        texto: "Subieron a bordo"
+        fuente: 2
+      - voz: "Era el Mary Celeste. En cubierta no había nadie. Tampoco en los camarotes. La ropa, las pipas y los objetos de la tripulación seguían en su sitio."
+        tipo: ilustracion
+        escena: *cubierta_vacia
+        texto: "Todo estaba en su sitio"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Subieron el primer oficial, Oliver Deveau, y otro marinero. Encontraron los camarotes mojados y revueltos por el agua que había entrado, pero nada roto ni forzado."
+        tipo: ilustracion
+        escena: &camarote >-
+          El camarote del capitán de un velero del siglo XIX, húmedo y desordenado: una litera con mantas, ropa
+          colgada, un baúl abierto, libros caídos y agua en el suelo de madera; por un tragaluz entra luz gris.
+          Nadie dentro.
+        texto: "Camarotes mojados, nada forzado"
+        fuente: 2
+      - voz: "La bitácora, la caja que protege la brújula, estaba movida de su sitio y con el cristal roto. Y sobre la cubierta había una vara de medir el agua de la bodega."
+        tipo: lista
+        titulo: "Lo que vieron en cubierta"
+        puntos: ["La brújula, movida y con el cristal roto", "Dos escotillas abiertas", "Una vara de sondar la bodega", "Cabos colgando por la borda"]
+        fuente: [2, 3]
+      - voz: "La carga estaba intacta: mil setecientos un barriles de alcohol industrial. Había comida y agua para seis meses."
+        tipo: cifra
+        valor: 1701
+        etiqueta: "Barriles de alcohol en la bodega, intactos"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "En la bodega había cerca de un metro de agua. Parece mucho, pero para un barco así no era grave. El Mary Celeste no se estaba hundiendo."
+        tipo: titulo
+        texto: "El barco no se hundía"
+        resaltar: "no se hundía"
+        kicker: "Un metro de agua en la bodega"
+        fuente: [1, 2]
+      - voz: "Pero faltaban tres cosas: el único bote salvavidas, los instrumentos de navegación y los papeles del barco. Alguien se los había llevado."
+        tipo: lista
+        titulo: "Lo que faltaba"
+        puntos: ["El único bote salvavidas", "Los instrumentos de navegación", "Los papeles del barco", "Las diez personas"]
+        fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Un barco con mala fama"
+    titulo_short: "El barco fantasma ya tenía fama de maldito antes de desaparecer"
+    short: true
+    cierre_short: "Y lo peor aún no había pasado. El caso completo, en el canal"
+    gancho_short:
+      - voz: "Su primer capitán murió a las pocas semanas de estrenarlo. Y eso fue solo el principio."
+        tipo: titulo
+        texto: "Su primer capitán murió enseguida"
+        resaltar: "murió"
+        kicker: "Antes del misterio"
+        fuente: [2, 3]
+    escenas:
+      - voz: "El Mary Celeste no se llamó siempre así. Se botó en 1861 en Nueva Escocia, en Canadá, con otro nombre: Amazon."
+        tipo: fecha
+        fecha: "18 de mayo de 1861"
+        lugar: "Se bota el Amazon en Nueva Escocia"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Su primer capitán, Robert McLellan, enfermó en el viaje inaugural y murió al cabo de unas semanas."
+        tipo: ilustracion
+        escena: &astillero >-
+          Un pequeño astillero de madera en una bahía fría de Canadá hacia 1861: un bergantín de dos palos recién
+          terminado sobre la grada, con virutas y tablones alrededor, pinos al fondo y niebla sobre el agua.
+          Nadie a la vista.
+        kicker: "Nueva Escocia · 1861"
+        texto: "Un estreno con mala suerte"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Después chocó contra unos aparejos de pesca, hundió a otro barco en el canal de la Mancha y, en 1867, una tormenta lo lanzó contra la costa. Sus dueños lo dieron por perdido."
+        tipo: lista
+        titulo: "Los primeros años del Amazon"
+        puntos: ["1861: muere su primer capitán", "Choca con aparejos de pesca", "Hunde a otro barco en el canal de la Mancha", "1867: encalla en una tormenta"]
+        en_short: true
+        fuente: 2
+      - voz: "Un marino estadounidense compró los restos por mil setecientos cincuenta dólares. Gastó cinco veces más en repararlo y le cambió el nombre."
+        tipo: comparar
+        titulo: "Lo que costó resucitar el barco"
+        izquierda: {etiqueta: "Compra", valor: 1750, texto: "1.750 $"}
+        derecha: {etiqueta: "Reparación", valor: 8825, texto: "8.825 $"}
+        fuente: 2
+      - voz: "Entre los marineros, cambiar el nombre a un barco siempre ha tenido fama de traer mala suerte. Desde 1868, aquel barco fue el Mary Celeste."
+        tipo: titulo
+        texto: "De Amazon a Mary Celeste"
+        resaltar: "Mary Celeste"
+        kicker: "1868"
+        en_short: true
+        fuente: [2, 3]
+      - voz: "Tampoco le fue bien a su nuevo dueño: los acreedores le embargaron el barco. En 1872, ya con otros propietarios, lo reformaron por completo y lo hicieron más grande. Uno de los socios era su nuevo capitán."
+        tipo: ilustracion
+        escena: &reforma >-
+          Un velero de madera del siglo XIX en dique seco en un puerto de Nueva York: andamios, carpinteros
+          diminutos de tinta clavando tablones nuevos en el casco y una cubierta recién añadida. Al fondo,
+          almacenes de ladrillo y mástiles. Luz de tarde.
+        kicker: "Nueva York · 1872"
+        texto: "Reformado de arriba abajo"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Diez personas rumbo a Génova"
+    titulo_short: "Un capitán, su mujer y su hija de 2 años desaparecieron en el mar"
+    short: true
+    cierre_short: "¿Por qué dejaron un barco que flotaba? Te lo cuento en el vídeo del canal"
+    gancho_short:
+      - voz: "El capitán se llevó de viaje a su mujer y a su hija de dos años. Ninguno de los tres volvió."
+        tipo: titulo
+        texto: "Se llevó a su familia. No volvieron"
+        resaltar: "No volvieron"
+        kicker: "Mary Celeste · 1872"
+        fuente: [1, 2]
+    escenas:
+      - voz: "El Mary Celeste había zarpado de Nueva York el siete de noviembre de 1872, rumbo a Génova, en Italia."
+        tipo: fecha
+        fecha: "7 de noviembre de 1872"
+        lugar: "El Mary Celeste sale de Nueva York"
+        fuente: 2
+      - voz: "Lo mandaba Benjamin Briggs, un capitán con muchos años de mar, serio y respetado. No bebía y era muy religioso."
+        tipo: ilustracion
+        escena: &capitan >-
+          Un muñeco de palo con gorra de capitán del siglo XIX y abrigo largo oscuro, de pie junto al timón de un
+          velero atracado en un muelle de madera, mirando unas cartas náuticas. Al fondo, mástiles de otros
+          barcos y almacenes de ladrillo. Luz de mañana fría.
+        kicker: "Capitán Benjamin Briggs"
+        texto: "Un marino experto"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Viajaban con él su mujer, Sarah, y su hija pequeña, Sophia, de dos años. Y siete marineros escogidos por él."
+        tipo: ilustracion
+        escena: &familia >-
+          En la cubierta de un velero del siglo XIX atracado en puerto: un muñeco de palo con gorra de capitán, a
+          su lado una muñeca de palo con vestido largo y sombrero que lleva de la mano a una niña pequeña de palo
+          con gorrito; detrás, en fila, siete muñecos de palo con gorro de marinero. Luz clara de mañana.
+        texto: "Diez personas a bordo"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "En casa se quedó su hijo mayor, Arthur, de siete años. Tenía que ir al colegio, y lo dejaron con su abuela."
+        tipo: titulo
+        texto: "Un hijo se quedó en tierra"
+        resaltar: "en tierra"
+        kicker: "Arthur Briggs, 7 años"
+        fuente: 2
+      - voz: "El primer oficial, Albert Richardson, ya había navegado con Briggs. El cocinero acababa de casarse. Y cuatro marineros eran alemanes, de las islas Frisias; dos de ellos, hermanos."
+        tipo: lista
+        titulo: "La tripulación"
+        puntos: ["Albert Richardson, primer oficial", "Andrew Gilling, segundo oficial", "Edward Head, cocinero", "Cuatro marineros alemanes"]
+        fuente: 2
+      - voz: "Nadie los describió nunca como gente conflictiva. Al contrario: era una tripulación de confianza."
+        tipo: ilustracion
+        escena: *familia
+        texto: "Una tripulación de confianza"
+        fuente: 2
+      - voz: "Las dos primeras semanas de travesía fueron de muy mal tiempo."
+        tipo: ilustracion
+        escena: &temporal >-
+          Un bergantín del siglo XIX escorado en mitad de una tormenta del Atlántico, con olas más altas que la
+          cubierta, las velas recogidas y espuma volando. Cielo negro con claros. Nadie visible en cubierta.
+        texto: "Dos semanas de temporal"
+        ambiente: lluvia
+        sonido: viento
+        fuente: 3
+      - voz: "La última anotación del cuaderno de a bordo es del veinticinco de noviembre. Ese día tenían a la vista Santa María, una isla de las Azores."
+        tipo: fecha
+        fecha: "25 de noviembre de 1872"
+        lugar: "Última anotación del cuaderno: frente a las Azores"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Después, nada. Ni una línea más."
+        tipo: ilustracion
+        escena: &cuaderno >-
+          Un cuaderno de bitácora antiguo abierto sobre una mesa de camarote de madera, con una pluma, un tintero
+          y una lámpara de aceite apagada; la página de la derecha está en blanco. Por un ojo de buey se ve el
+          mar gris.
+        texto: "Y después, nada"
+        en_short: true
+        fuente: 2
+      - voz: "El barco apareció diez días más tarde, a unos setecientos kilómetros de allí. Había seguido navegando solo."
+        tipo: cifra
+        valor: 10
+        sufijo: " días"
+        etiqueta: "Navegando sin nadie a bordo"
+        fuente: [1, 2]
+      - voz: "Ocho días después que el Mary Celeste había salido de Nueva York otro barco con el mismo destino: el Dei Gratia. Iba, sin saberlo, tras su estela."
+        tipo: comparar
+        titulo: "Salida de Nueva York (noviembre de 1872)"
+        izquierda: {etiqueta: "Mary Celeste", valor: 7, texto: "Día 7"}
+        derecha: {etiqueta: "Dei Gratia", valor: 15, texto: "Día 15"}
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Sospechosos en Gibraltar"
+    titulo_short: "Rescataron un barco fantasma y los trataron como asesinos"
+    short: true
+    cierre_short: "Entonces, ¿qué pasó de verdad? La respuesta, en el vídeo del canal"
+    gancho_short:
+      - voz: "Rescataron un barco abandonado en alta mar. Y cuando llegaron a puerto, los trataron como sospechosos de asesinato."
+        tipo: titulo
+        texto: "Lo rescataron. Y sospecharon de ellos"
+        resaltar: "sospecharon"
+        kicker: "Gibraltar · 1872"
+        fuente: [1, 2]
+    escenas:
+      - voz: "Los marineros del Dei Gratia llevaron el Mary Celeste hasta Gibraltar. Según la ley del mar, quien rescata un barco tiene derecho a una recompensa."
+        tipo: ilustracion
+        escena: &gibraltar >-
+          El puerto de Gibraltar en el siglo XIX con el Peñón al fondo: dos veleros de madera anclados uno junto al
+          otro en aguas tranquilas, botes de remos y un muelle de piedra con farolas. Luz de invierno.
+        kicker: "Gibraltar · diciembre de 1872"
+        texto: "Una recompensa por el rescate"
+        fuente: [1, 2]
+      - voz: "No fue fácil. Deveau lo llevó con solo dos marineros: tres hombres para manejar un barco pensado para ocho, durante casi mil quinientos kilómetros."
+        tipo: cifra
+        valor: 3
+        sufijo: " hombres"
+        etiqueta: "Llevaron el barco hasta Gibraltar (unos 1.480 km)"
+        fuente: [2, 3]
+      - voz: "La vista empezó el diecisiete de diciembre de 1872, ante el presidente del tribunal de Gibraltar."
+        tipo: fecha
+        fecha: "17 de diciembre de 1872"
+        lugar: "Empieza la vista en Gibraltar"
+        fuente: 2
+      - voz: "Pero el fiscal de Gibraltar, Frederick Solly-Flood, no se lo creyó. Estaba convencido de que allí había habido un crimen."
+        tipo: ilustracion
+        escena: &tribunal >-
+          Una sala de tribunal británica del siglo XIX con paneles de madera: un muñeco de palo con peluca blanca y
+          toga negra señala con el dedo desde un estrado a tres muñecos de palo con gorro de marinero que esperan
+          de pie, nerviosos. Luz que entra por ventanas altas.
+        texto: "El fiscal vio un crimen"
+        resaltar: "crimen"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "Encontró unas marcas en la proa y unas manchas rojizas en la espada del capitán. Para él, era sangre."
+        tipo: ilustracion
+        escena: &espada >-
+          Una espada antigua con vaina sobre el suelo de madera de un camarote de barco, con unas manchas rojizas
+          en la hoja; al lado, una lupa de latón. Luz tenue de un farol.
+        texto: "¿Sangre en la espada?"
+        en_short: true
+        fuente: 2
+      - voz: "Un análisis demostró que no lo era. Y las marcas de la proa eran desgaste normal del mar."
+        tipo: titulo
+        texto: "No era sangre"
+        resaltar: "No"
+        en_short: true
+        fuente: 2
+      - voz: "Aun así, el fiscal envió a Londres un informe en el que apuntaba a que la tripulación había matado al capitán, a su familia y a los oficiales."
+        tipo: titulo
+        texto: "El fiscal insistió en el crimen"
+        resaltar: "insistió"
+        kicker: "Enero de 1873"
+        fuente: 2
+      - voz: "El dueño principal del barco cruzó el Atlántico para defender a Briggs. Le exigieron una fianza de quince mil dólares que no podía pagar."
+        tipo: cifra
+        valor: 15000
+        sufijo: " $"
+        etiqueta: "Fianza exigida al dueño del barco"
+        fuente: 2
+      - voz: "Un capitán de la Marina de Estados Unidos revisó el casco por encargo del cónsul. Su conclusión: las marcas eran obra del mar, no de un arma."
+        tipo: ilustracion
+        escena: &proa >-
+          La proa de madera de un velero del siglo XIX amarrado en un puerto, vista de cerca: dos surcos largos y
+          estrechos en las tablas, justo por encima del agua, que un muñeco de palo con uniforme de marino observa
+          desde un bote con una lupa. Agua tranquila, luz clara.
+        texto: "Marcas del mar, no de un arma"
+        fuente: 2
+      - voz: "Tras más de tres meses de investigación, el tribunal no encontró ninguna prueba de delito."
+        tipo: cifra
+        valor: 3
+        prefijo: "+"
+        sufijo: " meses"
+        etiqueta: "De investigación, sin ninguna prueba de crimen"
+        fuente: 1
+      - voz: "El barco no quedó libre hasta el veinticinco de febrero de 1873. Dos semanas después, con otra tripulación, siguió viaje hasta Génova y entregó su carga."
+        tipo: fecha
+        fecha: "25 de febrero de 1873"
+        lugar: "El Mary Celeste queda libre y sigue hasta Génova"
+        fuente: 2
+      - voz: "Aun así, la recompensa fue muy baja: mil setecientas libras, en torno a una quinta parte del valor del barco y su carga. La sospecha se quedó flotando."
+        tipo: cifra
+        valor: 1700
+        prefijo: "£"
+        etiqueta: "Recompensa: mucho menos de lo habitual"
+        fuente: [1, 2]
+      - voz: "Y en la sentencia, el juez todavía criticó al capitán del Dei Gratia. Los hombres que habían salvado el barco volvieron a casa con poco dinero y con la sombra de la duda."
+        tipo: ilustracion
+        escena: *tribunal
+        texto: "Salvaron el barco. Y dudaron de ellos"
+        resaltar: "dudaron"
+        fuente: 2
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "Motín, piratas y un calamar gigante"
+    titulo_short: "Las teorías más locas sobre el Mary Celeste"
+    short: true
+    cierre_short: "La explicación más probable es otra. Te la cuento en el vídeo del canal"
+    gancho_short:
+      - voz: "Piratas, un motín, un calamar gigante. Todo eso se dijo del Mary Celeste. Y nada encaja."
+        tipo: titulo
+        texto: "Piratas, motín… ¿o un calamar?"
+        resaltar: "calamar"
+        kicker: "Las teorías"
+        fuente: 2
+    escenas:
+      - voz: "¿Piratas? No se habían llevado nada. La carga y los objetos de valor seguían a bordo."
+        tipo: ilustracion
+        escena: &bodega >-
+          La bodega de un velero del siglo XIX llena de hileras de barriles de madera bien atados, con un poco de
+          agua en el suelo que refleja la luz de una escotilla abierta. Todo ordenado, nadie a la vista.
+        texto: "No faltaba nada de valor"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "¿Un motín? No había señales de pelea, y los marineros se habían dejado hasta sus pipas."
+        tipo: titulo
+        texto: "Ni una señal de pelea"
+        resaltar: "pelea"
+        en_short: true
+        fuente: [1, 2]
+      - voz: "¿Un fraude para cobrar el seguro? Las aseguradoras lo estudiaron y no vieron motivo para investigar."
+        tipo: titulo
+        texto: "¿Fraude al seguro? Tampoco"
+        resaltar: "Tampoco"
+        fuente: 2
+      - voz: "Se llegó a hablar de un terremoto submarino, de una tromba de agua y hasta del ataque de un calamar gigante."
+        tipo: lista
+        titulo: "Otras teorías"
+        puntos: ["Un terremoto submarino", "Una tromba de agua", "Un calamar gigante", "Fenómenos paranormales"]
+        fuente: 2
+      - voz: "La teoría más seria apunta a la carga. Al descargar en Génova, nueve barriles estaban vacíos. El alcohol se había escapado."
+        tipo: cifra
+        valor: 9
+        etiqueta: "Barriles de alcohol que llegaron vacíos"
+        en_short: true
+        fuente: 2
+      - voz: "Los vapores pudieron acumularse en la bodega. En 2006, el químico Andrea Sella, de la University College de Londres, construyó una réplica de la bodega y prendió gas dentro. Hubo una bola de fuego y una onda expansiva, pero el aire detrás de la llama se quedó casi frío: ni hollín ni quemaduras."
+        tipo: ilustracion
+        escena: &vapores >-
+          La escotilla abierta de la bodega de un velero del siglo XIX de la que sale una nube de vapor
+          blanquecino hacia la cubierta; la tapa de madera está tirada a un lado. Mar agitado al fondo.
+        kicker: "Experimento de 2006"
+        texto: "Una explosión sin quemaduras"
+        fuente: [2, 4]
+      - voz: "Una explosión así pudo abrir las escotillas de golpe y aterrorizar a la tripulación. Para Sella, es la explicación más convincente. Otros investigadores creen que el problema estuvo en otra parte."
+        tipo: titulo
+        texto: "¿Una explosión invisible?"
+        resaltar: "invisible"
+        fuente: 4
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La pista que estaba en cubierta"
+    titulo_short: "La explicación más probable del barco fantasma más famoso"
+    short: true
+    cierre_short: "Y la leyenda la inventó un escritor famoso. Te lo cuento en el vídeo del canal"
+    gancho_short:
+      - voz: "La pista del Mary Celeste estuvo siempre en cubierta: una bomba de agua desmontada."
+        tipo: titulo
+        texto: "La pista: una bomba desmontada"
+        resaltar: "bomba"
+        kicker: "Mary Celeste"
+        fuente: 1
+    escenas:
+      - voz: "En 2007, la documentalista Anne MacGregor repasó el caso con un oceanógrafo. Primero comprobaron algo: con los vientos y corrientes de aquellos días, el barco pudo llegar solo hasta donde lo encontraron."
+        tipo: ilustracion
+        escena: &mapa_deriva >-
+          Una carta náutica antigua del Atlántico norte extendida sobre una mesa, con las islas Azores dibujadas,
+          una línea de puntos que sale de ellas hacia el este y un pequeño velero de madera de juguete colocado al
+          final de la línea. Compás y regla de latón al lado.
+        kicker: "Investigación de 2007"
+        texto: "El barco navegó solo"
+        fuente: 1
+      - voz: "Hay otro detalle curioso. El inspector de Gibraltar encontró en un camarote un frasco de aceite de máquina de coser todavía de pie. El barco no había volcado ni sufrido un golpe brutal: el abandono no fue por una catástrofe."
+        tipo: titulo
+        texto: "Un frasco, todavía de pie"
+        resaltar: "de pie"
+        fuente: 2
+      - voz: "Después se fijaron en un detalle del hallazgo: una de las dos bombas de achique estaba desmontada en cubierta."
+        tipo: ilustracion
+        escena: &bomba >-
+          Una bomba de achique manual de hierro del siglo XIX desmontada en piezas sobre la cubierta de madera de
+          un velero, con herramientas alrededor y una vara de medir apoyada al lado. Mar gris al fondo.
+        texto: "Una bomba desmontada"
+        resaltar: "desmontada"
+        en_short: true
+        fuente: 1
+      - voz: "El viaje anterior, el barco había llevado carbón. El polvo pudo atascar las bombas. Y sin bombas, el capitán no podía saber cuánta agua había de verdad en la bodega."
+        tipo: esquema
+        modo: cadena
+        titulo: "Lo que pudo pasar"
+        nodos:
+          - {etiqueta: "1", texto: "Polvo de carbón"}
+          - {etiqueta: "2", texto: "Bombas atascadas"}
+          - {etiqueta: "3", texto: "¿Cuánta agua hay?"}
+          - {etiqueta: "4", texto: "Miedo a hundirse", destacar: true}
+        nota: "Hipótesis de la investigación de 2007"
+        en_short: true
+        fuente: 1
+      - voz: "Además, su cronómetro fallaba. Briggs creía estar a casi doscientos kilómetros de donde estaba en realidad. Llevaba días esperando ver tierra."
+        tipo: cifra
+        valor: 190
+        sufijo: " km"
+        etiqueta: "De error en la posición del barco"
+        fuente: 1
+      - voz: "Con mal tiempo, sin bombas y con una isla a la vista, lo más probable es que ordenara subir al bote. El barco aguantó. El bote, no."
+        tipo: ilustracion
+        escena: &bote >-
+          Un bote salvavidas de madera pequeño, abarrotado de muñecos de palo diminutos, se aleja remando de un
+          gran velero del siglo XIX entre olas altas; al fondo, muy lejos, la silueta de una isla. Cielo de
+          tormenta.
+        texto: "El barco aguantó. El bote, no"
+        resaltar: "El bote, no"
+        en_short: true
+        fuente: 1
+      - voz: "La Enciclopedia Británica llega a una conclusión parecida: Briggs creyó, por error, que el barco se hundía. La vara de sondar tirada en cubierta indica que acababan de medir el agua."
+        tipo: ilustracion
+        escena: *bomba
+        kicker: "La vara de sondar"
+        texto: "Acababan de medir el agua"
+        fuente: 3
+      - voz: "Es la explicación más probable. Pero no está demostrada. Nadie encontró nunca el bote."
+        tipo: titulo
+        texto: "Probable, no demostrado"
+        resaltar: "no demostrado"
+        fuente: 1
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "La leyenda y el final del barco"
+    titulo_short: "El creador de Sherlock Holmes inventó la leyenda del barco fantasma"
+    short: true
+    cierre_short: "¿Y qué pasó de verdad a bordo? El caso completo, en el canal"
+    gancho_short:
+      - voz: "Los platos calientes en la mesa, el té humeando. Lo has oído mil veces. Y es mentira."
+        tipo: titulo
+        texto: "El té humeando… es mentira"
+        resaltar: "mentira"
+        kicker: "Mary Celeste"
+        fuente: 2
+    escenas:
+      - voz: "En 1884, un médico joven publicó un relato sobre un barco abandonado llamado Marie Celeste. Se llamaba Arthur Conan Doyle, el futuro creador de Sherlock Holmes."
+        tipo: ilustracion
+        escena: &escritor >-
+          Un muñeco de palo con bigote y chaleco del siglo XIX escribe con pluma en un escritorio de madera lleno de
+          papeles, a la luz de una lámpara de gas; en la pared, un grabado de un velero. Ambiente de despacho
+          victoriano.
+        kicker: "1884"
+        texto: "Un relato de Conan Doyle"
+        en_short: true
+        fuente: 2
+      - voz: "Era ficción, pero mucha gente lo tomó por verdad. Con los años, la prensa añadió detalles: la comida servida, las tazas aún calientes. Nada de eso aparece en los testimonios."
+        tipo: titulo
+        texto: "La leyenda se inventó después"
+        resaltar: "inventó"
+        en_short: true
+        fuente: 2
+      - voz: "Hasta el nombre cambió. Mucha gente sigue llamándolo Marie Celeste, como en el cuento."
+        tipo: comparar
+        titulo: "El nombre del barco"
+        izquierda: {etiqueta: "El real", valor: 1, texto: "Mary Celeste"}
+        derecha: {etiqueta: "El del cuento", valor: 1, texto: "Marie Celeste"}
+        en_short: true
+        fuente: 2
+      - voz: "La bola siguió creciendo. En 1913, una revista publicó el relato de un supuesto superviviente. Era falso. En 1924, un periódico habló de un tesoro. Tampoco existía."
+        tipo: lista
+        titulo: "Las invenciones"
+        puntos: ["1883: la cena servida en la mesa", "1884: el cuento de Conan Doyle", "1913: un falso superviviente", "1924: un tesoro que no existía"]
+        fuente: 2
+      - voz: "También se cuenta que los dos capitanes eran amigos y cenaron juntos antes de zarpar. La única prueba es un recuerdo de la viuda de uno de ellos, cincuenta años después."
+        tipo: titulo
+        texto: "¿Cenaron juntos? No hay pruebas"
+        resaltar: "No hay pruebas"
+        fuente: 2
+      - voz: "¿Y el barco? Siguió navegando, con fama de maldito. Sus dueños lo vendieron perdiendo dinero, y con los siguientes tampoco dio beneficios. En 1879 murió otro de sus capitanes: el tercero que moría antes de tiempo."
+        tipo: cifra
+        valor: 3
+        etiqueta: "Capitanes del barco muertos antes de tiempo"
+        fuente: 2
+      - voz: "En 1885, su último capitán lo cargó con mercancía sin valor, lo aseguró por treinta mil dólares y lo estrelló a propósito contra un arrecife de Haití. El fraude se descubrió."
+        tipo: ilustracion
+        escena: &arrecife >-
+          Un velero viejo de madera del siglo XIX encallado y escorado sobre un arrecife de coral en aguas
+          turquesas del Caribe, con el casco roto; al fondo, una costa verde y montañosa. Sol fuerte.
+        kicker: "Haití · 1885"
+        texto: "Hundido para cobrar el seguro"
+        fuente: 2
+      - voz: "En 2001, una expedición anunció que había encontrado los restos en ese arrecife. Pero el análisis de la madera lo desmintió: venía de árboles que seguían vivos en 1894, casi diez años después del naufragio."
+        tipo: comparar
+        titulo: "¿Eran los restos del Mary Celeste?"
+        izquierda: {etiqueta: "Naufragio", valor: 1885, texto: "1885"}
+        derecha: {etiqueta: "Madera hallada", valor: 1894, texto: "Árboles vivos en 1894"}
+        fuente: 2
+      - voz: "De Benjamin Briggs, de Sarah, de la pequeña Sophia y de los siete marineros nunca se supo nada más."
+        tipo: ilustracion
+        escena: *familia
+        texto: "Nunca se supo nada más"
+        fuente: [1, 2]
+
+cierre:
+  - voz: "El Mary Celeste no fue un barco fantasma. Fue, casi seguro, una decisión tomada con miedo y con poca información. Si te ha gustado el caso, en el canal tienes más. Las fuentes están en la descripción."
+    tipo: presentador
+    kicker: "Casos a trazos"
+    texto: "Más casos, en el canal"
+    presentador: {gesto: "se despide levantando una mano"}
