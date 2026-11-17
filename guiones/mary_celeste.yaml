@@ -58,6 +58,10 @@ fuentes:
     corta: "Encyclopaedia Britannica"
     cita: "Encyclopaedia Britannica. Mary Celeste (ship)."
     url: "https://www.britannica.com/topic/Mary-Celeste"
+  - id: 4
+    corta: "UCL (2006)"
+    cita: "University College London (2006). Solved: the mystery of the Mary Celeste (experimento del químico Andrea Sella)."
+    url: "https://www.ucl.ac.uk/news/2006/may/solved-mystery-mary-celeste"
 
 # ---------------------------------------------------------------------------------------------
 gancho:
@@ -321,6 +325,11 @@ capitulos:
         sufijo: " hombres"
         etiqueta: "Llevaron el barco hasta Gibraltar (unos 1.480 km)"
         fuente: [2, 3]
+      - voz: "La vista empezó el diecisiete de diciembre de 1872, ante el presidente del tribunal de Gibraltar."
+        tipo: fecha
+        fecha: "17 de diciembre de 1872"
+        lugar: "Empieza la vista en Gibraltar"
+        fuente: 2
       - voz: "Pero el fiscal de Gibraltar, Frederick Solly-Flood, no se lo creyó. Estaba convencido de que allí había habido un crimen."
         tipo: ilustracion
         escena: &tribunal >-
@@ -433,14 +442,19 @@ capitulos:
         etiqueta: "Barriles de alcohol que llegaron vacíos"
         en_short: true
         fuente: 2
-      - voz: "Los vapores pudieron acumularse en la bodega. En 2006, un químico reprodujo algo parecido: una explosión de vapor de alcohol que no deja quemaduras. Suficiente para asustar a cualquiera."
+      - voz: "Los vapores pudieron acumularse en la bodega. En 2006, el químico Andrea Sella, de la University College de Londres, construyó una réplica de la bodega y prendió gas dentro. Hubo una bola de fuego y una onda expansiva, pero el aire detrás de la llama se quedó casi frío: ni hollín ni quemaduras."
         tipo: ilustracion
         escena: &vapores >-
           La escotilla abierta de la bodega de un velero del siglo XIX de la que sale una nube de vapor
           blanquecino hacia la cubierta; la tapa de madera está tirada a un lado. Mar agitado al fondo.
         kicker: "Experimento de 2006"
         texto: "Una explosión sin quemaduras"
-        fuente: 2
+        fuente: [2, 4]
+      - voz: "Una explosión así pudo abrir las escotillas de golpe y aterrorizar a la tripulación. Para Sella, es la explicación más convincente. Otros investigadores creen que el problema estuvo en otra parte."
+        tipo: titulo
+        texto: "¿Una explosión invisible?"
+        resaltar: "invisible"
+        fuente: 4
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "La pista que estaba en cubierta"
@@ -464,6 +478,11 @@ capitulos:
         kicker: "Investigación de 2007"
         texto: "El barco navegó solo"
         fuente: 1
+      - voz: "Hay otro detalle curioso. El inspector de Gibraltar encontró en un camarote un frasco de aceite de máquina de coser todavía de pie. El barco no había volcado ni sufrido un golpe brutal: el abandono no fue por una catástrofe."
+        tipo: titulo
+        texto: "Un frasco, todavía de pie"
+        resaltar: "de pie"
+        fuente: 2
       - voz: "Después se fijaron en un detalle del hallazgo: una de las dos bombas de achique estaba desmontada en cubierta."
         tipo: ilustracion
         escena: &bomba >-

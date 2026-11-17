@@ -57,6 +57,26 @@ fuentes:
     corta: "Poder Judicial (2018)"
     cita: "Consejo General del Poder Judicial (20-12-2018). El Tribunal Supremo fija las indemnizaciones definitivas por la catástrofe del Prestige en más de 1.500 millones de euros."
     url: "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/El-Tribunal-Supremo-fija-las-indemnizaciones-definitivas-por-la-catastrofe-del--Prestige--en-mas-de-1-500-millones-de-euros-con-IVA-e-intereses"
+  - id: 4
+    corta: "ITOPF"
+    cita: "ITOPF (International Tanker Owners Pollution Federation). Case study: Prestige, Spain/France, 2002."
+    url: "https://www.itopf.org/in-action/case-studies/prestige-spain-france-2002/"
+  - id: 5
+    corta: "Cedre"
+    cita: "Cedre (Centro de documentación sobre la contaminación accidental de las aguas, Francia). Accident report: Prestige."
+    url: "https://cedre.fr/en/resources/accident-reports/prestige"
+  - id: 6
+    corta: "Euronews (2022)"
+    cita: "Euronews (14-11-2022). Spain's biggest environmental disaster: the Prestige oil spill 20 years later."
+    url: "https://www.euronews.com/2022/11/14/spains-biggest-environmental-disaster-the-prestige-20-years-after"
+  - id: 7
+    corta: "Wikipedia: Aegean Sea oil spill"
+    cita: "«Aegean Sea oil spill». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Aegean_Sea_oil_spill"
+  - id: 8
+    corta: "Wikipedia: Erika (tanker)"
+    cita: "«Erika (tanker)». Wikipedia (en inglés)."
+    url: "https://en.wikipedia.org/wiki/Erika_(tanker)"
 
 # ---------------------------------------------------------------------------------------------
 gancho:
@@ -100,11 +120,22 @@ capitulos:
         derecha: {etiqueta: "Doble casco", valor: 2, texto: "2 paredes"}
         en_short: true
         fuente: 2
+      - voz: "Acababa de pasar por reparaciones en China y tenía en regla sus certificados de navegación. Sobre el papel, podía navegar."
+        tipo: titulo
+        texto: "Sobre el papel, todo en regla"
+        resaltar: "Sobre el papel"
+        fuente: 6
       - voz: "Navegaba con bandera de Bahamas, lo gestionaba una empresa griega y su dueña era una sociedad de Liberia. Había salido de San Petersburgo."
         tipo: lista
         titulo: "¿De quién era el Prestige?"
         puntos: ["Bandera: Bahamas", "Dueña: una sociedad de Liberia", "Gestión: una empresa griega", "Carga: fuel pesado ruso"]
         fuente: [1, 2]
+      - voz: "Medía doscientos cuarenta y tres metros, más que dos campos de fútbol seguidos. Había cargado en San Petersburgo y en Letonia, e iba hacia Singapur pasando por Gibraltar."
+        tipo: cifra
+        valor: 243
+        sufijo: " m"
+        etiqueta: "De eslora del Prestige"
+        fuente: 5
       - voz: "Llevaba setenta y siete mil toneladas de fuel pesado: un combustible espeso, negro y pegajoso, de los más difíciles de limpiar."
         tipo: ilustracion
         escena: &fuel >-
@@ -128,6 +159,22 @@ capitulos:
         ambiente: lluvia
         en_short: true
         fuente: [1, 2]
+      - voz: "Se inclinó hasta treinta grados. Los helicópteros de Salvamento Marítimo rescataron a veinticuatro de los veintisiete tripulantes. A bordo se quedaron tres: el capitán, el primer oficial y el jefe de máquinas."
+        tipo: comparar
+        titulo: "Los 27 tripulantes"
+        izquierda: {etiqueta: "Rescatados en helicóptero", valor: 24, texto: "24"}
+        derecha: {etiqueta: "Se quedan a bordo", valor: 3, texto: "3"}
+        fuente: 5
+      - voz: "Esa misma noche, los remolcadores intentaron engancharlo. El sistema de remolque de emergencia del barco falló. El Prestige iba a la deriva hacia la costa."
+        tipo: ilustracion
+        escena: &noche_remolcadores >-
+          De noche, en pleno temporal, dos remolcadores pequeños con focos encendidos se acercan a un petrolero
+          enorme y escorado; un cable cuelga roto entre ellos. Olas enormes, lluvia horizontal iluminada por los
+          focos. La costa, una línea oscura con unas pocas luces.
+        texto: "A la deriva hacia la costa"
+        resaltar: "hacia la costa"
+        ambiente: lluvia
+        fuente: 5
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Seis días a la deriva"
@@ -149,6 +196,13 @@ capitulos:
         derecha: {etiqueta: "Alejarlo", valor: 1, texto: "Lejos de la costa"}
         en_short: true
         fuente: [1, 2]
+      - voz: "El catorce de noviembre, una empresa de salvamento holandesa, Smit, tomó el remolque. Las autoridades españolas tenían que decidir adónde llevarlo."
+        tipo: ilustracion
+        escena: *remolque
+        kicker: "14 de noviembre de 2002"
+        texto: "¿Adónde llevarlo?"
+        resaltar: "Adónde"
+        fuente: 5
       - voz: "Según publicó la prensa, un remolcador propuso llevarlo al puerto de A Coruña. La propuesta se rechazó."
         tipo: titulo
         texto: "A Coruña: rechazado"
@@ -166,7 +220,7 @@ capitulos:
         resaltar: "Ningún"
         en_short: true
         fuente: 2
-      - voz: "El temporal siguió golpeando un barco que ya estaba herido. Cada día, la grieta era más grande."
+      - voz: "El temporal siguió golpeando un barco que ya estaba herido. El quince de noviembre, la grieta del costado medía treinta y cinco metros."
         tipo: ilustracion
         escena: &grieta >-
           Primer plano del costado de un petrolero viejo de acero negro con una grieta vertical enorme por la que
@@ -175,12 +229,22 @@ capitulos:
         texto: "La grieta crecía"
         ambiente: lluvia
         fuente: 2
+      - voz: "El dieciséis de noviembre, el rumbo cambió otra vez: hacia el suroeste, para no entrar en aguas de Portugal, que había mandado su marina para impedírselo."
+        tipo: fecha
+        fecha: "16 de noviembre de 2002"
+        lugar: "Nuevo rumbo al suroeste para evitar Portugal"
+        fuente: [2, 5]
       - voz: "El diecinueve de noviembre, a primera hora, el Prestige se partió en dos. Se hundió a más de doscientos kilómetros de Galicia, a más de tres mil metros de profundidad."
         tipo: fecha
         fecha: "19 de noviembre de 2002"
         lugar: "El Prestige se parte en dos y se hunde"
         en_short: true
         fuente: [1, 2]
+      - voz: "Se partió a las nueve de la mañana. La popa se hundió a mediodía, a tres mil quinientos metros de profundidad. La proa, hacia las cuatro de la tarde."
+        tipo: lista
+        titulo: "19 de noviembre de 2002"
+        puntos: ["09:00 · se parte en dos", "12:00 · se hunde la popa", "16:00 · se hunde la proa", "A 3.500 metros de profundidad"]
+        fuente: 5
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "La marea negra"
@@ -195,6 +259,12 @@ capitulos:
         etiqueta: "Playas manchadas de fuel"
         fuente: 2
     escenas:
+      - voz: "Cuando el barco se hundió, la mancha ya cubría ciento setenta kilómetros de costa. Y seguía creciendo."
+        tipo: cifra
+        valor: 170
+        sufijo: " km"
+        etiqueta: "De costa manchada el día del hundimiento"
+        fuente: 6
       - voz: "Alejar el barco no alejó el fuel. Al contrario: lo repartió. El mar y el viento lo fueron devolviendo a tierra en oleadas, durante semanas."
         tipo: ilustracion
         escena: *playa_negra
@@ -209,6 +279,12 @@ capitulos:
         derecha: {etiqueta: "Vertido al mar", valor: 63, texto: "63.000 t"}
         en_short: true
         fuente: 2
+      - voz: "El fuel pesado no flota como una mancha fina. Forma placas y bolas espesas que viajan con las corrientes y pueden aparecer en la costa semanas después, muy lejos de donde salieron."
+        tipo: ilustracion
+        escena: *fuel
+        texto: "Viaja con las corrientes"
+        resaltar: "corrientes"
+        fuente: [2, 4]
       - voz: "Primero Galicia. A finales de noviembre, Asturias. Después Cantabria, el País Vasco y la costa de Francia."
         tipo: esquema
         modo: cadena
@@ -222,18 +298,39 @@ capitulos:
         nota: "De noviembre de 2002 en adelante"
         en_short: true
         fuente: [1, 2]
+      - voz: "En total se mancharon casi tres mil kilómetros de costa en España, Francia y Portugal, y mil ciento cuarenta playas."
+        tipo: comparar
+        titulo: "La costa manchada"
+        izquierda: {etiqueta: "Kilómetros de costa", valor: 2900, texto: "≈ 2.900 km"}
+        derecha: {etiqueta: "Playas", valor: 1140, texto: "1.140"}
+        fuente: 5
       - voz: "En Galicia lo llamaron chapapote. Una pasta negra que cubría rocas, arena, redes y animales."
         tipo: titulo
         texto: "Chapapote"
         kicker: "La palabra de aquel invierno"
         fuente: 1
+      - voz: "Las rocas, los percebes, los mejillones, las algas: todo quedó cubierto. En las islas Ons se fotografiaron cangrejos negros de fuel."
+        tipo: ilustracion
+        escena: &rocas >-
+          Primer plano de unas rocas de la costa gallega en marea baja cubiertas de una capa negra y brillante de
+          fuel, con mejillones, percebes y un cangrejo pequeño manchados de negro; algas pegadas. Luz gris de
+          invierno, gotas de agua.
+        kicker: "Islas Ons · diciembre de 2002"
+        texto: "Todo quedó cubierto"
+        fuente: 6
       - voz: "En seis meses se recogieron más de veintitrés mil aves manchadas. Diecisiete mil ya estaban muertas."
         tipo: comparar
         titulo: "Aves recogidas en seis meses"
         izquierda: {etiqueta: "Total", valor: 23181, texto: "23.181"}
         derecha: {etiqueta: "Muertas", valor: 17061, texto: "17.061"}
         fuente: 1
-      - voz: "La pesca y el marisqueo se prohibieron durante meses en una costa que vivía de ellos."
+      - voz: "Y esas son solo las que se encontraron. La mayoría murió en el mar. Las estimaciones van de ciento quince mil a doscientas treinta mil aves muertas."
+        tipo: cifra
+        valor: 230000
+        prefijo: "hasta "
+        etiqueta: "Aves muertas estimadas (entre 115.000 y 230.000)"
+        fuente: 5
+      - voz: "La pesca y el marisqueo se prohibieron en el noventa por ciento de la costa gallega, una costa que vivía de ellos. Las últimas prohibiciones no se levantaron hasta octubre de 2003."
         tipo: ilustracion
         escena: &puerto_parado >-
           Un pequeño puerto pesquero gallego en invierno con barcos de colores amarrados y sin salir, redes
@@ -241,7 +338,7 @@ capitulos:
           y cielo gris.
         texto: "La flota, amarrada"
         resaltar: "amarrada"
-        fuente: 2
+        fuente: [2, 4]
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Nunca Máis"
@@ -265,6 +362,18 @@ capitulos:
         texto: "Los marineros, los primeros"
         en_short: true
         fuente: 1
+      - voz: "Más de mil barcos pesqueros salieron a recoger fuel en alta mar, junto a barcos de diez países europeos. Fue probablemente la mayor limpieza en el mar de la historia."
+        tipo: cifra
+        valor: 1000
+        prefijo: "+"
+        etiqueta: "Pesqueros recogiendo fuel en el mar"
+        fuente: 4
+      - voz: "Entre todos sacaron del agua unas cincuenta mil toneladas de mezcla de fuel y agua. Y se tendieron más de veinte kilómetros de barreras para proteger las rías."
+        tipo: comparar
+        titulo: "La limpieza en el mar"
+        izquierda: {etiqueta: "Fuel y agua recogidos", valor: 50000, texto: "50.000 t"}
+        derecha: {etiqueta: "Barreras en las rías", valor: 20, texto: "+20 km"}
+        fuente: 4
       - voz: "Después llegaron miles de voluntarios de toda España y de fuera. Con monos blancos, mascarillas y palas, llenaron las playas durante meses."
         tipo: ilustracion
         escena: &voluntarios >-
@@ -275,6 +384,12 @@ capitulos:
         resaltar: "blanca"
         en_short: true
         fuente: 1
+      - voz: "Al principio, muchos trabajaban sin trajes ni mascarillas. Solo en España se recogieron ciento cuarenta y un mil toneladas de residuos. En Francia, otras dieciocho mil."
+        tipo: comparar
+        titulo: "Residuos recogidos en la costa"
+        izquierda: {etiqueta: "España", valor: 141000, texto: "141.000 t"}
+        derecha: {etiqueta: "Francia", valor: 18300, texto: "18.300 t"}
+        fuente: [4, 6]
       - voz: "El uno de diciembre, ciento cincuenta mil personas se manifestaron en Santiago de Compostela bajo un lema: Nunca Máis. Nunca más."
         tipo: cifra
         valor: 150000
@@ -292,6 +407,11 @@ capitulos:
         sufijo: " t al día"
         etiqueta: "De fuel que seguía saliendo del barco hundido"
         fuente: 2
+      - voz: "Durante meses, el pecio fue una bomba de relojería en el fondo del mar. Nadie había vaciado nunca un petrolero hundido a esa profundidad."
+        tipo: titulo
+        texto: "Una bomba en el fondo del mar"
+        resaltar: "bomba"
+        fuente: [2, 4]
       - voz: "En 2004, una operación a más de tres mil metros de profundidad sacó el fuel que quedaba dentro: unas trece mil toneladas. Costó más de cien millones de euros."
         tipo: ilustracion
         escena: &pecio >-
@@ -301,6 +421,69 @@ capitulos:
         kicker: "2004"
         texto: "Vaciar el barco hundido"
         fuente: [1, 2]
+
+# ---------------------------------------------------------------------------------------------
+  - titulo: "No era la primera vez"
+    titulo_short: "Diez años antes del Prestige, otro petrolero ardió frente a A Coruña"
+    short: true
+    cierre_short: "Y después llegó el Prestige. La historia completa, en el canal"
+    gancho_short:
+      - voz: "Diez años antes del Prestige, otro petrolero se partió y ardió frente a A Coruña. La ciudad tuvo que ser evacuada por el humo."
+        tipo: titulo
+        texto: "Diez años antes, otro petrolero"
+        resaltar: "otro petrolero"
+        kicker: "A Coruña · 1992"
+        fuente: 7
+    escenas:
+      - voz: "La costa gallega se llama Costa da Morte por algo: sus rocas y sus temporales han hundido barcos durante siglos. Y por delante de ella pasa una de las rutas de petroleros más transitadas de Europa."
+        tipo: ilustracion
+        escena: &costa_morte >-
+          Los acantilados de la Costa da Morte en Galicia con un faro blanco sobre las rocas y olas enormes
+          rompiendo; a lo lejos, en el horizonte, una fila de tres petroleros navegando. Cielo de tormenta con un
+          rayo de sol. Sin personas.
+        kicker: "Costa da Morte"
+        texto: "Una costa que hunde barcos"
+        fuente: [2, 7]
+      - voz: "El tres de diciembre de 1992, el petrolero Mar Egeo iba hacia la refinería de A Coruña con setenta y nueve mil toneladas de crudo. Con vientos de más de noventa kilómetros por hora y casi sin visibilidad, encalló junto a la Torre de Hércules."
+        tipo: fecha
+        fecha: "3 de diciembre de 1992"
+        lugar: "El Mar Egeo encalla junto a la Torre de Hércules"
+        en_short: true
+        fuente: 7
+      - voz: "Se partió en dos y ardió durante unos cinco días. El humo obligó a evacuar parte de la ciudad. Los treinta y dos tripulantes se salvaron en helicóptero."
+        tipo: ilustracion
+        escena: &mar_egeo >-
+          Un petrolero partido en dos y en llamas junto a la costa, con una columna enorme de humo negro que se
+          extiende sobre una ciudad costera; en un cabo cercano, una torre de piedra antigua y cuadrada. Noche
+          iluminada por el fuego, mar agitado.
+        kicker: "Mar Egeo · 1992"
+        texto: "Cinco días ardiendo"
+        resaltar: "ardiendo"
+        en_short: true
+        fuente: 7
+      - voz: "Salieron al mar unas sesenta y siete mil toneladas de petróleo, casi tanto como en el Prestige, y se mancharon hasta trescientos kilómetros de costa."
+        tipo: comparar
+        titulo: "Dos mareas negras en Galicia"
+        izquierda: {etiqueta: "Mar Egeo (1992)", valor: 67, texto: "67.000 t"}
+        derecha: {etiqueta: "Prestige (2002)", valor: 63, texto: "63.000 t"}
+        en_short: true
+        fuente: [2, 7]
+      - voz: "Y tres años antes del Prestige, en diciembre de 1999, el petrolero Erika, de casi veinticinco años, se partió frente a Bretaña con treinta y un mil toneladas de fuel. Europa empezó a endurecer las normas."
+        tipo: fecha
+        fecha: "12 de diciembre de 1999"
+        lugar: "El Erika se hunde frente a Bretaña"
+        fuente: 8
+      - voz: "En aquel caso, la justicia francesa condenó a la petrolera que había fletado el barco, por imprudencia, al tener en cuenta su edad y su mal mantenimiento."
+        tipo: titulo
+        texto: "Condenada la petrolera"
+        resaltar: "Condenada"
+        kicker: "Caso Erika · 2008"
+        fuente: 8
+      - voz: "La lección estaba ahí. Pero en 2002 seguían navegando cerca de Galicia petroleros viejos, de un solo casco, como el Prestige."
+        tipo: ilustracion
+        escena: *petrolero_escorado
+        texto: "La lección no llegó a tiempo"
+        fuente: 2
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "¿Quién paga una marea negra?"
@@ -323,17 +506,34 @@ capitulos:
         etiqueta: "Entre el hundimiento y el inicio del juicio"
         en_short: true
         fuente: 1
-      - voz: "En 2013, la primera sentencia no condenó a nadie por delito ecológico. Ni a la tripulación ni al responsable de la Administración."
+      - voz: "Fue uno de los juicios más grandes de España: mil quinientos perjudicados, trescientas mil páginas de documentos y ciento treinta y tres testigos. Uno de los acusados, el primer oficial, nunca apareció."
+        tipo: lista
+        titulo: "El juicio del Prestige"
+        puntos: ["1.500 perjudicados", "300.000 páginas", "133 testigos", "Unos 100 peritos"]
+        fuente: 5
+      - voz: "En 2013, la primera sentencia no condenó a nadie por delito ecológico. Al capitán le cayeron nueve meses por desobediencia, y no pisó la cárcel por su edad: setenta y ocho años."
         tipo: fecha
         fecha: "Noviembre de 2013"
         lugar: "Primera sentencia: sin condenas por delito ecológico"
-        fuente: 2
+        fuente: [2, 5]
       - voz: "En 2016, el Tribunal Supremo la corrigió: condenó al capitán, Apostolos Mangouras, a dos años de cárcel por imprudencia. El Estado quedó absuelto."
         tipo: fecha
         fecha: "26 de enero de 2016"
         lugar: "El Supremo condena al capitán a dos años"
         en_short: true
         fuente: [1, 2]
+      - voz: "España y Francia reclamaban unos cuatro mil millones de euros. El fondo internacional para mareas negras solo cubría unos ciento setenta y un millones de libras."
+        tipo: comparar
+        titulo: "Lo que se reclamaba y lo que había"
+        izquierda: {etiqueta: "Reclamado por España y Francia", valor: 4000, texto: "≈ 4.000 M€"}
+        derecha: {etiqueta: "Límite del fondo internacional", valor: 200, texto: "171 M£"}
+        fuente: [4, 5]
+      - voz: "España y Francia recurrieron al Supremo pocos días después. Solo en Francia, los daños se calcularon en ciento diez millones de euros, y diecisiete municipios de la costa de las Landas se personaron en la causa."
+        tipo: cifra
+        valor: 110
+        sufijo: " M€"
+        etiqueta: "Daños calculados solo en Francia"
+        fuente: 5
       - voz: "Y en 2018 fijó las indemnizaciones: más de mil quinientos millones de euros, sobre todo a cargo de la aseguradora británica del barco."
         tipo: ilustracion
         escena: &balanza >-
@@ -350,6 +550,17 @@ capitulos:
         kicker: "2023"
         en_short: true
         fuente: 2
+      - voz: "Para las organizaciones ecologistas, la conclusión es clara: alejar el barco convirtió un desastre local en uno que afectó a medio continente. Otros expertos defienden que llevarlo a puerto también tenía riesgos. El debate sigue abierto."
+        tipo: comparar
+        titulo: "¿Alejarlo o llevarlo a puerto?"
+        izquierda: {etiqueta: "Críticos", valor: 1, texto: "Repartió el desastre"}
+        derecha: {etiqueta: "Defensores", valor: 1, texto: "El puerto también era un riesgo"}
+        fuente: [2, 6]
+      - voz: "Para los afectados, cobrar llevó dieciséis años. Y muchos sienten que nadie respondió de verdad por lo que pasó."
+        tipo: titulo
+        texto: "Dieciséis años para cobrar"
+        resaltar: "Dieciséis años"
+        fuente: 6
       - voz: "Algo sí cambió. Tras el Prestige, Europa aceleró la retirada de los petroleros de un solo casco. Y abrió un debate que sigue vivo: si un barco herido debe tener derecho a un puerto de refugio."
         tipo: ilustracion
         escena: &doble_casco >-

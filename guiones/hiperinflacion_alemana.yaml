@@ -57,6 +57,14 @@ fuentes:
     corta: "Citéco (Banco de Francia)"
     cita: "Citéco, Cité de l'Économie. Hyperinflation in Germany (10,000 years of economic history)."
     url: "https://www.citeco.fr/10000-years-history-economics/industrial-revolutions/hyperinflation-in-germany"
+  - id: 4
+    corta: "Museo Histórico Alemán (LeMO)"
+    cita: "Deutsches Historisches Museum, LeMO. Die Inflation 1923 (Weimarer Republik, política interior)."
+    url: "https://www.dhm.de/lemo/kapitel/weimarer-republik/innenpolitik/inflation-1923.html"
+  - id: 5
+    corta: "Alpha History"
+    cita: "Alpha History. The 1923 hyperinflation (The Weimar Republic)."
+    url: "https://alphahistory.com/weimarrepublic/1923-hyperinflation/"
 
 # ---------------------------------------------------------------------------------------------
 gancho:
@@ -116,13 +124,35 @@ capitulos:
         kicker: "Bonos de guerra"
         texto: "Ganar, y que paguen otros"
         fuente: 2
-      - voz: "Pero Alemania perdió. Y en 1918 debía ciento cincuenta y seis mil millones de marcos."
-        tipo: cifra
-        valor: 156000
-        sufijo: " millones"
-        etiqueta: "De marcos de deuda pública al acabar la guerra (1918)"
+      - voz: "La guerra costó ciento sesenta y cuatro mil millones de marcos. Solo diez mil millones salieron de impuestos. Todo lo demás fue deuda."
+        tipo: barras
+        titulo: "Cómo pagó Alemania la guerra"
+        subtitulo: "Miles de millones de marcos"
+        valores: [97, 57, 10]
+        etiquetas: ["Préstamos de guerra", "Letras del Tesoro", "Impuestos"]
+        destacar: [2]
         en_short: true
-        fuente: 2
+        fuente: 4
+      - voz: "Mientras tanto, el dinero en circulación se multiplicó por cinco. Y las monedas de oro y plata desaparecieron de los bolsillos: la gente las guardaba."
+        tipo: cifra
+        valor: 5
+        prefijo: "×"
+        etiqueta: "Lo que creció el dinero en circulación entre 1914 y 1918"
+        fuente: 4
+      - voz: "Faltaba tanta calderilla que más de dos mil ayuntamientos y empresas empezaron a fabricar su propio dinero de emergencia."
+        tipo: ilustracion
+        escena: &notgeld >-
+          Una mesa de madera cubierta de billetes y vales de papel de colores de los años veinte, de formas y tamaños
+          distintos, con dibujos de escudos de ciudades, castillos y campesinos; algunas monedas pequeñas de hierro
+          entre ellos. Sin texto legible. Luz cálida de lámpara.
+        kicker: "Dinero de emergencia"
+        texto: "Cada ciudad, su dinero"
+        fuente: 4
+      - voz: "Pero Alemania perdió la guerra. Y nadie iba a pagar su factura."
+        tipo: titulo
+        texto: "Perdió. Y nadie pagaría por ella"
+        resaltar: "Perdió"
+        fuente: [2, 4]
       - voz: "Los precios ya habían empezado a subir. El dólar, que costaba cuatro marcos en 1914, costaba casi ocho en 1918 y cuarenta y ocho a finales de 1919."
         tipo: barras
         titulo: "Marcos por un dólar"
@@ -174,6 +204,28 @@ capitulos:
         nota: "Cada vuelta, el marco vale menos"
         en_short: true
         fuente: [2, 3]
+      - voz: "Las cuentas eran imposibles. Solo los pagos de la deuda se comían más de lo que el Estado ingresaba: el ciento veintiséis por ciento."
+        tipo: cifra
+        valor: 126
+        sufijo: " %"
+        etiqueta: "De los ingresos del Estado que se iban en pagar la deuda"
+        fuente: 4
+      - voz: "Y en junio de 1922 asesinaron al ministro de Exteriores, Walther Rathenau. La confianza en la república, y en su moneda, se hundió."
+        tipo: fecha
+        fecha: "Junio de 1922"
+        lugar: "Asesinato del ministro Walther Rathenau"
+        fuente: 4
+      - voz: "Además, Alemania había perdido sus colonias y parte de su territorio. Sin materias primas baratas, tenía que importar, y pagar en divisas cada vez más caras."
+        tipo: titulo
+        texto: "Sin colonias y sin divisas"
+        resaltar: "sin divisas"
+        fuente: 2
+      - voz: "Hubo también quien apostó contra el marco: especuladores que vendían marcos a plazo esperando que siguieran cayendo. Los historiadores todavía discuten cuánto pesó eso."
+        tipo: titulo
+        texto: "Apostar contra el marco"
+        resaltar: "contra el marco"
+        kicker: "Una causa discutida"
+        fuente: 2
       - voz: "En la primera mitad de 1922, un dólar costaba trescientos veinte marcos. En diciembre, siete mil cuatrocientos."
         tipo: comparar
         titulo: "Marcos por un dólar en 1922"
@@ -226,6 +278,34 @@ capitulos:
         resaltar: "sin freno"
         en_short: true
         fuente: [1, 2]
+      - voz: "En abril de 1923, el Gobierno gastaba más de siete veces lo que ingresaba."
+        tipo: cifra
+        valor: 7
+        prefijo: "×"
+        etiqueta: "Lo que gastaba el Gobierno frente a lo que ingresaba (abril de 1923)"
+        fuente: 5
+      - voz: "La Reichsbank no daba abasto. Contrató a ciento treinta y tres imprentas privadas, con mil setecientas ochenta y tres prensas y treinta fábricas de papel. Unas treinta mil personas trabajaban solo en hacer billetes."
+        tipo: lista
+        titulo: "La fábrica de billetes (otoño de 1923)"
+        puntos: ["133 imprentas", "1.783 prensas", "30 fábricas de papel", "30.000 trabajadores"]
+        fuente: [4, 5]
+      - voz: "Y aun así, la imprenta no conseguía ir tan rápido como los precios."
+        tipo: ilustracion
+        escena: *imprenta
+        texto: "Ni la imprenta daba abasto"
+        fuente: 4
+      - voz: "Mira el dólar. En enero de 1923 costaba cuarenta y ocho mil marcos. En junio, ciento noventa y dos mil. En octubre, ciento setenta mil millones."
+        tipo: barras
+        titulo: "Marcos por un dólar en 1923"
+        valores: [48000, 192000, 170000000000]
+        etiquetas: ["Enero", "Junio", "Octubre"]
+        destacar: [2]
+        fuente: 5
+      - voz: "En agosto, el Gobierno no aguantó más y dimitió."
+        tipo: fecha
+        fecha: "12 de agosto de 1923"
+        lugar: "Dimite el Gobierno de Wilhelm Cuno"
+        fuente: 4
       - voz: "Hasta entonces los precios subían rápido. A partir de ahí, se volvieron locos."
         tipo: titulo
         texto: "Los precios se vuelven locos"
@@ -275,11 +355,71 @@ capitulos:
         derecha: {etiqueta: "Por la tarde", valor: 50, texto: "50 %"}
         en_short: true
         fuente: 1
+      - voz: "En un café, el precio podía doblarse mientras te traían la taza. Las tiendas abrían y cerraban según la hora a la que se publicaba el cambio del dólar."
+        tipo: ilustracion
+        escena: &cafe >-
+          Un café alemán de los años veinte con mesas de mármol: un camarero de palo con delantal pone una taza
+          humeante delante de un cliente de palo con sombrero que mira, asustado, un fajo enorme de billetes sobre
+          la mesa; en la pared, una pizarra con números tachados y reescritos. Luz de ventanal.
+        texto: "El café subía mientras llegaba"
+        resaltar: "mientras llegaba"
+        fuente: [4, 5]
+      - voz: "En Múnich, una mujer dejó una maleta llena de billetes en la puerta de una tienda. Un ladrón se la llevó. Pero primero vació los billetes en la calle: la maleta valía más."
+        tipo: titulo
+        texto: "Robó la maleta. Tiró el dinero"
+        resaltar: "Tiró el dinero"
+        kicker: "Múnich · 1923"
+        fuente: 5
+      - voz: "En las iglesias pasaban cestos de la ropa para la colecta. Y los niños jugaban con fajos de billetes como si fueran bloques de construcción."
+        tipo: ilustracion
+        escena: &ninos >-
+          Una calle de una ciudad alemana de los años veinte: dos niños de palo con gorra y pantalón corto construyen
+          una torre con fajos de billetes atados sobre la acera, mientras un adulto de palo pasa al fondo con una
+          carretilla llena de billetes. Fachadas grises, luz de invierno.
+        texto: "Jugaban con billetes"
+        fuente: [4, 5]
+      - voz: "Algunas ciudades y empresas inventaron vales que no se medían en marcos, sino en cosas: en kilos de centeno, de trigo, de carbón o de azúcar, e incluso en electricidad. Llegó a haber más de dos mil ochocientos tipos distintos."
+        tipo: cifra
+        valor: 2800
+        prefijo: "+"
+        etiqueta: "Tipos de vales que valían trigo, carbón o azúcar"
+        fuente: 4
+      - voz: "Quien no confiaba en los billetes volvió al trueque: arreglar unos zapatos a cambio de comida, pagar con carbón o con huevos."
+        tipo: titulo
+        texto: "Vuelve el trueque"
+        resaltar: "trueque"
+        fuente: [4, 5]
+      - voz: "En noviembre se imprimió el billete más grande de la historia de Alemania: cien billones de marcos. Y más de cinco mil ochocientas ciudades y empresas imprimían el suyo propio."
+        tipo: ilustracion
+        escena: *billete_gigante
+        kicker: "Noviembre de 1923"
+        texto: "Un billete de 100 billones"
+        resaltar: "100 billones"
+        fuente: 4
       - voz: "Los billetes servían para empapelar paredes. Y había quien los quemaba para calentarse: valían menos que la leña."
         tipo: ilustracion
         escena: *estufa
         texto: "Más baratos que la leña"
         fuente: 3
+      - voz: "Los huevos siguieron el mismo camino. Una docena costaba quinientos marcos en enero de 1923. En septiembre, treinta millones. En octubre, cuatro mil millones."
+        tipo: barras
+        titulo: "Una docena de huevos en 1923"
+        subtitulo: "Marcos"
+        valores: [500, 30000000, 4000000000]
+        etiquetas: ["Enero", "Septiembre", "Octubre"]
+        destacar: [2]
+        fuente: 5
+      - voz: "Enviar una carta se volvió un lujo: el sello más caro de 1923 valía cinco mil millones de marcos, y ni con eso alcanzaba para franquear una carta normal."
+        tipo: titulo
+        texto: "Un sello de 5.000 millones"
+        resaltar: "5.000 millones"
+        fuente: 5
+      - voz: "El día de paga, las mujeres esperaban en la puerta de las fábricas. En cuanto sus maridos cobraban, salían corriendo a las tiendas antes de que cambiara el precio."
+        tipo: ilustracion
+        escena: *carro
+        texto: "Correr a la tienda"
+        resaltar: "Correr"
+        fuente: 5
       - voz: "En noviembre de 1923, un solo dólar costaba cuatro coma dos billones de marcos. Un cuatro y un dos, seguidos de once ceros."
         tipo: titulo
         texto: "1 dólar = 4.200.000.000.000 marcos"
@@ -300,6 +440,16 @@ capitulos:
         kicker: "15 de noviembre de 1923"
         fuente: [1, 2]
     escenas:
+      - voz: "En agosto de 1923 cayó el Gobierno. El nuevo canciller, Gustav Stresemann, tomó una decisión muy impopular: el veintiséis de septiembre puso fin a la resistencia pasiva en el Ruhr."
+        tipo: fecha
+        fecha: "26 de septiembre de 1923"
+        lugar: "Fin de la resistencia pasiva en el Ruhr"
+        fuente: 4
+      - voz: "El país estaba al límite. Hubo disturbios en Sajonia y Turingia, combates en las calles de Hamburgo, y en Aquisgrán llegaron a proclamar una república renana separada."
+        tipo: lista
+        titulo: "Otoño de 1923"
+        puntos: ["Estado de emergencia en todo el país", "Disturbios en Sajonia y Turingia", "Combates en Hamburgo", "Una «república renana» en Aquisgrán"]
+        fuente: 4
       - voz: "El quince de noviembre de 1923 empezó a circular una moneda nueva: el Rentenmark."
         tipo: fecha
         fecha: "15 de noviembre de 1923"
@@ -313,6 +463,12 @@ capitulos:
         derecha: {etiqueta: "Moneda vieja", valor: 100, texto: "1 billón de marcos"}
         en_short: true
         fuente: [1, 2]
+      - voz: "La idea salió del ministro de Hacienda, Hans Luther. Se creó un banco nuevo, el Rentenbank, con un capital de tres mil doscientos millones."
+        tipo: titulo
+        texto: "Un banco nuevo, una moneda nueva"
+        resaltar: "nueva"
+        kicker: "Hans Luther, ministro de Hacienda"
+        fuente: [4, 5]
       - voz: "Alemania ya no tenía oro para respaldarla. Así que la nueva moneda se apoyó en una especie de hipoteca sobre las tierras y las fábricas del país."
         tipo: ilustracion
         escena: &campo_fabrica >-
@@ -340,6 +496,17 @@ capitulos:
         sufijo: " Rentenmark"
         etiqueta: "Lo que volvió a costar un dólar"
         fuente: [1, 2]
+      - voz: "Los billetes viejos aún circularon unos meses. En octubre de 1924 llegó el Reichsmark, la moneda definitiva, y los Rentenmark siguieron en uso hasta 1937."
+        tipo: fecha
+        fecha: "Octubre de 1924"
+        lugar: "Nace el Reichsmark"
+        fuente: 4
+      - voz: "Y la cuenta final de la guerra: los ciento sesenta y cuatro mil millones de marcos de deuda quedaron reducidos a dieciséis céntimos de marco."
+        tipo: comparar
+        titulo: "La deuda de guerra del Estado"
+        izquierda: {etiqueta: "Antes", valor: 100, texto: "164.000 millones"}
+        derecha: {etiqueta: "Tras la reforma", valor: 1, texto: "16,4 céntimos"}
+        fuente: 4
 
 # ---------------------------------------------------------------------------------------------
   - titulo: "Quién ganó y quién lo perdió todo"
@@ -368,6 +535,17 @@ capitulos:
         etiqueta: "Lo que recuperaron quienes tenían deuda pública"
         en_short: true
         fuente: 2
+      - voz: "En 1921, tener cien mil marcos ahorrados era ser rico. Dos años después, no daban para una taza de café."
+        tipo: titulo
+        texto: "Rico en 1921. Sin café en 1923"
+        resaltar: "Sin café"
+        fuente: 5
+      - voz: "Los sueldos reales cayeron a menos de la mitad de los de antes de la guerra. Hubo hambre, saqueos en el campo y ventas a precio de saldo de casas y negocios."
+        tipo: cifra
+        valor: 40
+        sufijo: " %"
+        etiqueta: "Lo que valían los sueldos frente a antes de la guerra"
+        fuente: [4, 5]
       - voz: "Ganaron los que debían dinero. Industriales con grandes créditos, agricultores y propietarios devolvieron sus deudas con billetes que ya no valían nada."
         tipo: ilustracion
         escena: &deudor >-
@@ -378,11 +556,26 @@ capitulos:
         resaltar: "debían"
         en_short: true
         fuente: 1
+      - voz: "El caso más famoso fue el de Hugo Stinnes, un industrial que pidió préstamos enormes para comprar empresas. Los devolvió con billetes que ya no valían nada y se quedó con un imperio industrial casi gratis."
+        tipo: titulo
+        texto: "Se hizo de oro con deudas"
+        resaltar: "deudas"
+        kicker: "Hugo Stinnes, industrial"
+        fuente: 4
       - voz: "Y ganó el propio Estado: su deuda de guerra con los alemanes, simplemente, se evaporó."
         tipo: titulo
         texto: "La deuda de guerra se evaporó"
         resaltar: "evaporó"
         fuente: [1, 2]
+      - voz: "La ley y el orden se resintieron. Se extendieron las teorías de la conspiración y buscar culpables se volvió fácil. Las ideas extremistas, que antes eran marginales, empezaron a parecer aceptables a mucha gente."
+        tipo: ilustracion
+        escena: &mitin >-
+          Una plaza de una ciudad alemana de los años veinte, de noche, con una multitud de muñecos de palo con
+          abrigos y gorras alrededor de un orador de palo subido a una caja, sin símbolos ni banderas; farolas de
+          gas y fachadas oscuras. Ambiente tenso, luz amarillenta.
+        texto: "El caldo de cultivo"
+        resaltar: "caldo"
+        fuente: 2
       - voz: "La rabia fue enorme. En pleno caos, el ocho y el nueve de noviembre de 1923, el partido nazi intentó un golpe de Estado en Múnich. Fracasó."
         tipo: fecha
         fecha: "8 y 9 de noviembre de 1923"
