@@ -10,6 +10,7 @@ voz: "Charon"
 estilo_voz: >-
   Narrador de documental de historia económica en español de España: voz clara y serena,
   ritmo pausado, entonación natural, sin titubeos y sin sonar a anuncio.
+  Acento castellano peninsular, de Madrid, en todas las frases sin excepción: distingue siempre la zeta y la ce de la ese (cinco, cerveza, hace, con sonido de zeta), sin seseo y sin ningún rasgo de acento latinoamericano.
 
 # Colores (rojo, verde, azul de 0 a 255)
 colores:

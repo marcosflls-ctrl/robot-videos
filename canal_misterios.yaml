@@ -12,6 +12,7 @@ estilo_voz: >-
   Narrador de documental de misterio en español de España: voz grave y cercana, ritmo pausado,
   con suspense contenido y pausas antes de los datos importantes. Natural, sin dramatizar en exceso
   y sin sonar a anuncio.
+  Acento castellano peninsular, de Madrid, en todas las frases sin excepción: distingue siempre la zeta y la ce de la ese (cinco, cerveza, hace, con sonido de zeta), sin seseo y sin ningún rasgo de acento latinoamericano.
 
 # Colores (rojo, verde, azul de 0 a 255): aspecto de papel con tinta, distinto del canal de historia
 colores:

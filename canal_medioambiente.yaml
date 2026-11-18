@@ -12,6 +12,7 @@ estilo_voz: >-
   Narradora de documental de ciencia en español de España: voz cálida, clara y segura, ritmo tranquilo,
   con curiosidad sincera y pausas breves antes de los datos importantes. Explica como una buena profesora,
   sin dramatizar, sin alarmismo y sin sonar a anuncio.
+  Acento castellano peninsular, de Madrid, en todas las frases sin excepción: distingue siempre la zeta y la ce de la ese (cinco, cerveza, hace, con sonido de zeta), sin seseo y sin ningún rasgo de acento latinoamericano.
 
 # Velocidad de la voz: 1 = la de Gemini; 1.1 = un 10 % más rápida (entre 0.8 y 1.3).
 # Se aplica al montar sobre las voces guardadas: cambiarla no gasta cupo de Gemini.
